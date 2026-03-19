@@ -21,7 +21,7 @@ export default function TypesPage() {
         <div className="text-center mb-12">
           <a
             href="https://metabolism-quiz.vercel.app"
-            className="text-[#e74c3c] font-semibold hover:underline text-sm"
+            className="text-[#2a9d6f] font-semibold hover:underline text-sm"
           >
             不確定你是哪種？做個 30 秒測驗 →
           </a>
@@ -36,7 +36,7 @@ export default function TypesPage() {
               <div className="flex items-start gap-4">
                 <span className="text-3xl">{type.emoji}</span>
                 <div className="flex-1">
-                  <div className="font-bold text-lg mb-1 group-hover:text-[#e74c3c] transition-colors">
+                  <div className="font-bold text-lg mb-1 group-hover:text-[#2a9d6f] transition-colors">
                     {type.name}
                   </div>
                   <div className="text-[#6b6560] text-sm mb-2">

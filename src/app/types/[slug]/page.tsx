@@ -57,7 +57,7 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
           <div className="text-center mb-8">
             <a
               href="https://metabolism-quiz.vercel.app"
-              className="text-[#e74c3c] font-semibold hover:underline text-sm"
+              className="text-[#2a9d6f] font-semibold hover:underline text-sm"
             >
               還不確定你是哪種類型？做個 30 秒測驗 →
             </a>

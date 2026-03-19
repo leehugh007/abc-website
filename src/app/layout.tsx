@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "./header";
 
 export const metadata: Metadata = {
   title: {
@@ -32,35 +33,57 @@ export default function RootLayout({
   );
 }
 
-function Header() {
-  return (
-    <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-md border-b border-[#eee9e5]">
-      <nav className="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
-        <a href="/" className="font-bold text-lg tracking-tight">
-          <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
-        </a>
-        <div className="flex items-center gap-6 text-sm font-medium text-[#6b6560]">
-          <a href="/types" className="hover:text-[#2a2520] transition-colors">
-            代謝類型
-          </a>
-          <a href="/articles" className="hover:text-[#2a2520] transition-colors">
-            文章
-          </a>
-          <a href="/about" className="hover:text-[#2a2520] transition-colors">
-            關於一休
-          </a>
-        </div>
-      </nav>
-    </header>
-  );
-}
-
 function Footer() {
   return (
-    <footer className="border-t border-[#eee9e5] bg-white py-10 px-5">
-      <div className="max-w-3xl mx-auto text-center text-sm text-[#a8a29e]">
-        <p className="mb-2">我是一休，陪你健康的瘦一輩子</p>
-        <p>&copy; {new Date().getFullYear()} ABC 代謝力重建瘦身法</p>
+    <footer className="border-t border-[#eee9e5] bg-white py-12 px-5">
+      <div className="max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-10">
+          {/* 品牌 */}
+          <div>
+            <p className="font-bold mb-3">
+              <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
+            </p>
+            <p className="text-sm text-[#a8a29e] leading-relaxed">
+              重建代謝力，瘦只是順便的事
+            </p>
+          </div>
+
+          {/* 導航 */}
+          <div>
+            <p className="font-semibold text-sm mb-3">探索</p>
+            <div className="space-y-2 text-sm text-[#6b6560]">
+              <a href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</a>
+              <a href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</a>
+              <a href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</a>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div>
+            <p className="font-semibold text-sm mb-3">開始</p>
+            <div className="space-y-2 text-sm">
+              <a
+                href="https://metabolism-quiz.vercel.app"
+                className="block text-[#2a9d6f] font-medium hover:underline"
+              >
+                做代謝測驗 →
+              </a>
+              <a
+                href="https://lin.ee/x41s2Su"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#6b6560] hover:text-[#2a2520] transition-colors"
+              >
+                加入一休的 LINE
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-[#eee9e5] pt-6 text-center text-sm text-[#a8a29e]">
+          <p className="mb-1">我是一休，陪你健康的瘦一輩子</p>
+          <p>&copy; {new Date().getFullYear()} ABC 代謝力重建瘦身法</p>
+        </div>
       </div>
     </footer>
   );
