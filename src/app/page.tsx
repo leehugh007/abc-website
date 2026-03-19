@@ -14,13 +14,13 @@ export default function Home() {
       {/* Hero — 先講處境，不講品牌 */}
       <section className="pt-16 pb-20 px-5">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm font-semibold text-[#e67e22] mb-4 tracking-wide">
+          <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
             ABC 代謝力重建瘦身法
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-6">
             你不是不努力
             <br />
-            <span className="text-[#e74c3c]">是代謝在扯你後腿</span>
+            <span className="text-[#2a9d6f]">是代謝在扯你後腿</span>
           </h1>
           <p className="text-lg text-[#6b6560] leading-relaxed mb-10 max-w-lg mx-auto">
             吃很少還是瘦不下來？下午一定要來杯手搖飲？
@@ -34,7 +34,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="https://metabolism-quiz.vercel.app"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-[#e74c3c] to-[#f39c12] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒測出你的代謝類型 →
             </a>
@@ -65,10 +65,10 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 p-4 rounded-xl bg-[#faf9f7] border border-[#eee9e5]"
+                className="flex items-start gap-3 py-3"
               >
                 <span className="text-xl shrink-0">{item.emoji}</span>
-                <span className="text-[15px] leading-relaxed">{item.text}</span>
+                <span className="text-[15px] leading-relaxed text-[#6b6560]">{item.text}</span>
               </div>
             ))}
           </div>
@@ -90,16 +90,17 @@ export default function Home() {
           </p>
           <div className="space-y-3">
             {[
-              { emoji: "🔴", name: "高轉速型", desc: "你不是不健康，你是太拼了", slug: "high-rpm" },
-              { emoji: "🟠", name: "燃燒殆盡型", desc: "你不是不在乎自己，你是把能量都給了別人", slug: "burnout" },
-              { emoji: "🟡", name: "雲霄飛車型", desc: "你不是意志力不夠，你的血糖一天坐三次大怒神", slug: "roller-coaster" },
-              { emoji: "🟢", name: "省電模式型", desc: "你不是吃太多，你是吃太少太久了", slug: "power-save" },
-              { emoji: "🔵", name: "穩定燃燒型", desc: "你的代謝引擎運轉得不錯，繼續保持", slug: "steady" },
+              { emoji: "🔴", name: "高轉速型", desc: "你不是不健康，你是太拼了", slug: "high-rpm", color: "#e74c3c" },
+              { emoji: "🟠", name: "燃燒殆盡型", desc: "你不是不在乎自己，你是把能量都給了別人", slug: "burnout", color: "#e67e22" },
+              { emoji: "🟡", name: "雲霄飛車型", desc: "你不是意志力不夠，你的血糖一天坐三次大怒神", slug: "roller-coaster", color: "#f39c12" },
+              { emoji: "🟢", name: "省電模式型", desc: "你不是吃太多，你是吃太少太久了", slug: "power-save", color: "#7f8c8d" },
+              { emoji: "🔵", name: "穩定燃燒型", desc: "你的代謝引擎運轉得不錯，繼續保持", slug: "steady", color: "#27ae60" },
             ].map((type) => (
               <Link
                 key={type.slug}
                 href={`/types/${type.slug}`}
-                className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-[#eee9e5] hover:border-[#ddd5cf] hover:shadow-sm transition-all group"
+                className="flex items-center gap-4 p-5 rounded-r-2xl bg-white border border-[#eee9e5] border-l-4 hover:shadow-sm transition-all group"
+                style={{ borderLeftColor: type.color }}
               >
                 <span className="text-2xl">{type.emoji}</span>
                 <div className="flex-1 min-w-0">
@@ -113,7 +114,7 @@ export default function Home() {
           <div className="text-center mt-8">
             <a
               href="https://metabolism-quiz.vercel.app"
-              className="text-[#e74c3c] font-semibold hover:underline"
+              className="text-[#2a9d6f] font-semibold hover:underline"
             >
               不確定？做個 30 秒測驗 →
             </a>
@@ -122,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* 學員見證 — 重點故事 + 相似案例 */}
-      <section className="py-16 px-5 bg-white">
+      <section className="py-16 px-5 bg-[#f3f9f5]">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-3">
             跟你一樣的人，後來怎麼了
@@ -334,31 +335,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 核心理念 — 不是功能清單 */}
-      <section className="py-16 px-5">
+      {/* 核心理念 — 全寬深色背景破格 */}
+      <section className="py-20 px-5 bg-[#1a5e3f] text-white">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-10">
+          <h2 className="text-2xl font-bold mb-12">
             ABC 代謝力重建，不是另一種節食法
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6 text-left">
-            <div className="p-5 rounded-2xl bg-white border border-[#eee9e5]">
-              <div className="text-2xl mb-3">🔬</div>
-              <div className="font-bold mb-2">理解代謝，不靠意志力</div>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
+          <div className="grid sm:grid-cols-3 gap-8 text-left">
+            <div>
+              <div className="text-3xl mb-3">🔬</div>
+              <div className="font-bold mb-2 text-lg">理解代謝，不靠意志力</div>
+              <p className="text-sm text-white/70 leading-relaxed">
                 當你理解身體的運作方式，正確的選擇會變成本能，不需要每天跟自己打仗。
               </p>
             </div>
-            <div className="p-5 rounded-2xl bg-white border border-[#eee9e5]">
-              <div className="text-2xl mb-3">➕</div>
-              <div className="font-bold mb-2">增加好的，不限制壞的</div>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
+            <div>
+              <div className="text-3xl mb-3">➕</div>
+              <div className="font-bold mb-2 text-lg">增加好的，不限制壞的</div>
+              <p className="text-sm text-white/70 leading-relaxed">
                 不告訴你不能吃什麼，而是教你可以加什麼。加法思維，讓改變自然發生。
               </p>
             </div>
-            <div className="p-5 rounded-2xl bg-white border border-[#eee9e5]">
-              <div className="text-2xl mb-3">🤝</div>
-              <div className="font-bold mb-2">陪伴，不是指導</div>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
+            <div>
+              <div className="text-3xl mb-3">🤝</div>
+              <div className="font-bold mb-2 text-lg">陪伴，不是指導</div>
+              <p className="text-sm text-white/70 leading-relaxed">
                 我不是比你厲害，只是比你早犯錯 30 年。這裡沒有大師，只有一起走的人。
               </p>
             </div>
@@ -377,7 +378,7 @@ export default function Home() {
           </p>
           <a
             href="https://metabolism-quiz.vercel.app"
-            className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-gradient-to-r from-[#e74c3c] to-[#f39c12] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+            className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
           >
             開始測驗 →
           </a>

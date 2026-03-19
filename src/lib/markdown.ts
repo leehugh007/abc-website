@@ -11,12 +11,14 @@ export async function getArticleContent(slug: string) {
 
   const raw = fs.readFileSync(filePath, "utf-8");
 
-  // Split title (first # heading) from body
   const lines = raw.split("\n");
   const titleLine = lines.find((l) => l.startsWith("# "));
   const title = titleLine ? titleLine.replace("# ", "").trim() : slug;
+
+  // Filter out: title line, metadata blockquotes (> 核心目的/類型/底層情緒/分享動機/分類/策略定位)
   const body = lines
     .filter((l) => l !== titleLine)
+    .filter((l) => !l.match(/^>\s*(核心目的|類型|底層情緒|分享動機|分類|策略定位)/))
     .join("\n")
     .trim();
 

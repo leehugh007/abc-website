@@ -68,7 +68,7 @@ export default async function ArticlePage({
       {/* Article body */}
       <section className="pb-16 px-5">
         <div
-          className="max-w-2xl mx-auto prose prose-lg prose-stone prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-[1.9] prose-p:text-[#2a2520] prose-li:text-[#2a2520] prose-blockquote:border-l-[#f39c12] prose-blockquote:text-[#6b6560] prose-blockquote:italic prose-strong:text-[#2a2520] prose-a:text-[#e74c3c] prose-a:no-underline hover:prose-a:underline"
+          className="max-w-2xl mx-auto prose prose-lg prose-stone prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-[1.9] prose-p:text-[#2a2520] prose-li:text-[#2a2520] prose-blockquote:border-l-[#f39c12] prose-blockquote:text-[#6b6560] prose-blockquote:italic prose-strong:text-[#2a2520] prose-a:text-[#2a9d6f] prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: content.html }}
         />
       </section>
@@ -83,7 +83,7 @@ export default async function ArticlePage({
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="https://metabolism-quiz.vercel.app"
-              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-gradient-to-r from-[#e74c3c] to-[#f39c12] rounded-full shadow-md hover:shadow-lg transition-shadow"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md hover:shadow-lg transition-shadow"
             >
               30 秒代謝測驗 →
             </a>

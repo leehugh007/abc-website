@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-TW" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#faf9f7] text-[#2a2520]">
+      <body className="min-h-full flex flex-col bg-[#f8faf7] text-[#2a2520]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
@@ -37,7 +37,7 @@ function Header() {
     <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-md border-b border-[#eee9e5]">
       <nav className="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
         <a href="/" className="font-bold text-lg tracking-tight">
-          ABC 代謝力重建
+          <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
         </a>
         <div className="flex items-center gap-6 text-sm font-medium text-[#6b6560]">
           <a href="/types" className="hover:text-[#2a2520] transition-colors">
