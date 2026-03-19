@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "關於一休與 ABC 代謝力重建",
@@ -12,6 +13,16 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="pt-16 pb-12 px-5">
         <div className="max-w-2xl mx-auto">
+          <div className="mb-8 rounded-2xl overflow-hidden">
+            <Image
+              src="/images/founder-transformation.png"
+              alt="一休的瘦身前後對比"
+              width={800}
+              height={400}
+              className="w-full h-auto"
+              priority
+            />
+          </div>
           <h1 className="text-3xl font-extrabold tracking-tight mb-6">
             我是一休
           </h1>

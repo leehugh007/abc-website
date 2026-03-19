@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -146,6 +147,28 @@ export default function Home() {
                 <p className="text-sm font-semibold text-[#27ae60]">✓ {t.result}</p>
               </div>
             ))}
+          </div>
+
+          {/* 美美對比照 */}
+          <div className="mt-10 rounded-2xl overflow-hidden border border-[#eee9e5]">
+            <Image
+              src="/images/meimei-transformation.jpg"
+              alt="學員美美的瘦身前後對比"
+              width={700}
+              height={400}
+              className="w-full h-auto"
+            />
+          </div>
+
+          {/* 團隊照片 */}
+          <div className="mt-6 rounded-2xl overflow-hidden border border-[#eee9e5]">
+            <Image
+              src="/images/team-photo.png"
+              alt="ABC 代謝力重建學員合照"
+              width={700}
+              height={400}
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
