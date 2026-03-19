@@ -121,24 +121,128 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 學員見證 — 放相似案例，不是最強案例 */}
+      {/* 學員見證 — 重點故事 + 相似案例 */}
       <section className="py-16 px-5 bg-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-3">
             跟你一樣的人，後來怎麼了
           </h2>
-          <p className="text-center text-[#6b6560] mb-10">
+          <p className="text-center text-[#6b6560] mb-12">
             最能給你信心的，不是最厲害的案例，是最像你的那個人
           </p>
-          <div className="space-y-4">
+
+          {/* 美美 — 重點故事（有照片） */}
+          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
+            <Image
+              src="/images/meimei-transformation.jpg"
+              alt="美美的瘦身前後對比：差點破百到7字頭"
+              width={700}
+              height={400}
+              className="w-full h-auto"
+            />
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-lg">美美</span>
+                <span className="text-sm text-[#a8a29e]">7年級生・業務+進修生</span>
+              </div>
+              <div className="flex gap-2 mb-4">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">體重 -21.8kg</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">體脂 -16%</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#3498db]/10 text-[#3498db] font-medium">腰圍 -12.5cm</span>
+              </div>
+              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-4 italic">
+                「我要選擇一個雖然速度比較慢，但是可以維持一輩子的方式，健康瘦下來。」
+              </blockquote>
+              <p className="text-sm leading-relaxed text-[#6b6560] mb-3">
+                從差點破百到現在 7 字頭，歷經六期課程的堅持。不只是體重下降，血壓、血脂、糖化血色素全部恢復正常，內臟脂肪從中重度變成沒有脂肪肝。
+              </p>
+              <div className="bg-[#27ae60]/5 rounded-xl p-4">
+                <p className="text-sm font-semibold text-[#27ae60]">
+                  ✨ 找到了一種可以一輩子持續下去的生活方式，身體變聰明了，不再害怕復胖。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 慧敏 — 最強見證（自體免疫） */}
+          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-lg">慧敏</span>
+                <span className="text-sm text-[#a8a29e]">自體免疫疾病・重大傷病卡</span>
+              </div>
+              <div className="flex gap-2 mb-4">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">84kg → 63.4kg</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">醫生同意停藥</span>
+              </div>
+
+              <div className="space-y-4 text-[15px] leading-relaxed text-[#6b6560]">
+                <div className="bg-[#3498db]/5 rounded-xl p-4">
+                  <p className="font-semibold text-[#3498db] text-sm mb-2">她的困境</p>
+                  <p>她有自體免疫疾病，從年輕到現在嘗試無數次減肥都沒成功過。那時候的她，幾乎要放棄自己了。</p>
+                  <p className="italic text-[#3498db] mt-2">「我是不是永遠都好不了？」</p>
+                </div>
+
+                <div className="bg-[#27ae60]/5 rounded-xl p-4">
+                  <p className="font-semibold text-[#27ae60] text-sm mb-2">一年後</p>
+                  <p>她瘦了 20 公斤。但更令人開心的是——她的醫生告訴她：<strong className="text-[#2a2520]">「血液檢查發炎指數有下降，可以先停藥，暫時不用再吃了。」</strong></p>
+                  <p className="text-xs text-[#a8a29e] mt-1">（她是領有重大傷病卡那種嚴重的程度）</p>
+                </div>
+
+                <div className="bg-[#f39c12]/5 rounded-xl p-4">
+                  <p className="font-semibold text-[#e67e22] text-sm mb-2">重獲新生</p>
+                  <p>「手指關節也不再腫脹疼痛了！我以前都只能趁沒發作時，手指正常趕快彈彈我喜歡的鋼琴，<strong className="text-[#2a2520]">現在終於可以想彈就彈！</strong>」</p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm font-semibold text-[#e74c3c] text-center">
+                「我相信我這次一定可以瘦一輩子，而且健康一輩子。」
+              </p>
+            </div>
+          </div>
+
+          {/* 文文 — 有前後對比照 */}
+          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
+            <div className="grid grid-cols-2 gap-0">
+              <div className="relative">
+                <Image src="/images/wenwen-before.jpg" alt="文文減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
+              </div>
+              <div className="relative">
+                <Image src="/images/wenwen-after.jpg" alt="文文減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="font-bold text-lg">文文</span>
+                <span className="text-sm text-[#a8a29e]">40 歲・文字工作者</span>
+              </div>
+              <div className="flex gap-2 mb-4">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">80kg → 60kg</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">血壓恢復正常</span>
+              </div>
+              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-3 italic">
+                「老公說我這樣剛剛好，我差點就信了！曾經被溫柔的安慰話術麻痺，直到有一天突然人間清醒——要為自己而瘦！」
+              </blockquote>
+              <p className="text-sm text-[#6b6560]">
+                工作需要三不五時吃美食，體重一路來到近 80 公斤。高血壓前期，伴隨慢性身體各處發炎、頭痛、體力差。3 個月後，婚前的小裙子不僅僅穿下了，而且是「選擇繼續穿下」。
+              </p>
+            </div>
+          </div>
+
+          {/* 更多學員 — 簡短卡片 */}
+          <h3 className="text-lg font-bold text-center mb-4 mt-12">更多真實轉變</h3>
+          <div className="space-y-3">
             {[
               { name: "小雨", age: 41, tag: "反覆減肥 30 年", quote: "我試過減肥藥、極端節食，身體都出問題了。ABC 讓我第一次感受到健康瘦身的可能。", result: "終於找到不傷身體的可持續方法" },
               { name: "小維", age: 35, tag: "上班族・胃食道逆流", quote: "減肥藥讓我胃酸逆流更嚴重，ABC 不但讓我瘦了，胃食道逆流也大幅改善了。", result: "胃食道逆流大幅改善，睡眠品質變好" },
               { name: "小魚", age: 31, tag: "護理師・不規律作息", quote: "我每天照顧病人，卻連自己的健康都顧不好。終於找到適合醫護人員的方法。", result: "學會在不規律作息中維持健康" },
               { name: "Sam", age: 44, tag: "工程師・三高", quote: "體檢報告滿江紅，我害怕瘦瘦針的副作用。ABC 讓我安全地改善了健康指標。", result: "三高指標明顯改善" },
+              { name: "小慧", age: 41, tag: "三期學員班長", quote: "以前為了快速瘦身，什麼極端方法都試過。現在我要的是瘦一輩子，而不是瘦一陣子。", result: "從恐懼運動到熱愛運動，身體更健康" },
             ].map((t, i) => (
-              <div key={i} className="p-5 rounded-2xl bg-[#faf9f7] border border-[#eee9e5]">
-                <div className="flex items-center gap-2 mb-3">
+              <div key={i} className="p-4 rounded-xl bg-[#faf9f7] border border-[#eee9e5]">
+                <div className="flex items-center gap-2 mb-2">
                   <span className="font-bold">{t.name}</span>
                   <span className="text-sm text-[#a8a29e]">{t.age} 歲</span>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">{t.tag}</span>
@@ -149,26 +253,21 @@ export default function Home() {
             ))}
           </div>
 
-          {/* 美美對比照 */}
-          <div className="mt-10 rounded-2xl overflow-hidden border border-[#eee9e5]">
-            <Image
-              src="/images/meimei-transformation.jpg"
-              alt="學員美美的瘦身前後對比"
-              width={700}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
-
-          {/* 團隊照片 */}
-          <div className="mt-6 rounded-2xl overflow-hidden border border-[#eee9e5]">
+          {/* 團隊力量 */}
+          <div className="mt-12 rounded-2xl overflow-hidden border border-[#eee9e5]">
             <Image
               src="/images/team-photo.png"
-              alt="ABC 代謝力重建學員合照"
+              alt="ABC 代謝力重建班長大合照"
               width={700}
               height={400}
               className="w-full h-auto"
             />
+            <div className="p-5 text-center bg-[#faf9f7]">
+              <p className="font-bold mb-1">這群人加在一起瘦超過 <span className="text-[#e74c3c]">300 公斤</span></p>
+              <p className="text-sm text-[#6b6560]">
+                因為我們都胖過，我們懂胖過的苦。用眾人的力量，陪你走一條不用獨自承受的路。
+              </p>
+            </div>
           </div>
         </div>
       </section>
