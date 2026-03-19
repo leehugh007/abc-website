@@ -7,12 +7,13 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const type = getTypeBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const type = getTypeBySlug(slug);
   if (!type) return {};
   return {
     title: `${type.name} — ${type.tagline}`,
@@ -24,8 +25,9 @@ export function generateMetadata({
   };
 }
 
-export default function TypePage({ params }: { params: { slug: string } }) {
-  const type = getTypeBySlug(params.slug);
+export default async function TypePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const type = getTypeBySlug(slug);
   if (!type) notFound();
 
   return (
