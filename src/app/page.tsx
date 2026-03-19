@@ -166,6 +166,13 @@ export default function Home() {
 
           {/* 慧敏 — 最強見證（自體免疫） */}
           <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
+            <Image
+              src="/images/autoimmune-student-before-after.jpeg"
+              alt="慧敏的瘦身前後對比：84kg到63.4kg，自體免疫疾病停藥"
+              width={700}
+              height={400}
+              className="w-full h-auto"
+            />
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
                 <span className="font-bold text-lg">慧敏</span>
@@ -201,21 +208,21 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 文文 — 有前後對比照 */}
+          {/* 溫溫 — 有前後對比照 */}
           <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
             <div className="grid grid-cols-2 gap-0">
               <div className="relative">
-                <Image src="/images/wenwen-before.jpg" alt="文文減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/wenwen-before.jpg" alt="溫溫減重前" width={350} height={400} className="w-full h-full object-cover" />
                 <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
               </div>
               <div className="relative">
-                <Image src="/images/wenwen-after.jpg" alt="文文減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/wenwen-after.jpg" alt="溫溫減重後" width={350} height={400} className="w-full h-full object-cover" />
                 <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
               </div>
             </div>
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
-                <span className="font-bold text-lg">文文</span>
+                <span className="font-bold text-lg">溫溫</span>
                 <span className="text-sm text-[#a8a29e]">40 歲・文字工作者</span>
               </div>
               <div className="flex gap-2 mb-4">
@@ -228,6 +235,61 @@ export default function Home() {
               <p className="text-sm text-[#6b6560]">
                 工作需要三不五時吃美食，體重一路來到近 80 公斤。高血壓前期，伴隨慢性身體各處發炎、頭痛、體力差。3 個月後，婚前的小裙子不僅僅穿下了，而且是「選擇繼續穿下」。
               </p>
+            </div>
+          </div>
+
+          {/* 50歲單親媽媽 */}
+          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
+            <div className="grid grid-cols-2 gap-0">
+              <div className="relative">
+                <Image src="/images/student-success-1.jpeg" alt="單親媽媽減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
+              </div>
+              <div className="relative">
+                <Image src="/images/student-success-2.jpeg" alt="單親媽媽減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-bold text-lg">50 歲單親媽媽</span>
+              </div>
+              <div className="text-sm text-[#6b6560] space-y-1 mb-3">
+                <p><strong className="text-[#2a2520]">困擾：</strong>生了兩胎後一直瘦不回來，試過各種方法都復胖</p>
+                <p><strong className="text-[#2a2520]">轉折：</strong>先生突然去世，必須獨自照顧兩個孩子，決定找回健康</p>
+              </div>
+              <div className="bg-[#27ae60]/5 rounded-xl p-4">
+                <p className="text-sm font-semibold text-[#27ae60]">
+                  ✨ 從只能穿又長又寬的衣服 → 自信穿合身洋裝，成為孩子的驕傲
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 四寶媽 */}
+          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
+            <div className="grid grid-cols-2 gap-0">
+              <div className="relative">
+                <Image src="/images/IMG_7574.jpeg" alt="四寶媽減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
+              </div>
+              <div className="relative">
+                <Image src="/images/IMG_7575.jpeg" alt="四寶媽減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="font-bold text-lg">四寶媽的最後一次瘦身</span>
+              </div>
+              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-3 italic">
+                「已經失敗很多次了，我真的不想再這樣一直反覆復胖。這次一定要成功，為了孩子，也為了自己！」
+              </blockquote>
+              <div className="bg-[#27ae60]/5 rounded-xl p-4">
+                <p className="text-sm font-semibold text-[#27ae60]">
+                  ✨ 腹部明顯縮小・學會健康飲食融入生活・不再需要甜食舒壓・不再擔心暴飲暴食
+                </p>
+              </div>
             </div>
           </div>
 
