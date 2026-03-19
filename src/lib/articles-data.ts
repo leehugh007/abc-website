@@ -75,62 +75,6 @@ export const ARTICLES: Article[] = [
     readTime: "6 分鐘",
     featured: true,
   },
-  {
-    slug: "normal-blood-sugar-trap",
-    title: "血糖正常，但下午老是昏沉、腰越來越粗？你的身體可能在硬撐",
-    description:
-      "體檢數字正常不代表沒事。當胰島素加班加到爆肝，血糖還能撐住——但代價是你的腰圍。",
-    date: "2026-03-01",
-    category: "代謝科學",
-    readTime: "7 分鐘",
-    featured: true,
-  },
-  {
-    slug: "eating-order-blood-sugar",
-    title: "不用少吃，只要換順序：研究證實這樣吃血糖少飆 35%",
-    description:
-      "先菜、再肉、最後飯——同一餐食物，換個順序吃，血糖飆升幅度就能降 35%。",
-    date: "2026-03-05",
-    category: "飲食策略",
-    readTime: "5 分鐘",
-    featured: true,
-  },
-  {
-    slug: "soft-belly-breakthrough",
-    title: "減到一半覺得肉變鬆了？先別放棄，你離突破可能只剩一步",
-    description:
-      "肚子的肉從硬變軟，不是退步，是脂肪正在被分解的訊號。恭喜你，它準備走了。",
-    date: "2026-03-08",
-    category: "代謝科學",
-    readTime: "5 分鐘",
-  },
-  {
-    slug: "triglycerides-starch",
-    title: "三酸甘油脂偏高？問題不是油吃太多，是澱粉吃太多",
-    description:
-      "健檢報告三酸甘油脂紅字，你第一反應是「少吃油」？其實真正的兇手是你每天吃的那碗飯。",
-    date: "2026-03-10",
-    category: "代謝科學",
-    readTime: "7 分鐘",
-  },
-  {
-    slug: "why-regain-weight",
-    title: "為什麼越努力減肥的人，反而越容易復胖？",
-    description:
-      "試過所有方法都復胖，不是你的意志力有問題。是你的身體記住了每一次飢荒，然後學會了更努力地存。",
-    date: "2026-03-12",
-    category: "代謝科學",
-    readTime: "8 分鐘",
-  },
-  {
-    slug: "carb-guilt-free",
-    title: "你吃的那碗飯，根本不會讓你變胖",
-    description:
-      "碳水不是敵人。讓你變胖的不是澱粉本身，是吃錯時機、吃錯順序、吃錯搭配。放下罪惡感。",
-    date: "2026-03-15",
-    category: "飲食策略",
-    readTime: "6 分鐘",
-  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
