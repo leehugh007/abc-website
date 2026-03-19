@@ -109,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* 為什麼我堅持健康瘦身 — 慧敏的故事 */}
-      <section className="py-12 px-5">
+      <section className="py-12 px-5 bg-[#f3f9f5]">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-3">為什麼我堅持健康瘦身？</h2>
           <p className="text-[#6b6560] mb-8">因為我看到了學員健康改變的感動</p>
@@ -230,7 +230,7 @@ export default function AboutPage() {
       </section>
 
       {/* 我相信的事 */}
-      <section className="py-12 px-5">
+      <section className="py-16 px-5 bg-[#1a5e3f] text-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-8">我相信的事</h2>
           <div className="space-y-4">
@@ -258,10 +258,10 @@ export default function AboutPage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="p-5 rounded-2xl bg-white border border-[#eee9e5]"
+                className="p-5 rounded-2xl bg-white/10 border border-white/15"
               >
                 <div className="font-bold mb-2">{item.title}</div>
-                <p className="text-sm text-[#6b6560] leading-relaxed">
+                <p className="text-sm text-white/70 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -271,7 +271,7 @@ export default function AboutPage() {
       </section>
 
       {/* 也許你還在猶豫 */}
-      <section className="py-12 px-5 bg-white">
+      <section className="py-12 px-5">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-bold mb-6">也許你還在猶豫...</h2>
           <div className="space-y-4 text-base leading-[1.9] text-[#6b6560]">
