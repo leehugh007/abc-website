@@ -157,6 +157,17 @@ export const ARTICLES: Article[] = [
     coverImage: "/images/articles/cover-ozempic-bbc.jpg",
   },
   {
+    slug: "eat-less-move-more-myth",
+    title: "「少吃多動」這四個字，害了多少人？",
+    description:
+      "你的身體不是計算機。胰島素才是決定你胖不胖的關鍵，不是卡路里。少吃多動從一開始就少算了最關鍵的東西。",
+    date: "2026-03-12",
+    category: "代謝科學",
+    readTime: "10 分鐘",
+    featured: true,
+    coverImage: "/images/articles/cover-eat-less-move-more.jpg",
+  },
+  {
     slug: "ozempic-alternative-abc",
     title: "如果不想打針，還有什麼選擇？",
     description:
