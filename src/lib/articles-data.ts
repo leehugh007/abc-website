@@ -3,7 +3,7 @@ export interface Article {
   title: string;
   description: string;
   date: string;
-  category: "代謝科學" | "飲食策略" | "瘦瘦針真相" | "學員故事";
+  category: "健檢紅字" | "減肥真相" | "瘦瘦針" | "飲食方法" | "學員故事";
   readTime: string;
   featured?: boolean;
   coverImage?: string;
@@ -16,7 +16,7 @@ export const ARTICLES: Article[] = [
     description:
       "如果你正處在減肥→復胖→再減肥的循環中，這不是你的問題。這是方法的問題。",
     date: "2025-07-15",
-    category: "代謝科學",
+    category: "減肥真相",
     readTime: "8 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-regain-truth.jpg",
@@ -27,7 +27,7 @@ export const ARTICLES: Article[] = [
     description:
       "一位媽媽的無奈分享：3 個月瘦了 8 公斤，停藥半年後全部回來還多了 2 公斤。",
     date: "2025-07-20",
-    category: "瘦瘦針真相",
+    category: "瘦瘦針",
     readTime: "6 分鐘",
     coverImage: "/images/articles/cover-ozempic-regain.jpg",
   },
@@ -37,7 +37,7 @@ export const ARTICLES: Article[] = [
     description:
       "「我現在吃一點點就飽了，但總覺得這種飽不是真的飽。」當身體失去飢餓的能力，你真的變健康了嗎？",
     date: "2025-07-25",
-    category: "瘦瘦針真相",
+    category: "瘦瘦針",
     readTime: "7 分鐘",
     coverImage: "/images/articles/cover-ozempic-puppet.jpg",
   },
@@ -47,7 +47,7 @@ export const ARTICLES: Article[] = [
     description:
       "37% 擔心營養不足，52% 每週跳過好幾次正餐，31% 根本不知道該吃什麼。",
     date: "2025-08-01",
-    category: "瘦瘦針真相",
+    category: "瘦瘦針",
     readTime: "7 分鐘",
     coverImage: "/images/articles/cover-ozempic-80percent.jpg",
   },
@@ -57,7 +57,7 @@ export const ARTICLES: Article[] = [
     description:
       "昨晚壓力太大不小心吃了三個餐包？不用恐慌、不用跑步兩小時。這樣處理就好。",
     date: "2025-10-01",
-    category: "飲食策略",
+    category: "飲食方法",
     readTime: "5 分鐘",
     coverImage: "/images/articles/cover-starch-rescue.jpg",
   },
@@ -67,7 +67,7 @@ export const ARTICLES: Article[] = [
     description:
       "你管不住嘴不是因為你軟弱，是因為你的飢餓素和瘦體素在背後操控你。科學幫你出一口氣。",
     date: "2026-02-15",
-    category: "代謝科學",
+    category: "減肥真相",
     readTime: "6 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-willpower-myth.jpg",
@@ -78,7 +78,7 @@ export const ARTICLES: Article[] = [
     description:
       "黑棘皮症是胰島素阻抗最明顯的外在徵兆。你的身體正在用皮膚跟你說話。",
     date: "2026-02-20",
-    category: "代謝科學",
+    category: "健檢紅字",
     readTime: "6 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-dark-neck.jpg",
@@ -89,7 +89,7 @@ export const ARTICLES: Article[] = [
     description:
       "體檢數字正常不代表沒事。當胰島素加班加到爆肝，血糖還能撐住——但代價是你的腰圍。",
     date: "2026-03-01",
-    category: "代謝科學",
+    category: "健檢紅字",
     readTime: "7 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-blood-sugar-normal.jpg",
@@ -100,7 +100,7 @@ export const ARTICLES: Article[] = [
     description:
       "先菜、再肉、最後飯——同一餐食物，換個順序吃，血糖飆升幅度就能降 35%。",
     date: "2026-03-05",
-    category: "飲食策略",
+    category: "飲食方法",
     readTime: "5 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-eating-order.jpg",
@@ -111,7 +111,7 @@ export const ARTICLES: Article[] = [
     description:
       "一個女生在運動中心因為體脂計數字當場哭了出來。但那個數字的變化，大部分是水分和血液循環的影響。",
     date: "2026-03-18",
-    category: "代謝科學",
+    category: "減肥真相",
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-body-fat-scale.jpg",
   },
@@ -121,7 +121,7 @@ export const ARTICLES: Article[] = [
     description:
       "為了降膽固醇不敢吃蛋，結果半年後還是高？因為真正的兇手不是雞蛋，是讓身體發炎的精緻食物。",
     date: "2026-01-10",
-    category: "代謝科學",
+    category: "健檢紅字",
     readTime: "8 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-cholesterol-inflammation.jpg",
@@ -132,7 +132,7 @@ export const ARTICLES: Article[] = [
     description:
       "少吃鹽血壓還是降不下來？因為 65-78% 的高血壓是由肥胖引起的，不是鹽。",
     date: "2026-02-01",
-    category: "代謝科學",
+    category: "健檢紅字",
     readTime: "12 分鐘",
     coverImage: "/images/articles/cover-blood-pressure.jpg",
   },
@@ -142,7 +142,7 @@ export const ARTICLES: Article[] = [
     description:
       "戒澱粉血糖還是降不下來？問題不是澱粉，是你的胰島素已經加班加到爆肝了。",
     date: "2026-02-10",
-    category: "代謝科學",
+    category: "健檢紅字",
     readTime: "12 分鐘",
     coverImage: "/images/articles/cover-blood-sugar-overwork.jpg",
   },
@@ -152,7 +152,7 @@ export const ARTICLES: Article[] = [
     description:
       "BBC 專訪瘦瘦針使用者：停針後食慾像海嘯一樣湧回來。壓抑永遠會有反彈的一天。",
     date: "2026-03-02",
-    category: "瘦瘦針真相",
+    category: "瘦瘦針",
     readTime: "5 分鐘",
     coverImage: "/images/articles/cover-ozempic-bbc.jpg",
   },
@@ -162,7 +162,7 @@ export const ARTICLES: Article[] = [
     description:
       "你的身體不是計算機。胰島素才是決定你胖不胖的關鍵，不是卡路里。少吃多動從一開始就少算了最關鍵的東西。",
     date: "2026-03-12",
-    category: "代謝科學",
+    category: "減肥真相",
     readTime: "10 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-eat-less-move-more.jpg",
@@ -173,7 +173,7 @@ export const ARTICLES: Article[] = [
     description:
       "打針是「租」一個瘦的身體，ABC 是「擁有」一個健康的身體。租的總有一天要還，擁有的才是你的。",
     date: "2026-03-08",
-    category: "瘦瘦針真相",
+    category: "瘦瘦針",
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-ozempic-vs-abc.jpg",
   },

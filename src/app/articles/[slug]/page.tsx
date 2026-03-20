@@ -6,17 +6,19 @@ import { getArticleBySlug, getAllArticleSlugs, ARTICLES } from "@/lib/articles-d
 import { getArticleContent } from "@/lib/markdown";
 
 const CATEGORY_COLORS: Record<string, string> = {
-  代謝科學: "bg-[#2a9d6f]/10 text-[#2a9d6f]",
-  飲食策略: "bg-[#e67e22]/10 text-[#e67e22]",
-  瘦瘦針真相: "bg-[#e74c3c]/10 text-[#e74c3c]",
+  健檢紅字: "bg-[#e74c3c]/10 text-[#e74c3c]",
+  減肥真相: "bg-[#2a9d6f]/10 text-[#2a9d6f]",
+  瘦瘦針: "bg-[#8e44ad]/10 text-[#8e44ad]",
+  飲食方法: "bg-[#e67e22]/10 text-[#e67e22]",
   學員故事: "bg-[#3498db]/10 text-[#3498db]",
 };
 
 const CATEGORY_CTA: Record<string, string> = {
-  瘦瘦針真相: "想找不靠藥物的方法？",
-  代謝科學: "想知道你的代謝類型？",
-  飲食策略: "想知道怎麼吃最適合你？",
-  學員故事: "想了解自己的代謝類型？",
+  健檢紅字: "想知道這些紅字背後的真正原因？",
+  減肥真相: "想知道為什麼以前的方法不管用？",
+  瘦瘦針: "想找不靠藥物的方法？",
+  飲食方法: "想知道怎麼吃最適合你？",
+  學員故事: "想知道你是哪種代謝類型？",
 };
 
 export function generateStaticParams() {

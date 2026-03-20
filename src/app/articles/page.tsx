@@ -1,41 +1,83 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { ARTICLES } from "@/lib/articles-data";
 
-export const metadata: Metadata = {
-  title: "文章",
-  description:
-    "代謝科學、飲食策略、瘦瘦針真相——用科學理解你的身體，做出正確的選擇。",
-};
-
 const CATEGORY_COLORS: Record<string, string> = {
-  代謝科學: "bg-[#2a9d6f]/10 text-[#2a9d6f]",
-  飲食策略: "bg-[#e67e22]/10 text-[#e67e22]",
-  瘦瘦針真相: "bg-[#e74c3c]/10 text-[#e74c3c]",
+  健檢紅字: "bg-[#e74c3c]/10 text-[#e74c3c]",
+  減肥真相: "bg-[#2a9d6f]/10 text-[#2a9d6f]",
+  瘦瘦針: "bg-[#8e44ad]/10 text-[#8e44ad]",
+  飲食方法: "bg-[#e67e22]/10 text-[#e67e22]",
   學員故事: "bg-[#3498db]/10 text-[#3498db]",
 };
 
+const CATEGORY_LABELS: Record<string, string> = {
+  健檢紅字: "報告有紅字？",
+  減肥真相: "怎麼減都瘦不下來？",
+  瘦瘦針: "打針之前想知道⋯",
+  飲食方法: "到底該怎麼吃？",
+  學員故事: "跟你一樣的人",
+};
+
+const CATEGORIES = Object.keys(CATEGORY_LABELS);
+
 export default function ArticlesPage() {
+  const [active, setActive] = useState<string | null>(null);
+
   const sorted = [...ARTICLES].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  const featured = sorted.filter((a) => a.featured);
-  const rest = sorted.filter((a) => !a.featured);
+  const filtered = active
+    ? sorted.filter((a) => a.category === active)
+    : sorted;
+
+  const featured = filtered.filter((a) => a.featured);
+  const rest = filtered.filter((a) => !a.featured);
 
   return (
-    <section className="py-16 px-5">
+    <section className="pt-10 pb-16 px-5">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-extrabold tracking-tight mb-3">搞懂你的身體</h1>
-        <p className="text-[#6b6560] mb-12">
+        <h1 className="text-3xl font-extrabold tracking-tight mb-3">
+          搞懂你的身體
+        </h1>
+        <p className="text-[#6b6560] mb-8">
           看完就知道為什麼以前的方法不管用
         </p>
+
+        {/* Category filter pills */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          <button
+            onClick={() => setActive(null)}
+            className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
+              active === null
+                ? "bg-[#2a9d6f] text-white"
+                : "bg-white border border-[#eee9e5] text-[#6b6560] hover:border-[#ddd5cf]"
+            }`}
+          >
+            全部
+          </button>
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(active === cat ? null : cat)}
+              className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
+                active === cat
+                  ? "bg-[#2a9d6f] text-white"
+                  : "bg-white border border-[#eee9e5] text-[#6b6560] hover:border-[#ddd5cf]"
+              }`}
+            >
+              {CATEGORY_LABELS[cat]}
+            </button>
+          ))}
+        </div>
 
         {/* Featured */}
         {featured.length > 0 && (
           <div className="mb-10">
-            <p className="text-xs font-semibold text-[#2a9d6f] uppercase tracking-wider mb-4">
+            <p className="text-xs font-semibold text-[#2a9d6f] tracking-wider mb-4">
               推薦閱讀
             </p>
             <div className="space-y-4">
@@ -84,7 +126,7 @@ export default function ArticlesPage() {
         {rest.length > 0 && (
           <div>
             {featured.length > 0 && (
-              <p className="text-xs font-semibold text-[#a8a29e] uppercase tracking-wider mb-4">
+              <p className="text-xs font-semibold text-[#a8a29e] tracking-wider mb-4">
                 所有文章
               </p>
             )}
@@ -117,6 +159,12 @@ export default function ArticlesPage() {
               ))}
             </div>
           </div>
+        )}
+
+        {filtered.length === 0 && (
+          <p className="text-center text-[#a8a29e] py-12">
+            這個分類還沒有文章
+          </p>
         )}
 
         <div className="mt-12 text-center space-y-4">
