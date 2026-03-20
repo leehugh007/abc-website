@@ -1,12 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/92 backdrop-blur-md border-b border-[#eee9e5]">
+    <header className={`sticky top-0 z-50 bg-white/92 backdrop-blur-md border-b border-[#eee9e5] transition-shadow ${scrolled ? "shadow-sm" : ""}`}>
       <nav className="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
         <a href="/" className="font-bold text-lg tracking-tight">
           <span className="text-[#2a9d6f]">ABC</span> 代謝力重建

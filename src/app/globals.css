@@ -7,24 +7,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 文章內的粗體 = 綠色螢光筆效果 */
+/* 文章內的粗體 = 柔和的暖綠底色（不用螢光筆，改用淡底色） */
 .prose strong {
-  background: linear-gradient(transparent 60%, #d4f0e0 60%, #d4f0e0 90%, transparent 90%);
-  color: inherit;
+  color: #1a5e3f;
   font-weight: 700;
-  padding: 0 2px;
+  padding: 1px 0;
 }
 
 /* 文章內的 blockquote = 溫暖的橘色左邊框 */
 .prose blockquote {
-  border-left-color: #e67e22 !important;
-  background: #fef8f0;
+  border-left-color: #2a9d6f !important;
+  background: #f3f9f5;
   border-radius: 0 8px 8px 0;
-  padding: 12px 16px !important;
+  padding: 14px 18px !important;
   font-style: normal !important;
 }
 .prose blockquote p {
   color: #2a2520 !important;
+}
+
+/* Header 滾動陰影 */
+header {
+  transition: box-shadow 0.3s ease;
 }
 
 /* 文章內的分段標題（從 FB #標題 轉換而來） */

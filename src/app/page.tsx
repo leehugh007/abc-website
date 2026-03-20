@@ -50,7 +50,7 @@ export default function Home() {
 
       {/* 快速信任 — 一休 before/after */}
       <section className="pb-12 px-5">
-        <div className="max-w-md mx-auto">
+        <div className="max-w-lg mx-auto">
           <div className="rounded-2xl overflow-hidden border border-[#eee9e5]">
             <Image
               src="/images/founder-transformation.png"

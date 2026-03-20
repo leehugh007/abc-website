@@ -46,7 +46,7 @@ function Footer() {
   return (
     <footer className="border-t border-[#eee9e5] bg-white py-12 px-5">
       <div className="max-w-3xl mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
           {/* 品牌 */}
           <div>
             <p className="font-bold mb-3">

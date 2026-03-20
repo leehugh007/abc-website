@@ -135,8 +135,18 @@ export default function ArticlesPage() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="block p-5 rounded-2xl bg-white border border-[#eee9e5] hover:border-[#ddd5cf] hover:shadow-sm transition-all group"
+                  className="block rounded-2xl bg-white border border-[#eee9e5] hover:border-[#ddd5cf] hover:shadow-sm transition-all group overflow-hidden"
                 >
+                  {article.coverImage && (
+                    <Image
+                      src={article.coverImage}
+                      alt={article.title}
+                      width={700}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  )}
+                  <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
                     <span
                       className={`text-xs px-2 py-0.5 rounded-full font-medium ${
@@ -155,6 +165,7 @@ export default function ArticlesPage() {
                   <p className="text-sm text-[#6b6560] leading-relaxed line-clamp-2">
                     {article.description}
                   </p>
+                  </div>
                 </Link>
               ))}
             </div>
