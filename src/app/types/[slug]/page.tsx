@@ -50,18 +50,12 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
       {/* Description */}
       <section className="py-12 px-5">
         <div className="max-w-2xl mx-auto">
-          <p className="text-lg leading-relaxed text-[#2a2520] border-l-4 border-[#f39c12] pl-5 font-semibold mb-8">
+          <p
+            className="text-lg leading-relaxed text-[#2a2520] border-l-4 pl-5 font-semibold mb-8"
+            style={{ borderLeftColor: type.color }}
+          >
             {type.description}
           </p>
-
-          <div className="text-center mb-8">
-            <a
-              href="https://metabolism-quiz.vercel.app"
-              className="text-[#2a9d6f] font-semibold hover:underline text-sm"
-            >
-              還不確定你是哪種類型？做個 30 秒測驗 →
-            </a>
-          </div>
         </div>
       </section>
 
@@ -118,8 +112,35 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      {/* Other types */}
-      <section className="py-12 px-5 bg-white">
+      {/* CTA — 在其他類型之前 */}
+      <section className="py-16 px-5 bg-white">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-[#6b6560] mb-2">你不用一個人搞懂這些</p>
+          <h2 className="text-xl font-bold mb-6">
+            想了解更多{type.name}的調整方法？
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="https://metabolism-quiz.vercel.app"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
+            >
+              30 秒代謝測驗 →
+            </a>
+            <a
+              href="https://lin.ee/x41s2Su"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#06C755] rounded-full shadow-md"
+            >
+              加入一休的 LINE →
+            </a>
+          </div>
+          <p className="text-xs text-[#a8a29e] mt-4">3,000+ 人已經透過 ABC 重建代謝</p>
+        </div>
+      </section>
+
+      {/* Other types — 最底部 */}
+      <section className="py-12 px-5">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-lg font-bold mb-6 text-center">
             其他代謝類型
@@ -136,26 +157,6 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
               </Link>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 px-5">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-xl font-bold mb-4">
-            想了解更多{type.name}的調整方法？
-          </h2>
-          <p className="text-[#6b6560] mb-8">
-            加入一休的 LINE，取得專屬你的代謝類型建議
-          </p>
-          <a
-            href="https://lin.ee/x41s2Su"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#06C755] rounded-full shadow-lg hover:shadow-xl transition-shadow"
-          >
-            加入一休的 LINE →
-          </a>
         </div>
       </section>
     </>

@@ -26,9 +26,9 @@ export default function ArticlesPage() {
   return (
     <section className="py-16 px-5">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-extrabold tracking-tight mb-3">文章</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight mb-3">搞懂你的身體</h1>
         <p className="text-[#6b6560] mb-12">
-          用科學理解你的身體，做出正確的選擇
+          看完就知道為什麼以前的方法不管用
         </p>
 
         {/* Featured */}
@@ -107,8 +107,14 @@ export default function ArticlesPage() {
           </div>
         )}
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-[#a8a29e]">更多文章持續新增中</p>
+        <div className="mt-12 text-center space-y-4">
+          <p className="text-[#6b6560]">想知道你是哪種代謝類型？</p>
+          <a
+            href="https://metabolism-quiz.vercel.app"
+            className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
+          >
+            30 秒代謝測驗 →
+          </a>
         </div>
       </div>
     </section>
