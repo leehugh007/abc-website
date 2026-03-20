@@ -61,6 +61,7 @@ function Footer() {
           <div>
             <p className="font-semibold text-sm mb-3">探索</p>
             <div className="space-y-2 text-sm text-[#6b6560]">
+              <a href="/method" className="block hover:text-[#2a2520] transition-colors">ABC 是什麼</a>
               <a href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</a>
               <a href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</a>
               <a href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</a>

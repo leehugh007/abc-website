@@ -87,18 +87,18 @@ export default function AboutPage() {
           <div className="mt-8 grid sm:grid-cols-3 gap-4">
             <div className="p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5] text-center">
               <div className="text-3xl font-extrabold text-[#e74c3c] mb-1">A</div>
-              <div className="font-bold mb-1">Add 增加</div>
+              <div className="font-bold mb-1">Add 加營養</div>
               <p className="text-sm text-[#6b6560]">增加好的，而不是限制壞的</p>
             </div>
             <div className="p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5] text-center">
               <div className="text-3xl font-extrabold text-[#f39c12] mb-1">B</div>
-              <div className="font-bold mb-1">Build 建立</div>
-              <p className="text-sm text-[#6b6560]">建立可持續的習慣，不靠意志力</p>
+              <div className="font-bold mb-1">Behavior 調體質</div>
+              <p className="text-sm text-[#6b6560]">透過行為調整，讓代謝回到正常</p>
             </div>
             <div className="p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5] text-center">
               <div className="text-3xl font-extrabold text-[#27ae60] mb-1">C</div>
-              <div className="font-bold mb-1">Change 改變</div>
-              <p className="text-sm text-[#6b6560]">改變代謝模式，讓瘦成為自然</p>
+              <div className="font-bold mb-1">Clear 輕負擔</div>
+              <p className="text-sm text-[#6b6560]">減輕身體和心理的負擔</p>
             </div>
           </div>
           <div className="text-center mt-6">

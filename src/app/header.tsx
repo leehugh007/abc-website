@@ -21,6 +21,9 @@ export function Header() {
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-[#6b6560]">
+          <a href="/method" className="hover:text-[#2a2520] transition-colors">
+            ABC 是什麼
+          </a>
           <a href="/types" className="hover:text-[#2a2520] transition-colors">
             代謝類型
           </a>
@@ -67,6 +70,13 @@ export function Header() {
       {/* Mobile dropdown */}
       {open && (
         <div className="sm:hidden border-t border-[#eee9e5] bg-white px-5 py-4 space-y-3">
+          <a
+            href="/method"
+            className="block text-base font-medium text-[#2a2520] py-2"
+            onClick={() => setOpen(false)}
+          >
+            ABC 是什麼
+          </a>
           <a
             href="/types"
             className="block text-base font-medium text-[#2a2520] py-2"

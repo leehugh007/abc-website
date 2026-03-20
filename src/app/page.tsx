@@ -39,7 +39,7 @@ export default function Home() {
               30 秒測出你的代謝類型 →
             </a>
             <Link
-              href="/about"
+              href="/method"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#6b6560] border border-[#eee9e5] rounded-full hover:bg-white transition-colors"
             >
               了解 ABC 是什麼
