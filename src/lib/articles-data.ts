@@ -6,6 +6,7 @@ export interface Article {
   category: "代謝科學" | "飲食策略" | "瘦瘦針真相" | "學員故事";
   readTime: string;
   featured?: boolean;
+  coverImage?: string;
 }
 
 export const ARTICLES: Article[] = [
@@ -18,6 +19,7 @@ export const ARTICLES: Article[] = [
     category: "代謝科學",
     readTime: "8 分鐘",
     featured: true,
+    coverImage: "/images/articles/cover-regain-truth.jpg",
   },
   {
     slug: "ozempic-cost-and-regain",
@@ -27,6 +29,7 @@ export const ARTICLES: Article[] = [
     date: "2025-07-20",
     category: "瘦瘦針真相",
     readTime: "6 分鐘",
+    coverImage: "/images/articles/cover-ozempic-regain.jpg",
   },
   {
     slug: "ozempic-body-disconnect",
@@ -36,6 +39,7 @@ export const ARTICLES: Article[] = [
     date: "2025-07-25",
     category: "瘦瘦針真相",
     readTime: "7 分鐘",
+    coverImage: "/images/articles/cover-ozempic-puppet.jpg",
   },
   {
     slug: "ozempic-doctor-warning",
@@ -45,6 +49,7 @@ export const ARTICLES: Article[] = [
     date: "2025-08-01",
     category: "瘦瘦針真相",
     readTime: "7 分鐘",
+    coverImage: "/images/articles/cover-ozempic-80percent.jpg",
   },
   {
     slug: "starch-rescue",
@@ -54,6 +59,7 @@ export const ARTICLES: Article[] = [
     date: "2025-10-01",
     category: "飲食策略",
     readTime: "5 分鐘",
+    coverImage: "/images/articles/cover-starch-rescue.jpg",
   },
   {
     slug: "willpower-myth",
@@ -64,6 +70,7 @@ export const ARTICLES: Article[] = [
     category: "代謝科學",
     readTime: "6 分鐘",
     featured: true,
+    coverImage: "/images/articles/cover-willpower-myth.jpg",
   },
   {
     slug: "dark-neck-insulin",
@@ -74,6 +81,39 @@ export const ARTICLES: Article[] = [
     category: "代謝科學",
     readTime: "6 分鐘",
     featured: true,
+    coverImage: "/images/articles/cover-dark-neck.jpg",
+  },
+  {
+    slug: "normal-blood-sugar-trap",
+    title: "血糖正常，但下午老是昏沉、腰越來越粗？你的身體可能在硬撐",
+    description:
+      "體檢數字正常不代表沒事。當胰島素加班加到爆肝，血糖還能撐住——但代價是你的腰圍。",
+    date: "2026-03-01",
+    category: "代謝科學",
+    readTime: "7 分鐘",
+    featured: true,
+    coverImage: "/images/articles/cover-blood-sugar-normal.jpg",
+  },
+  {
+    slug: "eating-order-blood-sugar",
+    title: "不用少吃，只要換順序：研究證實這樣吃血糖少飆 35%",
+    description:
+      "先菜、再肉、最後飯——同一餐食物，換個順序吃，血糖飆升幅度就能降 35%。",
+    date: "2026-03-05",
+    category: "飲食策略",
+    readTime: "5 分鐘",
+    featured: true,
+    coverImage: "/images/articles/cover-eating-order.jpg",
+  },
+  {
+    slug: "body-fat-scale-liar",
+    title: "你家的體脂計，可能是減肥路上最準的「騙子」",
+    description:
+      "一個女生在運動中心因為體脂計數字當場哭了出來。但那個數字的變化，大部分是水分和血液循環的影響。",
+    date: "2026-03-18",
+    category: "代謝科學",
+    readTime: "10 分鐘",
+    coverImage: "/images/articles/cover-body-fat-scale.jpg",
   },
 ];
 

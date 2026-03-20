@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ARTICLES } from "@/lib/articles-data";
 
@@ -42,26 +43,37 @@ export default function ArticlesPage() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="block p-5 rounded-2xl bg-white border-2 border-[#2a9d6f]/20 hover:border-[#2a9d6f]/40 hover:shadow-sm transition-all group"
+                  className="block rounded-2xl bg-white border-2 border-[#2a9d6f]/20 hover:border-[#2a9d6f]/40 hover:shadow-sm transition-all group overflow-hidden"
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <span
-                      className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                        CATEGORY_COLORS[article.category] || ""
-                      }`}
-                    >
-                      {article.category}
-                    </span>
-                    <span className="text-xs text-[#a8a29e]">
-                      {article.readTime}
-                    </span>
+                  {article.coverImage && (
+                    <Image
+                      src={article.coverImage}
+                      alt={article.title}
+                      width={700}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  )}
+                  <div className="p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span
+                        className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+                          CATEGORY_COLORS[article.category] || ""
+                        }`}
+                      >
+                        {article.category}
+                      </span>
+                      <span className="text-xs text-[#a8a29e]">
+                        {article.readTime}
+                      </span>
+                    </div>
+                    <h2 className="font-bold text-lg mb-1 group-hover:text-[#2a9d6f] transition-colors leading-snug">
+                      {article.title}
+                    </h2>
+                    <p className="text-sm text-[#6b6560] leading-relaxed line-clamp-2">
+                      {article.description}
+                    </p>
                   </div>
-                  <h2 className="font-bold text-lg mb-1 group-hover:text-[#2a9d6f] transition-colors leading-snug">
-                    {article.title}
-                  </h2>
-                  <p className="text-sm text-[#6b6560] leading-relaxed line-clamp-2">
-                    {article.description}
-                  </p>
                 </Link>
               ))}
             </div>

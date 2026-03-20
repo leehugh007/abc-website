@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getAllArticleSlugs, ARTICLES } from "@/lib/articles-data";
@@ -93,6 +94,18 @@ export default async function ArticlePage({
           <p className="text-[#6b6560] leading-relaxed">
             {article.description}
           </p>
+          {article.coverImage && (
+            <div className="mt-6 rounded-2xl overflow-hidden">
+              <Image
+                src={article.coverImage}
+                alt={article.title}
+                width={800}
+                height={450}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          )}
         </div>
       </section>
 
