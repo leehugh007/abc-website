@@ -115,6 +115,57 @@ export const ARTICLES: Article[] = [
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-body-fat-scale.jpg",
   },
+  {
+    slug: "cholesterol-not-eggs",
+    title: "膽固醇過高？問題可能不是雞蛋，而是你的珍奶",
+    description:
+      "為了降膽固醇不敢吃蛋，結果半年後還是高？因為真正的兇手不是雞蛋，是讓身體發炎的精緻食物。",
+    date: "2026-01-10",
+    category: "代謝科學",
+    readTime: "8 分鐘",
+    featured: true,
+    coverImage: "/images/articles/cover-cholesterol-inflammation.jpg",
+  },
+  {
+    slug: "blood-pressure-not-salt",
+    title: "高血壓？問題可能不是鹽，而是你手上那包零食",
+    description:
+      "少吃鹽血壓還是降不下來？因為 65-78% 的高血壓是由肥胖引起的，不是鹽。",
+    date: "2026-02-01",
+    category: "代謝科學",
+    readTime: "12 分鐘",
+    coverImage: "/images/articles/cover-blood-pressure.jpg",
+  },
+  {
+    slug: "blood-sugar-insulin-overwork",
+    title: "血糖過高？問題可能不是澱粉，而是你的胰島素累壞了",
+    description:
+      "戒澱粉血糖還是降不下來？問題不是澱粉，是你的胰島素已經加班加到爆肝了。",
+    date: "2026-02-10",
+    category: "代謝科學",
+    readTime: "12 分鐘",
+    coverImage: "/images/articles/cover-blood-sugar-overwork.jpg",
+  },
+  {
+    slug: "ozempic-bbc-tsunami",
+    title: "她打瘦瘦針瘦了 22 公斤，停針第 3 天海嘯就來了",
+    description:
+      "BBC 專訪瘦瘦針使用者：停針後食慾像海嘯一樣湧回來。壓抑永遠會有反彈的一天。",
+    date: "2026-03-02",
+    category: "瘦瘦針真相",
+    readTime: "5 分鐘",
+    coverImage: "/images/articles/cover-ozempic-bbc.jpg",
+  },
+  {
+    slug: "chicken-soup-love-story",
+    title: "那碗雞湯征服了他的胃，但我卻被誤認為他媽媽",
+    description:
+      "沛蓁 85→67 公斤。多年紅字的血壓正常了、鼻過敏消了、偏頭痛沒了。她不想當被照顧的那一方，想和他並肩同行。",
+    date: "2026-03-15",
+    category: "學員故事",
+    readTime: "10 分鐘",
+    coverImage: "/images/articles/cover-student-minus18kg.jpg",
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
