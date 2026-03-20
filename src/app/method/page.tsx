@@ -1,11 +1,27 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "ABC 代謝力重建是什麼？加營養、調體質、輕負擔",
-  description:
-    "不節食、不算卡路里、不靠意志力。ABC 代謝重建瘦身法透過加營養、調體質、輕負擔，讓胰島素休息、代謝回到正軌。12 週學一次，瘦一輩子。",
-};
+function MethodFaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-[#eee9e5] rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-start gap-3 p-4 text-left hover:bg-[#f8faf7] transition-colors"
+      >
+        <span className={`mt-0.5 text-[#2a9d6f] font-bold text-lg shrink-0 transition-transform duration-200 ${open ? "rotate-45" : ""}`}>+</span>
+        <span className="font-bold text-[15px] leading-snug">{q}</span>
+      </button>
+      <div className={`overflow-hidden transition-all duration-200 ${open ? "max-h-[500px]" : "max-h-0"}`}>
+        <div className="px-4 pb-4 pl-10 text-[15px] text-[#6b6560] leading-[1.85] whitespace-pre-line">
+          {a}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function MethodPage() {
   return (
@@ -17,9 +33,7 @@ export default function MethodPage() {
             ABC 代謝力重建瘦身法
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-6">
-            你不是不夠自律
-            <br />
-            <span className="text-[#2a9d6f]">是代謝在跟你作對</span>
+            ABC 到底在做什麼？
           </h1>
           <p className="text-lg text-[#6b6560] leading-relaxed max-w-lg">
             ABC 不是另一種節食法。不叫你少吃、不叫你忍耐、不算卡路里。
@@ -28,6 +42,17 @@ export default function MethodPage() {
               先搞懂你的身體怎麼運作，行為自然會改變。
             </strong>
           </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://metabolism-quiz.vercel.app"
+              className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md hover:shadow-lg transition-shadow"
+            >
+              先做 30 秒測驗 →
+            </a>
+            <span className="text-sm text-[#a8a29e] self-center">
+              或繼續往下看完整介紹
+            </span>
+          </div>
         </div>
       </section>
 
@@ -77,7 +102,7 @@ export default function MethodPage() {
             </div>
           </div>
 
-          {/* 延伸閱讀 */}
+          {/* 延伸閱讀 — bg-white section 裡用 bg-[#f8faf7] */}
           <div className="mt-8 p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5]">
             <p className="text-xs font-semibold text-[#a8a29e] tracking-wider mb-3">
               想了解更多？
@@ -85,19 +110,19 @@ export default function MethodPage() {
             <div className="space-y-2">
               <Link
                 href="/articles/blood-sugar-insulin-overwork"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 血糖過高？問題可能不是澱粉，而是你的胰島素累壞了 →
               </Link>
               <Link
                 href="/articles/normal-blood-sugar-trap"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 血糖正常，但下午老是昏沉、腰越來越粗？ →
               </Link>
               <Link
                 href="/articles/cholesterol-not-eggs"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 膽固醇過高？問題可能不是雞蛋，而是你的珍奶 →
               </Link>
@@ -191,7 +216,7 @@ export default function MethodPage() {
             跟其他方法有什麼不同？
           </h2>
 
-          <div className="space-y-4">
+          <div className="grid sm:grid-cols-3 gap-4">
             {/* 節食 */}
             <div className="rounded-2xl border border-[#eee9e5] overflow-hidden">
               <div className="p-5">
@@ -209,7 +234,7 @@ export default function MethodPage() {
                 </p>
                 <Link
                   href="/articles/eat-less-move-more-myth"
-                  className="text-sm text-[#2a9d6f] font-medium hover:underline"
+                  className="text-sm text-[#2a9d6f] font-medium article-link"
                 >
                   「少吃多動」這四個字，害了多少人？ →
                 </Link>
@@ -232,7 +257,7 @@ export default function MethodPage() {
                 </p>
                 <Link
                   href="/articles/ozempic-alternative-abc"
-                  className="text-sm text-[#2a9d6f] font-medium hover:underline"
+                  className="text-sm text-[#2a9d6f] font-medium article-link"
                 >
                   如果不想打針，還有什麼選擇？ →
                 </Link>
@@ -261,21 +286,21 @@ export default function MethodPage() {
             </div>
           </div>
 
-          {/* 意志力迷思 */}
-          <div className="mt-8 p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5]">
+          {/* 意志力迷思 — 預設背景 section 裡用 bg-white */}
+          <div className="mt-8 p-5 rounded-2xl bg-white border border-[#eee9e5]">
             <p className="text-xs font-semibold text-[#a8a29e] tracking-wider mb-3">
               關於意志力
             </p>
             <div className="space-y-2">
               <Link
                 href="/articles/willpower-myth"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 「管不住嘴就是沒意志力」？讓科學來打臉這句話 →
               </Link>
               <Link
                 href="/articles/95-percent-regain-weight"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 95% 的人都會復胖，但這 5% 做對了什麼？ →
               </Link>
@@ -309,7 +334,7 @@ export default function MethodPage() {
               </p>
               <Link
                 href="/articles/eating-order-blood-sugar"
-                className="inline-block mt-2 text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="inline-block mt-2 text-sm text-[#2a9d6f] font-medium article-link"
               >
                 研究證實：換個順序吃，血糖少飆 35% →
               </Link>
@@ -344,35 +369,14 @@ export default function MethodPage() {
             </div>
           </div>
 
-          {/* 成果 */}
+          {/* 成果 — 自然文字版 */}
           <div className="mt-10 p-6 rounded-2xl bg-[#f3f9f5] border border-[#2a9d6f]/15">
-            <p className="font-bold mb-4">三年來，超過 3000 位學員的成果：</p>
-            <div className="grid grid-cols-3 gap-4 text-center mb-4">
-              <div>
-                <div className="text-2xl font-extrabold text-[#2a9d6f]">
-                  3 萬+
-                </div>
-                <div className="text-xs text-[#6b6560]">累計瘦身公斤數</div>
-              </div>
-              <div>
-                <div className="text-2xl font-extrabold text-[#2a9d6f]">
-                  12 週
-                </div>
-                <div className="text-xs text-[#6b6560]">學一次就夠</div>
-              </div>
-              <div>
-                <div className="text-2xl font-extrabold text-[#2a9d6f]">
-                  0
-                </div>
-                <div className="text-xs text-[#6b6560]">卡路里需要計算</div>
-              </div>
-            </div>
-            <p className="text-sm text-[#6b6560] text-center">
-              不算熱量，因為食物品質比數字更重要。
+            <p className="text-[15px] text-[#6b6560] leading-relaxed">
+              三年來，超過 <strong className="text-[#2a2520]">3000 位學員</strong>累計瘦身超過 <strong className="text-[#2a2520]">3 萬公斤</strong>。不算熱量，不靠意志力——因為食物品質比數字更重要。
             </p>
           </div>
 
-          {/* 學員故事連結 */}
+          {/* 學員故事連結 — bg-white section 裡用 bg-[#f8faf7] */}
           <div className="mt-6 p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5]">
             <p className="text-xs font-semibold text-[#a8a29e] tracking-wider mb-3">
               他們的故事
@@ -380,13 +384,13 @@ export default function MethodPage() {
             <div className="space-y-2">
               <Link
                 href="/articles/socks-story-62kg"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 胖到連穿襪子都要女兒幫忙——一年後，她瘦了 62 公斤 →
               </Link>
               <Link
                 href="/articles/chicken-soup-love-story"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-[#2a9d6f] font-medium article-link"
               >
                 那碗雞湯征服了他的胃，但我卻被誤認為他媽媽 →
               </Link>
@@ -435,6 +439,43 @@ export default function MethodPage() {
         </div>
       </section>
 
+      {/* FAQ — 大家都在問 */}
+      <section className="py-12 px-5">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold mb-8">大家都在問</h2>
+          <div className="space-y-3">
+            <MethodFaqItem
+              q="ABC 跟 168、生酮有什麼不一樣？"
+              a="168、生酮都在處理「什麼時候吃」或「吃什麼」。ABC 處理更根本的問題——你的代謝系統為什麼失調。不需要戒掉任何食物，而是讓胰島素休息、代謝回到正軌。"
+            />
+            <MethodFaqItem
+              q="需要算熱量嗎？"
+              a="不用。我們關注食物品質和餐盤比例（三份蔬菜、兩份蛋白質、一份碳水），不盯數字。觀察身體變化比計算更重要。"
+            />
+            <MethodFaqItem
+              q="外食族可以做 ABC 嗎？"
+              a="完全可以。核心是「菜肉飯順序法」——先吃菜、再吃肉、最後吃飯。光是換順序，血糖波動就少了 35%。火鍋、便當、超商都能做。"
+            />
+            <MethodFaqItem
+              q="12 週結束後會復胖嗎？"
+              a="快速瘦身一年後復胖 75-80%。但 ABC 學的不是菜單，是生活方式。12 週後你已經內化了這些習慣，不是在忍耐，是真的不想回到以前。"
+            />
+            <MethodFaqItem
+              q="減肥是不是就是靠意志力？"
+              a="如果減肥靠意志力，你幾乎注定失敗。我們用「選擇」取代「控制」——搞懂為什麼要這樣吃，你就不需要意志力了。"
+            />
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              href="/faq"
+              className="text-sm text-[#2a9d6f] font-medium article-link"
+            >
+              看全部 15 個問題 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-5">
         <div className="max-w-xl mx-auto text-center">
@@ -469,19 +510,19 @@ export default function MethodPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/articles"
-                className="text-sm font-medium text-[#2a9d6f] hover:underline"
+                className="text-sm font-medium text-[#2a9d6f] article-link"
               >
                 看更多文章 →
               </Link>
               <Link
                 href="/types"
-                className="text-sm font-medium text-[#2a9d6f] hover:underline"
+                className="text-sm font-medium text-[#2a9d6f] article-link"
               >
                 了解五種代謝類型 →
               </Link>
               <Link
                 href="/about"
-                className="text-sm font-medium text-[#2a9d6f] hover:underline"
+                className="text-sm font-medium text-[#2a9d6f] article-link"
               >
                 關於一休 →
               </Link>

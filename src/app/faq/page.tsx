@@ -63,7 +63,7 @@ const FAQ_DATA: FaqSection[] = [
     items: [
       {
         q: "不吃澱粉是不是瘦比較快？",
-        a: "一週不吃澱粉，體重可能掉 2-3 公斤——但大部分是水分流失，不是脂肪。因為 1 克肝醣會夾帶 4 克水分，澱粉一斷，2.5 公斤的水就跟著走了。一回來吃就「復胖」，其實只是水分回來。\n\n更可怕的是長期不吃：腦霧、疲勞、掉髮、停經、基礎代謝下降 30-40%。大腦一天需要 120-140 克葡萄糖才能正常運作。\n\n碳水不是敵人，精緻碳水才是。把白飯換成地瓜、南瓜、糙米——血糖穩穩的，胰島素不用緊急加班，你也不會一直想亂吃。",
+        a: "一週不吃澱粉，體重可能掉 2-3 公斤——但大部分是水分流失，不是脂肪。因為 1 克肝醣會夾帶 4 克水分，澱粉一斷，水就跟著走了。一回來吃就「復胖」，其實只是水分回來。\n\n長期不吃澱粉，大腦一天需要 120-140 克葡萄糖才能正常運作，供給不足會導致腦霧、疲勞、基礎代謝下降。\n\n碳水不是敵人，精緻碳水才是。把白飯換成地瓜、南瓜、糙米——血糖穩穩的，胰島素不用緊急加班，你也不會一直想亂吃。",
       },
       {
         q: "外食族可以做 ABC 嗎？我不太可能自己煮。",
@@ -117,7 +117,7 @@ const FAQ_DATA: FaqSection[] = [
     items: [
       {
         q: "壓力大就想暴吃，怎麼辦？",
-        a: "壓力大想吃甜食，不是你意志力不夠——是身體在求救。\n\n科學機制：壓力大 → 皮質醇升高 → 身體本能想提升血清素 → 最快的方式就是吃甜的。你不是貪吃，是荷爾蒙在逼你吃。\n\n但食物帶來的快樂是「外源性」的：非常短暫，吃完還會有罪惡感，狀態反而更糟。\n\n解法不是「忍住不吃」，而是找到其他能讓你開心的事——運動、走路、整理房間、跟寵物玩、做任何你感興趣的事。當生活中有更多快樂的來源，你就不需要靠食物來舒壓。",
+        a: "壓力大想吃甜食，不是你意志力不夠——是身體在求救。壓力大時皮質醇升高，身體本能想提升血清素，最快的方式就是吃甜的。你不是貪吃，是荷爾蒙在逼你吃。\n\n但食物帶來的舒壓非常短暫，吃完還會有罪惡感，狀態反而更糟。\n\n解法不是「忍住不吃」，而是找到其他讓身體放鬆的方式——運動、走路、整理房間、跟寵物玩。當生活中有更多紓壓管道，你就不需要靠食物來填補。",
       },
       {
         q: "每天量體重好焦慮，數字上升心情就崩。",
@@ -155,7 +155,11 @@ function FaqAccordion({ item }: { item: FaqItem }) {
         </span>
         <span className="font-bold text-[15px] leading-snug">{item.q}</span>
       </button>
-      {open && (
+      <div
+        className={`overflow-hidden transition-all duration-200 ${
+          open ? "max-h-[2000px]" : "max-h-0"
+        }`}
+      >
         <div className="px-5 pb-5 pl-11">
           <div className="text-[15px] text-[#6b6560] leading-[1.85] whitespace-pre-line">
             {item.a}
@@ -175,7 +179,7 @@ function FaqAccordion({ item }: { item: FaqItem }) {
             </div>
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -183,10 +187,29 @@ function FaqAccordion({ item }: { item: FaqItem }) {
 export default function FaqPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": FAQ_DATA.flatMap(section =>
+              section.items.map(item => ({
+                "@type": "Question",
+                "name": item.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": item.a.replace(/\n/g, ' ')
+                }
+              }))
+            )
+          })
+        }}
+      />
       <section className="pt-12 pb-16 px-5">
         <div className="max-w-2xl mx-auto">
           <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
-            常見問題
+            大家都在問
           </p>
           <h1 className="text-3xl font-extrabold tracking-tight mb-3">
             你想問的，別人都問過了

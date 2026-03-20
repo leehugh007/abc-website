@@ -20,7 +20,7 @@ export function Header() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden sm:flex items-center gap-5 text-sm font-medium text-[#6b6560]">
+        <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-[#6b6560]">
           <a href="/method" className="hover:text-[#2a2520] transition-colors">
             ABC 是什麼
           </a>
@@ -29,9 +29,6 @@ export function Header() {
           </a>
           <a href="/articles" className="hover:text-[#2a2520] transition-colors">
             文章
-          </a>
-          <a href="/faq" className="hover:text-[#2a2520] transition-colors">
-            大家都在問
           </a>
           <a href="/about" className="hover:text-[#2a2520] transition-colors">
             關於一休

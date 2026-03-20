@@ -48,6 +48,17 @@ header {
   margin: 32px 0 !important;
 }
 
+/* 文章內嵌連結 — 預設加底線讓它可被辨識 */
+.article-link {
+  text-decoration: underline;
+  text-decoration-color: rgba(42, 157, 111, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.article-link:hover {
+  text-decoration-color: rgba(42, 157, 111, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
