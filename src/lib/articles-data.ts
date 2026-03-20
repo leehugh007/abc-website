@@ -157,6 +157,27 @@ export const ARTICLES: Article[] = [
     coverImage: "/images/articles/cover-ozempic-bbc.jpg",
   },
   {
+    slug: "ozempic-alternative-abc",
+    title: "如果不想打針，還有什麼選擇？",
+    description:
+      "打針是「租」一個瘦的身體，ABC 是「擁有」一個健康的身體。租的總有一天要還，擁有的才是你的。",
+    date: "2026-03-08",
+    category: "瘦瘦針真相",
+    readTime: "10 分鐘",
+    coverImage: "/images/articles/cover-ozempic-vs-abc.jpg",
+  },
+  {
+    slug: "socks-story-62kg",
+    title: "胖到連穿襪子都要女兒幫忙｜一年後，她瘦了 62 公斤",
+    description:
+      "俐臻 127→65 公斤。從把自己關在家裡六年、暴食症、憂鬱症，到學會愛自己。如果她能瘦 62 公斤，你的目標可能只是她的零頭。",
+    date: "2026-03-10",
+    category: "學員故事",
+    readTime: "15 分鐘",
+    featured: true,
+    coverImage: "/images/articles/cover-student-minus62kg.jpg",
+  },
+  {
     slug: "chicken-soup-love-story",
     title: "那碗雞湯征服了他的胃，但我卻被誤認為他媽媽",
     description:
