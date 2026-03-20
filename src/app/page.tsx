@@ -48,6 +48,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 快速信任 — 一休 before/after */}
+      <section className="pb-12 px-5">
+        <div className="max-w-md mx-auto">
+          <div className="rounded-2xl overflow-hidden border border-[#eee9e5]">
+            <Image
+              src="/images/founder-transformation.png"
+              alt="一休：89公斤到62公斤的對比"
+              width={500}
+              height={300}
+              className="w-full h-auto"
+            />
+            <div className="p-4 text-center bg-white">
+              <p className="text-sm text-[#6b6560]">
+                一休，43 歲，從 <strong className="text-[#2a2520]">89 → 62 公斤</strong>。不靠節食、不靠藥物，靠的是理解代謝。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 痛點共鳴 — 讓人對號入座 */}
       <section className="py-16 px-5 bg-white">
         <div className="max-w-2xl mx-auto">
@@ -76,6 +96,38 @@ export default function Home() {
             這些都跟<strong className="text-[#2a2520]">「代謝」</strong>
             有關，不是意志力的問題。
           </p>
+        </div>
+      </section>
+
+      {/* 核心理念 — 先讓她知道 ABC 跟其他方法不一樣 */}
+      <section className="py-20 px-5 bg-[#1a5e3f] text-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl font-bold mb-12">
+            ABC 代謝力重建，不是另一種節食法
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-8 text-left">
+            <div>
+              <div className="text-3xl mb-3">🔬</div>
+              <div className="font-bold mb-2 text-lg">理解代謝，不靠意志力</div>
+              <p className="text-sm text-white/70 leading-relaxed">
+                當你理解身體的運作方式，正確的選擇會變成本能，不需要每天跟自己打仗。
+              </p>
+            </div>
+            <div>
+              <div className="text-3xl mb-3">➕</div>
+              <div className="font-bold mb-2 text-lg">增加好的，不限制壞的</div>
+              <p className="text-sm text-white/70 leading-relaxed">
+                不告訴你不能吃什麼，而是教你可以加什麼。加法思維，讓改變自然發生。
+              </p>
+            </div>
+            <div>
+              <div className="text-3xl mb-3">🤝</div>
+              <div className="font-bold mb-2 text-lg">陪伴，不是指導</div>
+              <p className="text-sm text-white/70 leading-relaxed">
+                我不是比你厲害，只是比你早犯錯 30 年。這裡沒有大師，只有一起走的人。
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -239,72 +291,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 50歲單親媽媽 */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
-            <div className="grid grid-cols-2 gap-0">
-              <div className="relative">
-                <Image src="/images/student-success-1.jpeg" alt="單親媽媽減重前" width={350} height={400} className="w-full h-full object-cover" />
-                <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
-              </div>
-              <div className="relative">
-                <Image src="/images/student-success-2.jpeg" alt="單親媽媽減重後" width={350} height={400} className="w-full h-full object-cover" />
-                <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="font-bold text-lg">50 歲單親媽媽</span>
-              </div>
-              <div className="text-sm text-[#6b6560] space-y-1 mb-3">
-                <p><strong className="text-[#2a2520]">困擾：</strong>生了兩胎後一直瘦不回來，試過各種方法都復胖</p>
-                <p><strong className="text-[#2a2520]">轉折：</strong>先生突然去世，必須獨自照顧兩個孩子，決定找回健康</p>
-              </div>
-              <div className="bg-[#27ae60]/5 rounded-xl p-4">
-                <p className="text-sm font-semibold text-[#27ae60]">
-                  ✨ 從只能穿又長又寬的衣服 → 自信穿合身洋裝，成為孩子的驕傲
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* 四寶媽 */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
-            <div className="grid grid-cols-2 gap-0">
-              <div className="relative">
-                <Image src="/images/IMG_7574.jpeg" alt="四寶媽減重前" width={350} height={400} className="w-full h-full object-cover" />
-                <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
-              </div>
-              <div className="relative">
-                <Image src="/images/IMG_7575.jpeg" alt="四寶媽減重後" width={350} height={400} className="w-full h-full object-cover" />
-                <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="font-bold text-lg">四寶媽的最後一次瘦身</span>
-              </div>
-              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-3 italic">
-                「已經失敗很多次了，我真的不想再這樣一直反覆復胖。這次一定要成功，為了孩子，也為了自己！」
-              </blockquote>
-              <div className="bg-[#27ae60]/5 rounded-xl p-4">
-                <p className="text-sm font-semibold text-[#27ae60]">
-                  ✨ 腹部明顯縮小・學會健康飲食融入生活・不再需要甜食舒壓・不再擔心暴飲暴食
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* 更多學員 — 簡短卡片 */}
-          <h3 className="text-lg font-bold text-center mb-4 mt-12">更多真實轉變</h3>
-          <div className="space-y-3">
+          {/* 簡短卡片 — 不同類型的人 */}
+          <div className="space-y-3 mt-8">
             {[
-              { name: "小雨", age: 41, tag: "反覆減肥 30 年", quote: "我試過減肥藥、極端節食，身體都出問題了。ABC 讓我第一次感受到健康瘦身的可能。", result: "終於找到不傷身體的可持續方法" },
-              { name: "小維", age: 35, tag: "上班族・胃食道逆流", quote: "減肥藥讓我胃酸逆流更嚴重，ABC 不但讓我瘦了，胃食道逆流也大幅改善了。", result: "胃食道逆流大幅改善，睡眠品質變好" },
-              { name: "小魚", age: 31, tag: "護理師・不規律作息", quote: "我每天照顧病人，卻連自己的健康都顧不好。終於找到適合醫護人員的方法。", result: "學會在不規律作息中維持健康" },
+              { name: "小維", age: 35, tag: "上班族・胃食道逆流", quote: "減肥藥讓我胃酸逆流更嚴重，ABC 不但讓我瘦了，胃食道逆流也大幅改善了。", result: "胃食道逆流大幅改善" },
+              { name: "小魚", age: 31, tag: "護理師・不規律作息", quote: "我每天照顧病人，卻連自己的健康都顧不好。終於找到適合醫護人員的方法。", result: "在不規律作息中維持健康" },
               { name: "Sam", age: 44, tag: "工程師・三高", quote: "體檢報告滿江紅，我害怕瘦瘦針的副作用。ABC 讓我安全地改善了健康指標。", result: "三高指標明顯改善" },
-              { name: "小慧", age: 41, tag: "三期學員班長", quote: "以前為了快速瘦身，什麼極端方法都試過。現在我要的是瘦一輩子，而不是瘦一陣子。", result: "從恐懼運動到熱愛運動，身體更健康" },
             ].map((t, i) => (
-              <div key={i} className="p-4 rounded-xl bg-[#faf9f7] border border-[#eee9e5]">
+              <div key={i} className="p-4 rounded-xl bg-white/80 border border-[#eee9e5]">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-bold">{t.name}</span>
                   <span className="text-sm text-[#a8a29e]">{t.age} 歲</span>
@@ -314,6 +308,12 @@ export default function Home() {
                 <p className="text-sm font-semibold text-[#27ae60]">✓ {t.result}</p>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/about" className="text-[#2a9d6f] font-semibold hover:underline">
+              看更多學員故事 →
+            </Link>
           </div>
 
           {/* 團隊力量 */}
@@ -329,38 +329,6 @@ export default function Home() {
               <p className="font-bold mb-1">這群人加在一起瘦超過 <span className="text-[#e74c3c]">300 公斤</span></p>
               <p className="text-sm text-[#6b6560]">
                 因為我們都胖過，我們懂胖過的苦。用眾人的力量，陪你走一條不用獨自承受的路。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 核心理念 — 全寬深色背景破格 */}
-      <section className="py-20 px-5 bg-[#1a5e3f] text-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-12">
-            ABC 代謝力重建，不是另一種節食法
-          </h2>
-          <div className="grid sm:grid-cols-3 gap-8 text-left">
-            <div>
-              <div className="text-3xl mb-3">🔬</div>
-              <div className="font-bold mb-2 text-lg">理解代謝，不靠意志力</div>
-              <p className="text-sm text-white/70 leading-relaxed">
-                當你理解身體的運作方式，正確的選擇會變成本能，不需要每天跟自己打仗。
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl mb-3">➕</div>
-              <div className="font-bold mb-2 text-lg">增加好的，不限制壞的</div>
-              <p className="text-sm text-white/70 leading-relaxed">
-                不告訴你不能吃什麼，而是教你可以加什麼。加法思維，讓改變自然發生。
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl mb-3">🤝</div>
-              <div className="font-bold mb-2 text-lg">陪伴，不是指導</div>
-              <p className="text-sm text-white/70 leading-relaxed">
-                我不是比你厲害，只是比你早犯錯 30 年。這裡沒有大師，只有一起走的人。
               </p>
             </div>
           </div>
