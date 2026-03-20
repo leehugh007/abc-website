@@ -7,6 +7,43 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 文章內的粗體 = 綠色螢光筆效果 */
+.prose strong {
+  background: linear-gradient(transparent 60%, #d4f0e0 60%, #d4f0e0 90%, transparent 90%);
+  color: inherit;
+  font-weight: 700;
+  padding: 0 2px;
+}
+
+/* 文章內的 blockquote = 溫暖的橘色左邊框 */
+.prose blockquote {
+  border-left-color: #e67e22 !important;
+  background: #fef8f0;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px !important;
+  font-style: normal !important;
+}
+.prose blockquote p {
+  color: #2a2520 !important;
+}
+
+/* 文章內的分段標題（從 FB #標題 轉換而來） */
+.article-section-break {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2a9d6f;
+  padding: 20px 0 8px;
+  margin: 32px 0 16px;
+  border-top: 2px solid #eee9e5;
+  letter-spacing: -0.2px;
+}
+
+/* 文章內的 hr = 輕量分隔 */
+.prose hr {
+  border-color: #eee9e5 !important;
+  margin: 32px 0 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

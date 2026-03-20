@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/apple-icon.png/route": "/apple-icon.png",
+  "/articles/[slug]/page": "/articles/[slug]",
+  "/articles/page": "/articles",
+  "/icon.png/route": "/icon.png",
+  "/page": "/",
+  "/types/[slug]/page": "/types/[slug]",
+  "/types/page": "/types"
+}

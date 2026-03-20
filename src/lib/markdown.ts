@@ -48,7 +48,12 @@ export async function getArticleContent(slug: string) {
     if (line === titleLine) continue;
 
     // Skip metadata blockquotes at the top (> 核心目的... etc)
-    if (line.match(/^>\s*(核心目的|類型|底層情緒|分享動機|分類|策略定位|測試變數|狀態|科學資料庫)/)) continue;
+    if (
+      line.match(
+        /^>\s*(核心目的|類型|底層情緒|分享動機|分類|策略定位|測試變數|狀態|科學資料庫)/
+      )
+    )
+      continue;
 
     // Check if this is an internal section heading
     if (line.startsWith("## ")) {
@@ -59,7 +64,6 @@ export async function getArticleContent(slug: string) {
 
     // Skip lines within internal sections
     if (skipSection) {
-      // Stop skipping when we hit the next ## heading that's NOT internal
       if (line.startsWith("## ")) {
         const sectionName = line.replace(/^##\s+/, "").trim();
         skipSection = INTERNAL_SECTIONS.some((s) => sectionName.includes(s));
@@ -70,13 +74,31 @@ export async function getArticleContent(slug: string) {
     }
 
     // Skip hashtag lines (lines that are mostly #tags)
-    if (line.match(/^#[^\s#]/) && line.includes("#") && line.split("#").length > 3) continue;
+    if (
+      line.match(/^#[^\s#]/) &&
+      line.includes("#") &&
+      line.split("#").length > 3
+    )
+      continue;
+
+    // Convert FB-style #section headers (no space after #) to styled section breaks
+    // e.g. #一個被誤解很久的真相 → HTML section break
+    if (line.match(/^#([^#\s].{2,})$/) && !line.startsWith("##")) {
+      const sectionTitle = line.replace(/^#/, "").trim();
+      // Skip if it looks like a hashtag (short, or contains multiple #)
+      if (sectionTitle.length > 3) {
+        filtered.push(
+          `<div class="article-section-break">${sectionTitle}</div>`
+        );
+        continue;
+      }
+    }
 
     filtered.push(line);
   }
 
   const body = filtered.join("\n").trim();
-  const result = await remark().use(html).process(body);
+  const result = await remark().use(html, { sanitize: false }).process(body);
 
   return {
     title,
