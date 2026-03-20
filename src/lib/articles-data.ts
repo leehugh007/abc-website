@@ -1,3 +1,17 @@
+export type Tag =
+  | "胰島素阻抗"
+  | "血糖控制"
+  | "復胖"
+  | "瘦瘦針"
+  | "荷爾蒙"
+  | "代謝適應"
+  | "健檢紅字"
+  | "發炎"
+  | "飲食方法"
+  | "體重迷思"
+  | "學員故事"
+  | "外食族";
+
 export interface Article {
   slug: string;
   title: string;
@@ -7,6 +21,7 @@ export interface Article {
   readTime: string;
   featured?: boolean;
   coverImage?: string;
+  tags: Tag[];
 }
 
 export const ARTICLES: Article[] = [
@@ -20,6 +35,7 @@ export const ARTICLES: Article[] = [
     readTime: "8 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-regain-truth.jpg",
+    tags: ["復胖", "代謝適應", "體重迷思"],
   },
   {
     slug: "ozempic-cost-and-regain",
@@ -30,6 +46,7 @@ export const ARTICLES: Article[] = [
     category: "瘦瘦針",
     readTime: "6 分鐘",
     coverImage: "/images/articles/cover-ozempic-regain.jpg",
+    tags: ["瘦瘦針", "復胖"],
   },
   {
     slug: "ozempic-body-disconnect",
@@ -40,6 +57,7 @@ export const ARTICLES: Article[] = [
     category: "瘦瘦針",
     readTime: "7 分鐘",
     coverImage: "/images/articles/cover-ozempic-puppet.jpg",
+    tags: ["瘦瘦針", "荷爾蒙"],
   },
   {
     slug: "ozempic-doctor-warning",
@@ -50,6 +68,7 @@ export const ARTICLES: Article[] = [
     category: "瘦瘦針",
     readTime: "7 分鐘",
     coverImage: "/images/articles/cover-ozempic-80percent.jpg",
+    tags: ["瘦瘦針", "荷爾蒙"],
   },
   {
     slug: "starch-rescue",
@@ -60,6 +79,7 @@ export const ARTICLES: Article[] = [
     category: "飲食方法",
     readTime: "5 分鐘",
     coverImage: "/images/articles/cover-starch-rescue.jpg",
+    tags: ["飲食方法", "血糖控制", "外食族"],
   },
   {
     slug: "willpower-myth",
@@ -71,6 +91,7 @@ export const ARTICLES: Article[] = [
     readTime: "6 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-willpower-myth.jpg",
+    tags: ["荷爾蒙", "體重迷思", "代謝適應"],
   },
   {
     slug: "dark-neck-insulin",
@@ -82,6 +103,7 @@ export const ARTICLES: Article[] = [
     readTime: "6 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-dark-neck.jpg",
+    tags: ["胰島素阻抗", "健檢紅字"],
   },
   {
     slug: "normal-blood-sugar-trap",
@@ -93,6 +115,7 @@ export const ARTICLES: Article[] = [
     readTime: "7 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-blood-sugar-normal.jpg",
+    tags: ["胰島素阻抗", "血糖控制", "健檢紅字"],
   },
   {
     slug: "eating-order-blood-sugar",
@@ -104,6 +127,7 @@ export const ARTICLES: Article[] = [
     readTime: "5 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-eating-order.jpg",
+    tags: ["飲食方法", "血糖控制", "外食族"],
   },
   {
     slug: "body-fat-scale-liar",
@@ -114,6 +138,7 @@ export const ARTICLES: Article[] = [
     category: "減肥真相",
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-body-fat-scale.jpg",
+    tags: ["體重迷思"],
   },
   {
     slug: "cholesterol-not-eggs",
@@ -125,6 +150,7 @@ export const ARTICLES: Article[] = [
     readTime: "8 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-cholesterol-inflammation.jpg",
+    tags: ["健檢紅字", "發炎", "胰島素阻抗"],
   },
   {
     slug: "blood-pressure-not-salt",
@@ -135,6 +161,7 @@ export const ARTICLES: Article[] = [
     category: "健檢紅字",
     readTime: "12 分鐘",
     coverImage: "/images/articles/cover-blood-pressure.jpg",
+    tags: ["健檢紅字", "發炎", "胰島素阻抗"],
   },
   {
     slug: "blood-sugar-insulin-overwork",
@@ -145,6 +172,7 @@ export const ARTICLES: Article[] = [
     category: "健檢紅字",
     readTime: "12 分鐘",
     coverImage: "/images/articles/cover-blood-sugar-overwork.jpg",
+    tags: ["胰島素阻抗", "血糖控制", "健檢紅字"],
   },
   {
     slug: "ozempic-bbc-tsunami",
@@ -155,6 +183,7 @@ export const ARTICLES: Article[] = [
     category: "瘦瘦針",
     readTime: "5 分鐘",
     coverImage: "/images/articles/cover-ozempic-bbc.jpg",
+    tags: ["瘦瘦針", "復胖", "荷爾蒙"],
   },
   {
     slug: "eat-less-move-more-myth",
@@ -166,6 +195,7 @@ export const ARTICLES: Article[] = [
     readTime: "10 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-eat-less-move-more.jpg",
+    tags: ["體重迷思", "胰島素阻抗", "代謝適應"],
   },
   {
     slug: "ozempic-alternative-abc",
@@ -176,6 +206,7 @@ export const ARTICLES: Article[] = [
     category: "瘦瘦針",
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-ozempic-vs-abc.jpg",
+    tags: ["瘦瘦針", "復胖", "飲食方法"],
   },
   {
     slug: "socks-story-62kg",
@@ -187,6 +218,7 @@ export const ARTICLES: Article[] = [
     readTime: "15 分鐘",
     featured: true,
     coverImage: "/images/articles/cover-student-minus62kg.jpg",
+    tags: ["學員故事", "體重迷思"],
   },
   {
     slug: "chicken-soup-love-story",
@@ -197,6 +229,7 @@ export const ARTICLES: Article[] = [
     category: "學員故事",
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-student-minus18kg.jpg",
+    tags: ["學員故事", "健檢紅字", "發炎"],
   },
 ];
 
@@ -206,4 +239,20 @@ export function getArticleBySlug(slug: string): Article | undefined {
 
 export function getAllArticleSlugs(): string[] {
   return ARTICLES.map((a) => a.slug);
+}
+
+export function getArticlesByTag(tag: Tag): Article[] {
+  return ARTICLES.filter((a) => a.tags.includes(tag));
+}
+
+export function getAllTags(): { tag: Tag; count: number }[] {
+  const tagMap = new Map<Tag, number>();
+  for (const article of ARTICLES) {
+    for (const tag of article.tags) {
+      tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+    }
+  }
+  return Array.from(tagMap.entries())
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
 }

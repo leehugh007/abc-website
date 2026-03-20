@@ -20,6 +20,37 @@ export const metadata: Metadata = {
   },
 };
 
+const SITE_URL = "https://abc-metabolism.vercel.app";
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "ABC 代謝力重建瘦身法",
+  url: SITE_URL,
+  description:
+    "重建代謝力，瘦只是順便的事。科學方法、不挨餓、不復胖。",
+  inLanguage: "zh-TW",
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ABC 代謝力重建",
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon-mflame-pack/apple-touch-icon.png`,
+  founder: {
+    "@type": "Person",
+    name: "一休",
+    description:
+      "瘦身教練、ABC 代謝重建瘦身法創辦人。曾從 89 公斤瘦到 62 公斤，超過 10 年維持不復胖。",
+    url: `${SITE_URL}/about`,
+  },
+  sameAs: [
+    "https://www.facebook.com/yixiu12345",
+    "https://lin.ee/x41s2Su",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +59,18 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className="h-full antialiased">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}

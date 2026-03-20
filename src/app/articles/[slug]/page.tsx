@@ -56,22 +56,57 @@ export default async function ArticlePage({
   const content = await getArticleContent(slug);
   if (!content) notFound();
 
-  // Related articles: same category first, then others, exclude current
+  // Related articles: rank by shared tags, then same category
   const related = ARTICLES.filter((a) => a.slug !== slug)
-    .sort((a, b) => {
-      if (a.category === article.category && b.category !== article.category)
-        return -1;
-      if (a.category !== article.category && b.category === article.category)
-        return 1;
-      return 0;
+    .map((a) => {
+      const sharedTags = a.tags.filter((t) => article.tags.includes(t)).length;
+      const sameCategory = a.category === article.category ? 1 : 0;
+      return { ...a, score: sharedTags * 2 + sameCategory };
     })
+    .sort((a, b) => b.score - a.score)
     .slice(0, 3);
 
   const ctaText =
     CATEGORY_CTA[article.category] || "想知道你是哪種代謝類型？";
 
+  const SITE_URL = "https://abc-metabolism.vercel.app";
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    dateModified: article.date,
+    image: article.coverImage
+      ? `${SITE_URL}${article.coverImage}`
+      : undefined,
+    author: {
+      "@type": "Person",
+      name: "一休",
+      description:
+        "瘦身教練、ABC 代謝重建瘦身法創辦人。曾從 89 公斤瘦到 62 公斤，超過 10 年維持不復胖。",
+      url: `${SITE_URL}/about`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "ABC 代謝力重建",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/articles/${slug}`,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd),
+        }}
+      />
       {/* Header */}
       <section className="pt-12 pb-8 px-5">
         <div className="max-w-2xl mx-auto">
@@ -93,9 +128,26 @@ export default async function ArticlePage({
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mb-4">
             {content.title}
           </h1>
-          <p className="text-[#6b6560] leading-relaxed">
+          <p className="text-[#6b6560] leading-relaxed mb-4">
             {article.description}
           </p>
+          {/* E-E-A-T: 作者 + 背景 + 日期 */}
+          <div className="flex items-center gap-3 text-sm text-[#a8a29e]">
+            <Link href="/about" className="flex items-center gap-2 hover:text-[#6b6560] transition-colors">
+              <span className="w-6 h-6 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold shrink-0">休</span>
+              <span className="font-medium text-[#6b6560]">一休</span>
+            </Link>
+            <span className="text-[#ddd5cf]">·</span>
+            <span>瘦身教練・ABC 代謝重建創辦人</span>
+            <span className="text-[#ddd5cf]">·</span>
+            <time dateTime={article.date}>
+              {new Date(article.date).toLocaleDateString("zh-TW", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+          </div>
           {article.coverImage && (
             <div className="mt-6 rounded-2xl overflow-hidden">
               <Image
@@ -117,6 +169,23 @@ export default async function ArticlePage({
           className="max-w-2xl mx-auto prose prose-lg prose-stone prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-[1.9] prose-p:text-[#2a2520] prose-li:text-[#2a2520] prose-blockquote:border-l-[#f39c12] prose-blockquote:text-[#6b6560] prose-blockquote:italic prose-strong:text-[#2a2520] prose-a:text-[#2a9d6f] prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: content.html }}
         />
+      </section>
+
+      {/* Tags */}
+      <section className="pb-8 px-5">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex flex-wrap gap-2">
+            {article.tags.map((tag) => (
+              <Link
+                key={tag}
+                href={`/articles?tag=${encodeURIComponent(tag)}`}
+                className="text-xs px-3 py-1.5 rounded-full bg-[#f3f9f5] text-[#2a9d6f] font-medium border border-[#2a9d6f]/20 hover:bg-[#2a9d6f] hover:text-white transition-colors"
+              >
+                {tag}
+              </Link>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Share prompt */}

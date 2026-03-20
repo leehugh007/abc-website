@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { ARTICLES } from "@/lib/articles-data";
+import { useState, useEffect } from "react";
+import { ARTICLES, getAllTags, type Tag } from "@/lib/articles-data";
 
 const CATEGORY_COLORS: Record<string, string> = {
   健檢紅字: "bg-[#e74c3c]/10 text-[#e74c3c]",
@@ -25,14 +25,39 @@ const CATEGORIES = Object.keys(CATEGORY_LABELS);
 
 export default function ArticlesPage() {
   const [active, setActive] = useState<string | null>(null);
+  const [activeTag, setActiveTag] = useState<Tag | null>(null);
+
+  const allTags = getAllTags();
+
+  // Read ?tag= from URL on mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tagParam = params.get("tag") as Tag | null;
+    if (tagParam && allTags.some((t) => t.tag === tagParam)) {
+      setActiveTag(tagParam);
+      setActive(null);
+    }
+  }, []);
+
+  const handleCategoryClick = (cat: string | null) => {
+    setActive(cat);
+    setActiveTag(null);
+  };
+
+  const handleTagClick = (tag: Tag) => {
+    setActiveTag(activeTag === tag ? null : tag);
+    setActive(null);
+  };
 
   const sorted = [...ARTICLES].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  const filtered = active
-    ? sorted.filter((a) => a.category === active)
-    : sorted;
+  const filtered = activeTag
+    ? sorted.filter((a) => a.tags.includes(activeTag))
+    : active
+      ? sorted.filter((a) => a.category === active)
+      : sorted;
 
   const featured = filtered.filter((a) => a.featured);
   const rest = filtered.filter((a) => !a.featured);
@@ -48,11 +73,11 @@ export default function ArticlesPage() {
         </p>
 
         {/* Category filter pills */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2 mb-4">
           <button
-            onClick={() => setActive(null)}
+            onClick={() => { handleCategoryClick(null); }}
             className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
-              active === null
+              active === null && activeTag === null
                 ? "bg-[#2a9d6f] text-white"
                 : "bg-white border border-[#eee9e5] text-[#6b6560] hover:border-[#ddd5cf]"
             }`}
@@ -62,7 +87,7 @@ export default function ArticlesPage() {
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActive(active === cat ? null : cat)}
+              onClick={() => handleCategoryClick(active === cat ? null : cat)}
               className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
                 active === cat
                   ? "bg-[#2a9d6f] text-white"
@@ -70,6 +95,24 @@ export default function ArticlesPage() {
               }`}
             >
               {CATEGORY_LABELS[cat]}
+            </button>
+          ))}
+        </div>
+
+        {/* Tag filter pills */}
+        <div className="flex flex-wrap gap-1.5 mb-10">
+          {allTags.map(({ tag, count }) => (
+            <button
+              key={tag}
+              onClick={() => handleTagClick(tag)}
+              className={`text-xs px-3 py-1.5 rounded-full font-medium transition-colors ${
+                activeTag === tag
+                  ? "bg-[#2a9d6f] text-white"
+                  : "bg-[#f3f9f5] text-[#2a9d6f] border border-[#2a9d6f]/20 hover:bg-[#2a9d6f]/10"
+              }`}
+            >
+              {tag}
+              <span className="ml-1 opacity-60">{count}</span>
             </button>
           ))}
         </div>
