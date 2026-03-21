@@ -231,6 +231,28 @@ export const ARTICLES: Article[] = [
     coverImage: "/images/articles/cover-student-minus18kg.jpg",
     tags: ["學員故事", "健檢紅字", "發炎"],
   },
+  {
+    slug: "metabolism-reset-vs-ozempic",
+    title: "代謝重建 vs 瘦瘦針：花錢買的瘦，跟自己學來的瘦，差在哪？",
+    description:
+      "打針是「租」一個瘦的身體，代謝重建是「擁有」一個健康的身體。原理、速度、復胖率、副作用、費用——逐項比給你看。",
+    date: "2026-03-21",
+    category: "瘦瘦針",
+    readTime: "8 分鐘",
+    featured: true,
+    tags: ["瘦瘦針", "復胖", "胰島素阻抗"],
+  },
+  {
+    slug: "abc-vs-intermittent-fasting",
+    title: "ABC 代謝重建 vs 168 間歇性斷食：為什麼你 168 斷食失敗了？",
+    description:
+      "168 只管「什麼時候吃」，ABC 處理的是「你的身體怎麼了」。一個是時間策略，一個是系統修復。差別在這裡。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    featured: true,
+    tags: ["代謝適應", "胰島素阻抗", "體重迷思"],
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
