@@ -100,8 +100,36 @@ export async function getArticleContent(slug: string) {
   const body = filtered.join("\n").trim();
   const result = await remark().use(html, { sanitize: false }).process(body);
 
+  // Inject mid-article CTA roughly in the middle
+  const rawHtml = result.toString();
+  const htmlWithCta = injectMidArticleCta(rawHtml);
+
   return {
     title,
-    html: result.toString(),
+    html: htmlWithCta,
   };
+}
+
+const MID_ARTICLE_CTA = `<div class="mid-article-cta">
+<p class="mid-article-cta-label">ABC 代謝重建瘦身法</p>
+<p class="mid-article-cta-text">想知道你的代謝類型？30 秒免費測驗，找到適合你的方式</p>
+<a href="https://metabolism-quiz.vercel.app" class="mid-article-cta-btn">測出我的代謝類型 →</a>
+</div>`;
+
+function injectMidArticleCta(html: string): string {
+  // Find all paragraph/heading break points
+  const breakPoints: number[] = [];
+  const tagPattern = /<\/(p|h2|h3|blockquote|div|ul|ol)>/gi;
+  let match;
+  while ((match = tagPattern.exec(html)) !== null) {
+    breakPoints.push(match.index + match[0].length);
+  }
+
+  if (breakPoints.length < 4) return html; // Too short, skip
+
+  // Insert around 45-55% through the content
+  const targetIdx = Math.floor(breakPoints.length * 0.5);
+  const insertPos = breakPoints[targetIdx];
+
+  return html.slice(0, insertPos) + MID_ARTICLE_CTA + html.slice(insertPos);
 }

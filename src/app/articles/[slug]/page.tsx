@@ -197,26 +197,38 @@ export default async function ArticlePage({
         </div>
       </section>
 
-      {/* CTA — contextual */}
+      {/* CTA — 三選一下一步 */}
       <section className="py-12 px-5 bg-white border-t border-[#eee9e5]">
-        <div className="max-w-xl mx-auto text-center">
-          <p className="text-sm text-[#a8a29e] mb-3">我是一休，陪你健康的瘦一輩子</p>
-          <h2 className="text-xl font-bold mb-4">{ctaText}</h2>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="max-w-xl mx-auto">
+          <p className="text-sm text-[#a8a29e] mb-3 text-center">我是一休，陪你健康的瘦一輩子</p>
+          <h2 className="text-xl font-bold mb-6 text-center">{ctaText}</h2>
+          <div className="grid sm:grid-cols-3 gap-3">
             <a
               href="https://metabolism-quiz.vercel.app"
-              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
+              className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
             >
-              30 秒代謝測驗 →
+              <span className="text-2xl">🔬</span>
+              <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">測出代謝類型</span>
+              <span className="text-xs text-[#a8a29e]">30 秒免費測驗</span>
             </a>
             <a
               href="https://lin.ee/x41s2Su"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#06C755] rounded-full shadow-md"
+              className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#06C755] hover:shadow-sm transition-all text-center group"
             >
-              加入一休的 LINE →
+              <span className="text-2xl">💬</span>
+              <span className="font-bold text-sm group-hover:text-[#06C755] transition-colors">問一休</span>
+              <span className="text-xs text-[#a8a29e]">加入 LINE 直接聊</span>
             </a>
+            <Link
+              href="/method"
+              className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
+            >
+              <span className="text-2xl">📖</span>
+              <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">了解 ABC 方法</span>
+              <span className="text-xs text-[#a8a29e]">看完整介紹</span>
+            </Link>
           </div>
         </div>
       </section>

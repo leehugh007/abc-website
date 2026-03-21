@@ -59,6 +59,43 @@ header {
   text-decoration-color: rgba(42, 157, 111, 1);
 }
 
+/* 文章中段 CTA */
+.mid-article-cta {
+  margin: 36px 0;
+  padding: 24px;
+  background: #f3f9f5;
+  border: 1px solid rgba(42, 157, 111, 0.2);
+  border-radius: 16px;
+  text-align: center;
+}
+.mid-article-cta-label {
+  font-size: 12px !important;
+  font-weight: 600;
+  color: #2a9d6f !important;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px !important;
+}
+.mid-article-cta-text {
+  font-size: 15px !important;
+  color: #2a2520 !important;
+  font-weight: 600;
+  margin-bottom: 14px !important;
+}
+.mid-article-cta-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background: #2a9d6f;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  transition: box-shadow 0.2s;
+}
+.mid-article-cta-btn:hover {
+  box-shadow: 0 4px 12px rgba(42, 157, 111, 0.3);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
