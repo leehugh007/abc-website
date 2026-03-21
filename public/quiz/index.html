@@ -26,9 +26,9 @@ function trackEvent(name, params) {
 <style>
 /* ===== Design Tokens ===== */
 :root {
-  --primary: #e74c3c;
-  --primary-dark: #c0392b;
-  --accent: #f39c12;
+  --primary: #2a9d6f;
+  --primary-dark: #1a5e3f;
+  --accent: #34b882;
   --green: #27ae60;
   --blue: #3498db;
   --text: #2a2520;
@@ -81,7 +81,7 @@ body {
 }
 .intro-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #ff6b6b, #ffa502);
+  background: linear-gradient(135deg, #2a9d6f, #34b882);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -89,7 +89,7 @@ body {
   border-radius: 20px;
   margin-bottom: 24px;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 12px rgba(255,107,107,0.2);
+  box-shadow: 0 2px 12px rgba(42,157,111,0.2);
 }
 .intro h1 {
   font-size: 30px;
@@ -131,22 +131,16 @@ body {
   font-size: 18px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  background: linear-gradient(135deg, #2a9d6f, #34b882);
   border: none;
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
-  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
-  animation: pulseGlow 2.5s ease-in-out infinite;
-}
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3); }
-  50% { box-shadow: 0 6px 30px rgba(231, 76, 60, 0.45); }
+  box-shadow: 0 4px 20px rgba(42, 157, 111, 0.3);
 }
 .start-btn:active {
   transform: scale(0.97);
-  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
-  animation: none;
+  box-shadow: 0 2px 10px rgba(42, 157, 111, 0.3);
 }
 .intro-footer {
   margin-top: 28px;
@@ -193,8 +187,8 @@ body {
 }
 .pain-item.highlighted {
   border-left-color: var(--primary);
-  background: #fff5f5;
-  box-shadow: 0 2px 12px rgba(231,76,60,0.08);
+  background: #f0faf6;
+  box-shadow: 0 2px 12px rgba(42,157,111,0.08);
 }
 .pain-check {
   flex-shrink: 0;
@@ -211,8 +205,8 @@ body {
   cursor: pointer;
 }
 .pain-item.highlighted .pain-check {
-  background: #e74c3c;
-  border-color: #e74c3c;
+  background: #2a9d6f;
+  border-color: #2a9d6f;
   color: #fff;
 }
 .pain-count {
@@ -270,10 +264,9 @@ body {
 }
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: linear-gradient(90deg, #2a9d6f, #34b882);
   border-radius: 4px;
   transition: width 0.4s var(--ease);
-  box-shadow: 0 0 8px rgba(231,76,60,0.2);
 }
 
 /* ===== Question Page ===== */
@@ -288,7 +281,7 @@ body {
 .question-num {
   font-size: 13px;
   font-weight: 600;
-  color: #e74c3c;
+  color: #2a9d6f;
   margin-bottom: 8px;
 }
 .question-text {
@@ -334,9 +327,9 @@ body {
 }
 .option-btn:active, .option-btn.selected {
   border-color: var(--primary);
-  background: #fef7f5;
+  background: #f0faf6;
   color: var(--text);
-  box-shadow: 0 2px 12px rgba(231,76,60,0.1);
+  box-shadow: 0 2px 12px rgba(42,157,111,0.1);
 }
 .option-btn.selected .option-label {
   background: var(--primary);
@@ -370,8 +363,8 @@ body {
   box-shadow: var(--shadow-xs);
 }
 .checkbox-btn.selected {
-  border-color: #e74c3c;
-  background: #fff5f5;
+  border-color: #2a9d6f;
+  background: #f0faf6;
 }
 .checkbox-icon {
   width: 22px;
@@ -387,8 +380,8 @@ body {
   font-size: 12px;
 }
 .checkbox-btn.selected .checkbox-icon {
-  background: #e74c3c;
-  border-color: #e74c3c;
+  background: #2a9d6f;
+  border-color: #2a9d6f;
   color: #fff;
 }
 .q7-none-option {
@@ -418,12 +411,12 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, #2a9d6f, #34b882);
   border: none;
   border-radius: var(--radius-full);
   cursor: pointer;
   font-family: inherit;
-  box-shadow: 0 4px 16px rgba(231,76,60,0.25);
+  box-shadow: 0 4px 16px rgba(42,157,111,0.25);
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
 .q7-next-btn:active {
@@ -824,10 +817,10 @@ body {
 .share-btn-line:active { background: #05a648; }
 .share-btn-copy {
   background: #fff;
-  color: #e74c3c;
-  border: 2px solid #e74c3c;
+  color: #2a9d6f;
+  border: 2px solid #2a9d6f;
 }
-.share-btn-copy:active { background: #fff5f5; }
+.share-btn-copy:active { background: #f0faf6; }
 .share-btn-save {
   background: #fff;
   color: #3498db;
@@ -977,7 +970,7 @@ body {
   font-size: 12px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  background: linear-gradient(135deg, #2a9d6f, #34b882);
   margin-bottom: 12px;
 }
 .science-cta-title {
@@ -1925,7 +1918,7 @@ function SciencePage({ typeId, onBack, onRestart, hasResult }) {
           </div>
         )}
 
-        {/* CTA - ABC代謝力重建系統 */}
+        {/* CTA */}
         {!isSteady ? (
           <div className="science-cta-box">
             <div className="science-cta-badge">專為你的類型設計</div>
@@ -1940,8 +1933,11 @@ function SciencePage({ typeId, onBack, onRestart, hasResult }) {
               <div className="science-cta-feature">✅ 拿到專屬你的調整方案</div>
               <div className="science-cta-feature">✅ 不用餓肚子也能看到改變</div>
             </div>
-            <a className="science-cta-btn" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" onClick={() => trackEvent('click_line_yixiu', { source: 'science_page' })}>
-              加入一休的 LINE，了解更多 →
+            <a className="science-cta-btn" href={TYPE_CONTENT_LINKS[typeId].href} style={{ marginBottom: '12px' }} onClick={() => trackEvent('click_content_link', { source: 'science_page', type: typeId })}>
+              {TYPE_CONTENT_LINKS[typeId].text} →
+            </a>
+            <a className="science-cta-btn" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ background: '#fff', color: '#2a9d6f', border: '2px solid #2a9d6f', boxShadow: 'none' }} onClick={() => trackEvent('click_line_yixiu', { source: 'science_page' })}>
+              加入一休的 LINE，聊聊你的狀況
             </a>
           </div>
         ) : (
@@ -1952,8 +1948,8 @@ function SciencePage({ typeId, onBack, onRestart, hasResult }) {
               也許他需要的不是更多意志力，<br/>
               而是知道「不是他的錯」。
             </div>
-            <button className="science-cta-btn" onClick={handleCopyLink} style={{ background: 'linear-gradient(135deg, #e74c3c, #f39c12)' }}>
-              📋 複製測驗連結，傳給朋友
+            <button className="science-cta-btn" onClick={handleCopyLink} style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)' }}>
+              複製測驗連結，傳給朋友
             </button>
           </div>
         )}
@@ -2092,39 +2088,31 @@ function ResultPage({ result, onRestart, onShowScience }) {
           </div>
         )}
 
-        {/* CTA — LINE 導流 + 科學解析誘因 */}
+        {/* CTA Section */}
         <div className="cta-section">
-          {result.primary === 'steady' && result.bodySignal === 'fluctuating' ? (
-            <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ borderColor: '#e67e22', background: '#fff8f0' }} onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name, cta_variant: 'steady' })}>
-              <div className="cta-icon">🚀</div>
-              <div className="cta-title">你的習慣已經很棒了，代謝只差最後一步</div>
-              <div className="cta-desc">
-                一休的「ABC 代謝瘦身法」專為像你這樣<br/>
-                心態好、習慣穩，但身體還沒完全跟上的人設計。<br/>
-                用科學的方式，幫你的代謝走完最後一哩路。
-              </div>
-              <div className="cta-arrow" style={{ color: '#e67e22' }}>加 LINE 了解更多 →</div>
-            </a>
-          ) : (
-            <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ borderColor: '#2ecc71', background: '#f0fff4' }} onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name, cta_variant: 'science' })}>
-              <div className="cta-icon">🔬</div>
-              <div className="cta-title">想了解「{type.name}」的科學機制及如何調整改善？</div>
-              <div className="cta-desc">
-                加入一休的 LINE，輸入「{type.name}」四個字，<br/>
-                系統會自動傳送你的專屬科學解析頁面！
-              </div>
-              <div className="cta-arrow" style={{ color: '#27ae60' }}>加 LINE 看完整解析 →</div>
-            </a>
-          )}
-          <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ borderColor: '#3498db', background: '#f0f8ff' }} onClick={() => trackEvent('click_line_bot', { metabolism_type: type.name })}>
-            <div className="cta-icon">📸</div>
-            <div className="cta-title">「幫你算」— 拍照就能看營養搭配</div>
-            <div className="cta-desc">
-              準備中，即將上線！先加一休的 LINE，<br/>
-              上線後會第一時間通知你。
-            </div>
-            <div className="cta-arrow" style={{ color: '#3498db' }}>先加 LINE，搶先收到通知 →</div>
+          {/* CTA 1: Type-specific content link */}
+          <a className="cta-card" href={TYPE_CONTENT_LINKS[result.primary].href} style={{ borderLeft: '4px solid #2a9d6f', background: '#fff', paddingLeft: '18px' }} onClick={() => trackEvent('click_content_link', { metabolism_type: type.name })}>
+            <div className="cta-title">{TYPE_CONTENT_LINKS[result.primary].text}</div>
+            <div className="cta-arrow">閱讀文章 →</div>
           </a>
+
+          {/* CTA 2: Student story link */}
+          <a className="cta-card" href={TYPE_STORY_LINKS[result.primary].href} style={{ background: '#faf9f7', border: '1px solid #eee9e5' }} onClick={() => trackEvent('click_story_link', { metabolism_type: type.name })}>
+            <div className="cta-title">{TYPE_STORY_LINKS[result.primary].text}</div>
+            <div className="cta-arrow">看完整故事 →</div>
+          </a>
+
+          {/* CTA 3: LINE */}
+          <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)', border: 'none', textAlign: 'center', borderRadius: '50px', padding: '16px 24px' }} onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name })}>
+            <div className="cta-title" style={{ color: '#fff', marginBottom: 0, textAlign: 'center' }}>加入一休的 LINE，聊聊你的狀況</div>
+          </a>
+
+          {/* CTA 4: Browse more */}
+          <div style={{ textAlign: 'center', marginTop: '8px' }}>
+            <a href="/articles" style={{ fontSize: '14px', color: '#6b6560', textDecoration: 'none' }} onClick={() => trackEvent('click_browse_articles', { metabolism_type: type.name })}>
+              瀏覽更多文章 →
+            </a>
+          </div>
         </div>
       </div>
 
@@ -2171,6 +2159,17 @@ function ResultPage({ result, onRestart, onShowScience }) {
           🔄 再做一次測驗
         </button>
       </div>
+
+      {/* Footer */}
+      <div style={{ padding: '24px', textAlign: 'center', borderTop: '1px solid #eee9e5', marginTop: '20px' }}>
+        <div style={{ fontSize: '13px', color: '#6b6560', marginBottom: '12px' }}>
+          <a href="/" style={{ color: '#6b6560', textDecoration: 'none', margin: '0 10px' }}>首頁</a>
+          <a href="/guide" style={{ color: '#6b6560', textDecoration: 'none', margin: '0 10px' }}>完全指南</a>
+          <a href="/articles" style={{ color: '#6b6560', textDecoration: 'none', margin: '0 10px' }}>文章</a>
+          <a href="/program" style={{ color: '#6b6560', textDecoration: 'none', margin: '0 10px' }}>課程</a>
+        </div>
+        <div style={{ fontSize: '12px', color: '#a8a29e' }}>ABC 代謝力重建瘦身法</div>
+      </div>
     </div>
   );
 }
@@ -2187,6 +2186,24 @@ const TYPE_NAME_MAP = {
   '穩定燃燒型': 'steady', '穩定燃燒': 'steady',
   'highRPM': 'highRPM', 'burnout': 'burnout',
   'rollerCoaster': 'rollerCoaster', 'powerSave': 'powerSave', 'steady': 'steady'
+};
+
+// Type-specific content links for result page CTAs
+const TYPE_CONTENT_LINKS = {
+  highRPM: { href: '/concepts/cortisol', text: '了解「壓力荷爾蒙」怎麼讓你的肚子越來越大' },
+  burnout: { href: '/concepts/leptin', text: '了解為什麼你明明很累，卻一直想吃' },
+  rollerCoaster: { href: '/concepts/blood-sugar-rollercoaster', text: '了解你的血糖雲霄飛車怎麼運作' },
+  powerSave: { href: '/concepts/metabolic-adaptation', text: '了解你的身體為什麼在「省電」' },
+  steady: { href: '/guide', text: '看看代謝力重建的完整方法' }
+};
+
+// Type-specific student story links for result page CTAs
+const TYPE_STORY_LINKS = {
+  highRPM: { href: '/articles/huilan-reborn-at-53', text: '看慧蘭的故事：53歲，比年輕時更有活力' },
+  burnout: { href: '/articles/wenwen-mom-story', text: '看溫溫的故事：產後媽媽瘦了 20 公斤' },
+  rollerCoaster: { href: '/articles/socks-story-62kg', text: '看俐臻的故事：一年瘦了 62 公斤' },
+  powerSave: { href: '/articles/meimei-cosmetic-surgery-refused', text: '看美美的故事：醫美拒絕幫她抽脂' },
+  steady: { href: '/testimonials', text: '看更多學員的故事' }
 };
 
 function getInitialState() {
@@ -2253,6 +2270,12 @@ function App() {
 
   return (
     <div className="app">
+      <div style={{ padding: '12px 24px', background: '#f8faf7', borderBottom: '1px solid #eee9e5', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <a href="/" style={{ fontSize: '14px', fontWeight: 700, color: '#2a2520', textDecoration: 'none' }}>
+          <span style={{ color: '#2a9d6f' }}>ABC</span> 代謝力重建
+        </a>
+        <a href="/guide" style={{ fontSize: '13px', color: '#6b6560', textDecoration: 'none' }}>了解更多 →</a>
+      </div>
       {page === 'intro' && <IntroPage onStart={handleStart} />}
       {page === 'quiz' && (
         <QuestionPage
