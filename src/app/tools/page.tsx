@@ -50,6 +50,11 @@ export default function ToolsPage() {
     const protein = getProteinRange(w);
 
     setResult({ bmr: Math.round(bmr), tdee: Math.round(tdee), protein });
+
+    // 滾動到結果區
+    setTimeout(() => {
+      document.getElementById("calc-result")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
   };
 
   return (
@@ -156,7 +161,7 @@ export default function ToolsPage() {
 
         {/* 結果 */}
         {result && (
-          <div className="mt-8 space-y-6">
+          <div id="calc-result" className="mt-8 space-y-6 scroll-mt-20">
             <div className="rounded-2xl border border-[#eee9e5] bg-white p-6">
               <p className="text-sm text-[#a8a29e] mb-4">你的計算結果</p>
               <div className="grid grid-cols-2 gap-4 mb-6">
