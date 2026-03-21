@@ -89,9 +89,9 @@ function Footer() {
   return (
     <footer className="border-t border-[#eee9e5] bg-white py-12 px-5">
       <div className="max-w-3xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
           {/* 品牌 */}
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <p className="font-bold mb-3">
               <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
             </p>
@@ -100,19 +100,28 @@ function Footer() {
             </p>
           </div>
 
-          {/* 導航 */}
+          {/* 探索 */}
           <div>
             <p className="font-semibold text-sm mb-3">探索</p>
             <div className="space-y-2 text-sm text-[#6b6560]">
               <a href="/method" className="block hover:text-[#2a2520] transition-colors">ABC 是什麼</a>
               <a href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</a>
               <a href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</a>
-              <a href="/faq" className="block hover:text-[#2a2520] transition-colors">大家都在問</a>
               <a href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</a>
             </div>
           </div>
 
-          {/* CTA */}
+          {/* 學習 */}
+          <div>
+            <p className="font-semibold text-sm mb-3">學習</p>
+            <div className="space-y-2 text-sm text-[#6b6560]">
+              <a href="/guide" className="block hover:text-[#2a2520] transition-colors">完全指南</a>
+              <a href="/concepts" className="block hover:text-[#2a2520] transition-colors">代謝科學</a>
+              <a href="/faq" className="block hover:text-[#2a2520] transition-colors">大家都在問</a>
+            </div>
+          </div>
+
+          {/* 開始 */}
           <div>
             <p className="font-semibold text-sm mb-3">開始</p>
             <div className="space-y-2 text-sm">
@@ -121,6 +130,12 @@ function Footer() {
                 className="block text-[#2a9d6f] font-medium hover:underline"
               >
                 做代謝測驗 →
+              </a>
+              <a href="/tools" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+                TDEE 計算機
+              </a>
+              <a href="/program" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+                課程介紹
               </a>
               <a
                 href="https://lin.ee/x41s2Su"
