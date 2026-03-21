@@ -60,6 +60,8 @@
 
 你越忍，代謝越低。同樣的食物，以前不會胖，現在會胖。
 
+![忍餓 vs 吃對的對比](/images/articles/inline-fasting-vs-eating.jpg)
+
 很多人忍了一陣子瘦了，但一恢復正常吃就反彈，還比以前更胖。這就是為什麼[越努力減肥的人越容易復胖](/articles/effort-rebound-paradox)。
 
 （延伸閱讀：[復胖的科學：為什麼你每次都胖回來](/articles/rebound-weight-science)）

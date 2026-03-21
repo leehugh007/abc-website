@@ -125,6 +125,8 @@ UCLA、喬治亞大學
 **同一餐飯
 兩種完全不同的結果**
 
+![飲食順序對血糖的影響](/images/articles/inline-blood-sugar-order.jpg)
+
 ---
 
 #那到底怎麼吃
