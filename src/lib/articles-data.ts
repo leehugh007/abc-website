@@ -266,6 +266,18 @@ export const ARTICLES: Article[] = [
     depth: "指南",
   },
   {
+    slug: "insulin-resistance-complete-guide",
+    title: "胰島素阻抗完全解析：為什麼你吃很少還是瘦不下來？",
+    description:
+      "胰島素是脂肪的開關。當它一直鎖著，你吃再少也瘦不下來。從原理到自我檢測到修復方法，一篇搞懂。",
+    date: "2026-03-21",
+    category: "健檢紅字",
+    readTime: "20 分鐘",
+    featured: true,
+    tags: ["胰島素阻抗", "血糖控制", "代謝適應", "健檢紅字"],
+    depth: "深度",
+  },
+  {
     slug: "metabolism-reset-vs-ozempic",
     title: "代謝重建 vs 瘦瘦針：花錢買的瘦，跟自己學來的瘦，差在哪？",
     description:
