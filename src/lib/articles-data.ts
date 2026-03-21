@@ -266,6 +266,18 @@ export const ARTICLES: Article[] = [
     depth: "指南",
   },
   {
+    slug: "ozempic-complete-guide",
+    title: "瘦瘦針完全指南：打之前，你需要知道的所有事",
+    description:
+      "GLP-1 機制、效果數據、停針復胖率、副作用完整清單、誰適合打、不打針的替代方案。搞懂了再做決定。",
+    date: "2026-03-21",
+    category: "瘦瘦針",
+    readTime: "18 分鐘",
+    featured: true,
+    tags: ["瘦瘦針", "復胖", "胰島素阻抗", "荷爾蒙"],
+    depth: "深度",
+  },
+  {
     slug: "rebound-weight-science",
     title: "復胖的科學：為什麼你每次都胖回來，而且比上次更重？",
     description:
