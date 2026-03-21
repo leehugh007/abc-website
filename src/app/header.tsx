@@ -109,6 +109,13 @@ export function Header() {
             關於一休
           </a>
           <a
+            href="/concepts"
+            className="block text-base font-medium text-[#2a2520] py-2"
+            onClick={() => setOpen(false)}
+          >
+            代謝科學
+          </a>
+          <a
             href="/guide"
             className="block text-base font-medium text-[#2a2520] py-2"
             onClick={() => setOpen(false)}

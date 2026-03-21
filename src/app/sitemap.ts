@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles-data";
+import { CONCEPTS } from "@/lib/concepts-data";
 
 const BASE_URL = "https://abc-metabolism.vercel.app";
 
@@ -42,5 +43,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...typePages, ...articlePages];
+  // Concept pages
+  const conceptPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/concepts`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    ...CONCEPTS.map((concept) => ({
+      url: `${BASE_URL}/concepts/${concept.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...staticPages, ...typePages, ...articlePages, ...conceptPages];
 }
