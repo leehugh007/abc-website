@@ -110,6 +110,7 @@ function Footer() {
               <a href="/method" className="block hover:text-[#2a2520] transition-colors">ABC 是什麼</a>
               <a href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</a>
               <a href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</a>
+              <a href="/testimonials" className="block hover:text-[#2a2520] transition-colors">學員見證</a>
               <a href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</a>
             </div>
           </div>

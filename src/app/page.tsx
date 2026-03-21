@@ -301,7 +301,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Link href="/about" className="text-[#2a9d6f] font-semibold hover:underline">
+            <Link href="/testimonials" className="text-[#2a9d6f] font-semibold hover:underline">
               看更多學員故事 →
             </Link>
           </div>
