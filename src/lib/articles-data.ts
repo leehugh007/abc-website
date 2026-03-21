@@ -337,6 +337,190 @@ export const ARTICLES: Article[] = [
     tags: ["代謝適應", "復胖", "體重迷思", "胰島素阻抗"],
     depth: "指南",
   },
+  {
+    slug: "walking-breathless-lifespan",
+    title: "走個路就喘？小心，你可能正在縮短壽命",
+    description:
+      "BMJ 追蹤 50 萬人發現：走路喘的人，就算體重正常，死亡風險是快走族群的兩倍。最簡單的改善方式：每天多走 5000 步。",
+    date: "2026-03-21",
+    category: "健檢紅字",
+    readTime: "6 分鐘",
+    featured: true,
+    coverImage: "/images/articles/cover-walking-breathless.jpg",
+    tags: ["健檢紅字", "胰島素阻抗", "發炎"],
+    depth: "快讀",
+  },
+  {
+    slug: "snack-waste-mindset",
+    title: "「不吃完好像很浪費」——這個想法，可能讓你一直瘦不下來",
+    description:
+      "朋友送零食、拜拜的餅乾、飯店送的飲料。不吃好像浪費？多想一層：吃下去對身體好嗎？不吃，才不是浪費。",
+    date: "2026-03-21",
+    category: "飲食方法",
+    readTime: "5 分鐘",
+    tags: ["飲食方法", "體重迷思"],
+    depth: "快讀",
+  },
+  {
+    slug: "body-fat-wont-drop",
+    title: "體脂一直降不下來？你可能在看錯指標",
+    description:
+      "明明有瘦但體脂不降？體脂是相對數字，關鍵是肌肉量。飲食佔 7 成、運動佔 3 成，順序搞對了體脂自然往下走。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "6 分鐘",
+    tags: ["體重迷思", "飲食方法"],
+    depth: "快讀",
+  },
+  {
+    slug: "bento-vs-bubble-tea",
+    title:
+      "一杯全糖珍奶 700 大卡，一個滷雞腿便當也差不多 700 大卡。但只有一個會讓你胖",
+    description:
+      "同樣 700 大卡，一個讓你飽到晚餐，一個讓你餓了一下午還多存了脂肪。因為你的身體不是在算熱量，是在聽訊號。",
+    date: "2026-03-21",
+    category: "飲食方法",
+    readTime: "7 分鐘",
+    tags: ["飲食方法", "血糖控制", "胰島素阻抗"],
+    depth: "指南",
+  },
+  {
+    slug: "triglycerides-not-fat",
+    title: "三酸甘油脂偏高？問題不是油吃太多，是澱粉吃太多",
+    description:
+      "少吃油八年三酸甘油脂還是紅字？因為讓你三酸甘油脂飆高的不是油，是你的肝臟在把澱粉加工成油。20 年 2 萬人的數據跟你以為的完全相反。",
+    date: "2026-03-21",
+    category: "健檢紅字",
+    readTime: "8 分鐘",
+    tags: ["健檢紅字", "胰島素阻抗", "血糖控制"],
+    depth: "指南",
+  },
+  {
+    slug: "ultra-processed-food",
+    title: "你每天吃的東西，有一半以上不算食物",
+    description:
+      "超商三明治、調味優格、低卡餅乾——聽起來很正常，但翻到背面看成分表，你的身體收到的是一堆它不認識的東西。2026 年研究：心臟病風險高出 47%。",
+    date: "2026-03-21",
+    category: "飲食方法",
+    readTime: "7 分鐘",
+    tags: ["飲食方法", "發炎"],
+    depth: "指南",
+  },
+  {
+    slug: "dentist-weight-loss",
+    title: "你瘦不下來，可能該去看牙醫",
+    description:
+      "牙周病讓你的身體 24 小時慢性發炎，發炎是胰島素阻抗的三大推手之一。我自己重度牙周病都不知道，處理之後明顯有感。",
+    date: "2026-03-21",
+    category: "健檢紅字",
+    readTime: "8 分鐘",
+    tags: ["發炎", "胰島素阻抗", "健檢紅字"],
+    depth: "指南",
+  },
+  {
+    slug: "whole-milk-kids-thinner",
+    title: "喝全脂牛奶的小孩，反而比喝低脂的瘦",
+    description:
+      "2026 美國飲食指南 60 年最大改動：全脂回歸、超加工食品首度被點名。你怕了脂肪 60 年，但真正讓你胖的不是脂肪，是怕脂肪之後用什麼替代了它。",
+    date: "2026-03-21",
+    category: "飲食方法",
+    readTime: "8 分鐘",
+    tags: ["飲食方法", "體重迷思", "血糖控制"],
+    depth: "指南",
+  },
+  {
+    slug: "carb-guilt-trap",
+    title: "你吃的那碗飯，根本不會讓你變胖",
+    description:
+      "讓你變胖的不是那碗飯，是你吃完之後的罪惡感。罪惡感→壓力→皮質醇→血糖推高→胰島素鎖住脂肪→少吃補救→代謝下降→暴吃→更胖。循環的起點不是食物，是你對食物說的那句話。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    tags: ["體重迷思", "血糖控制", "荷爾蒙"],
+    depth: "指南",
+  },
+  {
+    slug: "soft-belly-fat-progress",
+    title: "減到一半覺得肉變鬆了？先別放棄，你離突破可能只剩一步",
+    description:
+      "肉從硬變軟不是退步，是脂肪正在撤退。油被搬走了，身體先用水「佔位」。等它確認你是認真的，就會一口氣清掉——體重突然掉一到兩公斤，腰圍明顯縮小。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    tags: ["體重迷思", "代謝適應"],
+    depth: "指南",
+  },
+  {
+    slug: "over-40-belly-fat",
+    title:
+      "過了 40 歲，褲子越買越大件？不是你不夠努力，是你的身體換了一套規則",
+    description:
+      "同一碗飯，在 30 歲和 45 歲的身體裡走了完全不同的路。荷爾蒙下降→胰島素敏感度降低→肌肉流失→脂肪往肚子搬家。你需要的不是更努力，是學會新的操作方式。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "10 分鐘",
+    tags: ["荷爾蒙", "胰島素阻抗", "代謝適應", "體重迷思"],
+    depth: "指南",
+  },
+  {
+    slug: "daily-weigh-in-trap",
+    title:
+      "她聽說每天量體重會瘦更快，認真照做了——結果越量越瘦不下來",
+    description:
+      "每天量體重不是問題，量完會焦慮才是問題。焦慮→皮質醇→鎖住脂肪→拆掉肌肉。越焦慮越難瘦，不是你不夠拼，是壓力把代謝鎖住了。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    tags: ["體重迷思", "荷爾蒙", "代謝適應"],
+    depth: "指南",
+  },
+  {
+    slug: "weight-down-body-fat-stuck",
+    title:
+      "她重訓三個月，體重有降，體脂完全不動——問題出在哪？",
+    description:
+      "體重降+體脂不動=肌肉跟脂肪一起掉=代謝被關機。吃太少+動太多+壓力大，身體進入保護模式。有時候少動一點、多吃一點，身體反而願意放開脂肪。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    tags: ["體重迷思", "代謝適應", "荷爾蒙"],
+    depth: "指南",
+  },
+  {
+    slug: "effort-rebound-paradox",
+    title: "為什麼越努力減肥的人，反而越容易復胖？",
+    description:
+      "節食、168、低碳、代餐——聽起來不一樣，但你的身體經歷的都是「被剝奪」。它會記住你對它做過的事，每次復胖都比上次更胖，因為你的身體越來越不信任你了。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    tags: ["復胖", "代謝適應", "體重迷思"],
+    depth: "指南",
+  },
+  {
+    slug: "huilan-reborn-at-53",
+    title: "先生突然離世，她做的第一件事不是哭泣",
+    description:
+      "慧蘭，53 歲，喪偶單親。從深夜暴食 12 個甜甜圈到班上的開心果，從夏天穿外套遮肚子到自信穿上紅色洋裝。53 歲看起來像 40 歲——不是奇蹟，是決心加上對的方法。",
+    date: "2026-03-21",
+    category: "學員故事",
+    readTime: "12 分鐘",
+    featured: true,
+    tags: ["學員故事"],
+    depth: "深度",
+  },
+  {
+    slug: "meimei-cosmetic-surgery-refused",
+    title: "醫美診所拒絕幫她抽脂",
+    description:
+      "美美，168 公分差點破百。被醫美退貨、姊姊切胃爆瘦她沒有跟風。她選了一條慢的路，從 9 字頭到 7 字頭、健檢全部正常。慢路才是真正的快。",
+    date: "2026-03-21",
+    category: "學員故事",
+    readTime: "10 分鐘",
+    featured: true,
+    tags: ["學員故事", "健檢紅字"],
+    depth: "指南",
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
