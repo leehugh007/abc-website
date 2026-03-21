@@ -225,7 +225,7 @@ export default function ToolsPage() {
             {/* 下一步 */}
             <div className="grid sm:grid-cols-3 gap-3">
               <a
-                href="https://metabolism-quiz.vercel.app"
+                href="/quiz"
                 className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
               >
                 <span className="text-2xl">🔬</span>

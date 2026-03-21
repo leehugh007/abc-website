@@ -241,7 +241,7 @@ export default function FaqPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://metabolism-quiz.vercel.app"
+                href="/quiz"
                 className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
               >
                 先做代謝測驗 →

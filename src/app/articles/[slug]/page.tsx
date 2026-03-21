@@ -167,6 +167,7 @@ export default async function ArticlePage({
                 height={450}
                 className="w-full h-auto"
                 priority
+                sizes="(max-width: 768px) 100vw, 800px"
               />
             </div>
           )}
@@ -214,7 +215,7 @@ export default async function ArticlePage({
           <h2 className="text-xl font-bold mb-6 text-center">{ctaText}</h2>
           <div className="grid sm:grid-cols-3 gap-3">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all group"
             >
               <span className="w-10 h-10 rounded-full bg-[#f3f9f5] border border-[#2a9d6f]/20 flex items-center justify-center text-[#2a9d6f] font-bold text-sm shrink-0">測</span>

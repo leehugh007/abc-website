@@ -25,7 +25,7 @@ export default function TypesPage() {
             還不知道你是哪種？<strong>30 秒測驗幫你找出來</strong>
           </p>
           <a
-            href="https://metabolism-quiz.vercel.app"
+            href="/quiz"
             className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md hover:shadow-lg transition-shadow"
           >
             開始測驗 →
@@ -58,7 +58,7 @@ export default function TypesPage() {
           <p className="text-[#6b6560] mb-4">想知道你是哪一種？</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
             >
               30 秒代謝測驗 →

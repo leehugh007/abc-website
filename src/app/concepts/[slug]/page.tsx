@@ -172,7 +172,7 @@ export default async function ConceptPage({
               想知道你的代謝狀況？30 秒免費測驗
             </p>
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-block px-7 py-2.5 bg-[#2a9d6f] text-white text-sm font-bold rounded-full hover:shadow-md transition-shadow"
             >
               測出我的代謝類型 →

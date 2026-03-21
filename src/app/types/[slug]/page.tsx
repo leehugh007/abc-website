@@ -121,7 +121,7 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
           </h2>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
             >
               30 秒代謝測驗 →

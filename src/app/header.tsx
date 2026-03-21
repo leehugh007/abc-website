@@ -13,7 +13,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 bg-white/92 backdrop-blur-md border-b border-[#eee9e5] transition-shadow ${scrolled ? "shadow-sm" : ""}`}>
+    <header className={`sticky top-0 z-50 bg-white/[0.97] backdrop-blur-md border-b border-[#eee9e5] transition-shadow ${scrolled ? "shadow-sm" : ""}`}>
       <nav className="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
         <a href="/" className="font-bold text-lg tracking-tight">
           <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
@@ -41,7 +41,7 @@ export function Header() {
         {/* Mobile: quiz CTA + hamburger */}
         <div className="flex sm:hidden items-center gap-3">
           <a
-            href="https://metabolism-quiz.vercel.app"
+            href="/quiz"
             className="text-xs font-bold text-white bg-[#2a9d6f] px-3 py-1.5 rounded-full"
           >
             做測驗

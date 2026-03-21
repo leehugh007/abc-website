@@ -232,7 +232,7 @@
 然後我們做一件事
 不是叫他們少吃
 而是把白天的蛋白質加上去
-把進食的順序調整好
+把[進食的順序](/articles/eating-order-blood-sugar)調整好
 把睡眠顧好
 
 很多人第二週就回來說：
@@ -274,8 +274,8 @@
 睡不夠兩天
 **飢餓素就會自動飆高 28%**
 
-✅ 進食順序：菜 → 肉 → 飯
-讓胰島素穩定
+✅ [進食順序](/articles/eating-order-blood-sugar)：菜 → 肉 → 飯
+讓[胰島素](/concepts/insulin-resistance)穩定
 副駕駛就不會搶方向盤
 
 記住
@@ -300,6 +300,8 @@
 
 我先說：鹹酥雞
 
+
+想了解為什麼你的代謝系統會失調，可以看[胰島素阻抗完全解析](/articles/insulin-resistance-complete-guide)。想了解 ABC 代謝重建的完整方法，可以看[代謝力重建完全指南](/guide)。
 
 我是一休，陪你健康的瘦一輩子
 

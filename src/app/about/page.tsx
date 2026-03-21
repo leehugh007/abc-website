@@ -16,12 +16,13 @@ export default function AboutPage() {
         <div className="max-w-2xl mx-auto">
           <div className="mb-8 rounded-2xl overflow-hidden">
             <Image
-              src="/images/founder-transformation.png"
+              src="/images/founder-transformation.jpg"
               alt="一休的瘦身前後對比：89公斤到62公斤"
               width={800}
               height={400}
               className="w-full h-auto"
               priority
+              sizes="(max-width: 768px) 100vw, 800px"
             />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight mb-4">
@@ -69,7 +70,50 @@ export default function AboutPage() {
               width={800}
               height={400}
               className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 800px"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* 2.5 為什麼做 ABC */}
+      <section className="py-12 px-5">
+        <div className="max-w-2xl mx-auto space-y-5 text-base leading-[1.9]">
+          <h2 className="text-2xl font-bold mb-2">為什麼做 ABC？</h2>
+
+          <p>
+            我自己瘦下來之後，開始有人問我怎麼做到的。一個、兩個、十個、一百個。
+          </p>
+
+          <p>
+            聽多了我發現，<strong>每個人的故事幾乎都一樣</strong>：試過節食、試過代餐、試過少吃多動、試過瘦瘦針。一開始有效，後來復胖，然後覺得是自己的問題。
+          </p>
+
+          <p>
+            不是。是方法的問題。
+          </p>
+
+          <p>
+            我花了很長的時間去研究，為什麼這些方法最終都會失敗。答案都指向同一件事：<strong>它們在跟身體打仗，而你的身體永遠會贏。</strong>
+          </p>
+
+          <p>
+            你越少吃，身體越省電。你越壓抑食慾，荷爾蒙反撲越兇。你越激烈運動，壓力荷爾蒙越高。
+          </p>
+
+          <p>
+            真正有效的方式不是對抗身體，是<strong>理解它、跟它合作</strong>。
+          </p>
+
+          <p>
+            理解胰島素怎麼運作、理解代謝適應是什麼、理解你的飢餓不是因為貪吃而是荷爾蒙在推你。搞懂了這些，正確的選擇變成本能，不需要忍耐、不需要意志力。
+          </p>
+
+          <div className="bg-[#2a9d6f]/5 rounded-xl p-5 border-l-4 border-[#2a9d6f]">
+            <p className="font-semibold text-[#2a9d6f] text-sm mb-2">ABC 存在的理由</p>
+            <p className="font-bold">
+              我不想再看到有人因為用了錯的方法而覺得是自己的問題。問題不在你，在方法。ABC 就是要給你一個不跟身體打仗的方法。
+            </p>
           </div>
         </div>
       </section>
@@ -125,6 +169,7 @@ export default function AboutPage() {
               width={700}
               height={400}
               className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 700px"
             />
             <div className="p-6 space-y-3">
               <div className="flex items-center gap-2 mb-1">
@@ -148,11 +193,11 @@ export default function AboutPage() {
           <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8 bg-white">
             <div className="grid grid-cols-2 gap-0">
               <div className="relative">
-                <Image src="/images/student-success-1.jpeg" alt="單親媽媽減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/student-success-1.jpeg" alt="單親媽媽減重前" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
                 <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
               </div>
               <div className="relative">
-                <Image src="/images/student-success-2.jpeg" alt="單親媽媽減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/student-success-2.jpeg" alt="單親媽媽減重後" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
                 <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
               </div>
             </div>
@@ -168,11 +213,11 @@ export default function AboutPage() {
           <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8 bg-white">
             <div className="grid grid-cols-2 gap-0">
               <div className="relative">
-                <Image src="/images/IMG_7574.jpeg" alt="四寶媽減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/IMG_7574.jpeg" alt="四寶媽減重前" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
                 <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
               </div>
               <div className="relative">
-                <Image src="/images/IMG_7575.jpeg" alt="四寶媽減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/IMG_7575.jpeg" alt="四寶媽減重後" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
                 <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
               </div>
             </div>
@@ -189,7 +234,7 @@ export default function AboutPage() {
 
           {/* 團隊 */}
           <div className="rounded-2xl overflow-hidden border border-[#eee9e5]">
-            <Image src="/images/team-photo.png" alt="ABC 班長大合照" width={700} height={400} className="w-full h-auto" />
+            <Image src="/images/team-photo.png" alt="ABC 班長大合照" width={700} height={400} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 700px" />
             <div className="p-5 text-center bg-white">
               <p className="font-bold mb-1">這群人加在一起瘦超過 <span className="text-[#e74c3c]">300 公斤</span></p>
               <p className="text-sm text-[#6b6560]">因為我們都胖過，我們懂胖過的苦</p>
@@ -240,7 +285,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               開始測驗 →

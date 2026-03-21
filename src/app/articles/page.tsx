@@ -137,6 +137,7 @@ export default function ArticlesPage() {
                       width={700}
                       height={400}
                       className="w-full h-auto"
+                      sizes="(max-width: 768px) 100vw, 700px"
                     />
                   )}
                   <div className="p-5">
@@ -189,6 +190,7 @@ export default function ArticlesPage() {
                       width={700}
                       height={400}
                       className="w-full h-auto"
+                      sizes="(max-width: 768px) 100vw, 700px"
                     />
                   )}
                   <div className="p-5">
@@ -228,7 +230,7 @@ export default function ArticlesPage() {
         <div className="mt-12 text-center space-y-4">
           <p className="text-[#6b6560]">想知道你是哪種代謝類型？</p>
           <a
-            href="https://metabolism-quiz.vercel.app"
+            href="/quiz"
             className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
           >
             30 秒代謝測驗 →

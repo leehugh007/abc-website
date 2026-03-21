@@ -61,7 +61,7 @@ export default function ProgramPage() {
               加入 LINE 了解課程方案 →
             </a>
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#6b6560] border border-[#eee9e5] rounded-full hover:bg-white transition-colors"
             >
               先測代謝類型

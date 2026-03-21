@@ -325,6 +325,18 @@ export const ARTICLES: Article[] = [
     tags: ["代謝適應", "胰島素阻抗", "體重迷思"],
     depth: "指南",
   },
+  {
+    slug: "metabolism-reset-vs-dieting",
+    title: "代謝重建 vs 節食：為什麼你越少吃，反而越難瘦？",
+    description:
+      "節食在跟你的身體打仗——代謝下降、肌肉流失、荷爾蒙反撲。ABC 代謝重建反過來：吃飽、修復代謝、讓身體自己願意瘦。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    featured: true,
+    tags: ["代謝適應", "復胖", "體重迷思", "胰島素阻抗"],
+    depth: "指南",
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

@@ -130,7 +130,7 @@ function Footer() {
             <p className="font-semibold text-sm mb-3">開始</p>
             <div className="space-y-2 text-sm">
               <a
-                href="https://metabolism-quiz.vercel.app"
+                href="/quiz"
                 className="block text-[#2a9d6f] font-medium hover:underline"
               >
                 做代謝測驗 →

@@ -113,7 +113,7 @@ export async function getArticleContent(slug: string) {
 const MID_ARTICLE_CTA = `<div class="mid-article-cta">
 <p class="mid-article-cta-label">ABC 代謝重建瘦身法</p>
 <p class="mid-article-cta-text">想知道你的代謝類型？30 秒免費測驗，找到適合你的方式</p>
-<a href="https://metabolism-quiz.vercel.app" class="mid-article-cta-btn">測出我的代謝類型 →</a>
+<a href="/quiz" class="mid-article-cta-btn">測出我的代謝類型 →</a>
 </div>`;
 
 function injectMidArticleCta(html: string): string {

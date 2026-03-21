@@ -33,7 +33,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒測出你的代謝類型 →
@@ -53,11 +53,12 @@ export default function Home() {
         <div className="max-w-lg mx-auto">
           <div className="rounded-2xl overflow-hidden border border-[#eee9e5]">
             <Image
-              src="/images/founder-transformation.png"
+              src="/images/founder-transformation.jpg"
               alt="一休：89公斤到62公斤的對比"
               width={500}
               height={300}
               className="w-full h-auto"
+              sizes="(max-width: 512px) 100vw, 512px"
             />
             <div className="p-4 text-center bg-white">
               <p className="text-sm text-[#6b6560]">
@@ -155,7 +156,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-8">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="text-[#2a9d6f] font-semibold hover:underline"
             >
               不確定？做個 30 秒測驗 →
@@ -182,6 +183,7 @@ export default function Home() {
               width={700}
               height={400}
               className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 700px"
             />
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
@@ -215,6 +217,7 @@ export default function Home() {
               width={700}
               height={400}
               className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 700px"
             />
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
@@ -255,11 +258,11 @@ export default function Home() {
           <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
             <div className="grid grid-cols-2 gap-0">
               <div className="relative">
-                <Image src="/images/wenwen-before.jpg" alt="溫溫減重前" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/wenwen-before.jpg" alt="溫溫減重前" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
                 <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
               </div>
               <div className="relative">
-                <Image src="/images/wenwen-after.jpg" alt="溫溫減重後" width={350} height={400} className="w-full h-full object-cover" />
+                <Image src="/images/wenwen-after.jpg" alt="溫溫減重後" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
                 <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
               </div>
             </div>
@@ -314,6 +317,7 @@ export default function Home() {
               width={700}
               height={400}
               className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 700px"
             />
             <div className="p-5 text-center bg-[#faf9f7]">
               <p className="font-bold mb-1">這群人加在一起瘦超過 <span className="text-[#e74c3c]">300 公斤</span></p>
@@ -335,7 +339,7 @@ export default function Home() {
             8 個生活小問題，30 秒就能測出你的代謝類型
           </p>
           <a
-            href="https://metabolism-quiz.vercel.app"
+            href="/quiz"
             className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
           >
             開始測驗 →

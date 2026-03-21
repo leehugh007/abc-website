@@ -53,7 +53,7 @@ export default function ConceptsPage() {
             搞懂這些之後，下一步是了解你自己
           </p>
           <a
-            href="https://metabolism-quiz.vercel.app"
+            href="/quiz"
             className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
           >
             測出我的代謝類型 →

@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>你是哪種代謝類型？30 秒測出來</title>
+<meta property="og:title" content="高轉速、省電模式、雲霄飛車——你是哪種代謝類型？30 秒測出來">
+<meta property="og:description" content="8 個生活小問題，測出你的身體正在用哪種模式運轉">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GTDQP34BKC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GTDQP34BKC');
+function trackEvent(name, params) {
+  if (typeof gtag === 'function') gtag('event', name, params || {});
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+/* ===== Design Tokens ===== */
+:root {
+  --primary: #e74c3c;
+  --primary-dark: #c0392b;
+  --accent: #f39c12;
+  --green: #27ae60;
+  --blue: #3498db;
+  --text: #2a2520;
+  --text-sec: #6b6560;
+  --text-muted: #a8a29e;
+  --bg: #faf9f7;
+  --surface: #fffffe;
+  --border: #eee9e5;
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 50px;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== App Container ===== */
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--surface);
+  position: relative;
+  box-shadow: 0 0 60px rgba(0,0,0,0.04);
+}
+
+/* ===== Intro Page ===== */
+.intro {
+  padding: 56px 24px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.intro-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b6b, #ffa502);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(255,107,107,0.2);
+}
+.intro h1 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+.intro h1 span { color: var(--primary); }
+.intro p {
+  font-size: 16px;
+  color: var(--text-sec);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+.intro-features {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+.intro-feature {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-sec);
+  font-weight: 500;
+}
+.intro-feature .icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+.start-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 17px 32px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3);
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 4px 20px rgba(231, 76, 60, 0.3); }
+  50% { box-shadow: 0 6px 30px rgba(231, 76, 60, 0.45); }
+}
+.start-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+  animation: none;
+}
+.intro-footer {
+  margin-top: 28px;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.2px;
+}
+
+/* ===== Pain Points Section ===== */
+.pain-section {
+  text-align: left;
+  margin: 0 0 36px;
+  padding: 0;
+}
+.pain-header {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.pain-header span {
+  color: var(--primary);
+}
+.pain-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 16px;
+  background: var(--surface);
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  border-left: 3px solid var(--border);
+  transition: all 0.3s var(--ease);
+  box-shadow: var(--shadow-xs);
+}
+.pain-item.highlighted {
+  border-left-color: var(--primary);
+  background: #fff5f5;
+  box-shadow: 0 2px 12px rgba(231,76,60,0.08);
+}
+.pain-check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #dfe6e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  margin-top: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.pain-item.highlighted .pain-check {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: #fff;
+}
+.pain-count {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  min-height: 24px;
+  transition: opacity 0.3s var(--ease);
+}
+.pain-divider {
+  text-align: center;
+  margin: 36px 0 28px;
+  font-size: 13px;
+  color: #b2bec3;
+  position: relative;
+}
+.pain-divider::before,
+.pain-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background: #e9ecef;
+}
+.pain-divider::before { left: 0; }
+.pain-divider::after { right: 0; }
+
+/* ===== Progress Bar ===== */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px 24px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.progress-bar {
+  height: 7px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 4px;
+  transition: width 0.4s var(--ease);
+  box-shadow: 0 0 8px rgba(231,76,60,0.2);
+}
+
+/* ===== Question Page ===== */
+.question-page {
+  padding: 24px;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.question-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e74c3c;
+  margin-bottom: 8px;
+}
+.question-text {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option-btn {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  font-family: inherit;
+  box-shadow: var(--shadow-xs);
+}
+.option-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--text-sec);
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 12px;
+  flex-shrink: 0;
+  transition: all 0.2s var(--ease);
+}
+.option-btn:active, .option-btn.selected {
+  border-color: var(--primary);
+  background: #fef7f5;
+  color: var(--text);
+  box-shadow: 0 2px 12px rgba(231,76,60,0.1);
+}
+.option-btn.selected .option-label {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===== Q7 Multi-select ===== */
+.q7-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #636e72;
+  margin: 16px 0 8px;
+  padding-left: 4px;
+}
+.checkbox-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  font-family: inherit;
+  box-shadow: var(--shadow-xs);
+}
+.checkbox-btn.selected {
+  border-color: #e74c3c;
+  background: #fff5f5;
+}
+.checkbox-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid #dfe6e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: all 0.2s;
+  font-size: 12px;
+}
+.checkbox-btn.selected .checkbox-icon {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: #fff;
+}
+.q7-none-option {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px dashed #dfe6e9;
+}
+.q7-none-option .checkbox-btn {
+  background: #fff;
+  border-color: #dfe6e9;
+  border-style: dashed;
+}
+.q7-none-option .checkbox-btn.selected {
+  border-color: #27ae60;
+  border-style: solid;
+  background: #f0fff4;
+}
+.q7-none-option .checkbox-btn.selected .checkbox-icon {
+  background: #27ae60;
+  border-color: #27ae60;
+}
+.q7-next-btn {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 4px 16px rgba(231,76,60,0.25);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.q7-next-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== Loading ===== */
+.loading-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 24px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text {
+  font-size: 16px;
+  color: var(--text-sec);
+  font-weight: 500;
+}
+
+/* ===== Result Page ===== */
+.result-page { animation: fadeIn 0.5s ease; }
+.result-hero {
+  display: none;
+}
+.result-reveal {
+  text-align: center;
+  padding: 40px 24px 32px;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.result-reveal-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.result-reveal-emoji {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+.result-body { padding: 32px 24px; }
+.result-type-badge {
+  display: inline-block;
+  padding: 7px 18px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-sm);
+}
+.result-type-name {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+.result-tagline {
+  font-size: 18px;
+  color: var(--text-sec);
+  font-weight: 500;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+/* Reveal card text */
+.result-reveal .result-type-badge {
+  margin-bottom: 16px;
+  background: rgba(255,255,255,0.2) !important;
+  box-shadow: none;
+}
+.result-reveal .result-type-name {
+  color: #fff;
+  margin-bottom: 12px;
+}
+.result-reveal .result-tagline {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.result-reveal .mixed-badge {
+  color: rgba(255,255,255,0.7);
+}
+.result-desc {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text);
+  margin-bottom: 48px;
+  white-space: pre-line;
+}
+.result-desc p { margin-bottom: 16px; }
+.result-desc p:first-child {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--text);
+  border-left: 4px solid var(--accent);
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+
+/* Highlight markers */
+.hl {
+  background: linear-gradient(transparent 55%, #fef0d5 55%, #fef0d5 90%, transparent 90%);
+  padding: 0 2px;
+}
+.hl-red {
+  background: linear-gradient(transparent 55%, #fde0da 55%, #fde0da 90%, transparent 90%);
+  padding: 0 2px;
+  color: #b83a2a;
+}
+.hl-green {
+  background: linear-gradient(transparent 55%, #d8f0dc 55%, #d8f0dc 90%, transparent 90%);
+  padding: 0 2px;
+  color: #1a7530;
+}
+
+/* Suggestions */
+.suggestions-section {
+  background: #f5f0ec;
+  border-radius: var(--radius-lg);
+  padding: 24px 16px;
+  margin-bottom: 48px;
+}
+.suggestions-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding: 0 4px;
+  letter-spacing: -0.1px;
+}
+.suggestion-item {
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-xs);
+}
+.suggestion-item:last-child { margin-bottom: 0; }
+.suggestion-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 8px;
+  flex-shrink: 0;
+  vertical-align: top;
+}
+.suggestion-anchor { font-weight: 600; }
+
+/* Science */
+.science-section {
+  background: #f0f9ff;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 22px;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-xs);
+}
+.science-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.science-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+/* Body Signal Section */
+.body-signal-section {
+  background: #fff8f0;
+  border-left: 4px solid #e67e22;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 18px 20px;
+  margin-bottom: 48px;
+  box-shadow: var(--shadow-xs);
+}
+.body-signal-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e67e22;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.body-signal-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+}
+.q7-symptom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+.q7-symptom-item {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #2d3436;
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+.q7-symptom-item::before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+}
+.q7-symptom-summary {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #636e72;
+  margin: 4px 0 0 0;
+}
+.body-signal-divider {
+  border: none;
+  border-top: 1px dashed #e67e22;
+  opacity: 0.3;
+  margin: 12px 0;
+}
+
+/* CTA */
+.cta-section { margin-bottom: 40px; }
+.cta-card {
+  display: block;
+  padding: 22px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s var(--ease);
+  box-shadow: var(--shadow-sm);
+}
+.cta-card:active {
+  border-color: var(--green);
+  background: #f0fff4;
+  box-shadow: var(--shadow-md);
+}
+.cta-icon { font-size: 26px; margin-bottom: 10px; }
+.cta-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+  line-height: 1.45;
+}
+.cta-desc {
+  font-size: 14px;
+  color: var(--text-sec);
+  line-height: 1.7;
+}
+.cta-arrow {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* Share */
+.share-section {
+  text-align: center;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+.share-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 36px 24px 30px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.share-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.08;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 10px, currentColor 10px, currentColor 11px
+  );
+  pointer-events: none;
+}
+.share-card-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.share-card-type {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.share-card-tagline {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+.share-card-stat {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.share-card-stat span {
+  font-size: 20px;
+  font-weight: 800;
+}
+.share-card-footer {
+  margin-top: 14px;
+  font-size: 11px;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+.share-hook {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+.share-sub {
+  font-size: 14px;
+  color: var(--text-sec);
+  margin-bottom: 22px;
+  line-height: 1.7;
+}
+.share-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.share-btn {
+  flex: 1;
+  max-width: 180px;
+  padding: 14px 8px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s var(--ease);
+  box-shadow: var(--shadow-sm);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.share-btn-line {
+  background: #06C755;
+  color: #fff;
+}
+.share-btn-line:active { background: #05a648; }
+.share-btn-copy {
+  background: #fff;
+  color: #e74c3c;
+  border: 2px solid #e74c3c;
+}
+.share-btn-copy:active { background: #fff5f5; }
+.share-btn-save {
+  background: #fff;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+.share-btn-save:active { background: #f0f9ff; }
+.retake-btn {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sec);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s var(--ease);
+  box-shadow: var(--shadow-xs);
+}
+.retake-btn:active {
+  background: var(--border);
+  box-shadow: none;
+}
+
+/* ===== Science Page ===== */
+.science-page { animation: fadeIn 0.5s ease; }
+.science-page-hero {
+  display: none;
+}
+.science-reveal {
+  text-align: center;
+  padding: 32px 24px 28px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.science-reveal-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.4);
+  margin-bottom: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.science-reveal .result-type-badge {
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.2) !important;
+  box-shadow: none;
+}
+.science-reveal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.science-reveal-subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.6;
+}
+.science-page-body {
+  padding: 0 24px 48px;
+  max-width: 65ch;
+  margin: 0 auto;
+}
+.science-page-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--text-sec);
+  cursor: pointer;
+  padding: 12px 0;
+  font-family: inherit;
+  transition: color 0.2s var(--ease);
+}
+.science-page-back:active {
+  color: var(--primary);
+}
+.science-page-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+}
+.science-page-subtitle {
+  font-size: 15px;
+  color: var(--text-sec);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.science-block {
+  margin-bottom: 48px;
+}
+.science-block-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+.science-block-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.science-block-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  white-space: pre-line;
+}
+.science-highlight {
+  background: #fef8ee;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 22px;
+  margin: 32px 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.science-cta-box {
+  background: linear-gradient(135deg, #f9f6f3, #f0ebe6);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  margin-top: 36px;
+  box-shadow: var(--shadow-sm);
+}
+.science-cta-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  margin-bottom: 12px;
+}
+.science-cta-title {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+.science-cta-desc {
+  font-size: 15px;
+  color: var(--text-sec);
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+.science-cta-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.science-cta-feature {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  padding: 12px 16px;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+}
+.science-cta-btn {
+  display: block;
+  width: 100%;
+  padding: 17px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.science-cta-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 10px rgba(39, 174, 96, 0.3);
+}
+.learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3498db;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Mixed type */
+.mixed-badge {
+  font-size: 13px;
+  color: var(--text-sec);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+/* Back button */
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: var(--text-sec);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-family: inherit;
+  transition: color 0.2s var(--ease);
+}
+.back-btn:active {
+  color: var(--primary);
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useCallback, useMemo, useEffect, useRef } = React;
+
+// ===== HIGHLIGHT PARSER =====
+// ==text== → yellow highlight (key insight)
+// =!text!= → red highlight (pain point / problem)
+// =+text+= → green highlight (positive / solution)
+function parseHL(text) {
+  if (!text) return text;
+  const parts = [];
+  let remaining = text;
+  let key = 0;
+  const regex = /=([!=+])(.*?)\1=/g;
+  let match;
+  let lastIndex = 0;
+  const str = String(text);
+
+  while ((match = regex.exec(str)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(str.slice(lastIndex, match.index));
+    }
+    const marker = match[1];
+    const content = match[2];
+    const cls = marker === '!' ? 'hl-red' : marker === '+' ? 'hl-green' : 'hl';
+    parts.push(React.createElement('span', { className: cls, key: key++ }, content));
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < str.length) {
+    parts.push(str.slice(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+}
+
+// ===== DATA =====
+
+const TYPES = {
+  highRPM: {
+    id: 'highRPM',
+    key: 'A',
+    name: '高轉速型',
+    emoji: '🔴',
+    tagline: '你不是不健康，你是太拼了。',
+    color: '#e74c3c',
+    gradient: 'linear-gradient(135deg, #e74c3c, #f39c12)',
+    bgColor: '#fff5f5',
+    image: '圖檔/Gemini_Generated_Image_2jhxi72jhxi72jhx.png',
+    descriptions: [
+      `你的引擎一直催到底，油箱快見底了還在踩油門。\n\n你可能是那種行程排到滿、手機通知響不停、吃飯都在回訊息的人。你的身體其實能力很強，問題是它已經被你操得太累了。\n\n長期高壓讓你的=!壓力荷爾蒙（皮質醇）一直處於警戒狀態!=。皮質醇高的時候，身體會覺得「現在是緊急狀況，先把能量存起來以備不時之需」——存到哪裡？==你的肚子上==。\n\n這就是為什麼你==明明沒吃很多，腰圍卻越來越粗==。不是你的問題，是你的身體在替你踩煞車。`,
+      `你不是做不好，你是同時在做太多件事。\n\n你的腦袋永遠有下一個待辦事項，你的手機永遠有未讀訊息。你很少真正放空，連吃飯都像在趕進度。\n\n你的身體其實很耐操——它撐了這麼久已經很厲害了。但=!壓力荷爾蒙長期偏高!=的結果，就是==身體開始把熱量往腰間塞==，因為它覺得你隨時需要「急用」。\n\n你明明沒有吃很多，但肚子就是消不下去。這==不是你不夠自律，是你太拼了==，身體在幫你踩煞車。`,
+      `你的生活沒有「低速模式」這個選項。\n\n別人的行事曆有空格，你的像俄羅斯方塊一樣塞得密密麻麻。你可能覺得忙是正常的——但你的身體不這麼認為。\n\n長期高壓讓你的壓力系統卡在「備戰狀態」，=!身體一直在囤積能量以防萬一!=。所以不管你吃多少、動多少，肚子就是瘦不下來。\n\n==這不是意志力的問題==。你的身體在用自己的方式跟你說：「夠了，慢下來。」`
+    ],
+    anchor: '=+允許自己慢下來+=。你已經夠努力了，不需要證明什麼。',
+    suggestions: [
+      '==睡眠比加班更有投資報酬率==。睡不夠的時候，你的身體會用「變胖」來抗議。',
+      '與其逼自己少吃，不如先=+讓自己好好休息一頓飯+=。吃飯的時候就只是吃飯。',
+      '你不需要同時做好每一件事。今天==只做好一頓飯，就已經贏過昨天了==。',
+      '你的行事曆裡什麼都有，就是沒有「你自己」。試著=+把吃飯也當一個會議排進去+=。',
+      '忙到忘記吃飯不是你厲害，是=!你的身體在被消耗!=。你值得一頓不趕的午餐。',
+      '壓力不會因為你更拼就消失。但=+好好吃一餐，至少你的身體不用跟著扛+=。',
+      '=!凌晨兩點回的訊息，你的腰圍都記住了!=。今天可以試試看 =+12 點前睡一次+=。',
+      '你已經證明自己夠拼了，不需要用「瘦」來再證明一次。=+先照顧好自己的能量，其他才跟得上+=。',
+      '與其硬擠出一小時健身，不如=+讓自己每天走路 15 分鐘+=。你的身體比你想得更需要「慢下來」。'
+    ],
+    science: '根據代謝研究，=!長期壓力會讓皮質醇持續偏高，直接降低胰島素敏感度!=。你的身體不是不想瘦，是==壓力荷爾蒙在命令它「先存起來」==。',
+    sharePercent: 22,
+    shareQuip: '身邊是不是有人忙到連吃飯都像在趕進度？傳給他測測看'
+  },
+  burnout: {
+    id: 'burnout',
+    key: 'B',
+    name: '燃燒殆盡型',
+    emoji: '🟠',
+    tagline: '你不是不在乎自己，你是把能量都給了別人。',
+    color: '#e67e22',
+    gradient: 'linear-gradient(135deg, #e67e22, #f39c12)',
+    bgColor: '#fff8f0',
+    image: '圖檔/Gemini_Generated_Image_1jc9xe1jc9xe1jc9.png',
+    descriptions: [
+      `你不是不在乎自己，你是把能量都給了別人。\n\n早上叫小孩起床、準備早餐、送上學、處理家事、接小孩、煮晚餐⋯⋯你的一天從來不是為自己而活的。等到終於有一點自己的時間，已經累到只想癱在沙發上吃點什麼。\n\n你的身體長期處於=!「燃料耗盡但還在硬撐」!=的狀態。荷爾蒙系統因為睡眠不足和長期壓力而失調，==身體不知道什麼時候該餓、什麼時候該飽==，只知道你一直在消耗。\n\n你不是管不住嘴，是==身體在用唯一的方式跟你求救==。`,
+      `你的能量分配表上，=!自己永遠排在最後一行!=。\n\n你照顧所有人——小孩、另一半、父母、同事——但從來沒人問你：「你今天吃飽了嗎？」你習慣了。你覺得這是理所當然的。\n\n但你的身體不覺得。長期睡不夠、吃不好、壓力大，你的荷爾蒙系統早就在混亂中運轉。=!飢餓素飆高、瘦體素下降!=，身體根本搞不清楚你什麼時候餓、什麼時候飽。\n\n你以為是自己意志力不夠，其實是==你的身體已經撐太久了==。`,
+      `你不是沒有夢想，你是把夢想讓給了身邊的人。\n\n你的一天是被別人的需求填滿的——接送、做飯、清理、安排。你最後一次為自己做一件事是什麼時候？你可能想不起來。\n\n長期消耗讓你的身體進入一種=!「燒到底還在硬撐」!=的狀態。荷爾蒙失調、睡眠不足、進食不規律，你的身體唯一知道的求救方式就是——讓你想吃東西。\n\n==你不是貪吃。你是累了，而且累得太久了。==`
+    ],
+    anchor: '=+先照顧自己，才有能力照顧別人+=。這不是自私，是必要。',
+    suggestions: [
+      '吃飯不是「有什麼就吃什麼」的時間。=+你值得為自己好好吃一餐+=。',
+      '不需要騰出一整個小時運動，=+飯後散步 15 分鐘就很夠了+=。你已經很棒了。',
+      '今天=+幫自己做一件小事就好+=。不是幫別人，是幫你自己。',
+      '你不是沒有需求，是習慣把自己排在最後面。今天試著==排在第二個==就好。',
+      '全世界都知道你很會照顧人。但=!你的身體也在等你照顧它!=。',
+      '不要總是「方便就好」。=+你值得吃你真正想吃的+=，而不是順手的、剩下的。',
+      '如果有人跟你一樣累，你會叫他休息。那你呢？=+今晚早 30 分鐘上床+=。',
+      '你不需要等「忙完了」才開始在乎自己。因為你知道，==忙永遠不會結束==。',
+      '你每天消耗的能量其實不少，只是都花在別人身上。=+偶爾走出去，為自己走一段+=。'
+    ],
+    science: '研究顯示，=!睡眠不足會讓飢餓素上升、瘦體素下降!=。你的身體不是貪吃，是==荷爾蒙在混亂中發出錯誤訊號==。',
+    sharePercent: 28,
+    shareQuip: '你身邊有沒有那種把所有人照顧好、就是忘了自己的人？傳給他'
+  },
+  rollerCoaster: {
+    id: 'rollerCoaster',
+    key: 'C',
+    name: '雲霄飛車型',
+    emoji: '🟡',
+    tagline: '你不是意志力不夠，你的血糖一天坐三次大怒神。',
+    color: '#f39c12',
+    gradient: 'linear-gradient(135deg, #f39c12, #f1c40f)',
+    bgColor: '#fffbf0',
+    image: '圖檔/Gemini_Generated_Image_90wrf090wrf090wr.png',
+    descriptions: [
+      `你不是意志力不夠，你的=!血糖一天坐三次大怒神!=。\n\n你可能是那種下午三點一定要找零食的人。不是嘴饞，是你的血糖在那個時間點正好崩跌到谷底，身體在發出「快給我糖」的緊急訊號。\n\n每次你吃進碳水，==血糖就飆上去==。你的胰島素嚇壞了：「太多了太多了，趕快存起來！」然後=!血糖又急速掉下來!=——你就又餓了、又累了、又想吃了。\n\n這個循環一天重複三四次，你的身體一直在坐雲霄飛車，你當然累。`,
+      `你的一天大概是這樣的：早上還行、=!午餐後昏沉、下午三點快掛掉!=、吃個甜的又活過來、晚上又想吃。\n\n聽起來很熟對吧？這不是因為你不自律。是你的==血糖每天在玩大怒神==——衝上去、掉下來、再衝上去、再掉下來。\n\n你的胰島素被嚇壞了，每次血糖一飆就拼命壓，=!壓過頭又崩下來!=。你的身體就這樣一整天在高低之間劇烈搖晃。\n\n你下午那麼累、那麼想吃東西，==不是你的錯==。是你的血糖曲線長得像股市崩盤。`,
+      `你跟食物的關係很矛盾——明明不想一直吃，但就是停不下來。\n\n==這不是心理問題，是生理問題==。你的血糖每天坐好幾趟雲霄飛車：碳水下去，血糖飆上去，=!胰島素緊急加班壓下來!=，然後你又餓了。\n\n你以為下午那杯手搖飲是在獎勵自己。其實那是你的身體在喊：「我血糖不夠了，快給我糖！」\n\n這個循環不用靠意志力打破——靠的是=+讓血糖穩下來+=。方法比你想的簡單。`
+    ],
+    anchor: '吃完東西容易累、或突然很想吃甜的，不是意志力的問題，是血糖在搖晃。=+試試看吃飯時先吃菜和肉，飯最後吃+=。',
+    suggestions: [
+      '突然很想吃甜的，不是你嘴饞，是=!血糖掉下來在喊救命!=。=+包包裡放幾顆堅果，比忍住不吃可靠+=。',
+      '==吃對的東西比少吃更重要==。你值得一頓不會讓你餓了又累、累了又餓的正餐。',
+      '你有沒有發現，越忍住不吃，後來反而吃更多？那不是你的問題，是=!血糖崩跌後的正常反應!=。',
+      '不用急著改變整個飲食。=+先試試吃飯時「飯」從第一口變成最後一口+=，這一個動作就能穩住血糖。',
+      '你的身體不是沒有意志力，是==燃料給錯了==。汽油車不能加柴油，你的血糖也不能一直吃錯燃料。',
+      '晚上特別想吃東西，不是你放縱——那是=!白天血糖坐了幾趟雲霄飛車之後的正常反應!=。=+先把白天穩住，晚上自然就不那麼想吃了+=。',
+      '你不是愛吃甜食，是你的身體一直在發出==「我血糖不夠了」的假訊號==。=+穩住三餐，假訊號就會安靜下來+=。',
+      '比起計算今天吃了多少卡路里，不如注意你==吃東西的「順序」==。=+先菜、再肉、最後飯+=——這比少吃有用得多。',
+      '每次吃完正餐就想睡、或是餐跟餐之間撐不住想找東西吃，都是=!血糖在坐雲霄飛車的訊號!=。=+調整吃的順序，曲線就會變平+=。'
+    ],
+    science: '==胰島素是你身體的「交通警察」==。當血糖暴衝，胰島素就得緊急加班，=!過度反應的結果就是：血糖急降 → 你又餓了!=。這個循環不靠意志力打破，靠的是=+穩定血糖+=。',
+    sharePercent: 31,
+    shareQuip: '你朋友是不是下午三點一定要來杯手搖飲？傳給他測測'
+  },
+  powerSave: {
+    id: 'powerSave',
+    key: 'D',
+    name: '省電模式型',
+    emoji: '🟢',
+    tagline: '你不是吃太多，你是吃太少太久了。',
+    color: '#7f8c8d',
+    gradient: 'linear-gradient(135deg, #95a5a6, #7f8c8d)',
+    bgColor: '#f8fafb',
+    image: '圖檔/Gemini_Generated_Image_fe85t2fe85t2fe85.png',
+    descriptions: [
+      `你不是吃太多，==你是吃太少太久了==。\n\n你大概試過不少方法：168斷食、生酮、水煮餐、代餐⋯⋯每次都瘦了一點，然後又胖回來，甚至比以前更重。\n\n這不是你的問題。是你的身體被你嚇到了。\n\n當你反覆少吃，身體以為你在鬧飢荒。它的反應是：「糧食不夠，省著用！」於是=!代謝變慢、肌肉被拿去當燃料燒、每一口食物都被高效率地存成脂肪!=。\n\n==你越努力少吃，身體就越努力幫你存==。這不是意志力的問題，是生存本能。`,
+      `你對「減肥」這件事，比大多數人都認真。\n\n你研究過各種方法、計算過熱量、忍受過飢餓。你可能比任何人都清楚什麼食物幾卡路里。但結果呢？=!越努力越挫折!=。\n\n你的身體經歷了太多次「糧食短缺」，它學會了一件事：=!用最少的燃料撐最久!=。代謝變慢、肌肉被當燃料燒掉、每一口東西都被高效儲存。\n\n這不是你意志力不夠。是==你的身體已經不相信「夠吃」這件事了==。`,
+      `你最不想聽到的一句話大概是：「你是不是都亂吃？」\n\n因為你沒有。你吃得比誰都小心、比誰都少。但體重就是不動，甚至越來越重。你開始懷疑是不是自己的身體壞掉了。\n\n它沒有壞。==它太聰明了==。每一次節食，你的身體都記住了——=!它學會用更少的熱量維持運作，然後把多出來的每一卡都存起來!=。\n\n你需要的不是更嚴格的飲食計畫，而是=+讓身體知道：飢荒結束了，可以正常運轉了+=。`
+    ],
+    anchor: '=+不要再逼自己少吃了+=。你已經夠努力了，==身體需要的是營養，不是飢餓==。',
+    suggestions: [
+      '=+吃夠蛋白質+=。==肌肉是你的代謝引擎==，保住肌肉才保得住代謝。',
+      '與其用「不能吃什麼」來定義你的飲食，不如想想=+「還可以加什麼好的」+=。答案可能會讓你鬆一口氣。',
+      '你不是瘦不下來，是身體已經不相信你了。=!每次少吃，它就多存一點!=。現在要做的不是吃更少，是=+重新跟身體建立信任+=。',
+      '代餐、斷食、生酮⋯⋯你試過的方法比大多數人都多。==這不是失敗，這是你一直沒放棄的證明==。',
+      '如果「少吃」有用，你早就瘦了。所以==答案一定在別的地方==——比如=+「吃夠」+=。',
+      '你的身體不是壞掉了，是它太聰明了。它學會了用更少的燃料撐更久。=+你要做的是讓它知道「飢荒結束了」+=。',
+      '體重機上的數字，不能定義你的努力。==你已經比大多數人都堅持了==，身體只是還沒跟上而已。',
+      '不要再拿自己跟「以前的自己」比了。你的身體經歷過那麼多次減肥，=+它需要時間修復，而不是再一次挨餓+=。',
+      '吃飯不是敵人，=!飢餓才是!=。=+讓自己每餐都吃到「不餓」+=，就是重新啟動代謝最簡單的方法。'
+    ],
+    science: '代謝科學發現，=!長期低熱量攝取會啟動身體的「節能機制」——代謝率下降，每一口食物都被高效率儲存!=。解法不是吃更少，而是=+重新啟動代謝引擎+=。',
+    sharePercent: 12,
+    shareQuip: '你身邊有人怎麼減都瘦不下來嗎？也許不是他不夠努力。傳給他'
+  },
+  steady: {
+    id: 'steady',
+    key: 'E',
+    name: '穩定燃燒型',
+    emoji: '🔵',
+    tagline: '你的代謝引擎運轉得不錯，繼續保持。',
+    color: '#27ae60',
+    gradient: 'linear-gradient(135deg, #27ae60, #2ecc71)',
+    bgColor: '#f0fff4',
+    image: '圖檔/Gemini_Generated_Image_chf6qfchf6qfchf6.png',
+    descriptions: [
+      `你的身體正在好好運轉。你大概是那種會注意飲食、偶爾會運動、睡眠還算正常的人。\n\n不過別太得意——==代謝是動態的==，壓力、睡眠、飲食習慣的改變都可能讓你滑到其他類型。=+繼續保持就是最好的策略+=。`,
+      `恭喜，=+你的代謝引擎目前運轉得很不錯+=。\n\n你大概不是那種會極端節食或狂操猛練的人——你比較像是默默在做對的事。吃得不算完美但還行、睡眠不算多但夠、偶爾動一下。==這些小事加起來，就是你的身體穩定運轉的原因==。\n\n不過代謝是動態的。生活一變、壓力一來，隨時可能滑向其他類型。所以，=+繼續做你正在做的就好+=。`,
+      `在這個測驗裡，你是稀有物種。\n\n大部分人的代謝或多或少都被壓力、飲食、睡眠搞亂了。而你目前還在一個不錯的平衡點上。\n\n這不代表你完美，而是==你的身體目前還信任你==。繼續讓它信任你就好——不用做更多，不用更努力。=+保持就是最好的進步+=。`
+    ],
+    anchor: '把這個測驗傳給你身邊那個「下午一定要喝手搖飲」或「怎麼減都瘦不下來」的朋友。==也許你已經知道的事，正好是他需要聽到的==。',
+    suggestions: [
+      '你現在的狀態不錯，但==代謝是動態的==。壓力一來、睡眠一亂，就可能滑到其他類型。=+繼續保持就是最好的策略+=。',
+      '你可能覺得自己沒什麼特別的——但=+能夠好好吃飯、好好睡覺、好好過生活，在現在這個時代就是一種了不起的能力+=。',
+      '你的身邊一定有人正在跟體重苦戰。你的經驗也許幫不上什麼忙，但==這份測驗可以==。傳給他吧。',
+      '你不需要「更努力」。=+偶爾放鬆不會讓你的代謝崩掉+=。享受你現在的平衡，這是很多人夢寐以求的。',
+      '健康不是目的地，是一種日常選擇。==你每天的那些小習慣，其實已經在幫你的身體做最好的事了==。',
+      '如果你身邊有人覺得「怎麼減都沒用」或「我已經放棄了」，提醒他：==問題可能不是不夠努力，而是方法不對==。這份測驗或許是一個好的開始。',
+      '=+繼續吃你的蛋白質、走你的路、睡你的覺+=。不需要做更多，不需要買什麼補品。你已經在對的軌道上了。'
+    ],
+    science: null,
+    sharePercent: 7,
+    shareQuip: '你是少數代謝穩定的人！但你朋友不一定這麼幸運。傳給他測測'
+  }
+};
+
+// ===== BODY SIGNAL RESONANCE TEXT =====
+// Shown on result page when bodySignal = 'fluctuating'
+const BODY_SIGNAL_TEXT = {
+  highRPM: '而且你的身體已經在反映了——褲子變緊、體重往上，這不是你不夠自律，是=!壓力荷爾蒙一直在命令身體「存起來」!=。你的代謝引擎需要的不是更拼，而是=+一次真正的重新校準+=。',
+  burnout: '而且你的身體也在喊了——腰圍在變、體重在爬，你不是沒注意到，只是忙到沒辦法處理。=!這些都是身體在告訴你：它已經撐到極限了!=。你值得一套=+不用多花時間、但能讓身體慢慢回來的方法+=。',
+  rollerCoaster: '而且你的身體正在反映這個循環——體重起伏、褲子時緊時鬆，就像你的血糖一樣在坐雲霄飛車。=!這不是你管不住嘴，是身體一直在發出錯誤的飢餓訊號!=。好消息是，只要=+穩住血糖，這些波動就會跟著穩下來+=。',
+  powerSave: '而且你可能發現，就算吃這麼少，體重還是慢慢在爬、褲子還是越來越緊。=!這就是省電模式最殘酷的地方——你越努力少吃，身體越努力幫你存!=。你需要的不是再一次節食，而是=+讓身體解除警報，重新開機+=。',
+  steady: '不過你可能也感覺到了——最近褲子好像有點緊、或者體重開始有些起伏。你的生活習慣跟心態都很不錯，但==身體好像還沒有完全跟上你的努力==。\n\n這不是你的問題。有時候代謝需要的不只是好習慣，而是=+更精準的重建方式+=，幫身體走完最後一哩路。'
+};
+
+// ===== SCIENCE PAGE CONTENT =====
+
+const SCIENCE_CONTENT = {
+  highRPM: {
+    subtitle: '你的身體不是不想瘦，是壓力在命令它「先存起來」。',
+    sections: [
+      {
+        icon: '🧠',
+        title: '你的身體發生了什麼事？',
+        text: `想像你的身體裡有一個「警報系統」，負責應付緊急狀況。這個系統的總指揮叫做皮質醇——也就是大家常說的壓力荷爾蒙。
+
+正常情況下，皮質醇早上高、晚上低，幫你起床、有精神、然後放鬆入睡。但當你長期處於高壓狀態——工作排滿、手機響不停、睡眠不足——皮質醇就會卡在「高檔」下不來。
+
+皮質醇長期偏高會發生三件事：
+第一，它會告訴身體「現在是緊急狀況，把能量存起來」，而==身體最喜歡的儲存地點就是你的腰和肚子==。
+第二，它會=!讓你的胰島素敏感度下降!=，也就是說，即使你吃得不多，身體處理血糖的效率也變差了。
+第三，它會=!干擾你的睡眠品質!=，而睡不好又會讓皮質醇更高——形成一個惡性循環。`
+      },
+      {
+        icon: '❌',
+        title: '為什麼常見方法對你沒用？',
+        text: `「少吃多動」對高轉速型來說，可能反而是雪上加霜。
+
+你已經處於高壓狀態，身體覺得隨時在「打仗」。這時候如果再少吃（減少燃料供應）或猛運動（增加消耗），身體只會更恐慌：「連糧食都不夠了，更要存起來！」
+
+結果就是：=!你越努力節食，肚子反而越頑固。你拼命運動，皮質醇反而更高!=。你明明做了所有「對的事」，但身體就是不配合。
+
+這不是你的意志力有問題。是你的策略方向反了——==你需要的不是更拼，是讓身體的警報系統先停下來==。`
+      },
+      {
+        icon: '💡',
+        title: '那怎麼辦？',
+        text: `關鍵不在於吃什麼或做什麼運動，而是先讓你的壓力系統恢復正常。
+
+最有效的起點其實很簡單：=+好好睡覺、好好吃飯（不是少吃）、允許自己慢下來+=。
+
+聽起來太簡單？但這正是高轉速型最不擅長的事——因為你習慣了忙、習慣了拼、習慣了把自己排在最後面。
+
+當皮質醇恢復正常節律，胰島素敏感度提升，你會發現：=+不需要挨餓，身體自然就會開始調整+=。`
+      }
+    ],
+    highlight: '你不需要更努力。你需要的是一套=+「讓身體先冷靜下來」+=的方法，然後==代謝自然就會回到正軌==。'
+  },
+  burnout: {
+    subtitle: '你的荷爾蒙系統在混亂中運轉，身體已經分不清餓和累了。',
+    sections: [
+      {
+        icon: '🧠',
+        title: '你的身體發生了什麼事？',
+        text: `你的身體有兩個重要的「食慾信差」：一個叫飢餓素（Ghrelin），負責告訴你「該吃了」；另一個叫瘦體素（Leptin），負責告訴你「夠了，可以停了」。
+
+正常情況下，這兩個信差會互相配合，讓你在對的時間吃、在對的時間停。但當你長期睡眠不足、身體過度消耗、壓力持續不斷，這兩個信差就開始亂發訊號。
+
+研究發現，只要連續兩天睡不滿六小時，=!飢餓素就會上升 28%，瘦體素會下降 18%!=。翻成白話就是：==你會更容易餓、更不容易飽、而且特別想吃高熱量的食物==。
+
+你以為是自己「嘴饞」、「管不住」，其實是荷爾蒙在背後操控你的食慾。加上你長期把自己排在最後面——小孩吃完你才吃、剩什麼吃什麼、累到沒力氣好好煮——你的營養攝取早就亂了套。`
+      },
+      {
+        icon: '❌',
+        title: '為什麼常見方法對你沒用？',
+        text: `你可能想過：「那我就忍住不吃就好了。」但問題是，你的身體已經在發出「我快不行了」的求救訊號，硬忍只會讓訊號更強烈。
+
+或者你可能想：「那我就多運動吧。」但你連好好休息的時間都沒有了，再擠出時間運動只是讓消耗更大，身體更累。
+
+燃燒殆盡型的你，==問題核心不是「吃太多」或「動太少」==——而是你的身體已經被消耗到底了，荷爾蒙系統在混亂中苦撐。
+
+=!任何不先解決「消耗過度」的方法，對你來說都只是治標不治本!=。`
+      },
+      {
+        icon: '💡',
+        title: '那怎麼辦？',
+        text: `你需要的第一步不是少吃、不是運動，而是「補回來」。
+
+=+補睡眠+=：哪怕每天只能多睡 30 分鐘，你的飢餓素和瘦體素就會開始回到正常範圍。
+
+=+補營養+=：不是吃更多，是吃「對」的。尤其是蛋白質——它能幫你穩定血糖、減少亂吃的衝動。
+
+最重要的是，你需要把==「照顧自己」從待辦清單的最後一項，往前移幾格==。你不需要變自私，只需要先讓自己的油箱不要見底。`
+      }
+    ],
+    highlight: '你已經撐了很久了。現在需要的不是更多自律，是一套=+讓你「在忙碌中也能好好吃、好好睡」+=的系統。'
+  },
+  rollerCoaster: {
+    subtitle: '你的血糖像股市一樣暴漲暴跌，胰島素一整天在加班。',
+    sections: [
+      {
+        icon: '🧠',
+        title: '你的身體發生了什麼事？',
+        text: `你的身體有一個「血糖管理員」，名字叫做胰島素。每次你吃進食物（尤其是碳水化合物），血糖就會上升，胰島素就會出動，把多餘的糖搬到細胞裡儲存。
+
+正常情況下，這是一個平順的過程。但如果你一次吃進太多精緻碳水——白飯、麵包、含糖飲料——血糖就會飆升。胰島素被嚇到了，緊急大量分泌要壓下來。
+
+結果呢？=!壓過頭了。血糖從高點直接墜落到谷底!=。你的大腦偵測到「血糖太低了！」，馬上發出訊號：餓！想吃甜的！現在就要！
+
+這就是你下午三點快撐不住的原因。不是你嘴饞，是你的血糖在那個時間點剛好崩到谷底。
+
+更麻煩的是，這個循環一天重複好幾次，你的胰島素被迫不斷加班。久了之後，細胞開始「不理」胰島素了——這就叫做=!「胰島素阻抗」!=。到了這個階段，==吃同樣的東西，你的身體卻會存更多脂肪==。`
+      },
+      {
+        icon: '❌',
+        title: '為什麼常見方法對你沒用？',
+        text: `「少量多餐」對雲霄飛車型來說，可能反而更慘。因為每吃一次含碳水的食物，就是讓胰島素再出動一次。本來坐三趟雲霄飛車，改成少量多餐反而可能變五六趟。
+
+「只算卡路里」也沒用。300 卡的白飯和 300 卡的雞胸肉，對你的血糖影響完全不同。卡路里相同，但身體反應天差地遠。
+
+你需要的不是「吃更少」，而是=+「吃對順序、吃對東西」+=，讓血糖的波動從雲霄飛車變成緩坡。`
+      },
+      {
+        icon: '💡',
+        title: '那怎麼辦？',
+        text: `好消息是，雲霄飛車型其實是最容易看到改變的類型。因為只要調整「吃的順序」和「吃的內容」，血糖曲線就能在幾天內明顯變平。
+
+最簡單的一個改變：=+吃飯的時候，先吃菜、再吃肉、最後吃飯+=。光是這一個動作，就能讓==飯後血糖的飆升幅度降低 30-40%==。
+
+第二個改變：下午三點餓的時候，不要拿餅乾或手搖飲，改成一把堅果或一顆水煮蛋。蛋白質和好的油脂不會讓血糖暴衝。
+
+這不需要意志力，需要的是「知道怎麼吃」。`
+      }
+    ],
+    highlight: '你的身體不缺意志力，缺的是一套=+「讓血糖不坐雲霄飛車」的吃法+=。==方法比你想的簡單，效果比你想的快==。'
+  },
+  powerSave: {
+    subtitle: '你的代謝被你自己的努力嚇壞了，它學會用最少的燃料撐最久。',
+    sections: [
+      {
+        icon: '🧠',
+        title: '你的身體發生了什麼事？',
+        text: `你的身體是一台非常聰明的機器。當它發現「食物供應不穩定」——也就是你反覆節食、少吃——它會啟動一個叫做「代謝適應」的生存機制。
+
+這個機制在幾萬年前是救命的。當食物不夠的時候，身體會做三件事來幫你活下去：
+
+第一，=!降低基礎代謝率!=。就像手機電量低的時候會自動進入省電模式——關掉不必要的功能，用最少的電撐最久。你的身體也是，甲狀腺荷爾蒙下調，代謝引擎降速運轉。
+
+第二，=!分解肌肉當燃料!=。肌肉是身體裡最耗能的組織，省電模式下第一個被「裁員」的就是它。肌肉少了，你每天能消耗的熱量就更低。
+
+第三，=!提高食物的儲存效率!=。每一口食物都被身體高效率地轉換成脂肪存起來，因為它不知道下一頓飯什麼時候來。
+
+這就是為什麼你越節食、越少吃，體重反而越來越難減。你的身體不是壞掉了，是它太努力地在保護你——只不過，它保護你的方式就是「把每一卡都存起來」。`
+      },
+      {
+        icon: '❌',
+        title: '為什麼常見方法對你沒用？',
+        text: `「吃更少」對省電模式型來說，是最糟糕的建議。
+
+每一次新的節食計畫——168 斷食、生酮、水煮餐、代餐——都是在告訴你的身體：「又來了，又要鬧飢荒了！」身體的反應就是把省電模式調得更低、存得更多。
+
+這就是==「越減越胖」的科學原理==。你的基礎代謝可能已經被壓到遠低於正常值。別人一天能消耗 1500 卡，你可能只剩 1000 卡。=!就算你只吃 1200 卡，多出來的 200 卡照樣被存成脂肪!=。
+
+數學很殘酷，但問題不在你，在方法。`
+      },
+      {
+        icon: '💡',
+        title: '那怎麼辦？',
+        text: `你需要做的事情聽起來很違反直覺：吃夠。
+
+不是暴吃，而是讓身體知道「飢荒結束了，可以正常運轉了」。
+
+第一步是=+吃夠蛋白質+=。蛋白質是重建肌肉的材料，而==肌肉是你的代謝引擎==。引擎修好了，每天能燒的熱量才會回來。
+
+第二步是=+慢慢把熱量吃回來+=。不是一夜之間從 1000 卡跳到 1800 卡，而是循序漸進，讓身體逐步信任「食物是穩定的」。
+
+第三步是=+加入適當的阻力訓練+=。不需要去健身房操到爆——在家做幾組深蹲、推牆伏地挺身就夠了。目標是跟身體說：「肌肉是需要的，不要再拿去燒了。」
+
+這個過程需要時間和耐心。你的代謝不是一天被壓下去的，它也不會一天就恢復。但只要方向對了，你的身體會慢慢把省電模式關掉。`
+      }
+    ],
+    highlight: '你已經夠努力了。現在需要的不是更嚴格的計畫，是一套=+「讓身體解除省電模式」+=的策略——從==吃夠、睡好、慢慢重建代謝引擎==開始。'
+  },
+  steady: {
+    subtitle: '你的代謝引擎目前很穩定，最重要的是繼續保持。',
+    sections: [
+      {
+        icon: '🧠',
+        title: '你的身體正在好好運轉',
+        text: `恭喜你，在這個高壓、外食、久坐的時代，能維持代謝穩定真的是了不起的事。
+
+你的胰島素敏感度正常、壓力荷爾蒙還在合理範圍、睡眠和飲食的節律沒有被嚴重打亂。這些不是理所當然的——而是你每天的小習慣累積起來的結果。`
+      },
+      {
+        icon: '⚠️',
+        title: '不過，代謝是動態的',
+        text: `代謝不是一個固定的狀態，它會隨著你的生活方式而變化。一次連續出差、一段高壓期、一個月的睡眠不足，都可能讓你從穩定燃燒滑到其他類型。
+
+所以不需要做更多，只需要繼續做你正在做的事：好好吃、好好睡、偶爾動一動。保持就是最好的進步。`
+      },
+      {
+        icon: '💝',
+        title: '但你身邊的人可能需要幫助',
+        text: `你的朋友、同事、家人，可能正在經歷上面某一種代謝困擾。他們可能覺得是自己意志力不夠、不夠努力、或是身體壞掉了。
+
+你可以把這份測驗傳給他們。也許你已經知道的事，正好是他們需要聽到的——「不是你的錯，是方法不對。」
+
+一份測驗不能改變什麼，但它可能是一個改變的開始。`
+      }
+    ],
+    highlight: null
+  }
+};
+
+const TYPE_ORDER = ['highRPM', 'burnout', 'rollerCoaster', 'powerSave', 'steady'];
+const TYPE_BY_KEY = {};
+TYPE_ORDER.forEach(id => { TYPE_BY_KEY[TYPES[id].key] = id; });
+
+// Questions
+const QUESTIONS = [
+  {
+    id: 1,
+    text: '你的一天通常是怎麼開始的？',
+    options: [
+      { key: 'A', text: '鬧鐘響之前就醒了，腦袋已經在想今天要做什麼' },
+      { key: 'B', text: '被小孩或家人叫醒，還沒清醒就開始忙了' },
+      { key: 'C', text: '鬧鐘按了三次才起來，起床後還是很累' },
+      { key: 'D', text: '其實沒什麼胃口，但想著「應該要吃早餐」' },
+      { key: 'E', text: '自然醒，精神還不錯，起來吃個早餐開始一天' },
+    ]
+  },
+  {
+    id: 2,
+    text: '如果下午三點，同事問你要不要一起買手搖飲，你最可能的反應是？',
+    options: [
+      { key: 'A', text: '不太需要，但因為太忙了隨便買一杯提神' },
+      { key: 'B', text: '好啊，終於有人想到我了' },
+      { key: 'C', text: '太好了！正好快撐不住了，需要甜的' },
+      { key: 'D', text: '猶豫一下，算了，怕胖' },
+      { key: 'E', text: '可以啊，不過我買無糖的就好' },
+    ]
+  },
+  {
+    id: 3,
+    text: '你上一次「好好坐下來吃一頓飯」是什麼時候？',
+    options: [
+      { key: 'A', text: '不記得了，通常邊工作邊吃' },
+      { key: 'B', text: '昨天——不過是小孩吃剩的' },
+      { key: 'C', text: '今天午餐吧，不過吃完就很想睡' },
+      { key: 'D', text: '我都有在吃啊，只是吃得比較少' },
+      { key: 'E', text: '大部分時候都有好好吃，不會特別趕' },
+    ]
+  },
+  {
+    id: 4,
+    text: '晚上十點，你通常在做什麼？',
+    options: [
+      { key: 'A', text: '還在處理工作，或是想著明天的事' },
+      { key: 'B', text: '終於把小孩／家人安頓好，癱在沙發上' },
+      { key: 'C', text: '看劇、滑手機，嘴巴停不下來' },
+      { key: 'D', text: '有點餓但不敢吃，怕又胖' },
+      { key: 'E', text: '準備洗澡睡覺了，明天再說' },
+    ]
+  },
+  {
+    id: 5,
+    text: '你覺得自己吃得多嗎？',
+    options: [
+      { key: 'A', text: '其實吃不多，但也沒在控制，沒空想這件事' },
+      { key: 'B', text: '不知道，有得吃就吃，常常是有什麼吃什麼' },
+      { key: 'C', text: '正餐可能還好，但零食飲料加起來應該不少' },
+      { key: 'D', text: '已經吃很少了，但怎麼還是瘦不下來' },
+      { key: 'E', text: '還好，大部分時候有注意均衡，偶爾放鬆也不會太擔心' },
+    ]
+  },
+  {
+    id: 6,
+    type: 'multiselect',
+    text: '你最近有沒有這些感覺？（選符合的就好）',
+    sections: [
+      {
+        title: '能量與精神',
+        options: [
+          { text: '明明沒做什麼但就是覺得累', scores: { burnout: 0.5, highRPM: 0.5 } },
+          { text: '下午一定會有一段想睡的時間', scores: { rollerCoaster: 0.5 } },
+          { text: '常常忘東忘西、腦袋像當機', scores: { rollerCoaster: 0.5, highRPM: 0.5 } },
+          { text: '情緒起伏比以前大，容易煩躁', scores: { burnout: 0.5 } },
+        ]
+      },
+      {
+        title: '身體訊號',
+        options: [
+          { text: '皮膚變差（痘痘、過敏、乾燥）', scores: { rollerCoaster: 0.5, highRPM: 0.5 } },
+          { text: '腸胃不太對（便秘、脹氣）', scores: { rollerCoaster: 0.5, burnout: 0.5 } },
+          { text: '容易感冒或過敏發作', scores: { burnout: 0.5, highRPM: 0.5 } },
+          { text: '肚子越來越大，其他地方還好', scores: { highRPM: 0.5 } },
+        ]
+      },
+      {
+        title: '睡眠與體重',
+        options: [
+          { text: '難入睡、淺眠、半夜容易醒', scores: { highRPM: 0.5, burnout: 0.5 } },
+          { text: '怎麼減都瘦不下來', scores: { powerSave: 0.5 } },
+          { text: '關節痠痛或身體僵硬', scores: { burnout: 0.5 } },
+        ]
+      }
+    ],
+    noneOption: { text: '以上都沒有，我覺得狀態還不錯', scores: { steady: 1 } }
+  },
+  {
+    id: 7,
+    text: '你身邊的人最常對你說的話是？',
+    options: [
+      { key: 'A', text: '「你不要這麼拼，要注意身體」' },
+      { key: 'B', text: '「你也太辛苦了吧，要不要休息一下」' },
+      { key: 'C', text: '「你怎麼又在吃」或「你又在叫飲料了」' },
+      { key: 'D', text: '「你已經很瘦了，不用再減了」' },
+      { key: 'E', text: '好像沒有特別被唸什麼' },
+    ]
+  },
+  {
+    id: 8,
+    type: 'bodySignal',
+    text: '最近半年，你的身體有什麼變化？',
+    options: [
+      { key: 'A', text: '褲子明顯變緊了，體重也在慢慢往上', signal: 'fluctuating' },
+      { key: 'B', text: '體重反反覆覆，瘦了又回來', signal: 'fluctuating' },
+      { key: 'C', text: '好像有一點變化，但說不上來', signal: 'fluctuating' },
+      { key: 'D', text: '差不多沒什麼變，還算穩定', signal: 'stable' },
+    ]
+  }
+];
+
+
+// ===== HELPER FUNCTIONS =====
+
+function getRandomItems(arr, n) {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, n);
+}
+
+function calculateResult(answers) {
+  const scores = { highRPM: 0, burnout: 0, rollerCoaster: 0, powerSave: 0, steady: 0 };
+
+  // Separate body signal answer (Q8) from scoring answers
+  const bodySignalAnswers = [];
+  // Collect Q6 selected symptom texts
+  let q7Symptoms = [];
+
+  answers.forEach((answer, idx) => {
+    const question = QUESTIONS[idx];
+    if (question && question.type === 'bodySignal') {
+      // Body signal questions don't affect type scoring
+      const selectedOpt = question.options.find(o => o.key === answer);
+      if (selectedOpt) bodySignalAnswers.push(selectedOpt.signal);
+      return;
+    }
+    if (idx === 5) {
+      // Q6 multiselect — answer is { scores: [...], texts: [...] }
+      const q7scores = answer && answer.scores ? answer.scores : (Array.isArray(answer) ? answer : []);
+      q7Symptoms = answer && answer.texts ? answer.texts : [];
+      if (q7scores.length > 0) {
+        q7scores.forEach(scoreObj => {
+          Object.entries(scoreObj).forEach(([type, val]) => {
+            scores[type] += val;
+          });
+        });
+      }
+    } else {
+      const typeId = TYPE_BY_KEY[answer];
+      if (typeId) scores[typeId] += 1;
+    }
+  });
+
+  // Determine body signal: any "fluctuating" = body is fluctuating
+  const bodySignal = bodySignalAnswers.includes('fluctuating') ? 'fluctuating' : 'stable';
+
+  // Find top types
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const [firstType, firstScore] = sorted[0];
+  const [secondType, secondScore] = sorted[1];
+
+  // Steady check
+  if (firstType === 'steady' && firstScore >= 4) {
+    return { primary: 'steady', secondary: null, scores, bodySignal, q7Symptoms };
+  }
+  const nonSteady = sorted.filter(([t]) => t !== 'steady');
+  if (nonSteady.every(([, s]) => s <= 2)) {
+    return { primary: 'steady', secondary: null, scores, bodySignal, q7Symptoms };
+  }
+
+  // Mixed type check
+  if (firstScore - secondScore <= 1 && firstType !== 'steady' && secondType !== 'steady') {
+    return { primary: firstType, secondary: secondType, scores, bodySignal, q7Symptoms };
+  }
+
+  return { primary: firstType, secondary: null, scores, bodySignal, q7Symptoms };
+}
+
+
+// ===== COMPONENTS =====
+
+const PAIN_POINTS = [
+  { text: '下午三點一定要來杯手搖飲，不然撐不住', emoji: '🧋' },
+  { text: '明明吃很少，體重就是不動', emoji: '⚖️' },
+  { text: '忙了一整天，晚上只想癱著吃東西', emoji: '🛋️' },
+  { text: '肚子越來越大，其他地方還好', emoji: '😮‍💨' },
+  { text: '試過168、生酮、代餐⋯每次都復胖', emoji: '🔄' },
+  { text: '吃完午餐就想睡，下午腦袋像當機', emoji: '😴' },
+];
+
+const PAIN_MESSAGES = [
+  '',
+  '這可能不是意志力的問題⋯',
+  '你的身體可能在發出訊號',
+  '這些都跟「代謝」有關',
+  '你的代謝模式，決定了你的身體反應',
+  '測驗可以幫你找到答案',
+  '你不是不努力，是方法不對',
+];
+
+function IntroPage({ onStart }) {
+  const [checked, setChecked] = useState({});
+
+  const togglePain = (idx) => {
+    setChecked(prev => {
+      const next = { ...prev };
+      if (next[idx]) { delete next[idx]; } else { next[idx] = true; }
+      return next;
+    });
+  };
+
+  const checkedCount = Object.keys(checked).length;
+
+  return (
+    <div className="intro">
+      <div className="intro-badge">30 秒快速測驗</div>
+      <h1>
+        你不是不努力<br/>
+        <span>是代謝在扯你後腿</span>
+      </h1>
+      <p>
+        8 個生活小問題<br/>
+        測出你的身體正在用哪種模式運轉
+      </p>
+
+      <div className="pain-section">
+        <div className="pain-header">
+          你是不是也<span>這樣</span>？
+        </div>
+        <div className="pain-list">
+          {PAIN_POINTS.map((item, idx) => (
+            <div
+              key={idx}
+              className={`pain-item ${checked[idx] ? 'highlighted' : ''}`}
+              onClick={() => togglePain(idx)}
+            >
+              <span className="pain-check">{checked[idx] ? '✓' : ''}</span>
+              <span>{item.emoji} {item.text}</span>
+            </div>
+          ))}
+        </div>
+        <div className="pain-count">
+          {checkedCount > 0 ? PAIN_MESSAGES[checkedCount] || PAIN_MESSAGES[PAIN_MESSAGES.length - 1] : '\u00A0'}
+        </div>
+      </div>
+
+      <div className="pain-divider">花 30 秒找出原因</div>
+
+      <div className="intro-features">
+        <div className="intro-feature">
+          <div className="icon">⏱️</div>
+          <div>30 秒完成</div>
+        </div>
+        <div className="intro-feature">
+          <div className="icon">🧬</div>
+          <div>科學依據</div>
+        </div>
+        <div className="intro-feature">
+          <div className="icon">🎯</div>
+          <div>個人化建議</div>
+        </div>
+      </div>
+      <button className="start-btn" onClick={() => { trackEvent('quiz_start'); onStart(); }}>開始測驗 →</button>
+      <div className="intro-footer">已有超過 10,000 人完成測驗</div>
+    </div>
+  );
+}
+
+function QuestionPage({ question, questionIdx, total, onAnswer, onBack }) {
+  const [selected, setSelected] = useState(null);
+  // Q7: track selected items by unique key "sectionIdx-optionIdx"
+  const [q7Selected, setQ7Selected] = useState({});
+  const [q7NoneSelected, setQ7NoneSelected] = useState(false);
+
+  const isQ7 = question.type === 'multiselect';
+  const LABELS = ['A', 'B', 'C', 'D', 'E'];
+
+  const handleOptionClick = (key) => {
+    setSelected(key);
+    setTimeout(() => onAnswer(key), 300);
+  };
+
+  const handleQ7Toggle = (uniqueKey) => {
+    if (q7NoneSelected) setQ7NoneSelected(false);
+    setQ7Selected(prev => {
+      const next = { ...prev };
+      if (next[uniqueKey]) { delete next[uniqueKey]; } else { next[uniqueKey] = true; }
+      return next;
+    });
+  };
+
+  const handleQ7None = () => {
+    setQ7NoneSelected(!q7NoneSelected);
+    setQ7Selected({});
+  };
+
+  const handleQ7Submit = () => {
+    if (q7NoneSelected) {
+      onAnswer({ scores: [question.noneOption.scores], texts: [] });
+    } else {
+      // Collect scores AND texts from all selected items
+      const selectedScores = [];
+      const selectedTexts = [];
+      question.sections.forEach((section, si) => {
+        section.options.forEach((opt, oi) => {
+          if (q7Selected[`${si}-${oi}`]) {
+            selectedScores.push(opt.scores);
+            selectedTexts.push(opt.text);
+          }
+        });
+      });
+      onAnswer({ scores: selectedScores.length > 0 ? selectedScores : [], texts: selectedTexts });
+    }
+  };
+
+  return (
+    <div>
+      <div className="progress-wrap">
+        <div className="progress-info">
+          <span>
+            {questionIdx > 0 && <button className="back-btn" onClick={onBack}>← 上一題</button>}
+          </span>
+          <span>{questionIdx + 1} / {total}</span>
+        </div>
+        <div className="progress-bar">
+          <div className="progress-fill" style={{ width: `${((questionIdx + 1) / total) * 100}%` }} />
+        </div>
+      </div>
+
+      <div className="question-page" key={question.id}>
+        <div className="question-num">Q{question.id}</div>
+        <div className="question-text">{question.text}</div>
+
+        {!isQ7 ? (
+          <div className="options">
+            {question.options.map((opt, idx) => (
+              <button
+                key={opt.key}
+                className={`option-btn ${selected === opt.key ? 'selected' : ''}`}
+                onClick={() => handleOptionClick(opt.key)}
+              >
+                <span className="option-label">{LABELS[idx]}</span>
+                {opt.text}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div>
+            {question.sections.map((section, si) => (
+              <div key={si}>
+                <div className="q7-section-title">{section.title}</div>
+                <div className="options">
+                  {section.options.map((opt, oi) => {
+                    const uid = `${si}-${oi}`;
+                    const isChecked = !!q7Selected[uid];
+                    return (
+                      <button
+                        key={uid}
+                        className={`checkbox-btn ${isChecked ? 'selected' : ''}`}
+                        onClick={() => handleQ7Toggle(uid)}
+                      >
+                        <span className="checkbox-icon">{isChecked ? '✓' : ''}</span>
+                        <span>{opt.text}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+            <div className="q7-none-option">
+              <button
+                className={`checkbox-btn ${q7NoneSelected ? 'selected' : ''}`}
+                onClick={handleQ7None}
+              >
+                <span className="checkbox-icon">{q7NoneSelected ? '✓' : ''}</span>
+                <span>{question.noneOption.text}</span>
+              </button>
+            </div>
+            <button className="q7-next-btn" onClick={handleQ7Submit}>下一題 →</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function LoadingPage() {
+  const [text, setText] = useState('正在分析你的代謝類型...');
+  useEffect(() => {
+    const t1 = setTimeout(() => setText('比對科學資料中...'), 800);
+    const t2 = setTimeout(() => setText('快好了...'), 1600);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+  return (
+    <div className="loading-page">
+      <div className="loading-spinner" />
+      <div className="loading-text">{text}</div>
+    </div>
+  );
+}
+
+function SciencePage({ typeId, onBack, onRestart, hasResult }) {
+  const type = TYPES[typeId];
+  const content = SCIENCE_CONTENT[typeId];
+  const isSteady = typeId === 'steady';
+
+  const handleCopyLink = () => {
+    const url = window.location.href.split('?')[0];
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url);
+      alert('連結已複製！傳給朋友測測看');
+    } else {
+      prompt('複製這個連結傳給朋友：', url);
+    }
+  };
+
+  return (
+    <div className="science-page">
+      <div className="science-reveal" style={{ background: type.gradient }}>
+        {type.image && <img className="science-reveal-img" src={type.image} alt={type.name} />}
+        <div className="result-type-badge" style={{ background: type.gradient }}>
+          {type.emoji} {type.name}
+        </div>
+        <div className="science-reveal-title">{type.name}的科學解析</div>
+        <div className="science-reveal-subtitle">{content.subtitle}</div>
+      </div>
+      <div className="science-page-body">
+        {hasResult ? (
+          <button className="science-page-back" onClick={onBack}>← 回到測驗結果</button>
+        ) : (
+          <button className="science-page-back" onClick={onRestart}>🧬 去做代謝類型測驗</button>
+        )}
+
+        {content.sections.map((section, i) => (
+          <div className="science-block" key={i}>
+            <div className="science-block-icon">{section.icon}</div>
+            <div className="science-block-title">{section.title}</div>
+            <div className="science-block-text">{parseHL(section.text)}</div>
+          </div>
+        ))}
+
+        {content.highlight && (
+          <div className="science-highlight">
+            {parseHL(content.highlight)}
+          </div>
+        )}
+
+        {/* CTA - ABC代謝力重建系統 */}
+        {!isSteady ? (
+          <div className="science-cta-box">
+            <div className="science-cta-badge">專為你的類型設計</div>
+            <div className="science-cta-title">ABC 代謝力重建系統</div>
+            <div className="science-cta-desc">
+              不靠意志力、不用挨餓、不走冤枉路。<br/>
+              針對你的代謝類型，用科學的方式<br/>
+              重新啟動身體的燃燒引擎。
+            </div>
+            <div className="science-cta-features">
+              <div className="science-cta-feature">✅ 了解你的代謝為什麼卡住</div>
+              <div className="science-cta-feature">✅ 拿到專屬你的調整方案</div>
+              <div className="science-cta-feature">✅ 不用餓肚子也能看到改變</div>
+            </div>
+            <a className="science-cta-btn" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" onClick={() => trackEvent('click_line_yixiu', { source: 'science_page' })}>
+              加入一休的 LINE，了解更多 →
+            </a>
+          </div>
+        ) : (
+          <div className="science-cta-box">
+            <div className="science-cta-title">傳給需要的人</div>
+            <div className="science-cta-desc">
+              你身邊一定有人正在跟體重苦戰。<br/>
+              也許他需要的不是更多意志力，<br/>
+              而是知道「不是他的錯」。
+            </div>
+            <button className="science-cta-btn" onClick={handleCopyLink} style={{ background: 'linear-gradient(135deg, #e74c3c, #f39c12)' }}>
+              📋 複製測驗連結，傳給朋友
+            </button>
+          </div>
+        )}
+
+        <div style={{ textAlign: 'center', marginTop: 20 }}>
+          <button className="retake-btn" onClick={onRestart}>
+            🔄 再做一次測驗
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ResultPage({ result, onRestart, onShowScience }) {
+  const type = TYPES[result.primary];
+  const secondaryType = result.secondary ? TYPES[result.secondary] : null;
+  const isMixed = !!result.secondary;
+
+  // Random description
+  const desc = useMemo(() => {
+    const descs = type.descriptions;
+    return descs[Math.floor(Math.random() * descs.length)];
+  }, [type]);
+
+  // Random suggestions (no refresh)
+  const suggestions = useMemo(() => {
+    const pool = [...type.suggestions];
+    return getRandomItems(pool, 2);
+  }, [type]);
+
+  const handleCopyLink = () => {
+    const url = window.location.href.split('?')[0];
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url);
+      alert('連結已複製！傳給朋友測測看');
+    } else {
+      prompt('複製這個連結傳給朋友：', url);
+    }
+  };
+
+  const shareCardRef = useRef(null);
+  const [saving, setSaving] = useState(false);
+
+  const handleSaveCard = async () => {
+    if (!shareCardRef.current || saving) return;
+    setSaving(true);
+    try {
+      const canvas = await html2canvas(shareCardRef.current, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null,
+      });
+      const link = document.createElement('a');
+      link.download = `代謝類型-${type.name}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (e) {
+      console.error('Save failed:', e);
+    }
+    setSaving(false);
+  };
+
+  return (
+    <div className="result-page">
+      {/* Type Reveal Card */}
+      <div className="result-reveal" style={{ background: type.gradient }}>
+        {type.image ? (
+          <img className="result-reveal-img" src={type.image} alt={type.name} />
+        ) : (
+          <div className="result-reveal-emoji">{type.emoji}</div>
+        )}
+        {isMixed && (
+          <div className="mixed-badge">混合型</div>
+        )}
+        <div className="result-type-badge" style={{ background: type.gradient }}>
+          {type.emoji} {isMixed ? `${type.name} × ${secondaryType.name}` : type.name}
+        </div>
+        <h2 className="result-type-name">
+          你是「{isMixed ? `${type.name} × ${secondaryType.name}` : type.name}」代謝
+        </h2>
+        <p className="result-tagline">{type.tagline}</p>
+      </div>
+
+      <div className="result-body">
+        {/* Description */}
+        <div className="result-desc">
+          {desc.split('\n\n').map((p, i) => <p key={i}>{parseHL(p)}</p>)}
+        </div>
+
+        {/* Suggestions */}
+        <div className="suggestions-section">
+          <div className="suggestions-title">
+            💡 給{type.name.replace('型', '')}的你三個建議：
+          </div>
+          <div className="suggestion-item suggestion-anchor">
+            <span className="suggestion-num" style={{ background: type.color }}>★</span>
+            {parseHL(type.anchor)}
+          </div>
+          {suggestions.map((sug, i) => (
+            <div key={i} className="suggestion-item">
+              <span className="suggestion-num" style={{ background: type.color }}>{i + 2}</span>
+              {parseHL(sug)}
+            </div>
+          ))}
+        </div>
+
+        {/* Body Signal Section — Q7 symptoms and/or Q11/Q12 trend, layered independently */}
+        {((result.q7Symptoms && result.q7Symptoms.length > 0) || (result.bodySignal === 'fluctuating' && BODY_SIGNAL_TEXT[result.primary])) && (
+          <div className="body-signal-section">
+            <div className="body-signal-title">📊 你的身體在說話</div>
+            {result.q7Symptoms && result.q7Symptoms.length > 0 && (
+              <div>
+                <ul className="q7-symptom-list">
+                  {result.q7Symptoms.map((s, i) => <li key={i} className="q7-symptom-item">{s}</li>)}
+                </ul>
+                <p className="q7-symptom-summary">這些都是你的身體在反映目前的代謝狀態——可能正處於慢性發炎中。</p>
+              </div>
+            )}
+            {result.q7Symptoms && result.q7Symptoms.length > 0 && result.bodySignal === 'fluctuating' && BODY_SIGNAL_TEXT[result.primary] && (
+              <hr className="body-signal-divider" />
+            )}
+            {result.bodySignal === 'fluctuating' && BODY_SIGNAL_TEXT[result.primary] && (
+              <div className="body-signal-text">
+                {BODY_SIGNAL_TEXT[result.primary].split('\n\n').map((p, i) => <p key={i}>{parseHL(p)}</p>)}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Science teaser */}
+        {type.science && (
+          <div className="science-section">
+            <div className="science-title">🔬 科學小知識</div>
+            <div className="science-text">{parseHL(type.science)}</div>
+          </div>
+        )}
+
+        {/* CTA — LINE 導流 + 科學解析誘因 */}
+        <div className="cta-section">
+          {result.primary === 'steady' && result.bodySignal === 'fluctuating' ? (
+            <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ borderColor: '#e67e22', background: '#fff8f0' }} onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name, cta_variant: 'steady' })}>
+              <div className="cta-icon">🚀</div>
+              <div className="cta-title">你的習慣已經很棒了，代謝只差最後一步</div>
+              <div className="cta-desc">
+                一休的「ABC 代謝瘦身法」專為像你這樣<br/>
+                心態好、習慣穩，但身體還沒完全跟上的人設計。<br/>
+                用科學的方式，幫你的代謝走完最後一哩路。
+              </div>
+              <div className="cta-arrow" style={{ color: '#e67e22' }}>加 LINE 了解更多 →</div>
+            </a>
+          ) : (
+            <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ borderColor: '#2ecc71', background: '#f0fff4' }} onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name, cta_variant: 'science' })}>
+              <div className="cta-icon">🔬</div>
+              <div className="cta-title">想了解「{type.name}」的科學機制及如何調整改善？</div>
+              <div className="cta-desc">
+                加入一休的 LINE，輸入「{type.name}」四個字，<br/>
+                系統會自動傳送你的專屬科學解析頁面！
+              </div>
+              <div className="cta-arrow" style={{ color: '#27ae60' }}>加 LINE 看完整解析 →</div>
+            </a>
+          )}
+          <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ borderColor: '#3498db', background: '#f0f8ff' }} onClick={() => trackEvent('click_line_bot', { metabolism_type: type.name })}>
+            <div className="cta-icon">📸</div>
+            <div className="cta-title">「幫你算」— 拍照就能看營養搭配</div>
+            <div className="cta-desc">
+              準備中，即將上線！先加一休的 LINE，<br/>
+              上線後會第一時間通知你。
+            </div>
+            <div className="cta-arrow" style={{ color: '#3498db' }}>先加 LINE，搶先收到通知 →</div>
+          </a>
+        </div>
+      </div>
+
+      {/* Share Card & Retake */}
+      <div className="share-section">
+        {/* Visual Type Card */}
+        <div ref={shareCardRef} className="share-card" style={{ background: type.gradient, color: '#fff' }}>
+          <img className="share-card-img" src={type.image} alt={type.name} />
+          <div className="share-card-type">
+            {isMixed ? `${type.name} × ${secondaryType.name}` : type.name}
+          </div>
+          <div className="share-card-tagline">{type.tagline}</div>
+          <div className="share-card-stat">
+            測驗者中只有 <span>{type.sharePercent}%</span> 是這個類型
+          </div>
+          <div className="share-card-footer">🔥 你是哪種代謝類型？30 秒測出來</div>
+        </div>
+
+        {/* Share Hook */}
+        <div className="share-hook">朋友測完都說：也太準了吧</div>
+        <div className="share-sub">{type.shareQuip}</div>
+
+        {/* Share Buttons */}
+        <div className="share-buttons">
+          <button className="share-btn share-btn-line" onClick={() => {
+            trackEvent('share', { method: 'line', metabolism_type: type.name });
+            const url = window.location.href.split('?')[0];
+            const text = `我測出來是「${type.name}」代謝！你是哪一種？30 秒就能測 👉 ${url}`;
+            window.open('https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text), '_blank');
+          }}>
+            💬 分享到 LINE
+          </button>
+          <button className="share-btn share-btn-copy" onClick={() => { trackEvent('share', { method: 'copy_link', metabolism_type: type.name }); handleCopyLink(); }}>
+            📋 複製連結
+          </button>
+        </div>
+        <div className="share-buttons">
+          <button className="share-btn share-btn-save" onClick={() => { trackEvent('share', { method: 'save_image', metabolism_type: type.name }); handleSaveCard(); }} disabled={saving}>
+            {saving ? '⏳ 存檔中...' : '💾 儲存圖片'}
+          </button>
+        </div>
+
+        <button className="retake-btn" onClick={onRestart}>
+          🔄 再做一次測驗
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+// ===== MAIN APP =====
+
+// Map Chinese type names to type IDs for URL matching
+const TYPE_NAME_MAP = {
+  '高轉速型': 'highRPM', '高轉速': 'highRPM',
+  '燃燒殆盡型': 'burnout', '燃燒殆盡': 'burnout',
+  '雲霄飛車型': 'rollerCoaster', '雲霄飛車': 'rollerCoaster',
+  '省電模式型': 'powerSave', '省電模式': 'powerSave',
+  '穩定燃燒型': 'steady', '穩定燃燒': 'steady',
+  'highRPM': 'highRPM', 'burnout': 'burnout',
+  'rollerCoaster': 'rollerCoaster', 'powerSave': 'powerSave', 'steady': 'steady'
+};
+
+function getInitialState() {
+  const params = new URLSearchParams(window.location.search);
+  const typeParam = params.get('type');
+  if (typeParam && TYPE_NAME_MAP[typeParam]) {
+    return { page: 'science', scienceTypeId: TYPE_NAME_MAP[typeParam] };
+  }
+  return { page: 'intro', scienceTypeId: null };
+}
+
+function App() {
+  const initial = useMemo(() => getInitialState(), []);
+  const [page, setPage] = useState(initial.page);
+  const [questionIdx, setQuestionIdx] = useState(0);
+  const [answers, setAnswers] = useState([]);
+  const [result, setResult] = useState(null);
+  const [scienceTypeId, setScienceTypeId] = useState(initial.scienceTypeId);
+
+  const handleStart = () => {
+    setPage('quiz');
+    setQuestionIdx(0);
+    setAnswers([]);
+    // Clean URL
+    window.history.replaceState({}, '', window.location.pathname);
+  };
+
+  const handleShowScience = (typeId) => {
+    setScienceTypeId(typeId);
+    setPage('science');
+    window.scrollTo(0, 0);
+  };
+
+  const handleBackToResult = () => {
+    setPage('result');
+    window.scrollTo(0, 0);
+  };
+
+  const handleAnswer = (answer) => {
+    const newAnswers = [...answers, answer];
+    setAnswers(newAnswers);
+
+    if (questionIdx < QUESTIONS.length - 1) {
+      setQuestionIdx(questionIdx + 1);
+    } else {
+      // Done — show loading then result
+      setPage('loading');
+      setTimeout(() => {
+        const r = calculateResult(newAnswers);
+        trackEvent('quiz_complete', { metabolism_type: r.primary });
+        setResult(r);
+        setPage('result');
+        window.scrollTo(0, 0);
+      }, 2400);
+    }
+  };
+
+  const handleBack = () => {
+    if (questionIdx > 0) {
+      setQuestionIdx(questionIdx - 1);
+      setAnswers(answers.slice(0, -1));
+    }
+  };
+
+  return (
+    <div className="app">
+      {page === 'intro' && <IntroPage onStart={handleStart} />}
+      {page === 'quiz' && (
+        <QuestionPage
+          question={QUESTIONS[questionIdx]}
+          questionIdx={questionIdx}
+          total={QUESTIONS.length}
+          onAnswer={handleAnswer}
+          onBack={handleBack}
+        />
+      )}
+      {page === 'loading' && <LoadingPage />}
+      {page === 'result' && result && <ResultPage result={result} onRestart={handleStart} onShowScience={handleShowScience} />}
+      {page === 'science' && scienceTypeId && <SciencePage typeId={scienceTypeId} onBack={handleBackToResult} onRestart={handleStart} hasResult={!!result} />}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

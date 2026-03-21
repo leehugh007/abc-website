@@ -159,7 +159,7 @@ export default function GuidePage() {
               <p className="text-xs font-semibold text-[#2a9d6f] tracking-wide mb-1">ABC 代謝重建瘦身法</p>
               <p className="font-bold text-[15px] mb-3">想知道你的胰島素狀況？30 秒測出你的代謝類型</p>
               <a
-                href="https://metabolism-quiz.vercel.app"
+                href="/quiz"
                 className="inline-block px-7 py-2.5 bg-[#2a9d6f] text-white text-sm font-bold rounded-full hover:shadow-md transition-shadow"
               >
                 免費測驗 →
@@ -243,7 +243,7 @@ export default function GuidePage() {
             ))}
           </div>
 
-          <p>不確定自己是哪種？<a href="https://metabolism-quiz.vercel.app" className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]">做個 30 秒測驗</a>，馬上知道。</p>
+          <p>不確定自己是哪種？<a href="/quiz" className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]">做個 30 秒測驗</a>，馬上知道。</p>
 
           {/* 六、12 週 */}
           <h2 id="12weeks">六、12 週會經歷什麼？</h2>
@@ -317,7 +317,7 @@ export default function GuidePage() {
         <div className="max-w-xl mx-auto">
           <div className="grid sm:grid-cols-3 gap-3">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="flex flex-col items-center gap-2 p-6 rounded-xl border-2 border-[#2a9d6f] hover:shadow-md transition-all text-center group"
             >
               <span className="text-3xl">🔬</span>

@@ -44,7 +44,7 @@ export default function MethodPage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md hover:shadow-lg transition-shadow"
             >
               先做 30 秒測驗 →
@@ -488,7 +488,7 @@ export default function MethodPage() {
 
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center mb-10">
             <a
-              href="https://metabolism-quiz.vercel.app"
+              href="/quiz"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒代謝測驗 →
