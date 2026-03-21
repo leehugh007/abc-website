@@ -92,7 +92,7 @@ BMI 完全正常
 數字越不動
 
 不是她不夠拼
-是那份壓力把代謝鎖住了
+是那份壓力把代謝鎖住了（延伸閱讀：[意志力迷思](/articles/willpower-myth)）
 
 #如果她是我的學員，我第一件事是叫她把體重計收起來
 
@@ -183,7 +183,7 @@ BMI 完全正常
 
 有人是長期吃太少
 身體覺得在鬧飢荒
-能省就省
+[能省就省](/concepts/metabolic-adaptation)
 
 有人是三餐亂吃
 [血糖](/concepts/blood-sugar-rollercoaster)一直像坐雲霄飛車

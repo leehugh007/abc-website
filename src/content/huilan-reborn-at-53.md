@@ -89,7 +89,7 @@
 「是遮肚子」
 
 她試過所有你聽過的方法：
-168斷食
+[168斷食](/articles/abc-vs-intermittent-fasting)
 代餐
 中醫埋線
 網路偏方
@@ -148,7 +148,7 @@
 但更讓我感動的是
 她接下來說的話：
 
-「原來減重可以不用餓肚子」
+「原來減重可以[不用餓肚子](/articles/no-starving-eat-order-matters)」
 「原來可以吃得很豐盛」
 「原來這才是真正的生活」
 
@@ -385,7 +385,7 @@
 
 53歲看起來像40歲
 這不是奇蹟
-是決心加上對的方法
+是決心加上[對的方法](/articles/metabolism-reset-vs-dieting)
 
 別人可以
 你也可以

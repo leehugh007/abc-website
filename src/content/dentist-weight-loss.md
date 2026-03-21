@@ -129,7 +129,7 @@
 [皮質醇](/concepts/cortisol)升高
 直接推高發炎反應
 
-「加工食品」
+「[加工食品](/articles/ultra-processed-food)」
 裡面的添加物和精製糖
 會讓你的免疫系統一直處於警戒狀態
 
@@ -179,7 +179,7 @@
 
 這些都在影響你的代謝
 
-重建代謝力
+重建[代謝力](/articles/metabolism-reset-vs-dieting)
 是把身體裡所有在扯後腿的東西
 一個一個找出來處理
 

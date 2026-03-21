@@ -506,6 +506,7 @@ export const ARTICLES: Article[] = [
     category: "學員故事",
     readTime: "12 分鐘",
     featured: true,
+    coverImage: "/images/student-huilan-story.jpg",
     tags: ["學員故事"],
     depth: "深度",
   },
@@ -518,7 +519,20 @@ export const ARTICLES: Article[] = [
     category: "學員故事",
     readTime: "10 分鐘",
     featured: true,
+    coverImage: "/images/student-meimei.jpg",
     tags: ["學員故事", "健檢紅字"],
+    depth: "指南",
+  },
+  {
+    slug: "no-starving-eat-order-matters",
+    title: "不用餓肚子也能瘦，研究證實重點不是幾點吃",
+    description:
+      "德國研究讓兩組人做 168 斷食、吃一樣的熱量。結果：忍了 16 小時，血糖、胰島素、血脂全部沒差。忍餓沒用，換個順序吃才有用。",
+    date: "2026-03-22",
+    category: "減肥真相",
+    readTime: "7 分鐘",
+    featured: true,
+    tags: ["體重迷思", "血糖控制", "飲食方法", "代謝適應"],
     depth: "指南",
   },
 ];
