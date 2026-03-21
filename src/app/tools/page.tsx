@@ -193,12 +193,12 @@ export default function ToolsPage() {
             </div>
 
             {/* 一休的建議 — 手寫信風格 */}
-            <div className="rounded-2xl bg-[#faf8f5] border border-[#e8e0d8] p-6 sm:p-8 shadow-sm" style={{ backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #eee9e5 28px)" }}>
-              <div className="flex items-center gap-2 mb-5">
-                <span className="w-8 h-8 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold">休</span>
-                <span className="font-bold text-[15px]">一休寫給你的</span>
+            <div className="letter-style rounded-2xl border border-[#e8e0d8] p-6 sm:p-8 shadow-sm">
+              <div className="flex items-center gap-2 mb-5" style={{ lineHeight: "normal" }}>
+                <span className="w-8 h-8 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold" style={{ fontFamily: "inherit" }}>休</span>
+                <span className="font-semibold text-[15px]">一休寫給你的</span>
               </div>
-              <div className="space-y-3 text-[15px] text-[#2a2520] leading-relaxed">
+              <div className="space-y-1 text-[15px] text-[#3a3530]">
                 <p>
                   這些數字有參考價值，但<strong>不要被數字綁架。</strong>
                 </p>

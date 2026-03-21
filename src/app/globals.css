@@ -96,6 +96,27 @@ header {
   box-shadow: 0 4px 12px rgba(42, 157, 111, 0.3);
 }
 
+/* 手寫信風格 */
+.letter-style {
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  background-color: #faf8f5;
+  background-image:
+    repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      #e8e0d8 31px,
+      #e8e0d8 32px
+    );
+  background-position: 0 40px;
+  line-height: 32px;
+}
+.letter-style strong {
+  color: #1a5e3f;
+}
+.letter-style a {
+  color: #2a9d6f;
+}
+
 /* 浮動 CTA 底部安全區（iPhone 瀏海機） */
 .safe-bottom {
   padding-bottom: max(12px, env(safe-area-inset-bottom));
