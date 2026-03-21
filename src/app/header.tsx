@@ -79,6 +79,7 @@ export function Header() {
               { href: "/method", label: "ABC 是什麼" },
               { href: "/types", label: "代謝類型" },
               { href: "/articles", label: "文章" },
+              { href: "/testimonials", label: "學員見證" },
               { href: "/about", label: "關於一休" },
             ].map((item) => (
               <a key={item.href} href={item.href} className="block text-base font-medium text-[#2a2520] py-2" onClick={() => setOpen(false)}>

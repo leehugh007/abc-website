@@ -232,6 +232,18 @@ export const ARTICLES: Article[] = [
     tags: ["學員故事", "健檢紅字", "發炎"],
   },
   {
+    slug: "wenwen-mom-story",
+    title: "「媽媽，同學說妳好胖…」一句話，讓她從天堂掉到地獄",
+    description:
+      "溫溫，產後五年體重爬到快 80 公斤。偏頭痛、唇炎、肚臍炎、尿道炎輪流來。兩年後瘦了 20 公斤，不用再吃止痛藥，從躲鏡頭變成老公的專屬模特兒。",
+    date: "2026-03-21",
+    category: "學員故事",
+    readTime: "8 分鐘",
+    featured: true,
+    coverImage: "/images/student-wenwen.jpg",
+    tags: ["學員故事", "發炎", "健檢紅字"],
+  },
+  {
     slug: "metabolism-reset-vs-ozempic",
     title: "代謝重建 vs 瘦瘦針：花錢買的瘦，跟自己學來的瘦，差在哪？",
     description:

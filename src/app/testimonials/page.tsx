@@ -81,12 +81,13 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     name: "溫溫",
-    tag: "40 歲・文字工作者",
-    result: "80 → 60 公斤",
+    tag: "40 歲・產後媽媽",
+    result: "體重 -20 公斤",
     resultColor: "#e74c3c",
-    story: "老公說她這樣剛剛好，她差點就信了。直到有一天突然人間清醒——要為自己而瘦。3 個月後，婚前的小裙子不僅穿下了，而且是「選擇繼續穿下」。",
-    highlight: "「曾經被溫柔的安慰話術麻痺，直到有一天突然人間清醒。」",
-    image: "/images/wenwen-before.jpg",
+    story: "產後五年體重慢慢爬到快 80 公斤。偏頭痛、唇炎、肚臍炎、尿道炎輪流來。兒子放學回家說：「媽媽，同學跟我說妳媽媽好胖喔。」那句童言把她從安逸的假象中敲醒。兩年後瘦了 20 公斤，不用再吃止痛藥，從躲鏡頭變成老公的專屬模特兒。",
+    highlight: "「我只是好好吃飯，身體就把健康還給我了。」",
+    articleLink: "/articles/wenwen-mom-story",
+    image: "/images/student-wenwen.jpg",
     category: "生活重建",
   },
   {
