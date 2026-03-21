@@ -266,6 +266,18 @@ export const ARTICLES: Article[] = [
     depth: "指南",
   },
   {
+    slug: "rebound-weight-science",
+    title: "復胖的科學：為什麼你每次都胖回來，而且比上次更重？",
+    description:
+      "你的身體用五招同時把你拉回去：降代謝、改飢餓荷爾蒙、吃肌肉、改脂肪細胞、加重胰島素阻抗。搞懂這套系統，才能打破復胖循環。",
+    date: "2026-03-21",
+    category: "減肥真相",
+    readTime: "18 分鐘",
+    featured: true,
+    tags: ["復胖", "代謝適應", "荷爾蒙", "胰島素阻抗"],
+    depth: "深度",
+  },
+  {
     slug: "insulin-resistance-complete-guide",
     title: "胰島素阻抗完全解析：為什麼你吃很少還是瘦不下來？",
     description:
