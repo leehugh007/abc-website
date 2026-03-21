@@ -535,6 +535,18 @@ export const ARTICLES: Article[] = [
     tags: ["體重迷思", "血糖控制", "飲食方法", "代謝適應"],
     depth: "指南",
   },
+  {
+    slug: "belly-fat-stress-not-food",
+    title: "肚子怎麼都消不掉？研究發現問題可能不在吃",
+    description:
+      "手臂瘦了、腿也細了，就是肚子不動？腹部是皮質醇受體最密集的地方。你越拼命減，身體越拼命往肚子存。問題不是吃太多，是壓力太大。",
+    date: "2026-03-22",
+    category: "減肥真相",
+    readTime: "6 分鐘",
+    featured: true,
+    tags: ["荷爾蒙", "體重迷思", "代謝適應"],
+    depth: "快讀",
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
