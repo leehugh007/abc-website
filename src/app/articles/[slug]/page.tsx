@@ -132,21 +132,24 @@ export default async function ArticlePage({
             {article.description}
           </p>
           {/* E-E-A-T: 作者 + 背景 + 日期 */}
-          <div className="flex items-center gap-3 text-sm text-[#a8a29e]">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-sm text-[#a8a29e]">
             <Link href="/about" className="flex items-center gap-2 hover:text-[#6b6560] transition-colors">
               <span className="w-6 h-6 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold shrink-0">休</span>
               <span className="font-medium text-[#6b6560]">一休</span>
+              <span className="text-[#ddd5cf] hidden sm:inline">·</span>
+              <span className="hidden sm:inline">瘦身教練・ABC 代謝重建創辦人</span>
             </Link>
-            <span className="text-[#ddd5cf]">·</span>
-            <span>瘦身教練・ABC 代謝重建創辦人</span>
-            <span className="text-[#ddd5cf]">·</span>
-            <time dateTime={article.date}>
-              {new Date(article.date).toLocaleDateString("zh-TW", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
+            <div className="flex items-center gap-2 pl-8 sm:pl-0">
+              <span className="sm:hidden text-xs">瘦身教練・ABC 代謝重建創辦人</span>
+              <span className="text-[#ddd5cf]">·</span>
+              <time dateTime={article.date}>
+                {new Date(article.date).toLocaleDateString("zh-TW", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            </div>
           </div>
           {article.coverImage && (
             <div className="mt-6 rounded-2xl overflow-hidden">
@@ -205,29 +208,35 @@ export default async function ArticlePage({
           <div className="grid sm:grid-cols-3 gap-3">
             <a
               href="https://metabolism-quiz.vercel.app"
-              className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
+              className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all group"
             >
-              <span className="text-2xl">🔬</span>
-              <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">測出代謝類型</span>
-              <span className="text-xs text-[#a8a29e]">30 秒免費測驗</span>
+              <span className="w-10 h-10 rounded-full bg-[#f3f9f5] border border-[#2a9d6f]/20 flex items-center justify-center text-[#2a9d6f] font-bold text-sm shrink-0">測</span>
+              <div>
+                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors block">測代謝類型</span>
+                <span className="text-xs text-[#a8a29e]">30 秒免費</span>
+              </div>
             </a>
             <a
               href="https://lin.ee/x41s2Su"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#06C755] hover:shadow-sm transition-all text-center group"
+              className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#06C755] hover:shadow-sm transition-all group"
             >
-              <span className="text-2xl">💬</span>
-              <span className="font-bold text-sm group-hover:text-[#06C755] transition-colors">問一休</span>
-              <span className="text-xs text-[#a8a29e]">加入 LINE 直接聊</span>
+              <span className="w-10 h-10 rounded-full bg-[#06C755]/10 border border-[#06C755]/20 flex items-center justify-center text-[#06C755] font-bold text-sm shrink-0">問</span>
+              <div>
+                <span className="font-bold text-sm group-hover:text-[#06C755] transition-colors block">問一休</span>
+                <span className="text-xs text-[#a8a29e]">LINE 直接聊</span>
+              </div>
             </a>
             <Link
               href="/method"
-              className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
+              className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all group"
             >
-              <span className="text-2xl">📖</span>
-              <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">了解 ABC 方法</span>
-              <span className="text-xs text-[#a8a29e]">看完整介紹</span>
+              <span className="w-10 h-10 rounded-full bg-[#f3f9f5] border border-[#2a9d6f]/20 flex items-center justify-center text-[#2a9d6f] font-bold text-sm shrink-0">讀</span>
+              <div>
+                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors block">ABC 方法</span>
+                <span className="text-xs text-[#a8a29e]">看完整介紹</span>
+              </div>
             </Link>
           </div>
         </div>

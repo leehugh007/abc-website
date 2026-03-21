@@ -192,11 +192,11 @@ export default function ToolsPage() {
               </div>
             </div>
 
-            {/* 一休的建議 — 這是別人沒有的 */}
-            <div className="rounded-2xl border-2 border-[#2a9d6f] bg-[#f3f9f5] p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-7 h-7 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold">休</span>
-                <span className="font-bold text-sm">一休想跟你說</span>
+            {/* 一休的建議 — 手寫信風格 */}
+            <div className="rounded-2xl bg-[#faf8f5] border border-[#e8e0d8] p-6 sm:p-8 shadow-sm" style={{ backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #eee9e5 28px)" }}>
+              <div className="flex items-center gap-2 mb-5">
+                <span className="w-8 h-8 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold">休</span>
+                <span className="font-bold text-[15px]">一休寫給你的</span>
               </div>
               <div className="space-y-3 text-[15px] text-[#2a2520] leading-relaxed">
                 <p>

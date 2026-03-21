@@ -106,27 +106,17 @@ export default function Home() {
             ABC 代謝力重建，不是另一種節食法
           </h2>
           <div className="grid sm:grid-cols-3 gap-8 text-left">
-            <div>
-              <div className="text-3xl mb-3">🔬</div>
-              <div className="font-bold mb-2 text-lg">理解代謝，不靠意志力</div>
-              <p className="text-sm text-white/70 leading-relaxed">
-                當你理解身體的運作方式，正確的選擇會變成本能，不需要每天跟自己打仗。
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl mb-3">➕</div>
-              <div className="font-bold mb-2 text-lg">增加好的，不限制壞的</div>
-              <p className="text-sm text-white/70 leading-relaxed">
-                不告訴你不能吃什麼，而是教你可以加什麼。加法思維，讓改變自然發生。
-              </p>
-            </div>
-            <div>
-              <div className="text-3xl mb-3">🤝</div>
-              <div className="font-bold mb-2 text-lg">陪伴，不是指導</div>
-              <p className="text-sm text-white/70 leading-relaxed">
-                我不是比你厲害，只是比你早犯錯 30 年。這裡沒有大師，只有一起走的人。
-              </p>
-            </div>
+            {[
+              { letter: "A", title: "理解代謝，不靠意志力", desc: "當你理解身體的運作方式，正確的選擇會變成本能，不需要每天跟自己打仗。" },
+              { letter: "B", title: "增加好的，不限制壞的", desc: "不告訴你不能吃什麼，而是教你可以加什麼。加法思維，讓改變自然發生。" },
+              { letter: "C", title: "陪伴，不是指導", desc: "我不是比你厲害，只是比你早犯錯 30 年。這裡沒有大師，只有一起走的人。" },
+            ].map((item) => (
+              <div key={item.letter}>
+                <div className="w-10 h-10 rounded-full border-2 border-white/40 flex items-center justify-center text-lg font-bold mb-3">{item.letter}</div>
+                <div className="font-bold mb-2 text-lg">{item.title}</div>
+                <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

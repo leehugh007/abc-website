@@ -70,73 +70,44 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown — 分組 */}
       {open && (
-        <div className="sm:hidden border-t border-[#eee9e5] bg-white px-5 py-4 space-y-3">
-          <a
-            href="/method"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            ABC 是什麼
-          </a>
-          <a
-            href="/types"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            代謝類型
-          </a>
-          <a
-            href="/articles"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            文章
-          </a>
-          <a
-            href="/faq"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            大家都在問
-          </a>
-          <a
-            href="/about"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            關於一休
-          </a>
-          <a
-            href="/concepts"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            代謝科學
-          </a>
-          <a
-            href="/guide"
-            className="block text-base font-medium text-[#2a2520] py-2"
-            onClick={() => setOpen(false)}
-          >
-            完全指南
-          </a>
-          <a
-            href="/program"
-            className="block text-base font-bold text-[#2a9d6f] py-2"
-            onClick={() => setOpen(false)}
-          >
-            課程介紹
-          </a>
-          <a
-            href="https://lin.ee/x41s2Su"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-base font-medium text-[#2a9d6f] py-2"
-          >
-            加入 LINE →
-          </a>
+        <div className="sm:hidden border-t border-[#eee9e5] bg-white px-5 py-4">
+          {/* 主要 */}
+          <div className="space-y-1 pb-3">
+            {[
+              { href: "/method", label: "ABC 是什麼" },
+              { href: "/types", label: "代謝類型" },
+              { href: "/articles", label: "文章" },
+              { href: "/about", label: "關於一休" },
+            ].map((item) => (
+              <a key={item.href} href={item.href} className="block text-base font-medium text-[#2a2520] py-2" onClick={() => setOpen(false)}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+          {/* 分隔 */}
+          <div className="border-t border-[#eee9e5] py-3 space-y-1">
+            {[
+              { href: "/guide", label: "完全指南" },
+              { href: "/concepts", label: "代謝科學" },
+              { href: "/tools", label: "TDEE 計算機" },
+              { href: "/faq", label: "大家都在問" },
+            ].map((item) => (
+              <a key={item.href} href={item.href} className="block text-sm text-[#6b6560] py-1.5" onClick={() => setOpen(false)}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+          {/* 行動 */}
+          <div className="border-t border-[#eee9e5] pt-3 space-y-2">
+            <a href="/program" className="block text-base font-bold text-[#2a9d6f] py-2" onClick={() => setOpen(false)}>
+              課程介紹
+            </a>
+            <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener noreferrer" className="block text-sm text-[#06C755] font-medium py-1.5">
+              加入 LINE →
+            </a>
+          </div>
         </div>
       )}
     </header>

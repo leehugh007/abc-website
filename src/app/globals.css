@@ -96,6 +96,11 @@ header {
   box-shadow: 0 4px 12px rgba(42, 157, 111, 0.3);
 }
 
+/* 浮動 CTA 底部安全區（iPhone 瀏海機） */
+.safe-bottom {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

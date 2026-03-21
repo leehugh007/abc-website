@@ -149,33 +149,19 @@ export default function ProgramPage() {
             我的三不原則
           </h2>
           <div className="grid sm:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-[#f3f9f5] flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">💊</span>
+            {[
+              { num: "1", title: "不吃瘦身產品", desc: "我自己有吃魚油、益生菌、肌酸。但這世界上沒有「吃了就會瘦」的產品。" },
+              { num: "2", title: "不需要餓肚子", desc: "我出國 20 天，每一餐都吃得很飽。回來之後，比出國前還瘦。這是我過去從來沒遇過的。" },
+              { num: "3", title: "不受時空限制", desc: "出國可以做、過年可以做、忙碌時可以做。馬來西亞、香港、日本的學員都在用。" },
+            ].map((item) => (
+              <div key={item.num} className="text-center">
+                <div className="w-12 h-12 rounded-full border-2 border-[#2a9d6f]/30 bg-[#f3f9f5] flex items-center justify-center mx-auto mb-4">
+                  <span className="text-lg font-bold text-[#2a9d6f]">{item.num}</span>
+                </div>
+                <p className="font-bold mb-2">{item.title}</p>
+                <p className="text-sm text-[#6b6560] leading-relaxed">{item.desc}</p>
               </div>
-              <p className="font-bold mb-2">不吃瘦身產品</p>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
-                我自己有吃魚油、益生菌、肌酸。但這世界上沒有「吃了就會瘦」的產品。
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-[#f3f9f5] flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🍽️</span>
-              </div>
-              <p className="font-bold mb-2">不需要餓肚子</p>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
-                我出國 20 天，每一餐都吃得很飽。回來之後，比出國前還瘦。這是我過去從來沒遇過的。
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-14 h-14 rounded-full bg-[#f3f9f5] flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🌍</span>
-              </div>
-              <p className="font-bold mb-2">不受時空限制</p>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
-                出國可以做、過年可以做、忙碌時可以做。馬來西亞、香港、日本的學員都在用。
-              </p>
-            </div>
+            ))}
           </div>
           <p className="text-center mt-8 text-[#2a2520] font-semibold">
             這才是一個可以跟你一輩子的方法。
@@ -570,6 +556,20 @@ export default function ProgramPage() {
           <p className="text-sm text-[#a8a29e] mt-8">我是一休，陪你健康的瘦一輩子</p>
         </div>
       </section>
+
+      {/* 浮動底部 CTA（手機） */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#eee9e5] px-4 py-3 safe-bottom">
+        <a
+          href="https://lin.ee/x41s2Su"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-full py-3 bg-[#06C755] text-white text-sm font-bold rounded-full shadow-md"
+        >
+          加入 LINE 了解課程方案 →
+        </a>
+      </div>
+      {/* 底部墊高，避免浮動 CTA 擋住內容 */}
+      <div className="sm:hidden h-16" />
     </>
   );
 }
