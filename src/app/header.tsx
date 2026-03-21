@@ -33,6 +33,9 @@ export function Header() {
           <a href="/about" className="hover:text-[#2a2520] transition-colors">
             關於一休
           </a>
+          <a href="/program" className="text-[#2a9d6f] hover:text-[#1a5e3f] transition-colors font-bold">
+            課程
+          </a>
         </div>
 
         {/* Mobile: quiz CTA + hamburger */}
@@ -104,6 +107,20 @@ export function Header() {
             onClick={() => setOpen(false)}
           >
             關於一休
+          </a>
+          <a
+            href="/guide"
+            className="block text-base font-medium text-[#2a2520] py-2"
+            onClick={() => setOpen(false)}
+          >
+            完全指南
+          </a>
+          <a
+            href="/program"
+            className="block text-base font-bold text-[#2a9d6f] py-2"
+            onClick={() => setOpen(false)}
+          >
+            課程介紹
           </a>
           <a
             href="https://lin.ee/x41s2Su"
