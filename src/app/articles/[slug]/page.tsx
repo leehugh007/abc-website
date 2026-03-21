@@ -123,7 +123,14 @@ export default async function ArticlePage({
             >
               {article.category}
             </span>
-            <span className="text-xs text-[#a8a29e]">{article.readTime}</span>
+            <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
+              article.depth === "快讀" ? "bg-[#2a9d6f]/10 text-[#2a9d6f]" :
+              article.depth === "深度" ? "bg-[#3498db]/10 text-[#3498db]" :
+              "bg-[#eee9e5] text-[#6b6560]"
+            }`}>
+              {article.depth === "快讀" ? "⚡ 快讀" : article.depth === "深度" ? "📖 深度" : article.readTime}
+            </span>
+            {article.depth !== "指南" && <span className="text-xs text-[#a8a29e]">{article.readTime}</span>}
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mb-4">
             {content.title}

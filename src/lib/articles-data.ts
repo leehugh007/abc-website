@@ -12,6 +12,8 @@ export type Tag =
   | "學員故事"
   | "外食族";
 
+export type Depth = "快讀" | "指南" | "深度";
+
 export interface Article {
   slug: string;
   title: string;
@@ -22,6 +24,7 @@ export interface Article {
   featured?: boolean;
   coverImage?: string;
   tags: Tag[];
+  depth: Depth;
 }
 
 export const ARTICLES: Article[] = [
@@ -36,6 +39,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-regain-truth.jpg",
     tags: ["復胖", "代謝適應", "體重迷思"],
+    depth: "指南",
   },
   {
     slug: "ozempic-cost-and-regain",
@@ -47,6 +51,7 @@ export const ARTICLES: Article[] = [
     readTime: "6 分鐘",
     coverImage: "/images/articles/cover-ozempic-regain.jpg",
     tags: ["瘦瘦針", "復胖"],
+    depth: "快讀",
   },
   {
     slug: "ozempic-body-disconnect",
@@ -58,6 +63,7 @@ export const ARTICLES: Article[] = [
     readTime: "7 分鐘",
     coverImage: "/images/articles/cover-ozempic-puppet.jpg",
     tags: ["瘦瘦針", "荷爾蒙"],
+    depth: "指南",
   },
   {
     slug: "ozempic-doctor-warning",
@@ -69,6 +75,7 @@ export const ARTICLES: Article[] = [
     readTime: "7 分鐘",
     coverImage: "/images/articles/cover-ozempic-80percent.jpg",
     tags: ["瘦瘦針", "荷爾蒙"],
+    depth: "指南",
   },
   {
     slug: "starch-rescue",
@@ -80,6 +87,7 @@ export const ARTICLES: Article[] = [
     readTime: "5 分鐘",
     coverImage: "/images/articles/cover-starch-rescue.jpg",
     tags: ["飲食方法", "血糖控制", "外食族"],
+    depth: "快讀",
   },
   {
     slug: "willpower-myth",
@@ -92,6 +100,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-willpower-myth.jpg",
     tags: ["荷爾蒙", "體重迷思", "代謝適應"],
+    depth: "快讀",
   },
   {
     slug: "dark-neck-insulin",
@@ -104,6 +113,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-dark-neck.jpg",
     tags: ["胰島素阻抗", "健檢紅字"],
+    depth: "快讀",
   },
   {
     slug: "normal-blood-sugar-trap",
@@ -116,6 +126,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-blood-sugar-normal.jpg",
     tags: ["胰島素阻抗", "血糖控制", "健檢紅字"],
+    depth: "指南",
   },
   {
     slug: "eating-order-blood-sugar",
@@ -128,6 +139,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-eating-order.jpg",
     tags: ["飲食方法", "血糖控制", "外食族"],
+    depth: "快讀",
   },
   {
     slug: "body-fat-scale-liar",
@@ -139,6 +151,7 @@ export const ARTICLES: Article[] = [
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-body-fat-scale.jpg",
     tags: ["體重迷思"],
+    depth: "指南",
   },
   {
     slug: "cholesterol-not-eggs",
@@ -151,6 +164,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-cholesterol-inflammation.jpg",
     tags: ["健檢紅字", "發炎", "胰島素阻抗"],
+    depth: "指南",
   },
   {
     slug: "blood-pressure-not-salt",
@@ -162,6 +176,7 @@ export const ARTICLES: Article[] = [
     readTime: "12 分鐘",
     coverImage: "/images/articles/cover-blood-pressure.jpg",
     tags: ["健檢紅字", "發炎", "胰島素阻抗"],
+    depth: "深度",
   },
   {
     slug: "blood-sugar-insulin-overwork",
@@ -173,6 +188,7 @@ export const ARTICLES: Article[] = [
     readTime: "12 分鐘",
     coverImage: "/images/articles/cover-blood-sugar-overwork.jpg",
     tags: ["胰島素阻抗", "血糖控制", "健檢紅字"],
+    depth: "深度",
   },
   {
     slug: "ozempic-bbc-tsunami",
@@ -184,6 +200,7 @@ export const ARTICLES: Article[] = [
     readTime: "5 分鐘",
     coverImage: "/images/articles/cover-ozempic-bbc.jpg",
     tags: ["瘦瘦針", "復胖", "荷爾蒙"],
+    depth: "快讀",
   },
   {
     slug: "eat-less-move-more-myth",
@@ -196,6 +213,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-eat-less-move-more.jpg",
     tags: ["體重迷思", "胰島素阻抗", "代謝適應"],
+    depth: "指南",
   },
   {
     slug: "ozempic-alternative-abc",
@@ -207,6 +225,7 @@ export const ARTICLES: Article[] = [
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-ozempic-vs-abc.jpg",
     tags: ["瘦瘦針", "復胖", "飲食方法"],
+    depth: "指南",
   },
   {
     slug: "socks-story-62kg",
@@ -219,6 +238,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/articles/cover-student-minus62kg.jpg",
     tags: ["學員故事", "體重迷思"],
+    depth: "深度",
   },
   {
     slug: "chicken-soup-love-story",
@@ -230,6 +250,7 @@ export const ARTICLES: Article[] = [
     readTime: "10 分鐘",
     coverImage: "/images/articles/cover-student-minus18kg.jpg",
     tags: ["學員故事", "健檢紅字", "發炎"],
+    depth: "指南",
   },
   {
     slug: "wenwen-mom-story",
@@ -242,6 +263,7 @@ export const ARTICLES: Article[] = [
     featured: true,
     coverImage: "/images/student-wenwen.jpg",
     tags: ["學員故事", "發炎", "健檢紅字"],
+    depth: "指南",
   },
   {
     slug: "metabolism-reset-vs-ozempic",
@@ -253,6 +275,7 @@ export const ARTICLES: Article[] = [
     readTime: "8 分鐘",
     featured: true,
     tags: ["瘦瘦針", "復胖", "胰島素阻抗"],
+    depth: "指南",
   },
   {
     slug: "abc-vs-intermittent-fasting",
@@ -264,6 +287,7 @@ export const ARTICLES: Article[] = [
     readTime: "8 分鐘",
     featured: true,
     tags: ["代謝適應", "胰島素阻抗", "體重迷思"],
+    depth: "指南",
   },
 ];
 

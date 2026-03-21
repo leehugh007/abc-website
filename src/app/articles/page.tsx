@@ -148,6 +148,8 @@ export default function ArticlesPage() {
                       >
                         {article.category}
                       </span>
+                      {article.depth === "快讀" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#2a9d6f]/10 text-[#2a9d6f]">⚡ 快讀</span>}
+                      {article.depth === "深度" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#3498db]/10 text-[#3498db]">📖 深度</span>}
                       <span className="text-xs text-[#a8a29e]">
                         {article.readTime}
                       </span>
@@ -198,6 +200,8 @@ export default function ArticlesPage() {
                     >
                       {article.category}
                     </span>
+                    {article.depth === "快讀" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#2a9d6f]/10 text-[#2a9d6f]">⚡ 快讀</span>}
+                    {article.depth === "深度" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#3498db]/10 text-[#3498db]">📖 深度</span>}
                     <span className="text-xs text-[#a8a29e]">
                       {article.readTime}
                     </span>
