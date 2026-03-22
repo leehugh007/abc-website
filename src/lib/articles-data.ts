@@ -559,6 +559,18 @@ export const ARTICLES: Article[] = [
     tags: ["飲食方法", "外食族", "血糖控制"],
     depth: "指南",
   },
+  {
+    slug: "weight-plateau-not-failure",
+    title: "體重不動，不是你失敗了，是你的身體正在做一件重要的事",
+    description:
+      "停滯期不是失敗，是大腦在確認新的體重是不是真的。吃更少、動更多反而讓它更抵抗。你要做的是穩住，讓身體知道你是認真的。",
+    date: "2026-03-22",
+    category: "減肥真相",
+    readTime: "8 分鐘",
+    featured: true,
+    tags: ["體重迷思", "代謝適應", "荷爾蒙"],
+    depth: "指南",
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
