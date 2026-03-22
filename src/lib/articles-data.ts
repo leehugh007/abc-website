@@ -547,6 +547,18 @@ export const ARTICLES: Article[] = [
     tags: ["荷爾蒙", "體重迷思", "代謝適應"],
     depth: "快讀",
   },
+  {
+    slug: "eating-out-one-rule",
+    title: "三餐都外食也能瘦？記住一個原則就好",
+    description:
+      "超過一半的學員從頭到尾都是外食，照樣瘦下來。不是找特別的餐廳，是學會一個原則：每一餐，先確認蛋白質在哪裡。自助餐、超商、麵店、便當店實戰教學。",
+    date: "2026-03-22",
+    category: "飲食方法",
+    readTime: "7 分鐘",
+    featured: true,
+    tags: ["飲食方法", "外食族", "血糖控制"],
+    depth: "指南",
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
