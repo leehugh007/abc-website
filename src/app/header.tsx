@@ -92,7 +92,7 @@ export function Header() {
             {[
               { href: "/guide", label: "完全指南" },
               { href: "/concepts", label: "代謝科學" },
-              { href: "/tools", label: "TDEE 計算機" },
+              { href: "/tools", label: "免費工具" },
               { href: "/faq", label: "大家都在問" },
             ].map((item) => (
               <a key={item.href} href={item.href} className="block text-sm text-[#6b6560] py-1.5" onClick={() => setOpen(false)}>

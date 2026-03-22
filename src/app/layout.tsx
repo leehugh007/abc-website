@@ -138,6 +138,12 @@ function Footer() {
               <a href="/tools" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 TDEE 計算機
               </a>
+              <a href="/tools/protein" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+                蛋白質計算機
+              </a>
+              <a href="/tools/insulin-check" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+                胰島素阻抗自評
+              </a>
               <a href="/program" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 課程介紹
               </a>
