@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ReturningVisitorBanner } from "./returning-visitor";
 
 export const metadata: Metadata = {
   title: "ABC 代謝力重建瘦身法 — 你的問題不是胖，是代謝失調",
@@ -11,6 +12,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      {/* Returning visitor personalized banner */}
+      <ReturningVisitorBanner />
+
       {/* Hero — 先講處境，不講品牌 */}
       <section className="pt-16 pb-20 px-5">
         <div className="max-w-2xl mx-auto text-center">

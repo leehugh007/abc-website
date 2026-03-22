@@ -2254,6 +2254,12 @@ function App() {
       setTimeout(() => {
         const r = calculateResult(newAnswers);
         trackEvent('quiz_complete', { metabolism_type: r.primary });
+        // Save result to localStorage for returning visitor personalization
+        try {
+          localStorage.setItem('abc_quiz_type', r.primary);
+          localStorage.setItem('abc_quiz_type_name', TYPES[r.primary].name);
+          localStorage.setItem('abc_quiz_date', new Date().toISOString());
+        } catch(e) {}
         setResult(r);
         setPage('result');
         window.scrollTo(0, 0);
