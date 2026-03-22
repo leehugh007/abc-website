@@ -60,6 +60,14 @@ export default function ToolsPage() {
   return (
     <section className="pt-10 pb-16 px-5">
       <div className="max-w-2xl mx-auto">
+        {/* 工具導航 */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <span className="px-3 py-1.5 rounded-full text-sm font-medium bg-[#2a9d6f] text-white">TDEE 計算</span>
+          <Link href="/tools/protein" className="px-3 py-1.5 rounded-full text-sm font-medium border border-[#eee9e5] text-[#6b6560] hover:border-[#2a9d6f] hover:text-[#2a9d6f] transition-colors">蛋白質計算</Link>
+          <Link href="/tools/waist-hip" className="px-3 py-1.5 rounded-full text-sm font-medium border border-[#eee9e5] text-[#6b6560] hover:border-[#2a9d6f] hover:text-[#2a9d6f] transition-colors">腰臀比</Link>
+          <Link href="/tools/insulin-check" className="px-3 py-1.5 rounded-full text-sm font-medium border border-[#eee9e5] text-[#6b6560] hover:border-[#2a9d6f] hover:text-[#2a9d6f] transition-colors">胰島素阻抗自評</Link>
+        </div>
+
         <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
           免費工具
         </p>
