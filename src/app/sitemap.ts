@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles-data";
 import { CONCEPTS } from "@/lib/concepts-data";
 
-const BASE_URL = "https://abc-metabolism.vercel.app";
+const BASE_URL = "https://abcmetabolic.com";
 
 const TYPES_SLUGS = [
   "high-rpm",

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "不算熱量、不餓肚子、不復胖。一休帶你用 ABC 代謝力公式，12 週重建代謝系統。每週直播課 + 每天營養師看餐 + 150 堂運動課。3500+ 學員，瘦超過 3 萬公斤。",
 };
 
-const SITE_URL = "https://abc-metabolism.vercel.app";
+const SITE_URL = "https://abcmetabolic.com";
 
 export default function ProgramPage() {
   const jsonLd = {

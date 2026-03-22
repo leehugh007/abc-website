@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abc-metabolism.vercel.app/sitemap.xml
+Sitemap: https://abcmetabolic.com/sitemap.xml

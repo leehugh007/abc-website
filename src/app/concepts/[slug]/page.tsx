@@ -27,7 +27,7 @@ export async function generateMetadata({
   };
 }
 
-const SITE_URL = "https://abc-metabolism.vercel.app";
+const SITE_URL = "https://abcmetabolic.com";
 
 export default async function ConceptPage({
   params,

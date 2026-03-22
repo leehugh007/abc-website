@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-const SITE_URL = "https://abc-metabolism.vercel.app";
+const SITE_URL = "https://abcmetabolic.com";
 
 const websiteJsonLd = {
   "@context": "https://schema.org",

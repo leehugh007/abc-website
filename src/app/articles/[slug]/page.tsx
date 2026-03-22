@@ -69,7 +69,7 @@ export default async function ArticlePage({
   const ctaText =
     CATEGORY_CTA[article.category] || "想知道你是哪種代謝類型？";
 
-  const SITE_URL = "https://abc-metabolism.vercel.app";
+  const SITE_URL = "https://abcmetabolic.com";
 
   const articleJsonLd = {
     "@context": "https://schema.org",
