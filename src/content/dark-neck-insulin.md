@@ -199,7 +199,7 @@
 
 只是以前沒有人教你怎麼聽
 
-想完整了解胰島素阻抗的成因與解法，可以看[胰島素阻抗完全解析](/articles/insulin-resistance-complete-guide)。
+不確定自己有沒有胰島素阻抗？花 1 分鐘[做個自我檢測](/tools/insulin-check)。想完整了解胰島素阻抗的成因與解法，可以看[胰島素阻抗完全解析](/articles/insulin-resistance-complete-guide)。
 
 
 #懶人包：你的身體在求救的 3 個信號

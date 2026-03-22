@@ -237,6 +237,6 @@
 
 把這篇傳給他
 
-想了解更多健檢數字背後的真相，可以看[膽固醇不是雞蛋的錯](/articles/cholesterol-not-eggs)、[血糖正常但身體在硬撐](/articles/normal-blood-sugar-trap)、或[高血壓不是鹽的問題](/articles/blood-pressure-not-salt)。
+三酸甘油脂高跟胰島素阻抗脫不了關係，想快速評估自己的風險？花 1 分鐘[做個自我檢測](/tools/insulin-check)。想了解更多健檢數字背後的真相，可以看[膽固醇不是雞蛋的錯](/articles/cholesterol-not-eggs)、[血糖正常但身體在硬撐](/articles/normal-blood-sugar-trap)、或[高血壓不是鹽的問題](/articles/blood-pressure-not-salt)。
 
 我是一休，陪你健康的瘦一輩子

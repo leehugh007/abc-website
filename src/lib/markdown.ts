@@ -100,9 +100,15 @@ export async function getArticleContent(slug: string) {
   const body = filtered.join("\n").trim();
   const result = await remark().use(html, { sanitize: false }).process(body);
 
-  // Inject mid-article CTA roughly in the middle
+  // Add target="_blank" to tool links (so readers don't lose their place in the article)
   const rawHtml = result.toString();
-  const htmlWithCta = injectMidArticleCta(rawHtml);
+  const htmlWithToolLinks = rawHtml.replace(
+    /<a href="(\/tools\/[^"]*)">/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">'
+  );
+
+  // Inject mid-article CTA roughly in the middle
+  const htmlWithCta = injectMidArticleCta(htmlWithToolLinks);
 
   return {
     title,

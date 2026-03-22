@@ -59,7 +59,7 @@
 
 但不是運動沒用——運動對健康超級好、超級重要，沒有任何事能取代運動。只是如果你的目標是降體脂，飲食調整的優先順序比運動更高。
 
-ABC 代謝重建瘦身法的設計就是幫助大家增肌減脂——透過[充足的蛋白質](/concepts/metabolic-flexibility)維持肌肉、透過[飲食順序](/articles/eating-order-blood-sugar)穩定血糖、透過降低[發炎](/concepts/chronic-inflammation)讓代謝回到正常。飲食做對了，搭配適量運動，體脂自然會往下走。
+ABC 代謝重建瘦身法的設計就是幫助大家增肌減脂——透過[充足的蛋白質](/concepts/metabolic-flexibility)維持肌肉、透過[飲食順序](/articles/eating-order-blood-sugar)穩定血糖、透過降低[發炎](/concepts/chronic-inflammation)讓代謝回到正常。不確定自己蛋白質有沒有吃夠？用[蛋白質計算機](/tools/protein)算一下。飲食做對了，搭配適量運動，體脂自然會往下走。
 
 ---
 

@@ -282,6 +282,6 @@
 你需要的不是更努力
 是學會新的操作方式
 
-想了解為什麼「[少吃多動](/articles/eat-less-move-more-myth)」這四個字害了多少人，可以看那篇。想了解[復胖的科學](/articles/rebound-weight-science)，也值得深入了解。想知道自己的代謝狀態，可以[做個免費測驗](/quiz)。
+想了解為什麼「[少吃多動](/articles/eat-less-move-more-myth)」這四個字害了多少人，可以看那篇。想了解[復胖的科學](/articles/rebound-weight-science)，也值得深入了解。想知道自己的腰腹脂肪狀況，可以用[腰臀比計算機](/tools/waist-hip)測一下。想知道自己的代謝狀態，可以[做個免費測驗](/quiz)。
 
 我是一休，陪你健康的瘦一輩子
