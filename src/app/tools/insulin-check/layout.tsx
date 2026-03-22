@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "胰島素阻抗風險自評 — 你的身體在「省電」嗎？",
     description: "10 個日常症狀勾選，評估你是否可能有胰島素阻抗。不需要抽血。",
     url: "https://abcmetabolic.com/tools/insulin-check",
-    images: [{ url: "https://abcmetabolic.com/images/founder-transformation.jpg" }],
+    images: [{ url: "https://abcmetabolic.com/images/og-default.png" }],
   },
 };
 

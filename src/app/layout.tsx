@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     description: "重建代謝力，瘦只是順便的事。科學方法、不挨餓、不復胖。了解你的代謝類型，找到適合你的方式。",
     images: [
       {
-        url: "https://abcmetabolic.com/images/founder-transformation.jpg",
-        width: 1000,
-        height: 970,
+        url: "https://abcmetabolic.com/images/og-default.png",
+        width: 1200,
+        height: 630,
         alt: "ABC 代謝力重建瘦身法",
       },
     ],
