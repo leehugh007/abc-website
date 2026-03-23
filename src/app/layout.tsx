@@ -124,6 +124,9 @@ function Footer() {
               <a href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</a>
               <a href="/testimonials" className="block hover:text-[#2a2520] transition-colors">學員見證</a>
               <a href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</a>
+              <a href="/for/postpartum" className="block hover:text-[#2a2520] transition-colors">產後瘦身</a>
+              <a href="/for/health-check" className="block hover:text-[#2a2520] transition-colors">健檢紅字</a>
+              <a href="/for/sedentary" className="block hover:text-[#2a2520] transition-colors">久坐上班族</a>
             </div>
           </div>
 
@@ -152,6 +155,9 @@ function Footer() {
               </a>
               <a href="/tools/protein" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 蛋白質計算機
+              </a>
+              <a href="/tools/waist-hip" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+                腰臀比計算機
               </a>
               <a href="/tools/insulin-check" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 胰島素阻抗自評

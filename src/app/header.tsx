@@ -36,6 +36,9 @@ export function Header() {
           <a href="/program" className="text-[#2a9d6f] hover:text-[#1a5e3f] transition-colors font-bold">
             課程
           </a>
+          <a href="/quiz" className="inline-flex items-center px-4 py-2 text-sm font-bold text-white bg-[#2a9d6f] rounded-full hover:shadow-md transition-shadow">
+            做測驗
+          </a>
         </div>
 
         {/* Mobile: quiz CTA + hamburger */}

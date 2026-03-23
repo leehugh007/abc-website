@@ -81,18 +81,18 @@ export default function Home() {
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { emoji: "🧋", text: "下午三點一定要來杯手搖飲，不然撐不住" },
-              { emoji: "⚖️", text: "明明吃很少，體重就是不動" },
-              { emoji: "🛋️", text: "忙了一整天，晚上只想癱著吃東西" },
-              { emoji: "😮‍💨", text: "肚子越來越大，其他地方還好" },
-              { emoji: "🔄", text: "試過 168、生酮、代餐⋯每次都復胖" },
-              { emoji: "😴", text: "吃完午餐就想睡，下午腦袋像當機" },
+              { icon: "✓", text: "下午三點一定要來杯手搖飲，不然撐不住" },
+              { icon: "✓", text: "明明吃很少，體重就是不動" },
+              { icon: "✓", text: "忙了一整天，晚上只想癱著吃東西" },
+              { icon: "✓", text: "肚子越來越大，其他地方還好" },
+              { icon: "✓", text: "試過 168、生酮、代餐⋯每次都復胖" },
+              { icon: "✓", text: "吃完午餐就想睡，下午腦袋像當機" },
             ].map((item, i) => (
               <div
                 key={i}
                 className="flex items-start gap-3 py-3"
               >
-                <span className="text-xl shrink-0">{item.emoji}</span>
+                <span className="w-5 h-5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">{item.icon}</span>
                 <span className="text-[15px] leading-relaxed text-[#6b6560]">{item.text}</span>
               </div>
             ))}
@@ -179,40 +179,6 @@ export default function Home() {
             最能給你信心的，不是最厲害的案例，是最像你的那個人
           </p>
 
-          {/* 美美 — 重點故事（有照片） */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
-            <Image
-              src="/images/meimei-transformation.jpg"
-              alt="美美的瘦身前後對比：差點破百到7字頭"
-              width={700}
-              height={400}
-              className="w-full h-auto"
-              sizes="(max-width: 768px) 100vw, 700px"
-            />
-            <div className="p-6">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-bold text-lg">美美</span>
-                <span className="text-sm text-[#a8a29e]">7年級生・業務+進修生</span>
-              </div>
-              <div className="flex gap-2 mb-4">
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">體重 -21.8kg</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">體脂 -16%</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#3498db]/10 text-[#3498db] font-medium">腰圍 -12.5cm</span>
-              </div>
-              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-4 italic">
-                「我要選擇一個雖然速度比較慢，但是可以維持一輩子的方式，健康瘦下來。」
-              </blockquote>
-              <p className="text-sm leading-relaxed text-[#6b6560] mb-3">
-                從差點破百到現在 7 字頭，歷經六期課程的堅持。不只是體重下降，血壓、血脂、糖化血色素全部恢復正常，內臟脂肪從中重度變成沒有脂肪肝。
-              </p>
-              <div className="bg-[#27ae60]/5 rounded-xl p-4">
-                <p className="text-sm font-semibold text-[#27ae60]">
-                  ✨ 找到了一種可以一輩子持續下去的生活方式，身體變聰明了，不再害怕復胖。
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* 慧敏 — 最強見證（自體免疫） */}
           <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
             <Image
@@ -256,55 +222,6 @@ export default function Home() {
                 「我相信我這次一定可以瘦一輩子，而且健康一輩子。」
               </p>
             </div>
-          </div>
-
-          {/* 溫溫 — 有前後對比照 */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
-            <div className="grid grid-cols-2 gap-0">
-              <div className="relative">
-                <Image src="/images/wenwen-before.jpg" alt="溫溫減重前" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
-                <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">減重前</span>
-              </div>
-              <div className="relative">
-                <Image src="/images/wenwen-after.jpg" alt="溫溫減重後" width={350} height={400} className="w-full h-full object-cover" sizes="(max-width: 768px) 50vw, 350px" />
-                <span className="absolute bottom-2 left-2 bg-[#27ae60]/80 text-white text-xs px-2 py-1 rounded">減重後</span>
-              </div>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-bold text-lg">溫溫</span>
-                <span className="text-sm text-[#a8a29e]">40 歲・文字工作者</span>
-              </div>
-              <div className="flex gap-2 mb-4">
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">80kg → 60kg</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">血壓恢復正常</span>
-              </div>
-              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-3 italic">
-                「老公說我這樣剛剛好，我差點就信了！曾經被溫柔的安慰話術麻痺，直到有一天突然人間清醒——要為自己而瘦！」
-              </blockquote>
-              <p className="text-sm text-[#6b6560]">
-                工作需要三不五時吃美食，體重一路來到近 80 公斤。高血壓前期，伴隨慢性身體各處發炎、頭痛、體力差。3 個月後，婚前的小裙子不僅僅穿下了，而且是「選擇繼續穿下」。
-              </p>
-            </div>
-          </div>
-
-          {/* 簡短卡片 — 不同類型的人 */}
-          <div className="space-y-3 mt-8">
-            {[
-              { name: "小維", age: 35, tag: "上班族・胃食道逆流", quote: "減肥藥讓我胃酸逆流更嚴重，ABC 不但讓我瘦了，胃食道逆流也大幅改善了。", result: "胃食道逆流大幅改善" },
-              { name: "小魚", age: 31, tag: "護理師・不規律作息", quote: "我每天照顧病人，卻連自己的健康都顧不好。終於找到適合醫護人員的方法。", result: "在不規律作息中維持健康" },
-              { name: "Sam", age: 44, tag: "工程師・三高", quote: "體檢報告滿江紅，我害怕瘦瘦針的副作用。ABC 讓我安全地改善了健康指標。", result: "三高指標明顯改善" },
-            ].map((t, i) => (
-              <div key={i} className="p-4 rounded-xl bg-white/80 border border-[#eee9e5]">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="font-bold">{t.name}</span>
-                  <span className="text-sm text-[#a8a29e]">{t.age} 歲</span>
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">{t.tag}</span>
-                </div>
-                <p className="text-[15px] leading-relaxed text-[#6b6560] mb-2">「{t.quote}」</p>
-                <p className="text-sm font-semibold text-[#27ae60]">✓ {t.result}</p>
-              </div>
-            ))}
           </div>
 
           <div className="text-center mt-8">

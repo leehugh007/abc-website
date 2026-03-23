@@ -72,6 +72,9 @@ export default function ArticlesPage() {
           看完就知道為什麼以前的方法不管用
         </p>
 
+        {/* 精選文章 */}
+        <FeaturedSection />
+
         {/* Category filter pills */}
         <div className="flex flex-wrap gap-2 mb-4">
           <button
@@ -236,6 +239,54 @@ export default function ArticlesPage() {
             30 秒代謝測驗 →
           </a>
         </div>
+      </div>
+    </section>
+  );
+}
+
+const FEATURED_SLUGS = [
+  "eating-order-blood-sugar",
+  "huilan-reborn-at-53",
+  "ozempic-complete-guide",
+  "weight-plateau-not-failure",
+  "eating-out-one-rule",
+];
+
+function FeaturedSection() {
+  const featuredArticles = FEATURED_SLUGS.map((s) =>
+    ARTICLES.find((a) => a.slug === s)
+  ).filter((a): a is (typeof ARTICLES)[number] => Boolean(a));
+
+  if (featuredArticles.length === 0) return null;
+
+  return (
+    <section className="mb-10">
+      <h2 className="text-xl font-bold mb-4">精選文章</h2>
+      <div className="space-y-4">
+        {featuredArticles.map((article) => (
+          <Link
+            key={article.slug}
+            href={`/articles/${article.slug}`}
+            className="block rounded-2xl border border-[#eee9e5] overflow-hidden hover:shadow-sm transition-shadow"
+          >
+            {article.coverImage && (
+              <Image
+                src={article.coverImage}
+                alt={article.title}
+                width={700}
+                height={350}
+                className="w-full h-48 object-cover"
+                sizes="(max-width: 768px) 100vw, 700px"
+              />
+            )}
+            <div className="p-5">
+              <div className="font-bold text-lg mb-2">{article.title}</div>
+              <p className="text-sm text-[#6b6560] line-clamp-2">
+                {article.description}
+              </p>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );
