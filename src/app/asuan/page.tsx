@@ -319,6 +319,67 @@ export default function AsuanPage() {
         </div>
       </section>
 
+      {/* ── 走到最後，你會看到什麼 ── */}
+      <section className="py-16 px-5 bg-[#f3f9f5]">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-3">
+            走到最後，你會看到什麼
+          </h2>
+          <p className="text-center text-[#6b6560] mb-12">
+            這不是我們的承諾，是你正在走向的方向
+          </p>
+
+          <div className="space-y-4 mb-12">
+            {[
+              {
+                title: "代謝力重建了",
+                desc: "身體開始正常運轉。吃飽也能瘦，因為代謝系統在幫你工作，不是在跟你作對。",
+              },
+              {
+                title: "荷爾蒙平衡了",
+                desc: "下午不再一定要來杯手搖飲，晚上不再被宵夜綁架。不是你變有意志力了，是身體不再失控地想要那些東西。",
+              },
+              {
+                title: "發炎減少了，身體變健康了",
+                desc: "很多學員發現：不只瘦了，過敏改善了、睡眠品質變好了、精神變好了、健檢紅字消失了。瘦，是健康的附加價值。",
+              },
+              {
+                title: "你很自然地就瘦了",
+                desc: "不是靠忍耐撐出來的瘦，是身體健康了之後自然的結果。這種瘦，才能持續一輩子。",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 p-5 rounded-xl bg-white border border-[#eee9e5]"
+              >
+                <span className="w-8 h-8 rounded-full bg-[#2a9d6f]/10 text-[#2a9d6f] text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  ✓
+                </span>
+                <div>
+                  <p className="font-bold mb-1">{item.title}</p>
+                  <p className="text-sm text-[#6b6560] leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-2xl bg-white border border-[#2a9d6f]/20 p-8 text-center">
+            <p className="text-[15px] text-[#6b6560] leading-relaxed mb-4">
+              最重要的是——這一切不需要你活得像苦行僧。
+              <br />
+              不需要刻意節食、不需要每天逼自己運動。
+            </p>
+            <p className="text-lg font-bold text-[#2a2520]">
+              健康的選擇融入在你的生活裡，
+              <br className="sm:hidden" />
+              就像呼吸一樣自然。
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── 怎麼開始 ── */}
       <section className="py-16 px-5 bg-white">
         <div className="max-w-2xl mx-auto">
