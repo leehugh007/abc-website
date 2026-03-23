@@ -10,6 +10,13 @@ export const metadata: Metadata = {
 export default function PlansPage() {
   return (
     <>
+      {/* 即將推出提示 */}
+      <div className="bg-[#f3f9f5] border-b border-[#2a9d6f]/20 px-5 py-3 text-center">
+        <p className="text-sm text-[#2a9d6f] font-medium">
+          此服務即將推出，敬請期待
+        </p>
+      </div>
+
       {/* Hero */}
       <section className="pt-16 pb-12 px-5">
         <div className="max-w-2xl mx-auto text-center">
