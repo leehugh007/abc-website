@@ -162,6 +162,9 @@ function Footer() {
               <a href="/tools/insulin-check" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 胰島素阻抗自評
               </a>
+              <a href="/plans" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+                方案比較
+              </a>
               <a href="/program" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 課程介紹
               </a>
