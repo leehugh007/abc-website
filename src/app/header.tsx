@@ -30,6 +30,9 @@ export function Header() {
           <a href="/articles" className="hover:text-[#2a2520] transition-colors">
             文章
           </a>
+          <a href="/tools" className="hover:text-[#2a2520] transition-colors">
+            工具
+          </a>
           <a href="/about" className="hover:text-[#2a2520] transition-colors">
             關於一休
           </a>
