@@ -15,26 +15,47 @@ export default function Home() {
       {/* Returning visitor personalized banner */}
       <ReturningVisitorBanner />
 
-      {/* Hero — 先講處境，不講品牌 */}
-      <section className="pt-16 pb-20 px-5">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
-            ABC 代謝力重建瘦身法
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-6">
-            你不是不努力
-            <br />
-            <span className="text-[#2a9d6f]">是代謝在扯你後腿</span>
-          </h1>
-          <p className="text-lg text-[#6b6560] leading-relaxed mb-10 max-w-lg mx-auto">
-            吃很少還是瘦不下來？下午一定要來杯手搖飲？
-            <br />
-            試過無數方法，每次都復胖？
-            <br />
-            <strong className="text-[#2a2520]">
-              問題可能不在你，在你的代謝模式。
-            </strong>
-          </p>
+      {/* Hero — 文字 + 一休照片合併，人在 fold 內 */}
+      <section className="pt-12 pb-16 px-5">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
+              ABC 代謝力重建瘦身法
+            </p>
+            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-6">
+              你不是不努力
+              <br />
+              <span className="text-[#2a9d6f]">是代謝在扯你後腿</span>
+            </h1>
+            <p className="text-lg text-[#6b6560] leading-relaxed mb-8 max-w-lg mx-auto">
+              吃很少還是瘦不下來？下午一定要來杯手搖飲？
+              <br />
+              試過無數方法，每次都復胖？
+              <br />
+              <strong className="text-[#2a2520]">
+                問題可能不在你，在你的代謝模式。
+              </strong>
+            </p>
+          </div>
+
+          {/* 一休 before/after — 在 CTA 之前，讓人先看到真人 */}
+          <div className="max-w-md mx-auto mb-10 rounded-2xl overflow-hidden">
+            <Image
+              src="/images/founder-transformation.jpg"
+              alt="一休：89公斤到62公斤的對比"
+              width={500}
+              height={300}
+              className="w-full h-auto"
+              sizes="(max-width: 512px) 100vw, 512px"
+              priority
+            />
+            <div className="py-3 text-center">
+              <p className="text-sm text-[#6b6560]">
+                一休，43 歲，從 <strong className="text-[#2a2520]">89 → 62 公斤</strong>。靠的是理解代謝。
+              </p>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="/quiz"
@@ -48,27 +69,6 @@ export default function Home() {
             >
               了解 ABC 是什麼
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 快速信任 — 一休 before/after */}
-      <section className="pb-12 px-5">
-        <div className="max-w-lg mx-auto">
-          <div className="rounded-2xl overflow-hidden border border-[#eee9e5]">
-            <Image
-              src="/images/founder-transformation.jpg"
-              alt="一休：89公斤到62公斤的對比"
-              width={500}
-              height={300}
-              className="w-full h-auto"
-              sizes="(max-width: 512px) 100vw, 512px"
-            />
-            <div className="p-4 text-center bg-white">
-              <p className="text-sm text-[#6b6560]">
-                一休，43 歲，從 <strong className="text-[#2a2520]">89 → 62 公斤</strong>。不靠節食、不靠藥物，靠的是理解代謝。
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -187,49 +187,50 @@ export default function Home() {
             最能給你信心的，不是最厲害的案例，是最像你的那個人
           </p>
 
-          {/* 慧敏 — 最強見證（自體免疫） */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-8">
-            <Image
-              src="/images/autoimmune-student-before-after.jpeg"
-              alt="慧敏的瘦身前後對比：84kg到63.4kg，自體免疫疾病停藥"
-              width={700}
-              height={400}
-              className="w-full h-auto"
-              sizes="(max-width: 768px) 100vw, 700px"
-            />
-            <div className="p-6">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-bold text-lg">慧敏</span>
-                <span className="text-sm text-[#a8a29e]">自體免疫疾病・重大傷病卡</span>
-              </div>
-              <div className="flex gap-2 mb-4">
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">84kg → 63.4kg</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">醫生同意停藥</span>
-              </div>
+          {/* 慧敏 — 最強見證（自體免疫）— 編輯式排版，不是卡片 */}
+          <div className="mb-8">
+            <div className="rounded-2xl overflow-hidden mb-6">
+              <Image
+                src="/images/autoimmune-student-before-after.jpeg"
+                alt="慧敏的瘦身前後對比：84kg到63.4kg，自體免疫疾病停藥"
+                width={700}
+                height={400}
+                className="w-full h-auto"
+                sizes="(max-width: 768px) 100vw, 700px"
+              />
+            </div>
 
-              <div className="space-y-4 text-[15px] leading-relaxed text-[#6b6560]">
-                <div className="bg-[#3498db]/5 rounded-xl p-4">
-                  <p className="font-semibold text-[#3498db] text-sm mb-2">她的困境</p>
-                  <p>她有自體免疫疾病，從年輕到現在嘗試無數次減肥都沒成功過。那時候的她，幾乎要放棄自己了。</p>
-                  <p className="italic text-[#3498db] mt-2">「我是不是永遠都好不了？」</p>
-                </div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-bold text-lg">慧敏</span>
+              <span className="text-sm text-[#a8a29e]">自體免疫疾病・重大傷病卡</span>
+            </div>
+            <div className="flex gap-2 mb-6">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">84kg → 63.4kg</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">醫生同意停藥</span>
+            </div>
 
-                <div className="bg-[#27ae60]/5 rounded-xl p-4">
-                  <p className="font-semibold text-[#27ae60] text-sm mb-2">一年後</p>
-                  <p>她瘦了 20 公斤。但更令人開心的是——她的醫生告訴她：<strong className="text-[#2a2520]">「血液檢查發炎指數有下降，可以先停藥，暫時不用再吃了。」</strong></p>
-                  <p className="text-xs text-[#a8a29e] mt-1">（她是領有重大傷病卡那種嚴重的程度）</p>
-                </div>
+            <div className="space-y-5 text-base leading-relaxed text-[#6b6560]">
+              <p>
+                她有自體免疫疾病，從年輕到現在嘗試無數次減肥都沒成功過。那時候的她，幾乎要放棄自己了。
+              </p>
 
-                <div className="bg-[#f39c12]/5 rounded-xl p-4">
-                  <p className="font-semibold text-[#e67e22] text-sm mb-2">重獲新生</p>
-                  <p>「手指關節也不再腫脹疼痛了！我以前都只能趁沒發作時，手指正常趕快彈彈我喜歡的鋼琴，<strong className="text-[#2a2520]">現在終於可以想彈就彈！</strong>」</p>
-                </div>
-              </div>
+              <blockquote className="border-l-4 border-[#3498db] pl-5 py-1 italic text-[#3498db]">
+                「我是不是永遠都好不了？」
+              </blockquote>
 
-              <p className="mt-4 text-sm font-semibold text-[#e74c3c] text-center">
-                「我相信我這次一定可以瘦一輩子，而且健康一輩子。」
+              <p>
+                一年後，她瘦了 20 公斤。但更令人開心的是——她的醫生告訴她：<strong className="text-[#2a2520]">「血液檢查發炎指數有下降，可以先停藥，暫時不用再吃了。」</strong>
+              </p>
+              <p className="text-xs text-[#a8a29e]">（她是領有重大傷病卡那種嚴重的程度）</p>
+
+              <p>
+                「手指關節也不再腫脹疼痛了！我以前都只能趁沒發作時趕快彈彈鋼琴，<strong className="text-[#2a2520]">現在終於可以想彈就彈！</strong>」
               </p>
             </div>
+
+            <p className="mt-6 text-lg font-bold text-[#1a5e3f] text-center">
+              「我相信我這次一定可以瘦一輩子，而且健康一輩子。」
+            </p>
           </div>
 
           <div className="text-center mt-8">
