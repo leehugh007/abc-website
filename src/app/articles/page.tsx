@@ -23,6 +23,14 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const CATEGORIES = Object.keys(CATEGORY_LABELS);
 
+const FEATURED_SLUGS = [
+  "eating-order-blood-sugar",
+  "huilan-reborn-at-53",
+  "ozempic-complete-guide",
+  "weight-plateau-not-failure",
+  "eating-out-one-rule",
+];
+
 export default function ArticlesPage() {
   const [active, setActive] = useState<string | null>(null);
   const [activeTag, setActiveTag] = useState<Tag | null>(null);
@@ -62,8 +70,14 @@ export default function ArticlesPage() {
       ? sorted.filter((a) => a.category === active)
       : sorted;
 
-  const featured = filtered.filter((a) => a.featured);
-  const rest = filtered.filter((a) => !a.featured);
+  // When showing "all" articles, exclude featured ones since they're shown in FeaturedSection above
+  const isShowingAll = !activeTag && !active;
+  const displayArticles = isShowingAll
+    ? filtered.filter((a) => !FEATURED_SLUGS.includes(a.slug))
+    : filtered;
+
+  const featured = displayArticles.filter((a) => a.featured);
+  const rest = displayArticles.filter((a) => !a.featured);
 
   return (
     <section className="pt-10 pb-16 px-5">
@@ -245,25 +259,17 @@ export default function ArticlesPage() {
 
         <div className="mt-12 text-center space-y-4">
           <p className="text-[#6b6560]">想知道你是哪種代謝類型？</p>
-          <a
+          <Link
             href="/quiz"
             className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
           >
             30 秒代謝測驗 →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
   );
 }
-
-const FEATURED_SLUGS = [
-  "eating-order-blood-sugar",
-  "huilan-reborn-at-53",
-  "ozempic-complete-guide",
-  "weight-plateau-not-failure",
-  "eating-out-one-rule",
-];
 
 function FeaturedSection() {
   const featuredArticles = FEATURED_SLUGS.map((s) =>

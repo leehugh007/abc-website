@@ -57,12 +57,12 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
+            <Link
               href="/quiz"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒測出你的代謝類型 →
-            </a>
+            </Link>
             <Link
               href="/method"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#6b6560] border border-[#eee9e5] rounded-full hover:bg-white transition-colors"
@@ -167,12 +167,12 @@ export default function Home() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <a
+            <Link
               href="/quiz"
               className="text-[#2a9d6f] font-semibold hover:underline"
             >
               不確定？做個 30 秒測驗 →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -268,12 +268,12 @@ export default function Home() {
           <p className="text-[#6b6560] mb-8">
             8 個生活小問題，30 秒就能測出你的代謝類型
           </p>
-          <a
+          <Link
             href="/quiz"
             className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
           >
             開始測驗 →
-          </a>
+          </Link>
         </div>
       </section>
     </>

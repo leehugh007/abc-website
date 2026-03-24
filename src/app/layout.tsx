@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "./header";
@@ -119,14 +120,14 @@ function Footer() {
           <div>
             <p className="font-semibold text-sm mb-3">探索</p>
             <div className="space-y-2 text-sm text-[#6b6560]">
-              <a href="/method" className="block hover:text-[#2a2520] transition-colors">ABC 是什麼</a>
-              <a href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</a>
-              <a href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</a>
-              <a href="/testimonials" className="block hover:text-[#2a2520] transition-colors">學員見證</a>
-              <a href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</a>
-              <a href="/for/postpartum" className="block hover:text-[#2a2520] transition-colors">產後瘦身</a>
-              <a href="/for/health-check" className="block hover:text-[#2a2520] transition-colors">健檢紅字</a>
-              <a href="/for/sedentary" className="block hover:text-[#2a2520] transition-colors">久坐上班族</a>
+              <Link href="/method" className="block hover:text-[#2a2520] transition-colors">ABC 是什麼</Link>
+              <Link href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</Link>
+              <Link href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</Link>
+              <Link href="/testimonials" className="block hover:text-[#2a2520] transition-colors">學員見證</Link>
+              <Link href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</Link>
+              <Link href="/for/postpartum" className="block hover:text-[#2a2520] transition-colors">產後瘦身</Link>
+              <Link href="/for/health-check" className="block hover:text-[#2a2520] transition-colors">健檢紅字</Link>
+              <Link href="/for/sedentary" className="block hover:text-[#2a2520] transition-colors">久坐上班族</Link>
             </div>
           </div>
 
@@ -134,9 +135,9 @@ function Footer() {
           <div>
             <p className="font-semibold text-sm mb-3">學習</p>
             <div className="space-y-2 text-sm text-[#6b6560]">
-              <a href="/guide" className="block hover:text-[#2a2520] transition-colors">完全指南</a>
-              <a href="/concepts" className="block hover:text-[#2a2520] transition-colors">代謝科學</a>
-              <a href="/faq" className="block hover:text-[#2a2520] transition-colors">大家都在問</a>
+              <Link href="/guide" className="block hover:text-[#2a2520] transition-colors">完全指南</Link>
+              <Link href="/concepts" className="block hover:text-[#2a2520] transition-colors">代謝科學</Link>
+              <Link href="/faq" className="block hover:text-[#2a2520] transition-colors">大家都在問</Link>
             </div>
           </div>
 
@@ -144,27 +145,27 @@ function Footer() {
           <div>
             <p className="font-semibold text-sm mb-3">開始</p>
             <div className="space-y-2 text-sm">
-              <a
+              <Link
                 href="/quiz"
                 className="block text-[#2a9d6f] font-medium hover:underline"
               >
                 做代謝測驗 →
-              </a>
-              <a href="/tools" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              </Link>
+              <Link href="/tools" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 TDEE 計算機
-              </a>
-              <a href="/tools/protein" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              </Link>
+              <Link href="/tools/protein" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 蛋白質計算機
-              </a>
-              <a href="/tools/waist-hip" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              </Link>
+              <Link href="/tools/waist-hip" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 腰臀比計算機
-              </a>
-              <a href="/tools/insulin-check" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              </Link>
+              <Link href="/tools/insulin-check" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 胰島素阻抗自評
-              </a>
-              <a href="/program" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              </Link>
+              <Link href="/program" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
                 課程介紹
-              </a>
+              </Link>
               <a
                 href="https://lin.ee/x41s2Su"
                 target="_blank"

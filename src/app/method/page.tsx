@@ -43,12 +43,12 @@ export default function MethodPage() {
             </strong>
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
+            <Link
               href="/quiz"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md hover:shadow-lg transition-shadow"
             >
               先做 30 秒測驗 →
-            </a>
+            </Link>
             <span className="text-sm text-[#a8a29e] self-center">
               或繼續往下看完整介紹
             </span>
@@ -216,7 +216,7 @@ export default function MethodPage() {
             跟其他方法有什麼不同？
           </h2>
 
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="space-y-4">
             {/* 節食 */}
             <div className="rounded-2xl border border-[#eee9e5] overflow-hidden">
               <div className="p-5">
@@ -264,7 +264,7 @@ export default function MethodPage() {
               </div>
             </div>
 
-            {/* ABC */}
+            {/* ABC — 突出顯示 */}
             <div className="rounded-2xl border-2 border-[#2a9d6f]/30 overflow-hidden bg-[#f3f9f5]">
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-3">
@@ -487,12 +487,12 @@ export default function MethodPage() {
           </h2>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center mb-10">
-            <a
+            <Link
               href="/quiz"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒代謝測驗 →
-            </a>
+            </Link>
             <a
               href="https://lin.ee/x41s2Su"
               target="_blank"

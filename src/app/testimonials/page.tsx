@@ -190,59 +190,123 @@ export default function TestimonialsPage() {
           ))}
         </div>
 
-        {/* 有照片的 — 大卡片 */}
-        <div className="space-y-5">
-          {withImage.map((t, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-[#eee9e5] bg-white overflow-hidden"
-            >
-              <Image
-                src={t.image!}
-                alt={`${t.name}的改變`}
-                width={700}
-                height={400}
-                className="w-full h-auto"
-                sizes="(max-width: 768px) 100vw, 700px"
-              />
-              <div className="p-5">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-bold text-lg">{t.name}</span>
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">
-                      {t.tag}
-                    </span>
+        {/* 俐臻 — 主見證，特殊編輯式排版 */}
+        {(() => {
+          const lead = withImage.find((t) => t.name === "俐臻");
+          const others = withImage.filter((t) => t.name !== "俐臻");
+          return (
+            <>
+              {lead && (
+                <div className="mb-12">
+                  <div className="rounded-2xl border-2 border-[#2a9d6f]/20 bg-white overflow-hidden shadow-sm">
+                    <Image
+                      src={lead.image!}
+                      alt={`${lead.name}的改變`}
+                      width={700}
+                      height={500}
+                      className="w-full h-auto"
+                      sizes="(max-width: 768px) 100vw, 700px"
+                      priority
+                    />
+                    <div className="p-6 sm:p-8">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-extrabold text-xl">{lead.name}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">
+                            {lead.tag}
+                          </span>
+                        </div>
+                        <span
+                          className="text-sm px-3 py-1.5 rounded-full font-bold shrink-0"
+                          style={{
+                            backgroundColor: `${lead.resultColor}15`,
+                            color: lead.resultColor,
+                          }}
+                        >
+                          {lead.result}
+                        </span>
+                      </div>
+
+                      {/* Pull quote */}
+                      <blockquote className="my-6 py-4 border-l-4 border-[#2a9d6f] pl-5">
+                        <p className="text-lg sm:text-xl font-bold text-[#1a5e3f] leading-snug">
+                          「你如果要減 5 公斤、8 公斤、10 公斤，其實都是她的零頭。」
+                        </p>
+                      </blockquote>
+
+                      <p className="text-base text-[#6b6560] leading-[1.85] mb-4">
+                        {lead.story}
+                      </p>
+
+                      {lead.articleLink && (
+                        <Link
+                          href={lead.articleLink}
+                          className="inline-flex items-center gap-1 mt-2 text-sm text-[#2a9d6f] font-semibold hover:underline"
+                        >
+                          看俐臻的完整故事 →
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                  <span
-                    className="text-xs px-2.5 py-1 rounded-full font-bold shrink-0"
-                    style={{
-                      backgroundColor: `${t.resultColor}15`,
-                      color: t.resultColor,
-                    }}
-                  >
-                    {t.result}
-                  </span>
                 </div>
-                <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
-                  {t.story}
-                </p>
-                {t.highlight && (
-                  <p className="text-sm font-semibold text-[#2a9d6f] bg-[#f3f9f5] rounded-xl p-3">
-                    {t.highlight}
-                  </p>
-                )}
-                {t.articleLink && (
-                  <Link
-                    href={t.articleLink}
-                    className="inline-block mt-3 text-sm text-[#2a9d6f] font-medium hover:underline"
+              )}
+
+              {/* 其他有照片的 — 標準大卡片 */}
+              <div className="space-y-5">
+                {others.map((t, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl border border-[#eee9e5] bg-white overflow-hidden"
                   >
-                    看完整故事 →
-                  </Link>
-                )}
+                    <Image
+                      src={t.image!}
+                      alt={`${t.name}的改變`}
+                      width={700}
+                      height={400}
+                      className="w-full h-auto"
+                      sizes="(max-width: 768px) 100vw, 700px"
+                    />
+                    <div className="p-5">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-bold text-lg">{t.name}</span>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">
+                            {t.tag}
+                          </span>
+                        </div>
+                        <span
+                          className="text-xs px-2.5 py-1 rounded-full font-bold shrink-0"
+                          style={{
+                            backgroundColor: `${t.resultColor}15`,
+                            color: t.resultColor,
+                          }}
+                        >
+                          {t.result}
+                        </span>
+                      </div>
+                      <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
+                        {t.story}
+                      </p>
+                      {t.highlight && (
+                        <p className="text-sm font-semibold text-[#2a9d6f] bg-[#f3f9f5] rounded-xl p-3">
+                          {t.highlight}
+                        </p>
+                      )}
+                      {t.articleLink && (
+                        <Link
+                          href={t.articleLink}
+                          className="inline-block mt-3 text-sm text-[#2a9d6f] font-medium hover:underline"
+                        >
+                          看完整故事 →
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </div>
+            </>
+          );
+        })()}
 
         {/* 沒照片的 — 小卡片兩欄 */}
         {withoutImage.length > 0 && (
@@ -318,12 +382,12 @@ export default function TestimonialsPage() {
             你不是瘦不下來，你只是還沒遇到我們
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
+            <Link
               href="/quiz"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
             >
               先測代謝類型 →
-            </a>
+            </Link>
             <Link
               href="/program"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-semibold text-[#6b6560] border border-[#eee9e5] rounded-full hover:bg-white transition-colors"

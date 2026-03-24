@@ -123,24 +123,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. ABC 是什麼 — 精簡版，詳細在 /method */}
+      {/* 3. ABC 是什麼 — 一句話 + 連結，詳細在 /method */}
       <section className="py-12 px-5 bg-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-6">ABC 代謝力重建是什麼？</h2>
-          <div className="space-y-5 text-base leading-[1.9]">
-            <p>不是節食法、不是菜單、不是叫你少吃多動。</p>
-            <p>
-              ABC 的核心：<strong>理解你的代謝怎麼運作，然後跟它合作，而不是對抗它。</strong>你越少吃，身體越省電；你越激烈運動，壓力荷爾蒙越高。ABC 反過來——先理解你的身體正在用哪種模式運轉，然後讓代謝回到正常。<strong>瘦，只是順便的事。</strong>
-            </p>
-            <p className="text-lg font-bold text-[#1a5e3f]">
-              <span className="text-[#e74c3c]">A</span> 加營養 · <span className="text-[#f39c12]">B</span> 調體質 · <span className="text-[#27ae60]">C</span> 輕負擔 — 三件事，12 週。
-            </p>
-          </div>
-          <div className="mt-6">
-            <Link href="/method" className="text-[#2a9d6f] font-semibold hover:underline text-sm">
-              了解完整的 ABC 方法 →
+          <p className="text-base leading-relaxed">
+            ABC 代謝力重建是一套以荷爾蒙科學為基礎的瘦身方法——不算熱量、不限制飲食，從根本讓代謝回到正軌。
+            <Link href="/method" className="text-[#2a9d6f] font-semibold hover:underline ml-1">
+              了解完整方法 →
             </Link>
-          </div>
+          </p>
         </div>
       </section>
 
@@ -238,27 +230,29 @@ export default function AboutPage() {
       <section className="py-16 px-5 bg-[#1a5e3f] text-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-8 text-center">我相信的事</h2>
-          <div className="space-y-4">
-            {[
-              {
-                title: "理解了就會自然去做",
-                desc: "不需要意志力。當你真的理解為什麼要這樣吃，正確的選擇會變成本能。",
-              },
-              {
-                title: "加法比減法有效",
-                desc: "不告訴你不能吃什麼，教你可以加什麼。增加好的，壞的自然被取代。",
-              },
-              {
-                title: "瘦一輩子，而不是瘦一陣子",
-                desc: "任何讓你痛苦的方法都撐不了一輩子。我們要的是一種你可以一直過下去的生活方式。",
-              },
-            ].map((item, i) => (
-              <div key={i} className="p-5 rounded-2xl bg-white/10 border border-white/15">
-                <div className="font-bold mb-2">{item.title}</div>
-                <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
+          <ol className="space-y-6 text-base leading-relaxed">
+            <li className="flex gap-4">
+              <span className="text-2xl font-extrabold text-white/30 shrink-0">1</span>
+              <div>
+                <span className="font-bold">理解了就會自然去做</span>
+                <span className="text-white/70"> — 不需要意志力。當你真的理解為什麼要這樣吃，正確的選擇會變成本能。</span>
               </div>
-            ))}
-          </div>
+            </li>
+            <li className="flex gap-4">
+              <span className="text-2xl font-extrabold text-white/30 shrink-0">2</span>
+              <div>
+                <span className="font-bold">加法比減法有效</span>
+                <span className="text-white/70"> — 不告訴你不能吃什麼，教你可以加什麼。增加好的，壞的自然被取代。</span>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <span className="text-2xl font-extrabold text-white/30 shrink-0">3</span>
+              <div>
+                <span className="font-bold">瘦一輩子，而不是瘦一陣子</span>
+                <span className="text-white/70"> — 任何讓你痛苦的方法都撐不了一輩子。我們要的是一種你可以一直過下去的生活方式。</span>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -275,12 +269,12 @@ export default function AboutPage() {
             8 個生活小問題，30 秒測出你的代謝類型
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
+            <Link
               href="/quiz"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               開始測驗 →
-            </a>
+            </Link>
             <a
               href="https://lin.ee/x41s2Su"
               target="_blank"

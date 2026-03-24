@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -15,43 +16,43 @@ export function Header() {
   return (
     <header className={`sticky top-0 z-50 bg-white/[0.97] backdrop-blur-md border-b border-[#eee9e5] transition-shadow ${scrolled ? "shadow-sm" : ""}`}>
       <nav className="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
-        <a href="/" className="font-bold text-lg tracking-tight">
+        <Link href="/" className="font-bold text-lg tracking-tight">
           <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-[#6b6560]">
-          <a href="/method" className="hover:text-[#2a2520] transition-colors">
+          <Link href="/method" className="hover:text-[#2a2520] transition-colors">
             ABC 是什麼
-          </a>
-          <a href="/types" className="hover:text-[#2a2520] transition-colors">
+          </Link>
+          <Link href="/types" className="hover:text-[#2a2520] transition-colors">
             代謝類型
-          </a>
-          <a href="/articles" className="hover:text-[#2a2520] transition-colors">
+          </Link>
+          <Link href="/articles" className="hover:text-[#2a2520] transition-colors">
             文章
-          </a>
-          <a href="/tools" className="hover:text-[#2a2520] transition-colors">
+          </Link>
+          <Link href="/tools" className="hover:text-[#2a2520] transition-colors">
             工具
-          </a>
-          <a href="/about" className="hover:text-[#2a2520] transition-colors">
+          </Link>
+          <Link href="/about" className="hover:text-[#2a2520] transition-colors">
             關於一休
-          </a>
-          <a href="/program" className="text-[#2a9d6f] hover:text-[#1a5e3f] transition-colors font-bold">
+          </Link>
+          <Link href="/program" className="text-[#2a9d6f] hover:text-[#1a5e3f] transition-colors font-bold">
             課程
-          </a>
-          <a href="/quiz" className="inline-flex items-center px-4 py-2 text-sm font-bold text-white bg-[#2a9d6f] rounded-full hover:shadow-md transition-shadow">
+          </Link>
+          <Link href="/quiz" className="inline-flex items-center px-4 py-2 text-sm font-bold text-white bg-[#2a9d6f] rounded-full hover:shadow-md transition-shadow">
             做測驗
-          </a>
+          </Link>
         </div>
 
         {/* Mobile: quiz CTA + hamburger */}
         <div className="flex sm:hidden items-center gap-3">
-          <a
+          <Link
             href="/quiz"
             className="text-xs font-bold text-white bg-[#2a9d6f] px-3 py-1.5 rounded-full"
           >
             做測驗
-          </a>
+          </Link>
           <button
             onClick={() => setOpen(!open)}
             className="w-8 h-8 flex flex-col items-center justify-center gap-1.5"
@@ -96,9 +97,9 @@ export function Header() {
               { href: "/testimonials", label: "學員見證" },
               { href: "/about", label: "關於一休" },
             ].map((item) => (
-              <a key={item.href} href={item.href} className="block text-base font-medium text-[#2a2520] py-2" onClick={() => setOpen(false)}>
+              <Link key={item.href} href={item.href} className="block text-base font-medium text-[#2a2520] py-2" onClick={() => setOpen(false)}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
           {/* 分隔 */}
@@ -109,16 +110,16 @@ export function Header() {
               { href: "/tools", label: "免費工具" },
               { href: "/faq", label: "大家都在問" },
             ].map((item) => (
-              <a key={item.href} href={item.href} className="block text-sm text-[#6b6560] py-1.5" onClick={() => setOpen(false)}>
+              <Link key={item.href} href={item.href} className="block text-sm text-[#6b6560] py-1.5" onClick={() => setOpen(false)}>
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
           {/* 行動 */}
           <div className="border-t border-[#eee9e5] pt-3 space-y-2">
-            <a href="/program" className="block text-base font-bold text-[#2a9d6f] py-2" onClick={() => setOpen(false)}>
+            <Link href="/program" className="block text-base font-bold text-[#2a9d6f] py-2" onClick={() => setOpen(false)}>
               課程介紹
-            </a>
+            </Link>
             <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener noreferrer" className="block text-sm text-[#06C755] font-medium py-1.5">
               加入 LINE →
             </a>
