@@ -26,6 +26,7 @@ const CATEGORIES = Object.keys(CATEGORY_LABELS);
 export default function ArticlesPage() {
   const [active, setActive] = useState<string | null>(null);
   const [activeTag, setActiveTag] = useState<Tag | null>(null);
+  const [showCount, setShowCount] = useState(12);
 
   const allTags = getAllTags();
 
@@ -42,11 +43,13 @@ export default function ArticlesPage() {
   const handleCategoryClick = (cat: string | null) => {
     setActive(cat);
     setActiveTag(null);
+    setShowCount(12);
   };
 
   const handleTagClick = (tag: Tag) => {
     setActiveTag(activeTag === tag ? null : tag);
     setActive(null);
+    setShowCount(12);
   };
 
   const sorted = [...ARTICLES].sort(
@@ -180,7 +183,7 @@ export default function ArticlesPage() {
               </p>
             )}
             <div className="space-y-3">
-              {rest.map((article) => (
+              {rest.slice(0, showCount).map((article) => (
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
@@ -221,6 +224,16 @@ export default function ArticlesPage() {
                 </Link>
               ))}
             </div>
+            {rest.length > showCount && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setShowCount((c) => c + 12)}
+                  className="px-8 py-3 text-sm font-semibold text-[#2a9d6f] border border-[#2a9d6f]/30 rounded-full hover:bg-[#f3f9f5] transition-colors"
+                >
+                  顯示更多（還有 {rest.length - showCount} 篇）
+                </button>
+              </div>
+            )}
           </div>
         )}
 

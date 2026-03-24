@@ -1803,6 +1803,7 @@ function QuestionPage({ question, questionIdx, total, onAnswer, onBack }) {
       <div className="question-page" key={question.id}>
         <div className="question-num">Q{question.id}</div>
         <div className="question-text">{question.text}</div>
+        {isQ7 && <div style={{fontSize:'13px',color:'#2a9d6f',fontWeight:600,marginTop:'4px'}}>可複選，選完按「下一題」</div>}
 
         {!isQ7 ? (
           <div className="options">

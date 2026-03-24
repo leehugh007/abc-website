@@ -76,9 +76,17 @@ export function Header() {
         </div>
       </nav>
 
+      {/* Mobile backdrop */}
+      {open && (
+        <div
+          className="fixed inset-0 top-14 bg-black/30 z-40 sm:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
+
       {/* Mobile dropdown — 分組 */}
       {open && (
-        <div className="sm:hidden border-t border-[#eee9e5] bg-white px-5 py-4">
+        <div className="sm:hidden border-t border-[#eee9e5] bg-white px-5 py-4 relative z-50 shadow-lg">
           {/* 主要 */}
           <div className="space-y-1 pb-3">
             {[
