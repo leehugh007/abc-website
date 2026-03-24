@@ -104,25 +104,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 核心理念 — 先讓她知道 ABC 跟其他方法不一樣 */}
-      <section className="py-20 px-5 bg-[#1a5e3f] text-white">
+      {/* 核心理念 — 精簡版，不重複 /method 的完整說明 */}
+      <section className="py-16 px-5 bg-[#1a5e3f] text-white">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-12">
+          <h2 className="text-2xl font-bold mb-6">
             ABC 代謝力重建，不是另一種節食法
           </h2>
-          <div className="grid sm:grid-cols-3 gap-8 text-left">
-            {[
-              { letter: "A", title: "理解代謝，不靠意志力", desc: "當你理解身體的運作方式，正確的選擇會變成本能，不需要每天跟自己打仗。" },
-              { letter: "B", title: "增加好的，不限制壞的", desc: "不告訴你不能吃什麼，而是教你可以加什麼。加法思維，讓改變自然發生。" },
-              { letter: "C", title: "陪伴，不是指導", desc: "我不是比你厲害，只是比你早犯錯 30 年。這裡沒有大師，只有一起走的人。" },
-            ].map((item) => (
-              <div key={item.letter}>
-                <div className="w-10 h-10 rounded-full border-2 border-white/40 flex items-center justify-center text-lg font-bold mb-3">{item.letter}</div>
-                <div className="font-bold mb-2 text-lg">{item.title}</div>
-                <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
+          <p className="text-lg text-white/80 leading-relaxed mb-8 max-w-lg mx-auto">
+            不告訴你不能吃什麼，而是教你理解身體、跟它合作。<br />
+            當你搞懂代謝，正確的選擇會變成本能。
+          </p>
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <span className="px-4 py-2 rounded-full border border-white/30 text-sm font-medium">
+              A 加營養
+            </span>
+            <span className="px-4 py-2 rounded-full border border-white/30 text-sm font-medium">
+              B 調體質
+            </span>
+            <span className="px-4 py-2 rounded-full border border-white/30 text-sm font-medium">
+              C 輕負擔
+            </span>
           </div>
+          <Link
+            href="/method"
+            className="text-white/90 font-semibold hover:text-white underline underline-offset-4 text-sm"
+          >
+            了解完整的 ABC 方法 →
+          </Link>
         </div>
       </section>
 

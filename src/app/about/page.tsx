@@ -59,9 +59,14 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <p className="text-lg font-bold">
-            問題從來不是你不夠努力，而是你一直在跟自己的身體打仗。當你停止打仗，開始跟身體合作的時候，一切都改變了。
-          </p>
+          <blockquote className="py-6 my-2">
+            <p className="text-2xl sm:text-3xl font-extrabold leading-snug text-[#1a5e3f]">
+              問題從來不是你不夠努力，<br />而是你一直在跟自己的身體打仗。
+            </p>
+            <p className="mt-3 text-base text-[#6b6560]">
+              當你停止打仗，開始跟身體合作的時候，一切都改變了。
+            </p>
+          </blockquote>
 
           <div className="rounded-2xl overflow-hidden border border-[#eee9e5]">
             <Image
@@ -118,36 +123,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. ABC 是什麼 — 緊接故事後 */}
+      {/* 3. ABC 是什麼 — 精簡版，詳細在 /method */}
       <section className="py-12 px-5 bg-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-6">ABC 代謝力重建是什麼？</h2>
-          <div className="space-y-4 text-base leading-[1.9]">
+          <div className="space-y-5 text-base leading-[1.9]">
             <p>不是節食法、不是菜單、不是叫你少吃多動。</p>
             <p>
               ABC 的核心：<strong>理解你的代謝怎麼運作，然後跟它合作，而不是對抗它。</strong>你越少吃，身體越省電；你越激烈運動，壓力荷爾蒙越高。ABC 反過來——先理解你的身體正在用哪種模式運轉，然後讓代謝回到正常。<strong>瘦，只是順便的事。</strong>
             </p>
+            <p className="text-lg font-bold text-[#1a5e3f]">
+              <span className="text-[#e74c3c]">A</span> 加營養 · <span className="text-[#f39c12]">B</span> 調體質 · <span className="text-[#27ae60]">C</span> 輕負擔 — 三件事，12 週。
+            </p>
           </div>
-          <div className="mt-8 grid sm:grid-cols-3 gap-4">
-            <div className="p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5] text-center">
-              <div className="text-3xl font-extrabold text-[#e74c3c] mb-1">A</div>
-              <div className="font-bold mb-1">Add 加營養</div>
-              <p className="text-sm text-[#6b6560]">增加好的，而不是限制壞的</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5] text-center">
-              <div className="text-3xl font-extrabold text-[#f39c12] mb-1">B</div>
-              <div className="font-bold mb-1">Behavior 調體質</div>
-              <p className="text-sm text-[#6b6560]">透過行為調整，讓代謝回到正常</p>
-            </div>
-            <div className="p-5 rounded-2xl bg-[#f8faf7] border border-[#eee9e5] text-center">
-              <div className="text-3xl font-extrabold text-[#27ae60] mb-1">C</div>
-              <div className="font-bold mb-1">Clear 輕負擔</div>
-              <p className="text-sm text-[#6b6560]">減輕身體和心理的負擔</p>
-            </div>
-          </div>
-          <div className="text-center mt-6">
-            <Link href="/types" className="text-[#2a9d6f] font-semibold hover:underline text-sm">
-              了解五種代謝類型 →
+          <div className="mt-6">
+            <Link href="/method" className="text-[#2a9d6f] font-semibold hover:underline text-sm">
+              了解完整的 ABC 方法 →
             </Link>
           </div>
         </div>
