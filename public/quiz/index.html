@@ -2065,7 +2065,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
             <div style={{ fontSize: '15px', color: '#3d3a37', marginBottom: '12px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6' }}>
               你的完整代謝報告 + 具體建議<br/>已經準備好了 👇
             </div>
-            <a href={`https://lin.ee/x41s2Su?ref=quiz_${result.primary}`} target="_blank" rel="noopener"
+            <a href={`https://lin.ee/x41s2Su?ref=${result._sessionId || ('quiz_' + result.primary)}`} target="_blank" rel="noopener"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
               onClick={() => trackEvent('click_line_report', { metabolism_type: type.name })}>
               加 LINE 領取完整報告
@@ -2076,7 +2076,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
         {/* CTA Section — LINE first, then content links */}
         <div className="cta-section">
           {/* Primary CTA: LINE with ref */}
-          <a className="cta-card" href={`https://lin.ee/x41s2Su?ref=quiz_${result.primary}`} target="_blank" rel="noopener"
+          <a className="cta-card" href={`https://lin.ee/x41s2Su?ref=${result._sessionId || ('quiz_' + result.primary)}`} target="_blank" rel="noopener"
             style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px' }}
             onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name })}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>加入一休的 LINE</div>
@@ -2239,7 +2239,7 @@ function App() {
     } else {
       // Done — show loading then result
       setPage('loading');
-      setTimeout(() => {
+      setTimeout(async () => {
         const r = calculateResult(newAnswers);
         trackEvent('quiz_complete', { metabolism_type: r.primary });
         // Save result to localStorage for returning visitor personalization
@@ -2248,6 +2248,30 @@ function App() {
           localStorage.setItem('abc_quiz_type_name', TYPES[r.primary].name);
           localStorage.setItem('abc_quiz_date', new Date().toISOString());
         } catch(e) {}
+
+        // 存 quiz session 到 Supabase（讓 LINE Bot 查個人化資料）
+        const sessionId = 'qs_' + Math.random().toString(36).slice(2, 10);
+        try {
+          await fetch('https://fnlkhxnfaylhqhystmbr.supabase.co/rest/v1/quiz_sessions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZubGtoeG5mYXlsaHFoeXN0bWJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0MTMwMTMsImV4cCI6MjA4ODk4OTAxM30.eELb0hFC9-cb5Y8OT6Ej4Qx1Bb_Y53yXV9cmIn4Jam4',
+            },
+            body: JSON.stringify({
+              id: sessionId,
+              metabolism_type: r.primary,
+              secondary_type: r.secondary || null,
+              q7_symptoms: r.q7Symptoms || [],
+              body_signal: r.bodySignal || null,
+            }),
+          });
+          r._sessionId = sessionId;
+        } catch(e) {
+          // 存失敗不影響結果頁，fallback 到只帶 type
+          r._sessionId = null;
+        }
+
         setResult(r);
         setPage('result');
         window.scrollTo(0, 0);
