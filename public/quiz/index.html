@@ -2041,74 +2041,61 @@ function ResultPage({ result, onRestart, onShowScience }) {
           {desc.split('\n\n').map((p, i) => <p key={i}>{parseHL(p)}</p>)}
         </div>
 
-        {/* Suggestions */}
-        <div className="suggestions-section">
-          <div className="suggestions-title">
-            💡 給{type.name.replace('型', '')}的你三個建議：
-          </div>
-          <div className="suggestion-item suggestion-anchor">
-            <span className="suggestion-num" style={{ background: type.color }}>★</span>
-            {parseHL(type.anchor)}
-          </div>
-          {suggestions.map((sug, i) => (
-            <div key={i} className="suggestion-item">
-              <span className="suggestion-num" style={{ background: type.color }}>{i + 2}</span>
-              {parseHL(sug)}
+        {/* Suggestions — blurred preview + LINE CTA overlay */}
+        <div style={{ position: 'relative', margin: '20px 0' }}>
+          <div style={{ filter: 'blur(6px)', pointerEvents: 'none', userSelect: 'none' }}>
+            <div className="suggestions-section">
+              <div className="suggestions-title">
+                💡 給{type.name.replace('型', '')}的你三個建議：
+              </div>
+              <div className="suggestion-item suggestion-anchor">
+                <span className="suggestion-num" style={{ background: type.color }}>★</span>
+                {parseHL(type.anchor)}
+              </div>
+              {suggestions.map((sug, i) => (
+                <div key={i} className="suggestion-item">
+                  <span className="suggestion-num" style={{ background: type.color }}>{i + 2}</span>
+                  {parseHL(sug)}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          {/* Overlay CTA */}
+          <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.75)', borderRadius: '12px' }}>
+            <div style={{ fontSize: '15px', color: '#3d3a37', marginBottom: '12px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6' }}>
+              你的完整代謝報告 + 具體建議<br/>已經準備好了 👇
+            </div>
+            <a href={`https://lin.ee/x41s2Su?ref=quiz_${result.primary}`} target="_blank" rel="noopener"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
+              onClick={() => trackEvent('click_line_report', { metabolism_type: type.name })}>
+              加 LINE 領取完整報告
+            </a>
+          </div>
         </div>
 
-        {/* Body Signal Section — Q7 symptoms and/or Q11/Q12 trend, layered independently */}
-        {((result.q7Symptoms && result.q7Symptoms.length > 0) || (result.bodySignal === 'fluctuating' && BODY_SIGNAL_TEXT[result.primary])) && (
-          <div className="body-signal-section">
-            <div className="body-signal-title">📊 你的身體在說話</div>
-            {result.q7Symptoms && result.q7Symptoms.length > 0 && (
-              <div>
-                <ul className="q7-symptom-list">
-                  {result.q7Symptoms.map((s, i) => <li key={i} className="q7-symptom-item">{s}</li>)}
-                </ul>
-                <p className="q7-symptom-summary">這些都是你的身體在反映目前的代謝狀態——可能正處於慢性發炎中。</p>
-              </div>
-            )}
-            {result.q7Symptoms && result.q7Symptoms.length > 0 && result.bodySignal === 'fluctuating' && BODY_SIGNAL_TEXT[result.primary] && (
-              <hr className="body-signal-divider" />
-            )}
-            {result.bodySignal === 'fluctuating' && BODY_SIGNAL_TEXT[result.primary] && (
-              <div className="body-signal-text">
-                {BODY_SIGNAL_TEXT[result.primary].split('\n\n').map((p, i) => <p key={i}>{parseHL(p)}</p>)}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Science teaser */}
-        {type.science && (
-          <div className="science-section">
-            <div className="science-title">🔬 科學小知識</div>
-            <div className="science-text">{parseHL(type.science)}</div>
-          </div>
-        )}
-
-        {/* CTA Section */}
+        {/* CTA Section — LINE first, then content links */}
         <div className="cta-section">
-          {/* CTA 1: Type-specific content link */}
+          {/* Primary CTA: LINE with ref */}
+          <a className="cta-card" href={`https://lin.ee/x41s2Su?ref=quiz_${result.primary}`} target="_blank" rel="noopener"
+            style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px' }}
+            onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name })}>
+            <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>加入一休的 LINE</div>
+            <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>領取完整代謝報告 + 排進阿算候補名單</div>
+          </a>
+
+          {/* Secondary: Type-specific content link */}
           <a className="cta-card" href={TYPE_CONTENT_LINKS[result.primary].href} style={{ borderLeft: '4px solid #2a9d6f', background: '#fff', paddingLeft: '18px' }} onClick={() => trackEvent('click_content_link', { metabolism_type: type.name })}>
             <div className="cta-title">{TYPE_CONTENT_LINKS[result.primary].text}</div>
             <div className="cta-arrow">閱讀文章 →</div>
           </a>
 
-          {/* CTA 2: Student story link */}
+          {/* Secondary: Student story link */}
           <a className="cta-card" href={TYPE_STORY_LINKS[result.primary].href} style={{ background: '#faf9f7', border: '1px solid #eee9e5' }} onClick={() => trackEvent('click_story_link', { metabolism_type: type.name })}>
             <div className="cta-title">{TYPE_STORY_LINKS[result.primary].text}</div>
             <div className="cta-arrow">看完整故事 →</div>
           </a>
 
-          {/* CTA 3: LINE */}
-          <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)', border: 'none', textAlign: 'center', borderRadius: '50px', padding: '16px 24px' }} onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name })}>
-            <div className="cta-title" style={{ color: '#fff', marginBottom: 0, textAlign: 'center' }}>加入一休的 LINE，聊聊你的狀況</div>
-          </a>
-
-          {/* CTA 4: Browse more */}
+          {/* Browse more */}
           <div style={{ textAlign: 'center', marginTop: '8px' }}>
             <a href="/articles" style={{ fontSize: '14px', color: '#6b6560', textDecoration: 'none' }} onClick={() => trackEvent('click_browse_articles', { metabolism_type: type.name })}>
               瀏覽更多文章 →
