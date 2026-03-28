@@ -2065,22 +2065,36 @@ function ResultPage({ result, onRestart, onShowScience }) {
             <div style={{ fontSize: '15px', color: '#3d3a37', marginBottom: '12px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6' }}>
               你的完整代謝報告 + 具體建議<br/>已經準備好了 👇
             </div>
-            <a href={`https://line.me/R/ti/p/@sososo?ref=${result._sessionId || ('quiz_' + result.primary)}`} target="_blank" rel="noopener"
+            <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
               onClick={() => trackEvent('click_line_report', { metabolism_type: type.name })}>
               加 LINE 領取完整報告
             </a>
+            {result._claimCode && (
+              <div style={{ marginTop: '12px', fontSize: '13px', color: '#555', textAlign: 'center', lineHeight: '1.5' }}>
+                加入後傳送代碼
+                <button
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigator.clipboard?.writeText(result._claimCode); e.target.textContent = '已複製！'; setTimeout(() => { e.target.textContent = result._claimCode + ' 📋'; }, 1500); }}
+                  style={{ display: 'inline-block', marginLeft: '6px', fontWeight: 700, color: '#2a9d6f', fontSize: '16px', letterSpacing: '2px', background: '#e8f5ef', border: '1px dashed #2a9d6f', borderRadius: '8px', padding: '4px 12px', cursor: 'pointer' }}>
+                  {result._claimCode} 📋
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
         {/* CTA Section — LINE first, then content links */}
         <div className="cta-section">
-          {/* Primary CTA: LINE with ref */}
-          <a className="cta-card" href={`https://line.me/R/ti/p/@sososo?ref=${result._sessionId || ('quiz_' + result.primary)}`} target="_blank" rel="noopener"
+          {/* Primary CTA: LINE + claim code */}
+          <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener"
             style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px' }}
             onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name })}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>加入一休的 LINE</div>
-            <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>領取完整代謝報告 + 排進阿算候補名單</div>
+            <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>
+              {result._claimCode
+                ? `傳送代碼 ${result._claimCode} 領取你的個人化報告`
+                : '領取完整代謝報告 + 排進阿算候補名單'}
+            </div>
           </a>
 
           {/* Secondary: Type-specific content link */}
@@ -2249,7 +2263,9 @@ function App() {
           localStorage.setItem('abc_quiz_date', new Date().toISOString());
         } catch(e) {}
 
-        // 存 quiz session 到 Supabase（讓 LINE Bot 查個人化資料）
+        // 存 quiz session 到 Supabase + 生成領取代碼
+        const SAFE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // 去掉 0/O/1/I 避免混淆
+        const claimCode = Array.from({ length: 4 }, () => SAFE_CHARS[Math.floor(Math.random() * SAFE_CHARS.length)]).join('');
         const sessionId = 'qs_' + Math.random().toString(36).slice(2, 10);
         try {
           await fetch('https://fnlkhxnfaylhqhystmbr.supabase.co/rest/v1/quiz_sessions', {
@@ -2264,12 +2280,12 @@ function App() {
               secondary_type: r.secondary || null,
               q7_symptoms: r.q7Symptoms || [],
               body_signal: r.bodySignal || null,
+              claim_code: claimCode,
             }),
           });
-          r._sessionId = sessionId;
+          r._claimCode = claimCode;
         } catch(e) {
-          // 存失敗不影響結果頁，fallback 到只帶 type
-          r._sessionId = null;
+          r._claimCode = null;
         }
 
         setResult(r);
