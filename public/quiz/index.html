@@ -2043,11 +2043,18 @@ function ResultPage({ result, onRestart, onShowScience }) {
 
         {/* Suggestions — blurred preview + LINE CTA overlay */}
         <div style={{ position: 'relative', margin: '20px 0' }}>
-          <div style={{ filter: 'blur(6px)', pointerEvents: 'none', userSelect: 'none' }}>
+          <div style={{ filter: 'blur(5px)', pointerEvents: 'none', userSelect: 'none' }}>
             <div className="suggestions-section">
               <div className="suggestions-title">
                 💡 給{type.name.replace('型', '')}的你三個建議：
               </div>
+              {/* 隱約可見個人化內容 — 強化損失規避 */}
+              {result.q7Symptoms && result.q7Symptoms.length > 0 && (
+                <div className="suggestion-item" style={{ borderLeft: '3px solid ' + type.color }}>
+                  <span className="suggestion-num" style={{ background: type.color }}>📊</span>
+                  根據你提到的「{result.q7Symptoms[0]}」等 {result.q7Symptoms.length} 個症狀，以下是專屬於你的分析⋯⋯
+                </div>
+              )}
               <div className="suggestion-item suggestion-anchor">
                 <span className="suggestion-num" style={{ background: type.color }}>★</span>
                 {parseHL(type.anchor)}
@@ -2061,23 +2068,42 @@ function ResultPage({ result, onRestart, onShowScience }) {
             </div>
           </div>
           {/* Overlay CTA */}
-          <div style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.75)', borderRadius: '12px' }}>
-            <div style={{ fontSize: '15px', color: '#3d3a37', marginBottom: '12px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6' }}>
-              你的完整代謝報告 + 具體建議<br/>已經準備好了 👇
+          <div style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.7)', borderRadius: '12px' }}>
+            <div style={{ fontSize: '15px', color: '#3d3a37', marginBottom: '4px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6', fontWeight: 600 }}>
+              {result.q7Symptoms && result.q7Symptoms.length > 0
+                ? `你有 ${result.q7Symptoms.length} 個症狀符合${type.name}的典型表現`
+                : '你的完整代謝報告 + 具體建議已經準備好了'}
             </div>
-            <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
-              onClick={() => trackEvent('click_line_report', { metabolism_type: type.name })}>
-              加 LINE 領取完整報告
-            </a>
+            <div style={{ fontSize: '13px', color: '#6b6560', marginBottom: '14px', textAlign: 'center' }}>
+              個人化報告已生成，在 LINE 領取 👇
+            </div>
+            {result._claimCode ? (
+              <a href={'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode)}
+                target="_blank" rel="noopener"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #06C755, #04B34C)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}
+                onClick={() => trackEvent('click_line_deeplink', { metabolism_type: type.name, code: result._claimCode })}>
+                一鍵開啟 LINE 領取報告
+              </a>
+            ) : (
+              <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
+                onClick={() => trackEvent('click_line_report', { metabolism_type: type.name })}>
+                加 LINE 領取完整報告
+              </a>
+            )}
             {result._claimCode && (
-              <div style={{ marginTop: '12px', fontSize: '13px', color: '#555', textAlign: 'center', lineHeight: '1.5' }}>
-                加入後傳送代碼
+              <div style={{ marginTop: '10px', fontSize: '12px', color: '#999', textAlign: 'center' }}>
+                或手動複製代碼
                 <button
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); navigator.clipboard?.writeText(result._claimCode); e.target.textContent = '已複製！'; setTimeout(() => { e.target.textContent = result._claimCode + ' 📋'; }, 1500); }}
-                  style={{ display: 'inline-block', marginLeft: '6px', fontWeight: 700, color: '#2a9d6f', fontSize: '16px', letterSpacing: '2px', background: '#e8f5ef', border: '1px dashed #2a9d6f', borderRadius: '8px', padding: '4px 12px', cursor: 'pointer' }}>
+                  style={{ display: 'inline-block', marginLeft: '6px', fontWeight: 700, color: '#2a9d6f', fontSize: '14px', letterSpacing: '2px', background: '#e8f5ef', border: '1px dashed #2a9d6f', borderRadius: '8px', padding: '3px 10px', cursor: 'pointer' }}>
                   {result._claimCode} 📋
                 </button>
+              </div>
+            )}
+            {result._claimCode && (
+              <div style={{ marginTop: '8px', fontSize: '11px', color: '#a8a29e' }}>
+                代碼 24 小時內有效
               </div>
             )}
           </div>
@@ -2086,14 +2112,18 @@ function ResultPage({ result, onRestart, onShowScience }) {
         {/* CTA Section — LINE first, then content links */}
         <div className="cta-section">
           {/* Primary CTA: LINE + claim code */}
-          <a className="cta-card" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener"
-            style={{ background: 'linear-gradient(135deg, #2a9d6f, #34b882)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px' }}
-            onClick={() => trackEvent('click_line_yixiu', { metabolism_type: type.name })}>
-            <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>加入一休的 LINE</div>
+          <a className="cta-card"
+            href={result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/x41s2Su'}
+            target="_blank" rel="noopener"
+            style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px' }}
+            onClick={() => trackEvent('click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode })}>
+            <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
+              {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加入一休的 LINE'}
+            </div>
             <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>
               {result._claimCode
-                ? `傳送代碼 ${result._claimCode} 領取你的個人化報告`
-                : '領取完整代謝報告 + 排進阿算候補名單'}
+                ? `代碼 ${result._claimCode} 已自動帶入，按送出就好`
+                : '領取完整代謝報告'}
             </div>
           </a>
 
