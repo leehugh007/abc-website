@@ -2041,20 +2041,25 @@ function ResultPage({ result, onRestart, onShowScience }) {
           {desc.split('\n\n').map((p, i) => <p key={i}>{parseHL(p)}</p>)}
         </div>
 
-        {/* Suggestions — blurred preview + LINE CTA overlay */}
+        {/* Suggestions — 個人化行清楚可見 + 建議毛玻璃 + LINE CTA overlay */}
         <div style={{ position: 'relative', margin: '20px 0' }}>
-          <div style={{ filter: 'blur(5px)', pointerEvents: 'none', userSelect: 'none' }}>
-            <div className="suggestions-section">
+          {/* 個人化行：清楚可見，不模糊 */}
+          <div style={{ pointerEvents: 'none', userSelect: 'none' }}>
+            <div className="suggestions-section" style={{ paddingBottom: 0, marginBottom: 0 }}>
               <div className="suggestions-title">
-                💡 給{type.name.replace('型', '')}的你三個建議：
+                💡 給{type.name.replace('型', '')}的你：
               </div>
-              {/* 隱約可見個人化內容 — 強化損失規避 */}
               {result.q7Symptoms && result.q7Symptoms.length > 0 && (
-                <div className="suggestion-item" style={{ borderLeft: '3px solid ' + type.color }}>
+                <div className="suggestion-item" style={{ borderLeft: '3px solid ' + type.color, background: '#fff' }}>
                   <span className="suggestion-num" style={{ background: type.color }}>📊</span>
-                  根據你提到的「{result.q7Symptoms[0]}」等 {result.q7Symptoms.length} 個症狀，以下是專屬於你的分析⋯⋯
+                  根據你提到的「{result.q7Symptoms[0]}」{result.q7Symptoms.length > 1 ? `、「${result.q7Symptoms[1]}」` : ''}等 {result.q7Symptoms.length} 個症狀，你的個人化分析：
                 </div>
               )}
+            </div>
+          </div>
+          {/* 建議內容：漸層模糊，看得到開頭但讀不完 */}
+          <div style={{ filter: 'blur(4px)', pointerEvents: 'none', userSelect: 'none', maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)', WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)' }}>
+            <div className="suggestions-section" style={{ paddingTop: 0, marginTop: 0 }}>
               <div className="suggestion-item suggestion-anchor">
                 <span className="suggestion-num" style={{ background: type.color }}>★</span>
                 {parseHL(type.anchor)}
