@@ -2078,18 +2078,17 @@ function ResultPage({ result, onRestart, onShowScience }) {
               個人化報告已生成，在 LINE 領取 👇
             </div>
             {result._claimCode ? (
-              <a href={'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode)}
-                target="_blank" rel="noopener"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #06C755, #04B34C)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}
-                onClick={() => trackEvent('click_line_deeplink', { metabolism_type: type.name, code: result._claimCode })}>
+              <button
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #06C755, #04B34C)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}
+                onClick={() => { trackEvent('click_line_deeplink', { metabolism_type: type.name, code: result._claimCode }); window.location.href = 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode); }}>
                 一鍵開啟 LINE 領取報告
-              </a>
+              </button>
             ) : (
-              <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
-                onClick={() => trackEvent('click_line_report', { metabolism_type: type.name })}>
+              <button
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
+                onClick={() => { trackEvent('click_line_report', { metabolism_type: type.name }); window.location.href = 'https://lin.ee/x41s2Su'; }}>
                 加 LINE 領取完整報告
-              </a>
+              </button>
             )}
             {result._claimCode && (
               <div style={{ marginTop: '10px', fontSize: '12px', color: '#999', textAlign: 'center' }}>
@@ -2112,11 +2111,9 @@ function ResultPage({ result, onRestart, onShowScience }) {
         {/* CTA Section — LINE first, then content links */}
         <div className="cta-section">
           {/* Primary CTA: LINE + claim code */}
-          <a className="cta-card"
-            href={result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/x41s2Su'}
-            target="_blank" rel="noopener"
-            style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px' }}
-            onClick={() => trackEvent('click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode })}>
+          <div className="cta-card"
+            style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px', cursor: 'pointer' }}
+            onClick={() => { trackEvent('click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode }); window.location.href = result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/x41s2Su'; }}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
               {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加入一休的 LINE'}
             </div>
@@ -2125,7 +2122,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
                 ? `代碼 ${result._claimCode} 已自動帶入，按送出就好`
                 : '領取完整代謝報告'}
             </div>
-          </a>
+          </div>
 
           {/* Secondary: Type-specific content link */}
           <a className="cta-card" href={TYPE_CONTENT_LINKS[result.primary].href} style={{ borderLeft: '4px solid #2a9d6f', background: '#fff', paddingLeft: '18px' }} onClick={() => trackEvent('click_content_link', { metabolism_type: type.name })}>
