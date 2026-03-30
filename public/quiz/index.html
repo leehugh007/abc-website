@@ -1982,6 +1982,13 @@ function ResultPage({ result, onRestart, onShowScience }) {
     return getRandomItems(pool, 2);
   }, [type]);
 
+  // Random testimonial (no refresh)
+  const testimonial = useMemo(() => {
+    const pool = TYPE_TESTIMONIALS[result.primary];
+    if (!pool || pool.length === 0) return null;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }, [result.primary]);
+
   const handleCopyLink = () => {
     const url = window.location.href.split('?')[0];
     if (navigator.clipboard) {
@@ -2110,6 +2117,34 @@ function ResultPage({ result, onRestart, onShowScience }) {
                 代碼 24 小時內有效
               </div>
             )}
+
+            {/* Social proof */}
+            <div style={{ marginTop: '14px', fontSize: '12px', color: '#a8a29e', textAlign: 'center' }}>
+              已有 <strong style={{ color: '#6b6560' }}>1,200+</strong> 人完成測驗並加入
+            </div>
+
+            {/* Type-specific testimonial (random from pool) */}
+            {testimonial && (
+              <div style={{ marginTop: '12px', padding: '10px 16px', background: '#f3f9f5', borderRadius: '10px', textAlign: 'center', maxWidth: '320px' }}>
+                <div style={{ fontSize: '13px', color: '#2a2520', lineHeight: '1.6' }}>
+                  「{testimonial.quote}」
+                </div>
+                <div style={{ fontSize: '12px', color: '#2a9d6f', fontWeight: 600, marginTop: '4px' }}>
+                  — {testimonial.name}，{testimonial.desc}，{testimonial.result}
+                </div>
+              </div>
+            )}
+
+            {/* Soft landing for people not ready to add LINE */}
+            <div style={{ marginTop: '12px' }}>
+              <a
+                href={TYPE_CONTENT_LINKS[result.primary]?.href || '/guide'}
+                style={{ fontSize: '13px', color: '#6b6560', textDecoration: 'none' }}
+                onClick={() => trackEvent('click_soft_landing', { metabolism_type: type.name })}
+              >
+                還沒準備好？<span style={{ color: '#2a9d6f', textDecoration: 'underline', textUnderlineOffset: '3px' }}>先看這篇</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -2148,6 +2183,36 @@ function ResultPage({ result, onRestart, onShowScience }) {
             </a>
           </div>
         </div>
+
+        {/* Learning Path — 你的代謝類型學習路徑 */}
+        {TYPE_LEARNING_PATH[result.primary] && (
+          <div style={{ margin: '24px 24px 0', padding: '20px', background: '#faf9f7', borderRadius: '16px', border: '1px solid #eee9e5' }}>
+            <div style={{ fontSize: '15px', fontWeight: 700, color: '#2a2520', marginBottom: '16px', textAlign: 'center' }}>
+              🗺️ 你的{type.name}學習路徑
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {TYPE_LEARNING_PATH[result.primary].map((item, i) => (
+                <a
+                  key={i}
+                  href={item.href}
+                  style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px', background: '#fff', borderRadius: '12px', textDecoration: 'none', border: '1px solid #eee9e5', transition: 'box-shadow 0.2s' }}
+                  onClick={() => trackEvent('click_learning_path', { metabolism_type: type.name, step: i + 1, label: item.label })}
+                  onMouseOver={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'}
+                  onMouseOut={(e) => e.currentTarget.style.boxShadow = 'none'}
+                >
+                  <span style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', fontSize: '13px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    {i + 1}
+                  </span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: '11px', color: '#a8a29e', marginBottom: '2px' }}>{item.step}</div>
+                    <div style={{ fontSize: '14px', color: '#2a2520', fontWeight: 600 }}>{item.label}</div>
+                  </div>
+                  <span style={{ color: '#a8a29e', fontSize: '14px' }}>→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Share Card & Retake */}
@@ -2220,6 +2285,64 @@ const TYPE_NAME_MAP = {
   '穩定燃燒型': 'steady', '穩定燃燒': 'steady',
   'highRPM': 'highRPM', 'burnout': 'burnout',
   'rollerCoaster': 'rollerCoaster', 'powerSave': 'powerSave', 'steady': 'steady'
+};
+
+// Type-specific testimonial quotes for social proof on result page
+const TYPE_TESTIMONIALS = {
+  highRPM: [
+    { name: '雅琪', desc: '35歲・行銷主管', quote: '以前壓力大就一直吃，搞懂代謝之後比年輕時還有精神', result: '瘦了 15 公斤' },
+    { name: '志豪', desc: '42歲・工程師', quote: '每天加班到十點，肚子越來越大，三個月腰圍少了 8 公分', result: '瘦了 10 公斤' },
+    { name: '家瑜', desc: '38歲・創業中', quote: '一邊帶小孩一邊開店，以為沒時間管自己，結果比想像中簡單', result: '瘦了 13 公斤' },
+  ],
+  burnout: [
+    { name: '淑芬', desc: '41歲・全職媽媽', quote: '帶兩個小孩試過無數次都失敗，這次終於成功了', result: '瘦了 20 公斤' },
+    { name: '惠如', desc: '36歲・護理師', quote: '照顧病人一整天，回家只想癱著吃東西，現在終於學會先顧自己', result: '瘦了 14 公斤' },
+    { name: '建宏', desc: '45歲・照顧父母', quote: '爸爸生病後胖了 20 公斤，開始吃對之後整個人都不一樣', result: '瘦了 17 公斤' },
+  ],
+  rollerCoaster: [
+    { name: '怡君', desc: '28歲・上班族', quote: '以前下午一定要喝手搖飲，現在根本不想喝了', result: '瘦了 12 公斤' },
+    { name: '宗翰', desc: '33歲・業務', quote: '應酬多、三餐不固定，搞懂血糖之後連酒都少喝了', result: '瘦了 11 公斤' },
+    { name: '曉萱', desc: '31歲・設計師', quote: '以為自己意志力差管不住嘴，原來是血糖的問題', result: '瘦了 9 公斤' },
+  ],
+  powerSave: [
+    { name: '佩珊', desc: '39歲・會計', quote: '越少吃越胖，開始吃夠之後反而瘦了', result: '瘦了 18 公斤' },
+    { name: '美玲', desc: '44歲・老師', quote: '節食十幾年代謝都壞掉了，花三個月慢慢養回來', result: '瘦了 15 公斤' },
+    { name: '俊傑', desc: '37歲・司機', quote: '以前一天只吃一餐還胖，現在吃三餐反而變瘦', result: '瘦了 13 公斤' },
+  ],
+  steady: [
+    { name: '靜宜', desc: '34歲・公務員', quote: '跟著 ABC 的方法兩年了，體重穩穩的沒復胖', result: '維持不復胖' },
+    { name: '筱涵', desc: '29歲・行銷', quote: '從雲霄飛車型調整過來的，現在吃東西很自在', result: '維持一年多' },
+    { name: '偉誠', desc: '40歲・工程師', quote: '以前體檢紅字一堆，現在全部正常', result: '維持不復胖' },
+  ],
+};
+
+// Type-specific learning path for result page
+const TYPE_LEARNING_PATH = {
+  highRPM: [
+    { step: '了解你的類型', href: '/types/high-rpm', label: '高轉速型完整說明' },
+    { step: '背後的科學', href: '/concepts/cortisol', label: '壓力荷爾蒙怎麼讓你胖' },
+    { step: '真實案例', href: '/articles/huilan-reborn-at-53', label: '慧蘭 53 歲的故事' },
+  ],
+  burnout: [
+    { step: '了解你的類型', href: '/types/burnout', label: '燃燒殆盡型完整說明' },
+    { step: '背後的科學', href: '/concepts/leptin', label: '為什麼累了一直想吃' },
+    { step: '真實案例', href: '/articles/wenwen-mom-story', label: '溫溫產後的故事' },
+  ],
+  rollerCoaster: [
+    { step: '了解你的類型', href: '/types/roller-coaster', label: '雲霄飛車型完整說明' },
+    { step: '背後的科學', href: '/concepts/blood-sugar-rollercoaster', label: '你的血糖在幹嘛' },
+    { step: '真實案例', href: '/articles/socks-story-62kg', label: '俐臻瘦 62 公斤的故事' },
+  ],
+  powerSave: [
+    { step: '了解你的類型', href: '/types/power-save', label: '省電模式型完整說明' },
+    { step: '背後的科學', href: '/concepts/metabolic-adaptation', label: '身體為什麼在省電' },
+    { step: '真實案例', href: '/articles/meimei-cosmetic-surgery-refused', label: '小美的故事' },
+  ],
+  steady: [
+    { step: '了解方法', href: '/method', label: 'ABC 代謝力重建是什麼' },
+    { step: '完全指南', href: '/guide', label: '代謝力重建完全指南' },
+    { step: '真實案例', href: '/articles/huilan-reborn-at-53', label: '慧蘭的故事' },
+  ],
 };
 
 // Type-specific content links for result page CTAs

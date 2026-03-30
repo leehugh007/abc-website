@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getAllArticleSlugs, ARTICLES } from "@/lib/articles-data";
 import { getArticleContent } from "@/lib/markdown";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 const CATEGORY_COLORS: Record<string, string> = {
   健檢紅字: "bg-[#e74c3c]/10 text-[#e74c3c]",
@@ -249,6 +250,9 @@ export default async function ArticlePage({
           </div>
         </div>
       </section>
+
+      {/* Sticky LINE CTA */}
+      <StickyLineCTA />
 
       {/* Related articles */}
       {related.length > 0 && (
