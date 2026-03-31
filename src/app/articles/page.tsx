@@ -252,9 +252,17 @@ export default function ArticlesPage() {
         )}
 
         {filtered.length === 0 && (
-          <p className="text-center text-[#a8a29e] py-12">
-            這個分類還沒有文章
-          </p>
+          <div className="text-center py-12">
+            <p className="text-[#6b6560] mb-2">
+              這個組合還沒有文章，換個條件看看？
+            </p>
+            <button
+              onClick={() => { handleCategoryClick(null); }}
+              className="text-sm text-[#2a9d6f] font-medium hover:underline"
+            >
+              看全部文章 →
+            </button>
+          </div>
         )}
 
         <div className="mt-12 text-center space-y-4">
@@ -294,7 +302,7 @@ function FeaturedSection() {
                 alt={article.title}
                 width={700}
                 height={350}
-                className="w-full h-48 object-cover"
+                className="w-full h-auto"
                 sizes="(max-width: 768px) 100vw, 700px"
               />
             )}
