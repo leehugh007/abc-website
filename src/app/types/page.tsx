@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TYPES } from "@/lib/types-data";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "你的身體正在用哪種模式運轉？",
@@ -74,6 +75,8 @@ export default function TypesPage() {
           </div>
         </div>
       </div>
+
+      <StickyLineCTA />
     </section>
   );
 }

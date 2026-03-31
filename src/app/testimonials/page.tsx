@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 interface Testimonial {
   name: string;
@@ -378,6 +379,9 @@ export default function TestimonialsPage() {
 
         {/* CTA */}
         <div className="mt-12 text-center space-y-4">
+          <p className="text-sm text-[#6b6560] mb-1">
+            他們的第一步，都是從了解自己的代謝類型開始
+          </p>
           <p className="text-[#2a2520] font-semibold">
             你不是瘦不下來，你只是還沒遇到我們
           </p>
@@ -400,6 +404,8 @@ export default function TestimonialsPage() {
           </p>
         </div>
       </div>
+
+      <StickyLineCTA />
     </section>
   );
 }

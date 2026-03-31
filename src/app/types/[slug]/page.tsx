@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTypeBySlug, getAllSlugs, TYPES } from "@/lib/types-data";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -159,6 +160,8 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
           </div>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

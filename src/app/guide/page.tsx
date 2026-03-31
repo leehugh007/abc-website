@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "代謝力重建完全指南：從原理到實踐，一篇搞懂",
@@ -286,6 +287,19 @@ export default function GuidePage() {
 
           <p>簡單說：節食是跟身體打仗，瘦瘦針是<Link href="/articles/ozempic-bbc-tsunami" className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]">租一個瘦的身體</Link>，ABC 是讓身體自己學會怎麼瘦。</p>
 
+          {/* 中段 CTA 2 */}
+          <div className="not-prose my-10">
+            <div className="rounded-2xl bg-[#f3f9f5] border border-[#2a9d6f]/20 p-6 text-center">
+              <p className="font-bold text-[15px] mb-3">你的身體適合哪種方式？先從了解代謝類型開始</p>
+              <a
+                href="/quiz"
+                className="inline-block px-7 py-2.5 bg-[#2a9d6f] text-white text-sm font-bold rounded-full hover:shadow-md transition-shadow"
+              >
+                30 秒免費測驗 →
+              </a>
+            </div>
+          </div>
+
           {/* 八、FAQ */}
           <h2 id="faq">八、最常被問的問題</h2>
 
@@ -346,6 +360,8 @@ export default function GuidePage() {
           <p className="text-center text-sm text-[#a8a29e] mt-8">我是一休，陪你健康的瘦一輩子</p>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

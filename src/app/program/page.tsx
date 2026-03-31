@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "ABC 代謝力重建瘦身｜12 週課程",
@@ -570,6 +571,8 @@ export default function ProgramPage() {
       </div>
       {/* 底部墊高，避免浮動 CTA 擋住內容 */}
       <div className="sm:hidden h-16" />
+
+      <StickyLineCTA />
     </>
   );
 }

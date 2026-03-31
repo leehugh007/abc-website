@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "關於一休與 ABC 代謝力重建",
@@ -286,6 +287,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

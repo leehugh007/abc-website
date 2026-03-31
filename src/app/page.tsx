@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ReturningVisitorBanner } from "./returning-visitor";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "ABC 代謝力重建瘦身法 — 你的問題不是胖，是代謝失調",
@@ -276,6 +277,8 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

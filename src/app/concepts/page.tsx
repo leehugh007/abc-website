@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CONCEPTS } from "@/lib/concepts-data";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "代謝科學小百科｜用白話搞懂你的身體",
@@ -60,6 +61,8 @@ export default function ConceptsPage() {
           </a>
         </div>
       </div>
+
+      <StickyLineCTA />
     </section>
   );
 }

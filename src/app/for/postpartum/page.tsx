@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "產後瘦不回來？不是你不努力，是荷爾蒙在扯後腿",
@@ -396,6 +397,8 @@ export default function PostpartumPage() {
           </p>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

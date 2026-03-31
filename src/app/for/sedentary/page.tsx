@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "坐整天腰越來越粗？不是你懶，是血糖在搞你",
@@ -412,6 +413,8 @@ export default function SedentaryPage() {
           </p>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

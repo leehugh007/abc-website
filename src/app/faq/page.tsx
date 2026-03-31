@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 interface FaqItem {
   q: string;
@@ -272,6 +273,8 @@ export default function FaqPage() {
           </div>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

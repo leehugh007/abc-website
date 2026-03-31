@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 function MethodFaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -530,6 +531,8 @@ export default function MethodPage() {
           </div>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }

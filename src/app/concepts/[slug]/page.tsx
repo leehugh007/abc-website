@@ -7,6 +7,7 @@ import {
   CONCEPTS,
 } from "@/lib/concepts-data";
 import { getArticleBySlug } from "@/lib/articles-data";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export function generateStaticParams() {
   return getAllConceptSlugs().map((slug) => ({ slug }));
@@ -230,6 +231,23 @@ export default async function ConceptPage({
           </div>
         </section>
       )}
+
+      {/* 收尾 CTA */}
+      <section className="py-12 px-5 bg-white border-t border-[#eee9e5]">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-[#6b6560] mb-4">
+            了解原理之後，下一步是<strong className="text-[#2a2520]">找到你的代謝類型</strong>。
+          </p>
+          <a
+            href="/quiz"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+          >
+            30 秒測出你的代謝類型 →
+          </a>
+        </div>
+      </section>
+
+      <StickyLineCTA />
     </>
   );
 }

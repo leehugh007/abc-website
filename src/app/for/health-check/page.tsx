@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 export const metadata: Metadata = {
   title: "健檢紅字越來越多？吃藥只壓數字，沒解決根本問題",
@@ -411,6 +412,8 @@ export default function HealthCheckPage() {
           </p>
         </div>
       </section>
+
+      <StickyLineCTA />
     </>
   );
 }
