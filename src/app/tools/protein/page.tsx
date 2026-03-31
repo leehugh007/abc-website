@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 type Goal = "maintain" | "fat-loss" | "intense";
 
@@ -278,39 +279,45 @@ export default function ProteinPage() {
               </div>
             </div>
 
-            {/* 下一步 */}
-            <div className="grid sm:grid-cols-3 gap-3">
+            {/* 連結回痛點 + 主 CTA */}
+            <div className="rounded-2xl border border-[#eee9e5] bg-white p-6 text-center">
+              <p className="text-[15px] text-[#6b6560] leading-relaxed mb-2">
+                知道要吃多少蛋白質只是第一步。
+              </p>
+              <p className="text-[15px] text-[#2a2520] font-semibold leading-relaxed mb-6">
+                但「怎麼吃」要看你的代謝類型——<br />
+                不同類型，吃法差很多。
+              </p>
+
+              {/* 主 CTA: 測驗 */}
               <a
                 href="/quiz"
-                className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow mb-4"
               >
-                <span className="text-2xl">🔬</span>
-                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">
-                  測代謝類型
-                </span>
-                <span className="text-xs text-[#a8a29e]">
-                  數字之外更重要的事
-                </span>
+                30 秒測出你的代謝類型 →
               </a>
-              <Link
-                href="/guide"
-                className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
-              >
-                <span className="text-2xl">📖</span>
-                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">
-                  完全指南
-                </span>
-                <span className="text-xs text-[#a8a29e]">搞懂代謝重建</span>
+
+              {/* 副 CTA: LINE 體驗預告 */}
+              <div className="pt-4 border-t border-[#eee9e5]">
+                <p className="text-xs text-[#a8a29e] mb-2">或者</p>
+                <a
+                  href="https://lin.ee/x41s2Su"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-[#06C755] text-[#06C755] hover:bg-[#06C755] hover:text-white transition-colors"
+                >
+                  加入一休的 LINE，之後開放體驗時優先通知你
+                </a>
+              </div>
+            </div>
+
+            {/* 輔助連結 */}
+            <div className="flex flex-wrap justify-center gap-3 text-sm">
+              <Link href="/guide" className="text-[#6b6560] hover:text-[#2a9d6f] transition-colors">
+                完全指南 →
               </Link>
-              <Link
-                href="/concepts"
-                className="flex flex-col items-center gap-2 p-5 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all text-center group"
-              >
-                <span className="text-2xl">🧠</span>
-                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors">
-                  代謝科學
-                </span>
-                <span className="text-xs text-[#a8a29e]">用白話搞懂身體</span>
+              <Link href="/concepts" className="text-[#6b6560] hover:text-[#2a9d6f] transition-colors">
+                代謝科學 →
               </Link>
             </div>
           </div>
@@ -410,8 +417,24 @@ export default function ProteinPage() {
               ，不要集中在一餐補。身體一次能有效利用的蛋白質有限，分散到每餐吸收率更好。
             </p>
           </div>
+
+          {/* 收尾 CTA */}
+          <div className="text-center py-8 border-t border-[#eee9e5]">
+            <p className="text-[#6b6560] mb-4">
+              知道要吃多少只是第一步，<strong className="text-[#2a2520]">知道怎麼吃才是關鍵</strong>。
+            </p>
+            <a
+              href="/quiz"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+            >
+              測出你的代謝類型，找到適合你的吃法 →
+            </a>
+          </div>
         </div>
       </div>
+
+      {/* Sticky LINE CTA */}
+      <StickyLineCTA />
     </section>
   );
 }
