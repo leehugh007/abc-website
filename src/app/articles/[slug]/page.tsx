@@ -7,11 +7,11 @@ import { getArticleContent } from "@/lib/markdown";
 import { StickyLineCTA } from "@/app/sticky-line-cta";
 
 const CATEGORY_COLORS: Record<string, string> = {
-  健檢紅字: "bg-[#e74c3c]/10 text-[#e74c3c]",
-  減肥真相: "bg-[#2a9d6f]/10 text-[#2a9d6f]",
-  瘦瘦針: "bg-[#8e44ad]/10 text-[#8e44ad]",
-  飲食方法: "bg-[#e67e22]/10 text-[#e67e22]",
-  學員故事: "bg-[#3498db]/10 text-[#3498db]",
+  健檢紅字: "bg-danger/10 text-danger",
+  減肥真相: "bg-brand/10 text-brand",
+  瘦瘦針: "bg-purple/10 text-purple",
+  飲食方法: "bg-warning/10 text-warning",
+  學員故事: "bg-info/10 text-info",
 };
 
 const CATEGORY_CTA: Record<string, string> = {
@@ -111,45 +111,45 @@ export default async function ArticlePage({
       {/* Header */}
       <section className="pt-12 pb-8 px-5">
         <div className="max-w-2xl mx-auto">
-          <div className="text-sm text-[#a8a29e] mb-6">
-            <Link href="/articles" className="hover:text-[#6b6560] transition-colors">文章</Link>
+          <div className="text-sm text-muted mb-6">
+            <Link href="/articles" className="hover:text-subtle transition-colors">文章</Link>
             <span className="mx-2">/</span>
             <span>{article.category}</span>
           </div>
           <div className="flex items-center gap-2 mb-4">
             <span
               className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-                CATEGORY_COLORS[article.category] || "bg-[#eee9e5] text-[#6b6560]"
+                CATEGORY_COLORS[article.category] || "bg-edge text-subtle"
               }`}
             >
               {article.category}
             </span>
             <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${
-              article.depth === "快讀" ? "bg-[#2a9d6f]/10 text-[#2a9d6f]" :
-              article.depth === "深度" ? "bg-[#3498db]/10 text-[#3498db]" :
-              "bg-[#eee9e5] text-[#6b6560]"
+              article.depth === "快讀" ? "bg-brand/10 text-brand" :
+              article.depth === "深度" ? "bg-info/10 text-info" :
+              "bg-edge text-subtle"
             }`}>
               {article.depth === "快讀" ? "⚡ 快讀" : article.depth === "深度" ? "📖 深度" : article.readTime}
             </span>
-            {article.depth !== "指南" && <span className="text-xs text-[#a8a29e]">{article.readTime}</span>}
+            {article.depth !== "指南" && <span className="text-xs text-muted">{article.readTime}</span>}
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight mb-4">
             {content.title}
           </h1>
-          <p className="text-[#6b6560] leading-relaxed mb-4">
+          <p className="text-subtle leading-relaxed mb-4">
             {article.description}
           </p>
           {/* E-E-A-T: 作者 + 背景 + 日期 */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-sm text-[#a8a29e]">
-            <Link href="/about" className="flex items-center gap-2 hover:text-[#6b6560] transition-colors">
-              <span className="w-6 h-6 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold shrink-0">休</span>
-              <span className="font-medium text-[#6b6560]">一休</span>
-              <span className="text-[#ddd5cf] hidden sm:inline">·</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 text-sm text-muted">
+            <Link href="/about" className="flex items-center gap-2 hover:text-subtle transition-colors">
+              <span className="w-6 h-6 rounded-full bg-brand text-white text-xs flex items-center justify-center font-bold shrink-0">休</span>
+              <span className="font-medium text-subtle">一休</span>
+              <span className="text-edge-dark hidden sm:inline">·</span>
               <span className="hidden sm:inline">瘦身教練・ABC 代謝重建創辦人</span>
             </Link>
             <div className="flex items-center gap-2 pl-8 sm:pl-0">
               <span className="sm:hidden text-xs">瘦身教練・ABC 代謝重建創辦人</span>
-              <span className="text-[#ddd5cf]">·</span>
+              <span className="text-edge-dark">·</span>
               <time dateTime={article.date}>
                 {new Date(article.date).toLocaleDateString("zh-TW", {
                   year: "numeric",
@@ -178,7 +178,7 @@ export default async function ArticlePage({
       {/* Body */}
       <section className="pb-12 px-5">
         <div
-          className="max-w-2xl mx-auto prose prose-lg prose-stone prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-[1.9] prose-p:text-[#2a2520] prose-li:text-[#2a2520] prose-blockquote:border-l-[#f39c12] prose-blockquote:text-[#6b6560] prose-blockquote:italic prose-strong:text-[#2a2520] prose-a:text-[#2a9d6f] prose-a:no-underline hover:prose-a:underline"
+          className="max-w-2xl mx-auto prose prose-lg prose-stone prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-[1.9] prose-p:text-ink prose-li:text-ink prose-blockquote:border-l-amber prose-blockquote:text-subtle prose-blockquote:italic prose-strong:text-ink prose-a:text-brand prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: content.html }}
         />
       </section>
@@ -191,7 +191,7 @@ export default async function ArticlePage({
               <Link
                 key={tag}
                 href={`/articles?tag=${encodeURIComponent(tag)}`}
-                className="text-xs px-3 py-1.5 rounded-full bg-[#f3f9f5] text-[#2a9d6f] font-medium border border-[#2a9d6f]/20 hover:bg-[#2a9d6f] hover:text-white transition-colors"
+                className="text-xs px-3 py-1.5 rounded-full bg-surface-green text-brand font-medium border border-brand/20 hover:bg-brand hover:text-white transition-colors"
               >
                 {tag}
               </Link>
@@ -203,49 +203,43 @@ export default async function ArticlePage({
       {/* Share prompt */}
       <section className="pb-8 px-5">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm text-[#a8a29e]">
+          <p className="text-sm text-muted">
             覺得有幫助？傳給正在為體重煩惱的朋友
           </p>
         </div>
       </section>
 
-      {/* CTA — 三選一下一步 */}
-      <section className="py-12 px-5 bg-white border-t border-[#eee9e5]">
+      {/* CTA — 主次分明 */}
+      <section className="py-12 px-5 bg-white border-t border-edge">
         <div className="max-w-xl mx-auto">
-          <p className="text-sm text-[#a8a29e] mb-3 text-center">我是一休，陪你健康的瘦一輩子</p>
-          <h2 className="text-xl font-bold mb-6 text-center">{ctaText}</h2>
-          <div className="grid sm:grid-cols-3 gap-3">
-            <a
-              href="/quiz"
-              className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all group"
-            >
-              <span className="w-10 h-10 rounded-full bg-[#f3f9f5] border border-[#2a9d6f]/20 flex items-center justify-center text-[#2a9d6f] font-bold text-sm shrink-0">測</span>
-              <div>
-                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors block">測代謝類型</span>
-                <span className="text-xs text-[#a8a29e]">30 秒免費</span>
-              </div>
-            </a>
+          <p className="text-sm text-muted mb-3">我是一休，陪你健康的瘦一輩子</p>
+          <h2 className="text-xl font-bold mb-6">{ctaText}</h2>
+          <a
+            href="/quiz"
+            className="flex items-center gap-4 p-5 rounded-2xl bg-surface-green border border-brand/20 hover:shadow-sm transition-all group mb-3"
+          >
+            <div className="flex-1">
+              <span className="font-bold text-base group-hover:text-brand transition-colors block">30 秒測出你的代謝類型</span>
+              <span className="text-sm text-subtle">免費，8 個生活小問題</span>
+            </div>
+            <span className="text-brand font-bold">→</span>
+          </a>
+          <div className="flex gap-3">
             <a
               href="https://lin.ee/x41s2Su"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#06C755] hover:shadow-sm transition-all group"
+              className="flex-1 flex items-center gap-3 p-4 rounded-xl border border-edge hover:border-line-green transition-colors text-sm"
             >
-              <span className="w-10 h-10 rounded-full bg-[#06C755]/10 border border-[#06C755]/20 flex items-center justify-center text-[#06C755] font-bold text-sm shrink-0">問</span>
-              <div>
-                <span className="font-bold text-sm group-hover:text-[#06C755] transition-colors block">問一休</span>
-                <span className="text-xs text-[#a8a29e]">LINE 直接聊</span>
-              </div>
+              <span className="text-line-green font-bold">LINE</span>
+              <span className="text-subtle">問一休</span>
             </a>
             <Link
               href="/method"
-              className="flex items-center gap-3 p-4 rounded-xl border border-[#eee9e5] hover:border-[#2a9d6f] hover:shadow-sm transition-all group"
+              className="flex-1 flex items-center gap-3 p-4 rounded-xl border border-edge hover:border-brand transition-colors text-sm"
             >
-              <span className="w-10 h-10 rounded-full bg-[#f3f9f5] border border-[#2a9d6f]/20 flex items-center justify-center text-[#2a9d6f] font-bold text-sm shrink-0">讀</span>
-              <div>
-                <span className="font-bold text-sm group-hover:text-[#2a9d6f] transition-colors block">ABC 方法</span>
-                <span className="text-xs text-[#a8a29e]">看完整介紹</span>
-              </div>
+              <span className="text-brand font-bold">ABC</span>
+              <span className="text-subtle">看方法介紹</span>
             </Link>
           </div>
         </div>
@@ -264,7 +258,7 @@ export default async function ArticlePage({
                 <Link
                   key={r.slug}
                   href={`/articles/${r.slug}`}
-                  className="block p-4 rounded-xl bg-white border border-[#eee9e5] hover:border-[#ddd5cf] hover:shadow-sm transition-all group"
+                  className="block p-4 rounded-xl bg-white border border-edge hover:border-edge-dark hover:shadow-sm transition-all group"
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <span
@@ -274,9 +268,9 @@ export default async function ArticlePage({
                     >
                       {r.category}
                     </span>
-                    <span className="text-xs text-[#a8a29e]">{r.readTime}</span>
+                    <span className="text-xs text-muted">{r.readTime}</span>
                   </div>
-                  <div className="font-bold text-[15px] group-hover:text-[#2a9d6f] transition-colors">
+                  <div className="font-bold text-[15px] group-hover:text-brand transition-colors">
                     {r.title}
                   </div>
                 </Link>

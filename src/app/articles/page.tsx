@@ -6,11 +6,11 @@ import { useState, useEffect } from "react";
 import { ARTICLES, getAllTags, type Tag } from "@/lib/articles-data";
 
 const CATEGORY_COLORS: Record<string, string> = {
-  健檢紅字: "bg-[#e74c3c]/10 text-[#e74c3c]",
-  減肥真相: "bg-[#2a9d6f]/10 text-[#2a9d6f]",
-  瘦瘦針: "bg-[#8e44ad]/10 text-[#8e44ad]",
-  飲食方法: "bg-[#e67e22]/10 text-[#e67e22]",
-  學員故事: "bg-[#3498db]/10 text-[#3498db]",
+  健檢紅字: "bg-danger/10 text-danger",
+  減肥真相: "bg-brand/10 text-brand",
+  瘦瘦針: "bg-purple/10 text-purple",
+  飲食方法: "bg-warning/10 text-warning",
+  學員故事: "bg-info/10 text-info",
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -85,7 +85,7 @@ export default function ArticlesPage() {
         <h1 className="text-3xl font-extrabold tracking-tight mb-3">
           搞懂你的身體
         </h1>
-        <p className="text-[#6b6560] mb-8">
+        <p className="text-subtle mb-8">
           看完就知道為什麼以前的方法不管用
         </p>
 
@@ -98,8 +98,8 @@ export default function ArticlesPage() {
             onClick={() => { handleCategoryClick(null); }}
             className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
               active === null && activeTag === null
-                ? "bg-[#2a9d6f] text-white"
-                : "bg-white border border-[#eee9e5] text-[#6b6560] hover:border-[#ddd5cf]"
+                ? "bg-brand text-white"
+                : "bg-white border border-edge text-subtle hover:border-edge-dark"
             }`}
           >
             全部
@@ -110,8 +110,8 @@ export default function ArticlesPage() {
               onClick={() => handleCategoryClick(active === cat ? null : cat)}
               className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
                 active === cat
-                  ? "bg-[#2a9d6f] text-white"
-                  : "bg-white border border-[#eee9e5] text-[#6b6560] hover:border-[#ddd5cf]"
+                  ? "bg-brand text-white"
+                  : "bg-white border border-edge text-subtle hover:border-edge-dark"
               }`}
             >
               {CATEGORY_LABELS[cat]}
@@ -127,8 +127,8 @@ export default function ArticlesPage() {
               onClick={() => handleTagClick(tag)}
               className={`text-xs px-3 py-1.5 rounded-full font-medium transition-colors ${
                 activeTag === tag
-                  ? "bg-[#2a9d6f] text-white"
-                  : "bg-[#f3f9f5] text-[#2a9d6f] border border-[#2a9d6f]/20 hover:bg-[#2a9d6f]/10"
+                  ? "bg-brand text-white"
+                  : "bg-surface-green text-brand border border-brand/20 hover:bg-brand/10"
               }`}
             >
               {tag}
@@ -140,7 +140,7 @@ export default function ArticlesPage() {
         {/* Featured */}
         {featured.length > 0 && (
           <div className="mb-10">
-            <p className="text-xs font-semibold text-[#2a9d6f] tracking-wider mb-4">
+            <p className="text-xs font-semibold text-brand tracking-wider mb-4">
               推薦閱讀
             </p>
             <div className="space-y-4">
@@ -148,7 +148,7 @@ export default function ArticlesPage() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="block rounded-2xl bg-white border-2 border-[#2a9d6f]/20 hover:border-[#2a9d6f]/40 hover:shadow-sm transition-all group overflow-hidden"
+                  className="block rounded-2xl bg-white border-2 border-brand/20 hover:border-brand/40 hover:shadow-sm transition-all group overflow-hidden"
                 >
                   {article.coverImage && (
                     <Image
@@ -169,16 +169,16 @@ export default function ArticlesPage() {
                       >
                         {article.category}
                       </span>
-                      {article.depth === "快讀" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#2a9d6f]/10 text-[#2a9d6f]">⚡ 快讀</span>}
-                      {article.depth === "深度" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#3498db]/10 text-[#3498db]">📖 深度</span>}
-                      <span className="text-xs text-[#a8a29e]">
+                      {article.depth === "快讀" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-brand/10 text-brand">⚡ 快讀</span>}
+                      {article.depth === "深度" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-info/10 text-info">📖 深度</span>}
+                      <span className="text-xs text-muted">
                         {article.readTime}
                       </span>
                     </div>
-                    <h2 className="font-bold text-lg mb-1 group-hover:text-[#2a9d6f] transition-colors leading-snug">
+                    <h2 className="font-bold text-lg mb-1 group-hover:text-brand transition-colors leading-snug">
                       {article.title}
                     </h2>
-                    <p className="text-sm text-[#6b6560] leading-relaxed line-clamp-2">
+                    <p className="text-sm text-subtle leading-relaxed line-clamp-2">
                       {article.description}
                     </p>
                   </div>
@@ -192,7 +192,7 @@ export default function ArticlesPage() {
         {rest.length > 0 && (
           <div>
             {featured.length > 0 && (
-              <p className="text-xs font-semibold text-[#a8a29e] tracking-wider mb-4">
+              <p className="text-xs font-semibold text-muted tracking-wider mb-4">
                 所有文章
               </p>
             )}
@@ -201,7 +201,7 @@ export default function ArticlesPage() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}`}
-                  className="block rounded-2xl bg-white border border-[#eee9e5] hover:border-[#ddd5cf] hover:shadow-sm transition-all group overflow-hidden"
+                  className="block rounded-2xl bg-white border border-edge hover:border-edge-dark hover:shadow-sm transition-all group overflow-hidden"
                 >
                   {article.coverImage && (
                     <Image
@@ -222,16 +222,16 @@ export default function ArticlesPage() {
                     >
                       {article.category}
                     </span>
-                    {article.depth === "快讀" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#2a9d6f]/10 text-[#2a9d6f]">⚡ 快讀</span>}
-                    {article.depth === "深度" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-[#3498db]/10 text-[#3498db]">📖 深度</span>}
-                    <span className="text-xs text-[#a8a29e]">
+                    {article.depth === "快讀" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-brand/10 text-brand">⚡ 快讀</span>}
+                    {article.depth === "深度" && <span className="text-xs px-2 py-0.5 rounded-full font-medium bg-info/10 text-info">📖 深度</span>}
+                    <span className="text-xs text-muted">
                       {article.readTime}
                     </span>
                   </div>
-                  <h2 className="font-bold text-lg mb-1 group-hover:text-[#2a9d6f] transition-colors leading-snug">
+                  <h2 className="font-bold text-lg mb-1 group-hover:text-brand transition-colors leading-snug">
                     {article.title}
                   </h2>
-                  <p className="text-sm text-[#6b6560] leading-relaxed line-clamp-2">
+                  <p className="text-sm text-subtle leading-relaxed line-clamp-2">
                     {article.description}
                   </p>
                   </div>
@@ -242,7 +242,7 @@ export default function ArticlesPage() {
               <div className="text-center mt-8">
                 <button
                   onClick={() => setShowCount((c) => c + 12)}
-                  className="px-8 py-3 text-sm font-semibold text-[#2a9d6f] border border-[#2a9d6f]/30 rounded-full hover:bg-[#f3f9f5] transition-colors"
+                  className="px-8 py-3 text-sm font-semibold text-brand border border-brand/30 rounded-full hover:bg-surface-green transition-colors"
                 >
                   顯示更多（還有 {rest.length - showCount} 篇）
                 </button>
@@ -253,12 +253,12 @@ export default function ArticlesPage() {
 
         {filtered.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-[#6b6560] mb-2">
+            <p className="text-subtle mb-2">
               這個組合還沒有文章，換個條件看看？
             </p>
             <button
               onClick={() => { handleCategoryClick(null); }}
-              className="text-sm text-[#2a9d6f] font-medium hover:underline"
+              className="text-sm text-brand font-medium hover:underline"
             >
               看全部文章 →
             </button>
@@ -266,10 +266,10 @@ export default function ArticlesPage() {
         )}
 
         <div className="mt-12 text-center space-y-4">
-          <p className="text-[#6b6560]">想知道你是哪種代謝類型？</p>
+          <p className="text-subtle">想知道你是哪種代謝類型？</p>
           <Link
             href="/quiz"
-            className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
+            className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-brand rounded-full shadow-md"
           >
             30 秒代謝測驗 →
           </Link>
@@ -294,7 +294,7 @@ function FeaturedSection() {
           <Link
             key={article.slug}
             href={`/articles/${article.slug}`}
-            className="block rounded-2xl border border-[#eee9e5] overflow-hidden hover:shadow-sm transition-shadow"
+            className="block rounded-2xl border border-edge overflow-hidden hover:shadow-sm transition-shadow"
           >
             {article.coverImage && (
               <Image
@@ -308,7 +308,7 @@ function FeaturedSection() {
             )}
             <div className="p-5">
               <div className="font-bold text-lg mb-2">{article.title}</div>
-              <p className="text-sm text-[#6b6560] line-clamp-2">
+              <p className="text-sm text-subtle line-clamp-2">
                 {article.description}
               </p>
             </div>

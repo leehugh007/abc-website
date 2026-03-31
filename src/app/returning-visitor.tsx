@@ -80,23 +80,23 @@ export function ReturningVisitorBanner() {
   return (
     <section className="px-5 pb-6">
       <div className="max-w-2xl mx-auto">
-        <div className="rounded-2xl border border-[#2a9d6f]/20 bg-[#f3f9f5] p-5">
-          <p className="text-sm font-semibold text-[#2a9d6f] mb-2">
+        <div className="rounded-2xl border border-brand/20 bg-surface-green p-5">
+          <p className="text-sm font-semibold text-brand mb-2">
             歡迎回來 — 你是「{info.typeName}」代謝
           </p>
-          <p className="text-sm text-[#6b6560] mb-4">
+          <p className="text-sm text-subtle mb-4">
             上次測驗結果還在。根據你的類型，這些內容可能對你有幫助：
           </p>
           <div className="flex flex-col sm:flex-row gap-2">
             <Link
               href={rec.article}
-              className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-[#eee9e5] text-sm font-medium text-[#2a2520] hover:border-[#2a9d6f] transition-colors"
+              className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-edge text-sm font-medium text-ink hover:border-brand transition-colors"
             >
               {rec.articleTitle} →
             </Link>
             <Link
               href={rec.concept}
-              className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-[#eee9e5] text-sm font-medium text-[#2a2520] hover:border-[#2a9d6f] transition-colors"
+              className="flex-1 px-4 py-2.5 rounded-xl bg-white border border-edge text-sm font-medium text-ink hover:border-brand transition-colors"
             >
               了解{rec.conceptLabel} →
             </Link>

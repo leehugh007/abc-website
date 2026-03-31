@@ -78,10 +78,10 @@ export default async function ConceptPage({
       {/* Header */}
       <section className="pt-12 pb-8 px-5">
         <div className="max-w-2xl mx-auto">
-          <div className="text-sm text-[#a8a29e] mb-6">
+          <div className="text-sm text-muted mb-6">
             <Link
               href="/concepts"
-              className="hover:text-[#6b6560] transition-colors"
+              className="hover:text-subtle transition-colors"
             >
               代謝科學小百科
             </Link>
@@ -92,22 +92,22 @@ export default async function ConceptPage({
               <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
                 {concept.name}
               </h1>
-              <p className="text-[#6b6560]">{concept.subtitle}</p>
+              <p className="text-subtle">{concept.subtitle}</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 text-sm text-[#a8a29e]">
+          <div className="flex items-center gap-3 text-sm text-muted">
             <Link
               href="/about"
-              className="flex items-center gap-2 hover:text-[#6b6560] transition-colors"
+              className="flex items-center gap-2 hover:text-subtle transition-colors"
             >
-              <span className="w-6 h-6 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold shrink-0">
+              <span className="w-6 h-6 rounded-full bg-brand text-white text-xs flex items-center justify-center font-bold shrink-0">
                 休
               </span>
-              <span className="font-medium text-[#6b6560]">一休</span>
+              <span className="font-medium text-subtle">一休</span>
             </Link>
-            <span className="text-[#ddd5cf]">·</span>
+            <span className="text-edge-dark">·</span>
             <span>瘦身教練・ABC 代謝重建創辦人</span>
-            <span className="text-[#ddd5cf]">·</span>
+            <span className="text-edge-dark">·</span>
             <span>3 分鐘閱讀</span>
           </div>
         </div>
@@ -116,8 +116,8 @@ export default async function ConceptPage({
       {/* 一句話 */}
       <section className="pb-8 px-5">
         <div className="max-w-2xl mx-auto">
-          <div className="rounded-xl bg-[#f3f9f5] border border-[#2a9d6f]/20 p-5">
-            <p className="text-[15px] text-[#2a2520] leading-relaxed font-medium">
+          <div className="rounded-xl bg-surface-green border border-brand/20 p-5">
+            <p className="text-[15px] text-ink leading-relaxed font-medium">
               {concept.oneLiner}
             </p>
           </div>
@@ -130,10 +130,10 @@ export default async function ConceptPage({
           {/* 為什麼重要 */}
           <div>
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-[#2a9d6f] rounded-full inline-block" />
+              <span className="w-1.5 h-6 bg-brand rounded-full inline-block" />
               到底怎麼回事？
             </h2>
-            <div className="text-[15px] text-[#2a2520] leading-[1.9] whitespace-pre-line">
+            <div className="text-[15px] text-ink leading-[1.9] whitespace-pre-line">
               {concept.why}
             </div>
           </div>
@@ -141,10 +141,10 @@ export default async function ConceptPage({
           {/* 跟瘦身的關係 */}
           <div>
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-[#e74c3c] rounded-full inline-block" />
+              <span className="w-1.5 h-6 bg-danger rounded-full inline-block" />
               跟你瘦不下來有什麼關係？
             </h2>
-            <div className="text-[15px] text-[#2a2520] leading-[1.9] whitespace-pre-line">
+            <div className="text-[15px] text-ink leading-[1.9] whitespace-pre-line">
               {concept.weightConnection}
             </div>
           </div>
@@ -152,10 +152,10 @@ export default async function ConceptPage({
           {/* ABC 怎麼處理 */}
           <div>
             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-6 bg-[#2a9d6f] rounded-full inline-block" />
+              <span className="w-1.5 h-6 bg-brand rounded-full inline-block" />
               ABC 怎麼處理這個問題？
             </h2>
-            <div className="text-[15px] text-[#2a2520] leading-[1.9] whitespace-pre-line">
+            <div className="text-[15px] text-ink leading-[1.9] whitespace-pre-line">
               {concept.abcApproach}
             </div>
           </div>
@@ -165,8 +165,8 @@ export default async function ConceptPage({
       {/* CTA */}
       <section className="pb-10 px-5">
         <div className="max-w-2xl mx-auto">
-          <div className="rounded-2xl bg-[#f3f9f5] border border-[#2a9d6f]/20 p-6 text-center">
-            <p className="text-xs font-semibold text-[#2a9d6f] tracking-wide mb-1">
+          <div className="rounded-2xl bg-surface-green border border-brand/20 p-6 text-center">
+            <p className="text-xs font-semibold text-brand tracking-wide mb-1">
               ABC 代謝重建瘦身法
             </p>
             <p className="font-bold text-[15px] mb-3">
@@ -174,7 +174,7 @@ export default async function ConceptPage({
             </p>
             <a
               href="/quiz"
-              className="inline-block px-7 py-2.5 bg-[#2a9d6f] text-white text-sm font-bold rounded-full hover:shadow-md transition-shadow"
+              className="inline-block px-7 py-2.5 bg-brand text-white text-sm font-bold rounded-full hover:shadow-md transition-shadow"
             >
               測出我的代謝類型 →
             </a>
@@ -193,12 +193,12 @@ export default async function ConceptPage({
                   <Link
                     key={article.slug}
                     href={`/articles/${article.slug}`}
-                    className="block p-4 rounded-xl bg-white border border-[#eee9e5] hover:border-[#ddd5cf] hover:shadow-sm transition-all group"
+                    className="block p-4 rounded-xl bg-white border border-edge hover:border-edge-dark hover:shadow-sm transition-all group"
                   >
-                    <p className="font-bold text-[15px] group-hover:text-[#2a9d6f] transition-colors">
+                    <p className="font-bold text-[15px] group-hover:text-brand transition-colors">
                       {article.title}
                     </p>
-                    <p className="text-xs text-[#a8a29e] mt-1">
+                    <p className="text-xs text-muted mt-1">
                       {article.readTime}
                     </p>
                   </Link>
@@ -220,7 +220,7 @@ export default async function ConceptPage({
                   <Link
                     key={c.slug}
                     href={`/concepts/${c.slug}`}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#eee9e5] hover:border-[#2a9d6f]/40 transition-colors text-sm font-medium"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-edge hover:border-brand/40 transition-colors text-sm font-medium"
                   >
                     <span>{c.emoji}</span>
                     <span>{c.name}</span>
@@ -233,14 +233,14 @@ export default async function ConceptPage({
       )}
 
       {/* 收尾 CTA */}
-      <section className="py-12 px-5 bg-white border-t border-[#eee9e5]">
+      <section className="py-12 px-5 bg-white border-t border-edge">
         <div className="max-w-xl mx-auto text-center">
-          <p className="text-[#6b6560] mb-4">
-            了解原理之後，下一步是<strong className="text-[#2a2520]">找到你的代謝類型</strong>。
+          <p className="text-subtle mb-4">
+            了解原理之後，下一步是<strong className="text-ink">找到你的代謝類型</strong>。
           </p>
           <a
             href="/quiz"
-            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
           >
             30 秒測出你的代謝類型 →
           </a>

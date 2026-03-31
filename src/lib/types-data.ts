@@ -20,7 +20,7 @@ export const TYPES: MetabolismType[] = [
     emoji: "🔴",
     tagline: "你不是不健康，你是太拼了。",
     color: "#e74c3c",
-    gradient: "from-[#e74c3c] to-[#f39c12]",
+    gradient: "from-danger to-amber",
     description:
       "你的引擎一直催到底，油箱快見底了還在踩油門。長期高壓讓你的壓力荷爾蒙（皮質醇）一直處於警戒狀態，身體會覺得「現在是緊急狀況，先把能量存起來」——存到哪裡？你的肚子上。",
     sections: [
@@ -55,7 +55,7 @@ export const TYPES: MetabolismType[] = [
     emoji: "🟠",
     tagline: "你不是不在乎自己，你是把能量都給了別人。",
     color: "#e67e22",
-    gradient: "from-[#e67e22] to-[#f39c12]",
+    gradient: "from-warning to-amber",
     description:
       "你的能量分配表上，自己永遠排在最後一行。長期睡不夠、吃不好、壓力大，你的荷爾蒙系統早就在混亂中運轉。飢餓素飆高、瘦體素下降，身體根本搞不清楚你什麼時候餓、什麼時候飽。",
     sections: [
@@ -90,7 +90,7 @@ export const TYPES: MetabolismType[] = [
     emoji: "🟡",
     tagline: "你不是意志力不夠，你的血糖一天坐三次大怒神。",
     color: "#f39c12",
-    gradient: "from-[#f39c12] to-[#f1c40f]",
+    gradient: "from-amber to-[#f1c40f]",
     description:
       "每次你吃進碳水，血糖就飆上去。你的胰島素嚇壞了，拼命壓下來，結果壓過頭——血糖又急速掉下來。你就又餓了、又累了、又想吃了。這個循環一天重複三四次，你的身體一直在坐雲霄飛車。",
     sections: [
@@ -125,7 +125,7 @@ export const TYPES: MetabolismType[] = [
     emoji: "🟢",
     tagline: "你不是吃太多，你是吃太少太久了。",
     color: "#7f8c8d",
-    gradient: "from-[#95a5a6] to-[#7f8c8d]",
+    gradient: "from-[#95a5a6] to-gray",
     description:
       "當你反覆少吃，身體以為你在鬧飢荒。它的反應是：降低基礎代謝率、分解肌肉當燃料、每一口食物都被高效率地存成脂肪。你越努力少吃，身體就越努力幫你存。",
     sections: [
@@ -160,7 +160,7 @@ export const TYPES: MetabolismType[] = [
     emoji: "🔵",
     tagline: "你的代謝引擎運轉得不錯，繼續保持。",
     color: "#27ae60",
-    gradient: "from-[#27ae60] to-[#2ecc71]",
+    gradient: "from-success to-[#2ecc71]",
     description:
       "你大概是那種會注意飲食、偶爾會運動、睡眠還算正常的人。不過別太得意——代謝是動態的，壓力、睡眠、飲食習慣的改變都可能讓你滑到其他類型。繼續保持就是最好的策略。",
     sections: [

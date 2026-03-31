@@ -11,8 +11,8 @@ export default function AsuanPage() {
   return (
     <>
       {/* 即將推出提示 */}
-      <div className="bg-[#f3f9f5] border-b border-[#2a9d6f]/20 px-5 py-3 text-center">
-        <p className="text-sm text-[#2a9d6f] font-medium">
+      <div className="bg-surface-green border-b border-brand/20 px-5 py-3 text-center">
+        <p className="text-sm text-brand font-medium">
           此服務即將推出，敬請期待
         </p>
       </div>
@@ -20,15 +20,15 @@ export default function AsuanPage() {
       {/* ── Hero ── */}
       <section className="pt-16 pb-12 px-5">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
+          <p className="text-sm font-semibold text-brand mb-4 tracking-wide">
             認識阿算
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-6">
             不是幫你算熱量
             <br />
-            <span className="text-[#2a9d6f]">是陪你走到目標</span>
+            <span className="text-brand">是陪你走到目標</span>
           </h1>
-          <p className="text-lg text-[#6b6560] leading-relaxed max-w-lg mx-auto">
+          <p className="text-lg text-subtle leading-relaxed max-w-lg mx-auto">
             阿算是一休訓練出來的 AI 飲食夥伴。它用 ABC
             代謝力重建的方法，記住你的狀況、你的偏好、你走過的路，陪你一步一步改變。
           </p>
@@ -41,40 +41,40 @@ export default function AsuanPage() {
           <h2 className="text-2xl font-bold text-center mb-3">
             你試過的方法，問題出在哪
           </h2>
-          <p className="text-center text-[#6b6560] mb-12">
+          <p className="text-center text-subtle mb-12">
             不是你不夠努力，是工具本身就沒辦法幫你走完全程
           </p>
 
           <div className="space-y-5">
             {/* 熱量計算 app */}
-            <div className="rounded-2xl border border-[#eee9e5] p-6">
+            <div className="rounded-2xl border border-edge p-6">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-danger/10 text-danger font-medium">
                   熱量計算 App
                 </span>
               </div>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
+              <p className="text-[15px] text-subtle leading-relaxed mb-3">
                 你有沒有用過那種要你一條一條輸入食物的
                 app？光是一碗滷肉飯就要搜半天，最後也不知道輸的對不對。
               </p>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed">
-                就算算出來了——<strong className="text-[#2a2520]">然後呢？</strong>
+              <p className="text-[15px] text-subtle leading-relaxed">
+                就算算出來了——<strong className="text-ink">然後呢？</strong>
                 它告訴你今天吃了 1,800 大卡，但不會告訴你蛋白質夠不夠、下一餐該怎麼調、你的代謝狀況適合什麼吃法。數字很精準，但對改變沒有幫助。
               </p>
             </div>
 
             {/* 限制性飲食 */}
-            <div className="rounded-2xl border border-[#eee9e5] p-6">
+            <div className="rounded-2xl border border-edge p-6">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#e67e22]/10 text-[#e67e22] font-medium">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-warning/10 text-warning font-medium">
                   固定菜單 / 限制性飲食
                 </span>
               </div>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
+              <p className="text-[15px] text-subtle leading-relaxed mb-3">
                 給你一份菜單叫你照著吃。問題是：你要應酬的那天呢？帶小孩忙到沒時間煮的那天呢？出差只能吃便利商店的那天呢？
               </p>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed">
-                <strong className="text-[#2a2520]">
+              <p className="text-[15px] text-subtle leading-relaxed">
+                <strong className="text-ink">
                   不考慮你的生活，就不可能持續。
                 </strong>
                 而不能持續的方法，不管多有效都沒有意義。
@@ -82,18 +82,18 @@ export default function AsuanPage() {
             </div>
 
             {/* 通用 AI */}
-            <div className="rounded-2xl border border-[#eee9e5] p-6">
+            <div className="rounded-2xl border border-edge p-6">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#3498db]/10 text-[#3498db] font-medium">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-info/10 text-info font-medium">
                   通用 AI（ChatGPT 等）
                 </span>
               </div>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
+              <p className="text-[15px] text-subtle leading-relaxed mb-3">
                 ChatGPT
                 可以幫你分析一餐，但它不記得你昨天吃了什麼、你的目標是什麼、你上次外食選了什麼。
               </p>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed">
-                <strong className="text-[#2a2520]">
+              <p className="text-[15px] text-subtle leading-relaxed">
+                <strong className="text-ink">
                   每次都像跟一個陌生人從頭說起。
                 </strong>
                 而且它用的是通用的營養知識，不是針對代謝重建設計的方法。
@@ -104,7 +104,7 @@ export default function AsuanPage() {
       </section>
 
       {/* ── 阿算跟他們不一樣 ── */}
-      <section className="py-16 px-5 bg-[#1a5e3f] text-white">
+      <section className="py-16 px-5 bg-brand-dark text-white">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-4">阿算跟它們根本不一樣</h2>
           <p className="text-white/80 leading-relaxed max-w-lg mx-auto text-lg">
@@ -123,7 +123,7 @@ export default function AsuanPage() {
           <h2 className="text-2xl font-bold text-center mb-3">
             阿算幫你做到的五件事
           </h2>
-          <p className="text-center text-[#6b6560] mb-12">
+          <p className="text-center text-subtle mb-12">
             從「幫你看一餐」到「陪你走完整段旅程」
           </p>
 
@@ -167,21 +167,21 @@ export default function AsuanPage() {
             ].map((item) => (
               <div
                 key={item.num}
-                className="rounded-2xl border border-[#eee9e5] p-6 bg-white"
+                className="rounded-2xl border border-edge p-6 bg-white"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-8 h-8 rounded-full bg-[#f3f9f5] text-[#2a9d6f] text-sm font-bold flex items-center justify-center shrink-0">
+                  <span className="w-8 h-8 rounded-full bg-surface-green text-brand text-sm font-bold flex items-center justify-center shrink-0">
                     {item.num}
                   </span>
                   <div>
                     <p className="font-bold">{item.title}</p>
-                    <p className="text-xs text-[#a8a29e]">{item.subtitle}</p>
+                    <p className="text-xs text-muted">{item.subtitle}</p>
                   </div>
                 </div>
-                <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
+                <p className="text-[15px] text-subtle leading-relaxed mb-3">
                   {item.desc}
                 </p>
-                <p className="text-sm text-[#2a9d6f] font-medium italic">
+                <p className="text-sm text-brand font-medium italic">
                   {item.feel}
                 </p>
               </div>
@@ -199,15 +199,15 @@ export default function AsuanPage() {
           <div className="overflow-x-auto -mx-5 px-5">
             <table className="w-full text-sm min-w-[600px]">
               <thead>
-                <tr className="border-b-2 border-[#eee9e5]">
-                  <th className="text-left py-3 pr-4 font-semibold text-[#6b6560] w-[28%]" />
-                  <th className="text-center py-3 px-3 font-semibold text-[#a8a29e] w-[24%]">
+                <tr className="border-b-2 border-edge">
+                  <th className="text-left py-3 pr-4 font-semibold text-subtle w-[28%]" />
+                  <th className="text-center py-3 px-3 font-semibold text-muted w-[24%]">
                     熱量計算 App
                   </th>
-                  <th className="text-center py-3 px-3 font-semibold text-[#a8a29e] w-[24%]">
+                  <th className="text-center py-3 px-3 font-semibold text-muted w-[24%]">
                     通用 AI
                   </th>
-                  <th className="text-center py-3 px-3 font-bold text-[#2a9d6f] w-[24%]">
+                  <th className="text-center py-3 px-3 font-bold text-brand w-[24%]">
                     阿算
                   </th>
                 </tr>
@@ -267,11 +267,11 @@ export default function AsuanPage() {
           <h2 className="text-2xl font-bold text-center mb-3">
             阿算用的不是通用營養學
           </h2>
-          <p className="text-center text-[#6b6560] mb-10">
+          <p className="text-center text-subtle mb-10">
             它用的是一休設計的 ABC 代謝力重建方法
           </p>
 
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden bg-white">
+          <div className="rounded-2xl border border-edge overflow-hidden bg-white">
             <div className="p-6 space-y-4">
               {[
                 {
@@ -291,12 +291,12 @@ export default function AsuanPage() {
                 },
               ].map((item) => (
                 <div key={item.letter} className="flex items-start gap-3">
-                  <span className="font-bold text-[#2a9d6f] text-lg shrink-0 w-6">
+                  <span className="font-bold text-brand text-lg shrink-0 w-6">
                     {item.letter}
                   </span>
                   <div>
                     <p className="font-bold text-sm">{item.title}</p>
-                    <p className="text-sm text-[#6b6560] leading-relaxed">
+                    <p className="text-sm text-subtle leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -305,13 +305,13 @@ export default function AsuanPage() {
             </div>
           </div>
 
-          <p className="text-center text-sm text-[#6b6560] mt-6">
+          <p className="text-center text-sm text-subtle mt-6">
             阿算的每一個建議，都基於這套方法。不是隨便給你一個通用答案。
           </p>
           <div className="text-center mt-4">
             <Link
               href="/method"
-              className="text-[#2a9d6f] font-semibold hover:underline text-sm"
+              className="text-brand font-semibold hover:underline text-sm"
             >
               了解更多 ABC 代謝力重建 →
             </Link>
@@ -320,12 +320,12 @@ export default function AsuanPage() {
       </section>
 
       {/* ── 走到最後，你會看到什麼 ── */}
-      <section className="py-16 px-5 bg-[#f3f9f5]">
+      <section className="py-16 px-5 bg-surface-green">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-3">
             走到最後，你會看到什麼
           </h2>
-          <p className="text-center text-[#6b6560] mb-12">
+          <p className="text-center text-subtle mb-12">
             這不是我們的承諾，是你正在走向的方向
           </p>
 
@@ -350,14 +350,14 @@ export default function AsuanPage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-xl bg-white border border-[#eee9e5]"
+                className="flex items-start gap-4 p-5 rounded-xl bg-white border border-edge"
               >
-                <span className="w-8 h-8 rounded-full bg-[#2a9d6f]/10 text-[#2a9d6f] text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-8 h-8 rounded-full bg-brand/10 text-brand text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
                   ✓
                 </span>
                 <div>
                   <p className="font-bold mb-1">{item.title}</p>
-                  <p className="text-sm text-[#6b6560] leading-relaxed">
+                  <p className="text-sm text-subtle leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -365,13 +365,13 @@ export default function AsuanPage() {
             ))}
           </div>
 
-          <div className="rounded-2xl bg-white border border-[#2a9d6f]/20 p-8 text-center">
-            <p className="text-[15px] text-[#6b6560] leading-relaxed mb-4">
+          <div className="rounded-2xl bg-white border border-brand/20 p-8 text-center">
+            <p className="text-[15px] text-subtle leading-relaxed mb-4">
               最重要的是——這一切不需要你活得像苦行僧。
               <br />
               不需要刻意節食、不需要每天逼自己運動。
             </p>
-            <p className="text-lg font-bold text-[#2a2520]">
+            <p className="text-lg font-bold text-ink">
               健康的選擇融入在你的生活裡，
               <br className="sm:hidden" />
               就像呼吸一樣自然。
@@ -411,16 +411,16 @@ export default function AsuanPage() {
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#2a9d6f] text-white text-sm font-bold flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center shrink-0">
                     {item.step}
                   </div>
                   {item.step !== "4" && (
-                    <div className="w-0.5 flex-1 bg-[#eee9e5] mt-2" />
+                    <div className="w-0.5 flex-1 bg-edge mt-2" />
                   )}
                 </div>
                 <div className={item.step !== "4" ? "pb-6" : ""}>
                   <p className="font-bold text-lg mb-1">{item.title}</p>
-                  <p className="text-sm text-[#6b6560] leading-relaxed">
+                  <p className="text-sm text-subtle leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -433,13 +433,13 @@ export default function AsuanPage() {
       {/* ── 一句話 ── */}
       <section className="py-12 px-5">
         <div className="max-w-xl mx-auto text-center">
-          <div className="rounded-2xl bg-[#f3f9f5] border border-[#2a9d6f]/20 p-8">
+          <div className="rounded-2xl bg-surface-green border border-brand/20 p-8">
             <p className="text-xl font-bold mb-3 leading-relaxed">
               「幫你確認方向對不對、
               <br className="sm:hidden" />
               陪你走到目標。」
             </p>
-            <p className="text-sm text-[#6b6560]">
+            <p className="text-sm text-subtle">
               這是阿算存在的理由。
             </p>
           </div>
@@ -452,13 +452,13 @@ export default function AsuanPage() {
           <h2 className="text-2xl font-bold mb-4">
             第一步，了解你的代謝類型
           </h2>
-          <p className="text-[#6b6560] mb-8">
+          <p className="text-subtle mb-8">
             8 個生活小問題，30 秒就能測出來
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="/quiz"
-              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               開始測驗 →
             </a>
@@ -466,12 +466,12 @@ export default function AsuanPage() {
               href="https://lin.ee/x41s2Su"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-[#6b6560] border border-[#eee9e5] rounded-full hover:bg-[#f8faf7] transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-subtle border border-edge rounded-full hover:bg-surface transition-colors"
             >
               直接加入 LINE
             </a>
           </div>
-          <p className="text-sm text-[#a8a29e] mt-8">
+          <p className="text-sm text-muted mt-8">
             我是一休，陪你健康的瘦一輩子
           </p>
         </div>
@@ -494,11 +494,11 @@ function CompareRow({
   asuan: string;
 }) {
   return (
-    <tr className="border-b border-[#eee9e5]/60">
-      <td className="py-3 pr-4 text-[#2a2520] font-medium">{name}</td>
-      <td className="py-3 px-3 text-center text-[#a8a29e]">{cal}</td>
-      <td className="py-3 px-3 text-center text-[#a8a29e]">{ai}</td>
-      <td className="py-3 px-3 text-center text-[#2a2520] font-medium">
+    <tr className="border-b border-edge/60">
+      <td className="py-3 pr-4 text-ink font-medium">{name}</td>
+      <td className="py-3 px-3 text-center text-muted">{cal}</td>
+      <td className="py-3 px-3 text-center text-muted">{ai}</td>
+      <td className="py-3 px-3 text-center text-ink font-medium">
         {asuan}
       </td>
     </tr>

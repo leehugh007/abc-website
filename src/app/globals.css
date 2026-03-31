@@ -1,6 +1,26 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* ===== Design Tokens ===== */
+@theme {
+  --color-brand: #2a9d6f;
+  --color-brand-dark: #1a5e3f;
+  --color-surface: #f8faf7;
+  --color-surface-green: #f3f9f5;
+  --color-ink: #2a2520;
+  --color-subtle: #6b6560;
+  --color-muted: #78726e;
+  --color-edge: #eee9e5;
+  --color-edge-dark: #ddd5cf;
+  --color-danger: #e74c3c;
+  --color-warning: #e67e22;
+  --color-amber: #f39c12;
+  --color-info: #3498db;
+  --color-purple: #8e44ad;
+  --color-success: #27ae60;
+  --color-line-green: #06C755;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
     "Microsoft JhengHei", "Noto Sans TC", sans-serif;
@@ -9,21 +29,21 @@ body {
 
 /* 文章內的粗體 = 柔和的暖綠底色（不用螢光筆，改用淡底色） */
 .prose strong {
-  color: #1a5e3f;
+  color: var(--color-brand-dark);
   font-weight: 700;
   padding: 1px 0;
 }
 
 /* 文章內的 blockquote = 溫暖的橘色左邊框 */
 .prose blockquote {
-  border-left-color: #2a9d6f !important;
-  background: #f3f9f5;
+  border-left-color: var(--color-brand) !important;
+  background: var(--color-surface-green);
   border-radius: 0 8px 8px 0;
   padding: 14px 18px !important;
   font-style: normal !important;
 }
 .prose blockquote p {
-  color: #2a2520 !important;
+  color: var(--color-ink) !important;
 }
 
 /* Header 滾動陰影 */
@@ -35,16 +55,16 @@ header {
 .article-section-break {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #2a9d6f;
+  color: var(--color-brand);
   padding: 20px 0 8px;
   margin: 32px 0 16px;
-  border-top: 2px solid #eee9e5;
+  border-top: 2px solid var(--color-edge);
   letter-spacing: -0.2px;
 }
 
 /* 文章內的 hr = 輕量分隔 */
 .prose hr {
-  border-color: #eee9e5 !important;
+  border-color: var(--color-edge) !important;
   margin: 32px 0 !important;
 }
 
@@ -63,7 +83,7 @@ header {
 .mid-article-cta {
   margin: 36px 0;
   padding: 24px;
-  background: #f3f9f5;
+  background: var(--color-surface-green);
   border: 1px solid rgba(42, 157, 111, 0.2);
   border-radius: 16px;
   text-align: center;
@@ -71,20 +91,20 @@ header {
 .mid-article-cta-label {
   font-size: 12px !important;
   font-weight: 600;
-  color: #2a9d6f !important;
+  color: var(--color-brand) !important;
   letter-spacing: 0.5px;
   margin-bottom: 6px !important;
 }
 .mid-article-cta-text {
   font-size: 15px !important;
-  color: #2a2520 !important;
+  color: var(--color-ink) !important;
   font-weight: 600;
   margin-bottom: 14px !important;
 }
 .mid-article-cta-btn {
   display: inline-block;
   padding: 10px 28px;
-  background: #2a9d6f;
+  background: var(--color-brand);
   color: #fff !important;
   font-size: 14px;
   font-weight: 700;
@@ -111,10 +131,10 @@ header {
   line-height: 36px;
 }
 .letter-style strong {
-  color: #1a5e3f;
+  color: var(--color-brand-dark);
 }
 .letter-style a {
-  color: #2a9d6f;
+  color: var(--color-brand);
 }
 
 /* 浮動 CTA 底部安全區（iPhone 瀏海機） */

@@ -92,34 +92,34 @@ export default function InsulinCheckPage() {
         <div className="flex flex-wrap gap-2 mb-6">
           <Link
             href="/tools"
-            className="px-3 py-1.5 rounded-full text-sm font-medium border border-[#eee9e5] text-[#6b6560] hover:border-[#2a9d6f] hover:text-[#2a9d6f] transition-colors"
+            className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
           >
             TDEE 計算
           </Link>
           <Link
             href="/tools/protein"
-            className="px-3 py-1.5 rounded-full text-sm font-medium border border-[#eee9e5] text-[#6b6560] hover:border-[#2a9d6f] hover:text-[#2a9d6f] transition-colors"
+            className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
           >
             蛋白質計算
           </Link>
           <Link
             href="/tools/waist-hip"
-            className="px-3 py-1.5 rounded-full text-sm font-medium border border-[#eee9e5] text-[#6b6560] hover:border-[#2a9d6f] hover:text-[#2a9d6f] transition-colors"
+            className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
           >
             腰臀比
           </Link>
-          <span className="px-3 py-1.5 rounded-full text-sm font-medium bg-[#2a9d6f] text-white">
+          <span className="px-3 py-1.5 rounded-full text-sm font-medium bg-brand text-white">
             胰島素阻抗自評
           </span>
         </div>
 
-        <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
+        <p className="text-sm font-semibold text-brand mb-4 tracking-wide">
           免費工具
         </p>
         <h1 className="text-3xl font-extrabold tracking-tight mb-3">
           胰島素阻抗風險自評 — 你的身體在「省電」嗎？
         </h1>
-        <p className="text-[#6b6560] mb-4">
+        <p className="text-subtle mb-4">
           10 個日常症狀勾選，評估你是否可能有胰島素阻抗。不需要抽血。
         </p>
 
@@ -131,7 +131,7 @@ export default function InsulinCheckPage() {
         </div>
 
         {/* 症狀勾選 */}
-        <div className="rounded-2xl border border-[#eee9e5] bg-white p-6 space-y-6">
+        <div className="rounded-2xl border border-edge bg-white p-6 space-y-6">
           <div>
             <label className="block text-sm font-bold mb-4">
               以下症狀，你有幾個？（勾選符合的）
@@ -143,14 +143,14 @@ export default function InsulinCheckPage() {
                   onClick={() => toggleSymptom(i)}
                   className={`w-full text-left px-4 py-3 rounded-xl border transition-colors flex items-start gap-3 ${
                     checked[i]
-                      ? "border-[#2a9d6f] bg-[#f3f9f5]"
-                      : "border-[#eee9e5] hover:border-[#ddd5cf]"
+                      ? "border-brand bg-surface-green"
+                      : "border-edge hover:border-edge-dark"
                   }`}
                 >
                   <span
                     className={`w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors ${
                       checked[i]
-                        ? "bg-[#2a9d6f] border-[#2a9d6f]"
+                        ? "bg-brand border-brand"
                         : "border-[#ccc5c0] bg-white"
                     }`}
                   >
@@ -172,7 +172,7 @@ export default function InsulinCheckPage() {
                     )}
                   </span>
                   <span className="text-sm">
-                    <span className="text-[#a8a29e] mr-2">{i + 1}.</span>
+                    <span className="text-muted mr-2">{i + 1}.</span>
                     {symptom}
                   </span>
                 </button>
@@ -180,14 +180,14 @@ export default function InsulinCheckPage() {
             </div>
           </div>
 
-          <div className="text-center text-sm text-[#a8a29e]">
+          <div className="text-center text-sm text-muted">
             已勾選 {checked.filter(Boolean).length} / {SYMPTOMS.length} 項
           </div>
 
           {/* 評估按鈕 */}
           <button
             onClick={handleCheck}
-            className="w-full py-4 bg-[#2a9d6f] text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
+            className="w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
           >
             查看評估結果
           </button>
@@ -196,16 +196,16 @@ export default function InsulinCheckPage() {
         {/* 結果 */}
         {result && (
           <div id="calc-result" className="mt-8 space-y-6 scroll-mt-20">
-            <div className="rounded-2xl border border-[#eee9e5] bg-white p-6">
-              <p className="text-sm text-[#a8a29e] mb-4">你的評估結果</p>
+            <div className="rounded-2xl border border-edge bg-white p-6">
+              <p className="text-sm text-muted mb-4">你的評估結果</p>
 
               <div className="grid grid-cols-2 gap-4 mb-4">
                 {/* 符合項目數 */}
-                <div className="text-center p-5 rounded-xl bg-[#f8faf7]">
-                  <p className="text-xs text-[#a8a29e] mb-1">符合症狀</p>
-                  <p className="text-3xl font-bold text-[#2a2520]">
+                <div className="text-center p-5 rounded-xl bg-surface">
+                  <p className="text-xs text-muted mb-1">符合症狀</p>
+                  <p className="text-3xl font-bold text-ink">
                     {result.count}
-                    <span className="text-lg font-normal text-[#a8a29e]">
+                    <span className="text-lg font-normal text-muted">
                       {" "}
                       / 10
                     </span>
@@ -217,7 +217,7 @@ export default function InsulinCheckPage() {
                   className="text-center p-5 rounded-xl"
                   style={{ backgroundColor: RISK_CONFIG[result.risk].bg }}
                 >
-                  <p className="text-xs text-[#a8a29e] mb-1">風險評估</p>
+                  <p className="text-xs text-muted mb-1">風險評估</p>
                   <p
                     className="text-2xl font-bold"
                     style={{ color: RISK_CONFIG[result.risk].color }}
@@ -227,7 +227,7 @@ export default function InsulinCheckPage() {
                 </div>
               </div>
 
-              <p className="text-center text-sm text-[#6b6560] px-4">
+              <p className="text-center text-sm text-subtle px-4">
                 {RISK_CONFIG[result.risk].desc}
               </p>
             </div>
@@ -239,7 +239,7 @@ export default function InsulinCheckPage() {
                 style={{ lineHeight: "normal" }}
               >
                 <span
-                  className="w-8 h-8 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold"
+                  className="w-8 h-8 rounded-full bg-brand text-white text-xs flex items-center justify-center font-bold"
                   style={{ fontFamily: "inherit" }}
                 >
                   休
@@ -261,7 +261,7 @@ export default function InsulinCheckPage() {
                       想保持下去，可以了解一下
                       <Link
                         href="/guide"
-                        className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]"
+                        className="text-brand underline decoration-brand/35 hover:decoration-brand"
                       >
                         代謝是怎麼運作的
                       </Link>
@@ -278,7 +278,7 @@ export default function InsulinCheckPage() {
                       下午想喝手搖飲、吃飽就想睡、肚子特別大、怎麼少吃都瘦不下來——它們的共同根源很可能就是
                       <Link
                         href="/concepts/insulin-resistance"
-                        className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]"
+                        className="text-brand underline decoration-brand/35 hover:decoration-brand"
                       >
                         胰島素阻抗
                       </Link>
@@ -293,14 +293,14 @@ export default function InsulinCheckPage() {
                       第一步不難——調整吃東西的順序和選擇就好。可以看看
                       <Link
                         href="/articles/insulin-resistance-complete-guide"
-                        className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]"
+                        className="text-brand underline decoration-brand/35 hover:decoration-brand"
                       >
                         胰島素阻抗完整指南
                       </Link>
                       和
                       <Link
                         href="/articles/normal-blood-sugar-trap"
-                        className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]"
+                        className="text-brand underline decoration-brand/35 hover:decoration-brand"
                       >
                         空腹血糖正常的陷阱
                       </Link>
@@ -322,30 +322,30 @@ export default function InsulinCheckPage() {
             </div>
 
             {/* 連結回痛點 + 主 CTA */}
-            <div className="rounded-2xl border border-[#eee9e5] bg-white p-6 text-center">
-              <p className="text-[15px] text-[#6b6560] leading-relaxed mb-2">
+            <div className="rounded-2xl border border-edge bg-white p-6 text-center">
+              <p className="text-[15px] text-subtle leading-relaxed mb-2">
                 這些症狀背後可能有一個共同原因。
               </p>
-              <p className="text-[15px] text-[#2a2520] font-semibold leading-relaxed mb-6">
+              <p className="text-[15px] text-ink font-semibold leading-relaxed mb-6">
                 你的代謝類型會告訴你，身體卡在哪裡、該怎麼調整。
               </p>
 
               {/* 主 CTA: 測驗 */}
               <a
                 href="/quiz"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow mb-4"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow mb-4"
               >
                 30 秒測出你的代謝類型 →
               </a>
 
               {/* 副 CTA: LINE 體驗預告 */}
-              <div className="pt-4 border-t border-[#eee9e5]">
-                <p className="text-xs text-[#a8a29e] mb-2">或者</p>
+              <div className="pt-4 border-t border-edge">
+                <p className="text-xs text-muted mb-2">或者</p>
                 <a
                   href="https://lin.ee/x41s2Su"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-[#06C755] text-[#06C755] hover:bg-[#06C755] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-line-green text-line-green hover:bg-line-green hover:text-white transition-colors"
                 >
                   加入一休的 LINE，之後開放體驗時優先通知你
                 </a>
@@ -354,10 +354,10 @@ export default function InsulinCheckPage() {
 
             {/* 輔助連結 */}
             <div className="flex flex-wrap justify-center gap-3 text-sm">
-              <Link href="/guide" className="text-[#6b6560] hover:text-[#2a9d6f] transition-colors">
+              <Link href="/guide" className="text-subtle hover:text-brand transition-colors">
                 完全指南 →
               </Link>
-              <Link href="/concepts" className="text-[#6b6560] hover:text-[#2a9d6f] transition-colors">
+              <Link href="/concepts" className="text-subtle hover:text-brand transition-colors">
                 代謝科學 →
               </Link>
             </div>
@@ -367,9 +367,9 @@ export default function InsulinCheckPage() {
         {/* SEO 內容 */}
         <div className="mt-16 space-y-8">
           <h2 className="text-xl font-bold">什麼是胰島素阻抗？</h2>
-          <div className="space-y-4 text-[15px] text-[#6b6560] leading-relaxed">
+          <div className="space-y-4 text-[15px] text-subtle leading-relaxed">
             <p>
-              簡單說，<strong className="text-[#2a2520]">胰島素阻抗</strong>
+              簡單說，<strong className="text-ink">胰島素阻抗</strong>
               就是你的細胞對胰島素「不敏感」了。
             </p>
             <p>
@@ -382,7 +382,7 @@ export default function InsulinCheckPage() {
               想深入了解，請看
               <Link
                 href="/concepts/insulin-resistance"
-                className="text-[#2a9d6f] underline decoration-[#2a9d6f]/35 hover:decoration-[#2a9d6f]"
+                className="text-brand underline decoration-brand/35 hover:decoration-brand"
               >
                 胰島素阻抗完整說明
               </Link>
@@ -393,29 +393,29 @@ export default function InsulinCheckPage() {
           <h2 className="text-xl font-bold">
             為什麼醫生不一定會告訴你？
           </h2>
-          <div className="space-y-4 text-[15px] text-[#6b6560] leading-relaxed">
+          <div className="space-y-4 text-[15px] text-subtle leading-relaxed">
             <p>
-              大部分常規健檢只看<strong className="text-[#2a2520]">空腹血糖</strong>
+              大部分常規健檢只看<strong className="text-ink">空腹血糖</strong>
               。空腹血糖正常（&lt; 100 mg/dL），報告就會顯示「正常」。
             </p>
             <p>
               但問題是：胰島素阻抗的早期，你的身體會用「加倍分泌胰島素」來維持血糖正常。所以空腹血糖可以正常好幾年，
-              <strong className="text-[#2a2520]">
+              <strong className="text-ink">
                 但你的胰島素早就在超時工作了
               </strong>
               。等到空腹血糖也開始偏高，通常已經是比較後期的狀態。
             </p>
             <p>
               如果你想早期發現，可以請醫師加驗
-              <strong className="text-[#2a2520]">空腹胰島素</strong>
+              <strong className="text-ink">空腹胰島素</strong>
               。這個項目通常不在常規健檢裡，但自費也不貴。
             </p>
           </div>
 
           <h2 className="text-xl font-bold">胰島素阻抗可以逆轉嗎？</h2>
-          <div className="space-y-4 text-[15px] text-[#6b6560] leading-relaxed">
+          <div className="space-y-4 text-[15px] text-subtle leading-relaxed">
             <p>
-              <strong className="text-[#2a2520]">可以。</strong>
+              <strong className="text-ink">可以。</strong>
               而且不一定需要吃藥。
             </p>
             <p>
@@ -430,13 +430,13 @@ export default function InsulinCheckPage() {
           </div>
 
           {/* 收尾 CTA */}
-          <div className="text-center py-8 border-t border-[#eee9e5]">
-            <p className="text-[#6b6560] mb-4">
-              了解胰島素阻抗是第一步，<strong className="text-[#2a2520]">找到你的代謝類型是第二步</strong>。
+          <div className="text-center py-8 border-t border-edge">
+            <p className="text-subtle mb-4">
+              了解胰島素阻抗是第一步，<strong className="text-ink">找到你的代謝類型是第二步</strong>。
             </p>
             <a
               href="/quiz"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒測出你的代謝類型 →
             </a>
@@ -444,8 +444,8 @@ export default function InsulinCheckPage() {
         </div>
 
         {/* 底部免責聲明 */}
-        <div className="mt-12 rounded-xl bg-[#f8faf7] border border-[#eee9e5] px-5 py-4">
-          <p className="text-sm text-[#a8a29e] leading-relaxed">
+        <div className="mt-12 rounded-xl bg-surface border border-edge px-5 py-4">
+          <p className="text-sm text-muted leading-relaxed">
             ⚠️
             本自評僅供參考，不能取代醫療診斷。如果你有多個症狀，建議諮詢醫師並要求檢查空腹胰島素。
           </p>

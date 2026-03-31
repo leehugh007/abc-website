@@ -14,26 +14,26 @@ export default function HealthCheckPage() {
       {/* Hero */}
       <section className="pt-16 pb-12 px-5">
         <div className="max-w-2xl mx-auto">
-          <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
+          <p className="text-sm font-semibold text-brand mb-4 tracking-wide">
             給健檢報告開始亮紅燈的你
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-6">
             健檢紅字越來越多？
             <br />
-            <span className="text-[#2a9d6f]">問題不在個別數字，在你的代謝系統</span>
+            <span className="text-brand">問題不在個別數字，在你的代謝系統</span>
           </h1>
-          <div className="text-lg text-[#6b6560] leading-relaxed mb-10 max-w-lg space-y-2">
+          <div className="text-lg text-subtle leading-relaxed mb-10 max-w-lg space-y-2">
             <p>每年健檢，紅字比去年多了幾個。</p>
             <p>醫生說「要注意飲食」，但不知道具體要怎麼改。</p>
             <p>
               吃了藥數字壓下來了，但你知道
-              <strong className="text-[#2a2520]">根本問題還在那裡</strong>。
+              <strong className="text-ink">根本問題還在那裡</strong>。
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="/quiz"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒測出你的代謝類型 →
             </Link>
@@ -41,7 +41,7 @@ export default function HealthCheckPage() {
               href="https://lin.ee/x41s2Su"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-[#06C755] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               加入一休的 LINE →
             </a>
@@ -55,28 +55,28 @@ export default function HealthCheckPage() {
           <h2 className="text-2xl font-bold mb-3">
             你一定試過這些
           </h2>
-          <p className="text-[#6b6560] mb-8">
+          <p className="text-subtle mb-8">
             醫生叫你注意，你也認真試了。但怎麼好像沒什麼用？
           </p>
 
           <div className="space-y-4">
-            <div className="p-5 rounded-2xl border border-[#eee9e5]">
+            <div className="p-5 rounded-2xl border border-edge">
               <div className="font-bold mb-2">少油少鹽飲食</div>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed">
+              <p className="text-[15px] text-subtle leading-relaxed">
                 膽固醇高就不吃蛋、血壓高就少放鹽、三酸甘油酯高就少碰油。聽起來合理，但你的身體 70-80% 的膽固醇是自己做的，跟你吃了幾顆蛋關係不大。真正讓這些數字飆高的，是你的胰島素和慢性發炎。
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-[#eee9e5]">
+            <div className="p-5 rounded-2xl border border-edge">
               <div className="font-bold mb-2">吃保健食品</div>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed">
+              <p className="text-[15px] text-subtle leading-relaxed">
                 魚油、紅麴、納豆激酶⋯吃了一堆，數字有動嗎？保健食品處理的是表面症狀，但如果你的代謝系統一直在發炎，靠保健食品就像用水桶接漏水——你需要的是修那個漏洞。
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl border border-[#eee9e5]">
+            <div className="p-5 rounded-2xl border border-edge">
               <div className="font-bold mb-2">靠藥物控制</div>
-              <p className="text-[15px] text-[#6b6560] leading-relaxed">
+              <p className="text-[15px] text-subtle leading-relaxed">
                 降血壓藥、降血糖藥、降膽固醇的 statin——藥物可以壓數字，但它沒有在修你的代謝。就像儀表板上的警告燈亮了，你把燈泡拔掉。燈不亮了，但引擎的問題還在。
               </p>
             </div>
@@ -96,26 +96,26 @@ export default function HealthCheckPage() {
               <strong>慢性發炎 + 胰島素阻抗</strong>。
             </p>
 
-            <div className="bg-[#f3f9f5] rounded-xl p-5 border-l-4 border-[#2a9d6f]">
-              <p className="font-bold text-[#1a5e3f] text-sm mb-2">
+            <div className="bg-surface-green rounded-xl p-5 border-l-4 border-brand">
+              <p className="font-bold text-brand-dark text-sm mb-2">
                 什麼是胰島素阻抗？
               </p>
-              <p className="text-[#6b6560]">
+              <p className="text-subtle">
                 你可以把胰島素想成身體裡的快遞員。每次你吃東西，血糖上升，胰島素就出來送貨——把血糖送進細胞。但如果你長期吃太多精緻碳水和含糖飲料，細胞收到太多貨，開始不想開門了。
-                <strong className="text-[#2a2520]">
+                <strong className="text-ink">
                   胰島素敲門沒人應，身體只好派更多胰島素來硬敲。
                 </strong>
                 更多的胰島素帶來更多的發炎、更多的脂肪囤積、更多的紅字。
               </p>
             </div>
 
-            <div className="bg-[#fef9f0] rounded-xl p-5 border-l-4 border-[#e67e22]">
-              <p className="font-bold text-[#e67e22] text-sm mb-2">
+            <div className="bg-[#fef9f0] rounded-xl p-5 border-l-4 border-warning">
+              <p className="font-bold text-warning text-sm mb-2">
                 最可怕的是你可能已經撐了很多年
               </p>
-              <p className="text-[#6b6560]">
+              <p className="text-subtle">
                 很多人健檢血糖「正常」就安心了。但那個正常，可能是你的胰島素用正常的兩倍、三倍拼命加班換來的。它死撐著把血糖壓下來，你完全不知道。
-                <strong className="text-[#2a2520]">
+                <strong className="text-ink">
                   等到血糖真的壓不住了，通常胰島素已經過勞五到十年。
                 </strong>
               </p>
@@ -127,26 +127,26 @@ export default function HealthCheckPage() {
             </p>
           </div>
 
-          <div className="mt-8 p-5 rounded-2xl bg-white border border-[#eee9e5]">
-            <p className="text-xs font-semibold text-[#a8a29e] tracking-wider mb-3">
+          <div className="mt-8 p-5 rounded-2xl bg-white border border-edge">
+            <p className="text-xs font-semibold text-muted tracking-wider mb-3">
               延伸閱讀
             </p>
             <div className="space-y-2">
               <Link
                 href="/concepts/chronic-inflammation"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-brand font-medium hover:underline"
               >
                 慢性發炎：你看不見的身體大火 →
               </Link>
               <Link
                 href="/concepts/insulin-resistance"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-brand font-medium hover:underline"
               >
                 胰島素阻抗：為什麼吃很少還是瘦不下來？ →
               </Link>
               <Link
                 href="/concepts/blood-sugar-rollercoaster"
-                className="block text-sm text-[#2a9d6f] font-medium hover:underline"
+                className="block text-sm text-brand font-medium hover:underline"
               >
                 血糖雲霄飛車：你的疲倦和飢餓都跟它有關 →
               </Link>
@@ -156,7 +156,7 @@ export default function HealthCheckPage() {
       </section>
 
       {/* ABC 怎麼幫你 */}
-      <section className="py-16 px-5 bg-[#1a5e3f] text-white">
+      <section className="py-16 px-5 bg-brand-dark text-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold mb-3 text-center">
             ABC 怎麼幫健檢紅字族？
@@ -168,7 +168,7 @@ export default function HealthCheckPage() {
           <div className="space-y-4">
             <div className="p-6 rounded-2xl bg-white/10 border border-white/15">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl font-extrabold text-[#e74c3c]">A</span>
+                <span className="text-3xl font-extrabold text-danger">A</span>
                 <div>
                   <div className="font-bold text-lg">Add 加營養</div>
                   <div className="text-sm text-white/60">加對的東西，讓身體修復</div>
@@ -185,7 +185,7 @@ export default function HealthCheckPage() {
 
             <div className="p-6 rounded-2xl bg-white/10 border border-white/15">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl font-extrabold text-[#f39c12]">B</span>
+                <span className="text-3xl font-extrabold text-amber">B</span>
                 <div>
                   <div className="font-bold text-lg">Behavior 調體質</div>
                   <div className="text-sm text-white/60">用行為改變代謝模式</div>
@@ -202,7 +202,7 @@ export default function HealthCheckPage() {
 
             <div className="p-6 rounded-2xl bg-white/10 border border-white/15">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-3xl font-extrabold text-[#27ae60]">C</span>
+                <span className="text-3xl font-extrabold text-success">C</span>
                 <div>
                   <div className="font-bold text-lg">Clear 輕負擔</div>
                   <div className="text-sm text-white/60">減少讓身體發炎的來源</div>
@@ -221,43 +221,43 @@ export default function HealthCheckPage() {
       </section>
 
       {/* 學員故事 */}
-      <section className="py-16 px-5 bg-[#f3f9f5]">
+      <section className="py-16 px-5 bg-surface-green">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl font-bold text-center mb-3">
             他們的紅字，後來怎麼了
           </h2>
-          <p className="text-center text-[#6b6560] mb-10">
+          <p className="text-center text-subtle mb-10">
             不是奇蹟，是代謝修復後身體自然的反應
           </p>
 
           {/* 慧敏 */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden mb-6 bg-white">
+          <div className="rounded-2xl border border-edge overflow-hidden mb-6 bg-white">
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
                 <span className="font-bold text-lg">慧敏</span>
-                <span className="text-sm text-[#a8a29e]">自體免疫疾病・重大傷病卡</span>
+                <span className="text-sm text-muted">自體免疫疾病・重大傷病卡</span>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-danger/10 text-danger font-medium">
                   84kg → 63.4kg
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-success/10 text-success font-medium">
                   發炎指數下降
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#3498db]/10 text-[#3498db] font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-info/10 text-info font-medium">
                   醫生同意停藥
                 </span>
               </div>
-              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-3 italic">
+              <blockquote className="text-[15px] leading-relaxed text-subtle border-l-3 border-amber pl-4 mb-3 italic">
                 「醫生告訴我血液檢查發炎指數有下降，可以先停藥，暫時不用再吃了。」
               </blockquote>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
+              <p className="text-sm text-subtle leading-relaxed">
                 她有自體免疫疾病，領有重大傷病卡，嘗試無數次減肥都沒成功。一年後瘦了 20 公斤，但最讓她開心的不是體重——是醫生說可以停藥了。手指關節不再腫脹，終於可以想彈鋼琴就彈。
               </p>
               <div className="mt-4">
                 <Link
                   href="/testimonials"
-                  className="text-sm text-[#2a9d6f] font-medium hover:underline"
+                  className="text-sm text-brand font-medium hover:underline"
                 >
                   看更多學員故事 →
                 </Link>
@@ -266,33 +266,33 @@ export default function HealthCheckPage() {
           </div>
 
           {/* 沛蓁 */}
-          <div className="rounded-2xl border border-[#eee9e5] overflow-hidden bg-white">
+          <div className="rounded-2xl border border-edge overflow-hidden bg-white">
             <div className="p-6">
               <div className="flex items-center gap-2 mb-1">
                 <span className="font-bold text-lg">沛蓁</span>
-                <span className="text-sm text-[#a8a29e]">血壓偏高・鼻過敏・偏頭痛</span>
+                <span className="text-sm text-muted">血壓偏高・鼻過敏・偏頭痛</span>
               </div>
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#e74c3c]/10 text-[#e74c3c] font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-danger/10 text-danger font-medium">
                   85kg → 67kg
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#27ae60]/10 text-[#27ae60] font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-success/10 text-success font-medium">
                   血壓恢復正常
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-[#3498db]/10 text-[#3498db] font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-info/10 text-info font-medium">
                   過敏消失
                 </span>
               </div>
-              <blockquote className="text-[15px] leading-relaxed text-[#6b6560] border-l-3 border-[#f39c12] pl-4 mb-3 italic">
+              <blockquote className="text-[15px] leading-relaxed text-subtle border-l-3 border-amber pl-4 mb-3 italic">
                 「鼻過敏消了、偏頭痛沒了、血壓正常了。我以前以為這些是體質問題，沒想到都跟吃的東西有關。」
               </blockquote>
-              <p className="text-sm text-[#6b6560] leading-relaxed">
+              <p className="text-sm text-subtle leading-relaxed">
                 從 85 公斤瘦到 67 公斤，但她最驚訝的是那些困擾她多年的「老毛病」。血壓恢復正常、鼻過敏消了、偏頭痛也沒了。不是吃了什麼神藥，只是身體不再發炎了。
               </p>
               <div className="mt-4">
                 <Link
                   href="/articles/chicken-soup-love-story"
-                  className="text-sm text-[#2a9d6f] font-medium hover:underline"
+                  className="text-sm text-brand font-medium hover:underline"
                 >
                   看沛蓁的完整故事 →
                 </Link>
@@ -311,50 +311,50 @@ export default function HealthCheckPage() {
           <div className="grid sm:grid-cols-2 gap-4">
             <Link
               href="/articles/cholesterol-not-eggs"
-              className="block p-5 rounded-2xl border border-[#eee9e5] hover:shadow-sm transition-shadow"
+              className="block p-5 rounded-2xl border border-edge hover:shadow-sm transition-shadow"
             >
               <div className="font-bold mb-1">膽固醇過高？問題可能不是雞蛋</div>
-              <p className="text-sm text-[#6b6560]">
+              <p className="text-sm text-subtle">
                 你以為少吃蛋就會好，但真正推高膽固醇的是你每天喝的珍奶。
               </p>
             </Link>
 
             <Link
               href="/articles/blood-pressure-not-salt"
-              className="block p-5 rounded-2xl border border-[#eee9e5] hover:shadow-sm transition-shadow"
+              className="block p-5 rounded-2xl border border-edge hover:shadow-sm transition-shadow"
             >
               <div className="font-bold mb-1">血壓高不是因為鹽</div>
-              <p className="text-sm text-[#6b6560]">
+              <p className="text-sm text-subtle">
                 少鹽不一定能降血壓，但降低胰島素阻抗幾乎一定可以。
               </p>
             </Link>
 
             <Link
               href="/articles/blood-sugar-insulin-overwork"
-              className="block p-5 rounded-2xl border border-[#eee9e5] hover:shadow-sm transition-shadow"
+              className="block p-5 rounded-2xl border border-edge hover:shadow-sm transition-shadow"
             >
               <div className="font-bold mb-1">血糖正常？你的胰島素可能累壞了</div>
-              <p className="text-sm text-[#6b6560]">
+              <p className="text-sm text-subtle">
                 血糖正常不代表沒事。可能是胰島素用兩倍的力氣硬撐出來的。
               </p>
             </Link>
 
             <Link
               href="/articles/dark-neck-insulin"
-              className="block p-5 rounded-2xl border border-[#eee9e5] hover:shadow-sm transition-shadow"
+              className="block p-5 rounded-2xl border border-edge hover:shadow-sm transition-shadow"
             >
               <div className="font-bold mb-1">脖子變黑洗不掉？這是身體的警報</div>
-              <p className="text-sm text-[#6b6560]">
+              <p className="text-sm text-subtle">
                 黑色棘皮症是胰島素阻抗最明顯的外在徵兆之一。
               </p>
             </Link>
 
             <Link
               href="/articles/normal-blood-sugar-trap"
-              className="block p-5 rounded-2xl border border-[#eee9e5] hover:shadow-sm transition-shadow"
+              className="block p-5 rounded-2xl border border-edge hover:shadow-sm transition-shadow"
             >
               <div className="font-bold mb-1">血糖正常的陷阱</div>
-              <p className="text-sm text-[#6b6560]">
+              <p className="text-sm text-subtle">
                 下午老是昏沉、腰越來越粗？你可能早就是胰島素阻抗了。
               </p>
             </Link>
@@ -365,19 +365,19 @@ export default function HealthCheckPage() {
       {/* CTA */}
       <section className="py-16 px-5">
         <div className="max-w-xl mx-auto text-center">
-          <p className="text-lg text-[#6b6560] mb-2">
+          <p className="text-lg text-subtle mb-2">
             紅字不會自己消失，但它可以被修復。
           </p>
           <h2 className="text-xl font-bold mb-4">
             第一步，了解你的代謝現在是什麼狀態
           </h2>
-          <p className="text-[#6b6560] mb-8">
+          <p className="text-subtle mb-8">
             8 個生活小問題，30 秒測出你的代謝類型
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
             <Link
               href="/quiz"
-              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#2a9d6f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               30 秒代謝測驗 →
             </Link>
@@ -385,29 +385,29 @@ export default function HealthCheckPage() {
               href="https://lin.ee/x41s2Su"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-[#06C755] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
               加入一休的 LINE →
             </a>
           </div>
-          <div className="border-t border-[#eee9e5] pt-8">
-            <p className="text-sm text-[#a8a29e] mb-4">想先多了解一些？</p>
+          <div className="border-t border-edge pt-8">
+            <p className="text-sm text-muted mb-4">想先多了解一些？</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/method"
-                className="text-sm font-medium text-[#2a9d6f] hover:underline"
+                className="text-sm font-medium text-brand hover:underline"
               >
                 了解 ABC 是什麼 →
               </Link>
               <Link
                 href="/program"
-                className="text-sm font-medium text-[#2a9d6f] hover:underline"
+                className="text-sm font-medium text-brand hover:underline"
               >
                 12 週課程介紹 →
               </Link>
             </div>
           </div>
-          <p className="mt-10 text-sm text-[#a8a29e]">
+          <p className="mt-10 text-sm text-muted">
             我是一休，陪你健康的瘦一輩子
           </p>
         </div>

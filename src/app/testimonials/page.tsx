@@ -161,16 +161,16 @@ export default function TestimonialsPage() {
   return (
     <section className="pt-10 pb-16 px-5">
       <div className="max-w-2xl mx-auto">
-        <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
+        <p className="text-sm font-semibold text-brand mb-4 tracking-wide">
           學員見證
         </p>
         <h1 className="text-3xl font-extrabold tracking-tight mb-3">
           跟你一樣的人，後來怎麼了
         </h1>
-        <p className="text-[#6b6560] mb-4">
+        <p className="text-subtle mb-4">
           最能給你信心的，不是最厲害的案例，是最像你的那個人
         </p>
-        <p className="text-sm text-[#a8a29e] mb-8">
+        <p className="text-sm text-muted mb-8">
           四年來超過 3,500 位學員，合計瘦超過 3 萬公斤。以下是部分學員的真實故事。
         </p>
 
@@ -182,8 +182,8 @@ export default function TestimonialsPage() {
               onClick={() => setFilter(cat)}
               className={`text-sm px-4 py-2 rounded-full font-medium transition-colors ${
                 filter === cat
-                  ? "bg-[#2a9d6f] text-white"
-                  : "bg-white border border-[#eee9e5] text-[#6b6560] hover:border-[#ddd5cf]"
+                  ? "bg-brand text-white"
+                  : "bg-white border border-edge text-subtle hover:border-edge-dark"
               }`}
             >
               {cat}
@@ -199,7 +199,7 @@ export default function TestimonialsPage() {
             <>
               {lead && (
                 <div className="mb-12">
-                  <div className="rounded-2xl border-2 border-[#2a9d6f]/20 bg-white overflow-hidden shadow-sm">
+                  <div className="rounded-2xl border-2 border-brand/20 bg-white overflow-hidden shadow-sm">
                     <Image
                       src={lead.image!}
                       alt={`${lead.name}的改變`}
@@ -213,7 +213,7 @@ export default function TestimonialsPage() {
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-extrabold text-xl">{lead.name}</span>
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-edge text-subtle">
                             {lead.tag}
                           </span>
                         </div>
@@ -229,20 +229,20 @@ export default function TestimonialsPage() {
                       </div>
 
                       {/* Pull quote */}
-                      <blockquote className="my-6 py-4 border-l-4 border-[#2a9d6f] pl-5">
-                        <p className="text-lg sm:text-xl font-bold text-[#1a5e3f] leading-snug">
+                      <blockquote className="my-6 py-4 border-l-4 border-brand pl-5">
+                        <p className="text-lg sm:text-xl font-bold text-brand-dark leading-snug">
                           「你如果要減 5 公斤、8 公斤、10 公斤，其實都是她的零頭。」
                         </p>
                       </blockquote>
 
-                      <p className="text-base text-[#6b6560] leading-[1.85] mb-4">
+                      <p className="text-base text-subtle leading-[1.85] mb-4">
                         {lead.story}
                       </p>
 
                       {lead.articleLink && (
                         <Link
                           href={lead.articleLink}
-                          className="inline-flex items-center gap-1 mt-2 text-sm text-[#2a9d6f] font-semibold hover:underline"
+                          className="inline-flex items-center gap-1 mt-2 text-sm text-brand font-semibold hover:underline"
                         >
                           看俐臻的完整故事 →
                         </Link>
@@ -257,7 +257,7 @@ export default function TestimonialsPage() {
                 {others.map((t, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl border border-[#eee9e5] bg-white overflow-hidden"
+                    className="rounded-2xl border border-edge bg-white overflow-hidden"
                   >
                     <Image
                       src={t.image!}
@@ -271,7 +271,7 @@ export default function TestimonialsPage() {
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-bold text-lg">{t.name}</span>
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#eee9e5] text-[#6b6560]">
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-edge text-subtle">
                             {t.tag}
                           </span>
                         </div>
@@ -285,18 +285,18 @@ export default function TestimonialsPage() {
                           {t.result}
                         </span>
                       </div>
-                      <p className="text-[15px] text-[#6b6560] leading-relaxed mb-3">
+                      <p className="text-[15px] text-subtle leading-relaxed mb-3">
                         {t.story}
                       </p>
                       {t.highlight && (
-                        <p className="text-sm font-semibold text-[#2a9d6f] bg-[#f3f9f5] rounded-xl p-3">
+                        <p className="text-sm font-semibold text-brand bg-surface-green rounded-xl p-3">
                           {t.highlight}
                         </p>
                       )}
                       {t.articleLink && (
                         <Link
                           href={t.articleLink}
-                          className="inline-block mt-3 text-sm text-[#2a9d6f] font-medium hover:underline"
+                          className="inline-block mt-3 text-sm text-brand font-medium hover:underline"
                         >
                           看完整故事 →
                         </Link>
@@ -315,15 +315,15 @@ export default function TestimonialsPage() {
             {withoutImage.map((t, i) => (
               <div
                 key={i}
-                className="p-4 rounded-xl bg-white border border-[#eee9e5]"
+                className="p-4 rounded-xl bg-white border border-edge"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-8 h-8 rounded-full bg-[#2a9d6f] text-white text-xs flex items-center justify-center font-bold shrink-0">
+                  <span className="w-8 h-8 rounded-full bg-brand text-white text-xs flex items-center justify-center font-bold shrink-0">
                     {t.name[0]}
                   </span>
                   <div>
                     <span className="font-bold text-sm">{t.name}</span>
-                    <span className="text-xs text-[#a8a29e] ml-1.5">
+                    <span className="text-xs text-muted ml-1.5">
                       {t.tag}
                     </span>
                   </div>
@@ -337,11 +337,11 @@ export default function TestimonialsPage() {
                 >
                   {t.result}
                 </span>
-                <p className="text-sm text-[#6b6560] leading-relaxed">
+                <p className="text-sm text-subtle leading-relaxed">
                   {t.story}
                 </p>
                 {t.highlight && (
-                  <p className="text-xs font-semibold text-[#2a9d6f] mt-2">
+                  <p className="text-xs font-semibold text-brand mt-2">
                     {t.highlight}
                   </p>
                 )}
@@ -351,13 +351,13 @@ export default function TestimonialsPage() {
         )}
 
         {filtered.length === 0 && (
-          <p className="text-center text-[#a8a29e] py-12">
+          <p className="text-center text-muted py-12">
             這個分類還沒有見證
           </p>
         )}
 
         {/* 團隊合照 */}
-        <div className="mt-12 rounded-2xl overflow-hidden border border-[#eee9e5]">
+        <div className="mt-12 rounded-2xl overflow-hidden border border-edge">
           <Image
             src="/images/team-photo.png"
             alt="ABC 代謝力重建班長大合照"
@@ -366,12 +366,12 @@ export default function TestimonialsPage() {
             className="w-full h-auto"
             sizes="(max-width: 768px) 100vw, 700px"
           />
-          <div className="p-5 text-center bg-[#faf9f7]">
+          <div className="p-5 text-center bg-surface">
             <p className="font-bold mb-1">
               這群人加在一起瘦超過{" "}
-              <span className="text-[#e74c3c]">300 公斤</span>
+              <span className="text-danger">300 公斤</span>
             </p>
-            <p className="text-sm text-[#6b6560]">
+            <p className="text-sm text-subtle">
               因為我們都胖過，我們懂胖過的苦。
             </p>
           </div>
@@ -379,27 +379,27 @@ export default function TestimonialsPage() {
 
         {/* CTA */}
         <div className="mt-12 text-center space-y-4">
-          <p className="text-sm text-[#6b6560] mb-1">
+          <p className="text-sm text-subtle mb-1">
             他們的第一步，都是從了解自己的代謝類型開始
           </p>
-          <p className="text-[#2a2520] font-semibold">
+          <p className="text-ink font-semibold">
             你不是瘦不下來，你只是還沒遇到我們
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/quiz"
-              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-brand rounded-full shadow-md"
             >
               先測代謝類型 →
             </Link>
             <Link
               href="/program"
-              className="inline-flex items-center justify-center px-8 py-3 text-sm font-semibold text-[#6b6560] border border-[#eee9e5] rounded-full hover:bg-white transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 text-sm font-semibold text-subtle border border-edge rounded-full hover:bg-white transition-colors"
             >
               了解課程
             </Link>
           </div>
-          <p className="text-sm text-[#a8a29e]">
+          <p className="text-sm text-muted">
             我是一休，陪你健康的瘦一輩子
           </p>
         </div>

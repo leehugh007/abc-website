@@ -14,13 +14,13 @@ export default function ConceptsPage() {
   return (
     <section className="pt-10 pb-16 px-5">
       <div className="max-w-2xl mx-auto">
-        <p className="text-sm font-semibold text-[#2a9d6f] mb-4 tracking-wide">
+        <p className="text-sm font-semibold text-brand mb-4 tracking-wide">
           代謝科學小百科
         </p>
         <h1 className="text-3xl font-extrabold tracking-tight mb-3">
           用白話搞懂你的身體
         </h1>
-        <p className="text-[#6b6560] mb-10">
+        <p className="text-subtle mb-10">
           這些聽起來很難的名詞，其實跟你瘦不下來有直接關係。每篇 3 分鐘，看完就懂。
         </p>
 
@@ -29,18 +29,18 @@ export default function ConceptsPage() {
             <Link
               key={concept.slug}
               href={`/concepts/${concept.slug}`}
-              className="block p-5 rounded-xl bg-white border border-[#eee9e5] hover:border-[#2a9d6f]/40 hover:shadow-sm transition-all group"
+              className="block p-5 rounded-xl bg-white border border-edge hover:border-brand/40 hover:shadow-sm transition-all group"
             >
               <div className="flex items-start gap-4">
                 <span className="text-2xl shrink-0">{concept.emoji}</span>
                 <div>
-                  <p className="font-bold text-base group-hover:text-[#2a9d6f] transition-colors">
+                  <p className="font-bold text-base group-hover:text-brand transition-colors">
                     {concept.name}
                   </p>
-                  <p className="text-sm text-[#6b6560] mt-0.5">
+                  <p className="text-sm text-subtle mt-0.5">
                     {concept.subtitle}
                   </p>
-                  <p className="text-xs text-[#a8a29e] mt-2 line-clamp-2">
+                  <p className="text-xs text-muted mt-2 line-clamp-2">
                     {concept.oneLiner}
                   </p>
                 </div>
@@ -50,12 +50,12 @@ export default function ConceptsPage() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-sm text-[#6b6560] mb-4">
+          <p className="text-sm text-subtle mb-4">
             搞懂這些之後，下一步是了解你自己
           </p>
           <a
             href="/quiz"
-            className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-[#2a9d6f] rounded-full shadow-md"
+            className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-brand rounded-full shadow-md"
           >
             測出我的代謝類型 →
           </a>

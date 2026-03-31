@@ -49,7 +49,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "ABC 代謝力重建",
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon-mflame-pack/apple-touch-icon.png`,
+  logo: `${SITE_URL}/favicon-mflame-pack/favicon_Mflame_512.png`,
   founder: {
     "@type": "Person",
     name: "一休",
@@ -91,7 +91,7 @@ export default function RootLayout({
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
         </Script>
       </head>
-      <body className="min-h-full flex flex-col bg-[#f8faf7] text-[#2a2520]">
+      <body className="min-h-full flex flex-col bg-surface text-ink">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
@@ -103,15 +103,15 @@ export default function RootLayout({
 
 function Footer() {
   return (
-    <footer className="border-t border-[#eee9e5] bg-white py-12 px-5">
+    <footer className="border-t border-edge bg-white py-12 px-5">
       <div className="max-w-3xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
           {/* 品牌 */}
           <div className="col-span-2 sm:col-span-1">
             <p className="font-bold mb-3">
-              <span className="text-[#2a9d6f]">ABC</span> 代謝力重建
+              <span className="text-brand">ABC</span> 代謝力重建
             </p>
-            <p className="text-sm text-[#a8a29e] leading-relaxed">
+            <p className="text-sm text-muted leading-relaxed">
               重建代謝力，瘦只是順便的事
             </p>
           </div>
@@ -119,25 +119,25 @@ function Footer() {
           {/* 探索 */}
           <div>
             <p className="font-semibold text-sm mb-3">探索</p>
-            <div className="space-y-2 text-sm text-[#6b6560]">
-              <Link href="/method" className="block hover:text-[#2a2520] transition-colors">ABC 是什麼</Link>
-              <Link href="/types" className="block hover:text-[#2a2520] transition-colors">代謝類型</Link>
-              <Link href="/articles" className="block hover:text-[#2a2520] transition-colors">文章</Link>
-              <Link href="/testimonials" className="block hover:text-[#2a2520] transition-colors">學員見證</Link>
-              <Link href="/about" className="block hover:text-[#2a2520] transition-colors">關於一休</Link>
-              <Link href="/for/postpartum" className="block hover:text-[#2a2520] transition-colors">產後瘦身</Link>
-              <Link href="/for/health-check" className="block hover:text-[#2a2520] transition-colors">健檢紅字</Link>
-              <Link href="/for/sedentary" className="block hover:text-[#2a2520] transition-colors">久坐上班族</Link>
+            <div className="space-y-2 text-sm text-subtle">
+              <Link href="/method" className="block hover:text-ink transition-colors">ABC 是什麼</Link>
+              <Link href="/types" className="block hover:text-ink transition-colors">代謝類型</Link>
+              <Link href="/articles" className="block hover:text-ink transition-colors">文章</Link>
+              <Link href="/testimonials" className="block hover:text-ink transition-colors">學員見證</Link>
+              <Link href="/about" className="block hover:text-ink transition-colors">關於一休</Link>
+              <Link href="/for/postpartum" className="block hover:text-ink transition-colors">產後瘦身</Link>
+              <Link href="/for/health-check" className="block hover:text-ink transition-colors">健檢紅字</Link>
+              <Link href="/for/sedentary" className="block hover:text-ink transition-colors">久坐上班族</Link>
             </div>
           </div>
 
           {/* 學習 */}
           <div>
             <p className="font-semibold text-sm mb-3">學習</p>
-            <div className="space-y-2 text-sm text-[#6b6560]">
-              <Link href="/guide" className="block hover:text-[#2a2520] transition-colors">完全指南</Link>
-              <Link href="/concepts" className="block hover:text-[#2a2520] transition-colors">代謝科學</Link>
-              <Link href="/faq" className="block hover:text-[#2a2520] transition-colors">大家都在問</Link>
+            <div className="space-y-2 text-sm text-subtle">
+              <Link href="/guide" className="block hover:text-ink transition-colors">完全指南</Link>
+              <Link href="/concepts" className="block hover:text-ink transition-colors">代謝科學</Link>
+              <Link href="/faq" className="block hover:text-ink transition-colors">大家都在問</Link>
             </div>
           </div>
 
@@ -147,30 +147,30 @@ function Footer() {
             <div className="space-y-2 text-sm">
               <Link
                 href="/quiz"
-                className="block text-[#2a9d6f] font-medium hover:underline"
+                className="block text-brand font-medium hover:underline"
               >
                 做代謝測驗 →
               </Link>
-              <Link href="/tools" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              <Link href="/tools" className="block text-subtle hover:text-ink transition-colors">
                 TDEE 計算機
               </Link>
-              <Link href="/tools/protein" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              <Link href="/tools/protein" className="block text-subtle hover:text-ink transition-colors">
                 蛋白質計算機
               </Link>
-              <Link href="/tools/waist-hip" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              <Link href="/tools/waist-hip" className="block text-subtle hover:text-ink transition-colors">
                 腰臀比計算機
               </Link>
-              <Link href="/tools/insulin-check" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              <Link href="/tools/insulin-check" className="block text-subtle hover:text-ink transition-colors">
                 胰島素阻抗自評
               </Link>
-              <Link href="/program" className="block text-[#6b6560] hover:text-[#2a2520] transition-colors">
+              <Link href="/program" className="block text-subtle hover:text-ink transition-colors">
                 課程介紹
               </Link>
               <a
                 href="https://lin.ee/x41s2Su"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#6b6560] hover:text-[#2a2520] transition-colors"
+                className="block text-subtle hover:text-ink transition-colors"
               >
                 加入一休的 LINE
               </a>
@@ -178,7 +178,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#eee9e5] pt-6 text-center text-sm text-[#a8a29e]">
+        <div className="border-t border-edge pt-6 text-center text-sm text-muted">
           <p className="mb-1">我是一休，陪你健康的瘦一輩子</p>
           <p>&copy; {new Date().getFullYear()} ABC 代謝力重建瘦身法</p>
         </div>
