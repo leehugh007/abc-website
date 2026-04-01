@@ -45,6 +45,12 @@
 | `/faq` | FAQ |
 | `/not-found` | 自訂 404 |
 
+## 改完程式碼之後（不可跳過）
+
+- `npx next build` 通過才 commit
+- 如果改了設計相關的東西（新頁面、新元件、改色彩、改排版、改 CTA、改導覽），同步更新 `DESIGN.md` 對應的章節
+- 如果新增了頁面，更新下方的網站架構表 + `DESIGN.md` 第 4 節 + `sitemap.ts`
+
 ## 技術備忘
 
 - Next.js 16 App Router + Tailwind + TypeScript
