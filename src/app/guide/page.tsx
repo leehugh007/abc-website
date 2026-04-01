@@ -247,7 +247,7 @@ export default function GuidePage() {
             ))}
           </div>
 
-          <p>不確定自己是哪種？<Link href="/quiz" className="text-brand underline decoration-brand/35 hover:decoration-brand">做個 30 秒測驗</Link>，馬上知道。</p>
+          <p>不確定自己是哪種？<a href="/quiz" className="text-brand underline decoration-brand/35 hover:decoration-brand">做個 30 秒測驗</a>，馬上知道。</p>
 
           {/* 六、12 週 */}
           <h2 id="12weeks">六、12 週會經歷什麼？</h2>

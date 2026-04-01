@@ -71,9 +71,6 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className="h-full antialiased">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -145,12 +142,12 @@ function Footer() {
           <div>
             <p className="font-semibold text-sm mb-3">開始</p>
             <div className="space-y-2 text-sm">
-              <Link
+              <a
                 href="/quiz"
                 className="block text-brand font-medium hover:underline"
               >
                 做代謝測驗 →
-              </Link>
+              </a>
               <Link href="/tools" className="block text-subtle hover:text-ink transition-colors">
                 TDEE 計算機
               </Link>

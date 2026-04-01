@@ -57,19 +57,19 @@ export function Header() {
           <Link href="/program" className="text-brand hover:text-brand-dark transition-colors font-bold">
             課程
           </Link>
-          <Link href="/quiz" className="inline-flex items-center px-4 py-2 text-sm font-bold text-white bg-brand rounded-full hover:shadow-md transition-shadow">
+          <a href="/quiz" className="inline-flex items-center px-4 py-2 text-sm font-bold text-white bg-brand rounded-full hover:shadow-md transition-shadow">
             做測驗
-          </Link>
+          </a>
         </div>
 
         {/* Mobile: quiz CTA + hamburger */}
         <div className="flex sm:hidden items-center gap-3">
-          <Link
+          <a
             href="/quiz"
             className="text-xs font-bold text-white bg-brand px-3 py-1.5 rounded-full"
           >
             做測驗
-          </Link>
+          </a>
           <button
             ref={toggleRef}
             onClick={() => setOpen(!open)}
