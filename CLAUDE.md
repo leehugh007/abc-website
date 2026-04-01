@@ -4,33 +4,16 @@
 
 ## 設計規則（不可跳過）
 
-全站顏色使用 Tailwind v4 design token（定義在 `src/app/globals.css` 的 `@theme`）。
-**不要用 hardcode hex，用 token name。** 例如 `text-brand` 而不是 `text-[#2a9d6f]`。
+**做任何視覺/排版/元件決定之前，先讀 `DESIGN.md`（設計架構說明書）。**
 
-### Design Token 對照表
+快速提醒（完整規範在 DESIGN.md）：
 
-| Token | 色值 | 用途 |
-|-------|------|------|
-| `brand` | `#2a9d6f` | 主色翠綠（CTA、連結、強調） |
-| `brand-dark` | `#1a5e3f` | 深綠（全寬背景區塊、文章粗體） |
-| `surface` | `#f8faf7` | 頁面背景（微綠米白） |
-| `surface-green` | `#f3f9f5` | 淺綠卡片/區塊背景 |
-| `ink` | `#2a2520` | 主要文字 |
-| `subtle` | `#6b6560` | 次要文字 |
-| `muted` | `#78726e` | 輔助文字（WCAG AA 通過） |
-| `edge` | `#eee9e5` | 邊框 |
-| `edge-dark` | `#ddd5cf` | hover 邊框 |
-| `danger` | `#e74c3c` | 紅色（痛點/警示） |
-| `warning` | `#e67e22` | 橘色 |
-| `line-green` | `#06C755` | LINE 品牌綠 |
-
-### 品牌調性
-
-- **品牌個性**：溫暖、聰明、活潑。像朋友聊天，不像教科書
-- **目標受眾**：25-45 歲台灣女性，手機閱讀
-- **不販賣焦慮**：恐懼當鉤子可以，但必須給出路
-- **加法思維**：增加好的，不限制壞的
-- **紅色只用在痛點/警示**，不是主色
+- 顏色用 design token（`text-brand`），不用 hardcode hex（`text-[#2a9d6f]`）
+- Token 定義在 `src/app/globals.css` 的 `@theme`
+- CTA 要主次分明（主大副小），不要三欄對稱
+- 連結到 `/quiz` 用 `<a>` 不用 `<Link>`（quiz 是靜態 HTML）
+- 不觸發 AI slop 黑名單（DESIGN.md 第 6 節）
+- 新增頁面走 checklist（DESIGN.md 第 10 節）
 
 ## 內容上線前檢查（不可跳過）
 
