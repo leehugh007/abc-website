@@ -4,6 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { StickyLineCTA } from "@/app/sticky-line-cta";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 const SYMPTOMS = [
   "下午特別容易想喝手搖飲或吃甜食",
   "吃飽之後很容易想睡覺",
@@ -64,6 +70,12 @@ export default function InsulinCheckPage() {
     count: number;
     risk: RiskLevel;
   } | null>(null);
+
+  const track = (event: string, params?: Record<string, string>) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", event, params);
+    }
+  };
 
   const toggleSymptom = (index: number) => {
     setChecked((prev) => {
@@ -334,6 +346,7 @@ export default function InsulinCheckPage() {
               <a
                 href="/quiz"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow mb-4"
+                onClick={() => track("click_quiz_cta", { source: "insulin_check" })}
               >
                 30 秒測出你的代謝類型 →
               </a>
@@ -346,6 +359,7 @@ export default function InsulinCheckPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-line-green text-line-green hover:bg-line-green hover:text-white transition-colors"
+                  onClick={() => track("click_line_cta", { source: "insulin_check" })}
                 >
                   加入一休的 LINE，之後開放體驗時優先通知你
                 </a>
@@ -437,6 +451,7 @@ export default function InsulinCheckPage() {
             <a
               href="/quiz"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              onClick={() => track("click_quiz_cta", { source: "insulin_check_bottom" })}
             >
               30 秒測出你的代謝類型 →
             </a>

@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export function StickyLineCTA() {
   const [visible, setVisible] = useState(false);
 
@@ -29,6 +35,11 @@ export function StickyLineCTA() {
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-full text-white font-semibold text-[15px] shadow-lg transition-shadow hover:shadow-xl"
           style={{ background: "linear-gradient(135deg, #06C755, #04B34C)" }}
+          onClick={() => {
+            if (typeof window !== "undefined" && typeof window.gtag === "function") {
+              window.gtag("event", "click_sticky_line", { page: window.location.pathname });
+            }
+          }}
         >
           <span>有問題？在 LINE 問一休</span>
           <span className="text-white/80">→</span>

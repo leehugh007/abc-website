@@ -4,6 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { StickyLineCTA } from "@/app/sticky-line-cta";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 type Gender = "female" | "male";
 
 type RiskLevel = "low" | "moderate" | "high";
@@ -53,6 +59,12 @@ export default function WaistHipPage() {
     risk: RiskLevel;
   } | null>(null);
   const [error, setError] = useState("");
+
+  const track = (event: string, params?: Record<string, string>) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", event, params);
+    }
+  };
 
   const handleCalc = () => {
     const w = parseFloat(waist);
@@ -324,6 +336,7 @@ export default function WaistHipPage() {
               <a
                 href="/quiz"
                 className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow mb-4"
+                onClick={() => track("click_quiz_cta", { source: "waist_hip" })}
               >
                 30 秒測出你的代謝類型 →
               </a>
@@ -336,6 +349,7 @@ export default function WaistHipPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-line-green text-line-green hover:bg-line-green hover:text-white transition-colors"
+                  onClick={() => track("click_line_cta", { source: "waist_hip" })}
                 >
                   加入一休的 LINE，之後開放體驗時優先通知你
                 </a>
@@ -415,6 +429,7 @@ export default function WaistHipPage() {
             <a
               href="/quiz"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
+              onClick={() => track("click_quiz_cta", { source: "waist_hip_bottom" })}
             >
               測出你的代謝類型 →
             </a>
