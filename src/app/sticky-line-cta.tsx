@@ -41,7 +41,7 @@ export function StickyLineCTA() {
             }
           }}
         >
-          <span>有問題？在 LINE 問一休</span>
+          <span>加 LINE 免費領你的代謝報告</span>
           <span className="text-white/80">→</span>
         </a>
       </div>
