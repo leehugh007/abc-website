@@ -51,9 +51,38 @@
 - 如果改了設計相關的東西（新頁面、新元件、改色彩、改排版、改 CTA、改導覽），同步更新 `DESIGN.md` 對應的章節
 - 如果新增了頁面，更新下方的網站架構表 + `DESIGN.md` 第 4 節 + `sitemap.ts`
 
+## 轉換優化系統（2026-04-03 更新）
+
+### 全站 CTA 架構
+- **StickyLineCTA**（`src/app/sticky-line-cta.tsx`）：全站 20 頁都有，滾動 600px 後出現，接近底部隱藏。文案：「加 LINE 免費領你的代謝報告」
+- **工具頁 CTA 模式**：結果區 → 痛點連結文案 → 測驗主 CTA → LINE 副 CTA → 輔助連結 → SEO 底部收尾 CTA
+- **測驗結果頁**：社會證明（1,200+）+ 隨機見證卡片（5類型×3人）+ 學習路徑（3步驟）+ 科學深入頁
+- **首頁**：每個 section 都有轉換出口（痛點區/類型區/見證區/底部各有 CTA）
+
+### GA4 事件追蹤
+| 事件 | 觸發位置 | 參數 |
+|------|---------|------|
+| `click_quiz_cta` | 工具頁 CTA | source: protein/tdee/waist_hip/insulin_check + _bottom |
+| `click_line_cta` | 工具頁 LINE 副 CTA | source: 同上 |
+| `click_sticky_line` | 全站 sticky bar | page: 當前路徑 |
+| `click_line_deeplink` | 測驗結果頁 LINE 一鍵 | metabolism_type |
+| `click_explore_type` | 測驗結果頁類型連結 | metabolism_type |
+| `click_learning_path` | 測驗結果頁學習路徑 | metabolism_type, step, label |
+| `quiz_start` / `quiz_complete` | 測驗頁 | metabolism_type |
+
+### UTM 追蹤
+- **abc-line-bot**：`utm_source=line&utm_medium=bot&utm_campaign=asuan`（welcome.js/ai.js/user.js/route.js）
+- **official-yihugh-line-bot**：`utm_source=line&utm_medium=bot&utm_campaign=official`（keywords.js/config.js）+ `utm_campaign=report`（報告後類型頁連結）
+- GA 裡可區分：`line/bot/asuan` vs `line/bot/official` vs `line/bot/report`
+
+### 見證卡片（測驗結果頁）
+- 5 類型 × 3 人 = 15 個化名見證，隨機顯示
+- 人設對齊受眾：12 女 3 男，年齡 35-47 歲，混合職業
+- 受眾數據來源：LINE 好友統計（85% 女性、核心 40-44 歲）
+
 ## 技術備忘
 
-- Next.js 16 App Router + Tailwind + TypeScript
+- Next.js 16 App Router + Tailwind v4 + TypeScript
 - 動態路由 `params` 是 Promise，要 `await`
 - 文章放 `src/content/*.md`，資料在 `src/lib/articles-data.ts`（43 篇）
 - 概念放 `src/lib/concepts-data.ts`（10 個）
@@ -61,6 +90,7 @@
 - `src/lib/markdown.ts` 會自動過濾內部備註，但不能依賴它——新增文章仍要人工檢查
 - push main = Vercel 自動部署
 - GA: `G-GTDQP34BKC`
+- Design token 定義在 `src/app/globals.css` 的 `@theme`，設計架構在 `DESIGN.md`
 
 ## 深度文章審查規則（寫新文章必遵守）
 
