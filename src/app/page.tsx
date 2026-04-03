@@ -102,6 +102,11 @@ export default function Home() {
             這些都跟<strong className="text-ink">「代謝」</strong>
             有關，不是意志力的問題。
           </p>
+          <div className="mt-4">
+            <Link href="/quiz" className="text-brand font-semibold hover:underline text-[15px]">
+              想知道你的代謝出了什麼問題？30 秒測出來 →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -173,9 +178,9 @@ export default function Home() {
           <div className="text-center mt-8">
             <Link
               href="/quiz"
-              className="text-brand font-semibold hover:underline"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
             >
-              不確定？做個 30 秒測驗 →
+              不確定？30 秒測出你是哪種 →
             </Link>
           </div>
         </div>
@@ -237,7 +242,19 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="text-center mt-8">
+          {/* 見證後情緒承接 CTA */}
+          <div className="mt-10 rounded-2xl bg-white border border-edge p-6 text-center">
+            <p className="text-subtle mb-2">她們的第一步，都是從了解自己的代謝類型開始</p>
+            <p className="font-semibold text-ink mb-5">想知道你的身體卡在哪裡？</p>
+            <Link
+              href="/quiz"
+              className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
+            >
+              30 秒測出來 →
+            </Link>
+          </div>
+
+          <div className="text-center mt-6">
             <Link href="/testimonials" className="text-brand font-semibold hover:underline">
               看更多學員故事 →
             </Link>
@@ -272,12 +289,22 @@ export default function Home() {
           <p className="text-subtle mb-8">
             8 個生活小問題，30 秒就能測出你的代謝類型
           </p>
-          <Link
-            href="/quiz"
-            className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
-          >
-            開始測驗 →
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/quiz"
+              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"
+            >
+              開始測驗 →
+            </Link>
+            <a
+              href="https://lin.ee/x41s2Su"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"
+            >
+              加入一休的 LINE →
+            </a>
+          </div>
         </div>
       </section>
 
