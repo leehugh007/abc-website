@@ -17,6 +17,7 @@ export type Depth = "快讀" | "指南" | "深度";
 export interface Article {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
   category: "健檢紅字" | "減肥真相" | "瘦瘦針" | "飲食方法" | "學員故事";
@@ -92,6 +93,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "willpower-myth",
     title: "「管不住嘴就是沒意志力」？讓科學來打臉這句話",
+    seoTitle: "為什麼一直想吃東西？食慾控制不住不是意志力問題",
     description:
       "你管不住嘴不是因為你軟弱，是因為你的飢餓素和瘦體素在背後操控你。科學幫你出一口氣。",
     date: "2026-02-15",
@@ -105,6 +107,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "dark-neck-insulin",
     title: "脖子暗暗的洗不乾淨？那不是髒，是你的代謝在求救",
+    seoTitle: "脖子黑黑的洗不掉？黑棘皮症與胰島素阻抗的關係",
     description:
       "黑棘皮症是胰島素阻抗最明顯的外在徵兆。你的身體正在用皮膚跟你說話。",
     date: "2026-02-20",
@@ -131,6 +134,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "eating-order-blood-sugar",
     title: "不用少吃，只要換順序：研究證實這樣吃血糖少飆 35%",
+    seoTitle: "進食順序怎麼吃？研究證實先吃菜再吃飯，血糖少飆 35%",
     description:
       "先菜、再肉、最後飯——同一餐食物，換個順序吃，血糖飆升幅度就能降 35%。",
     date: "2026-03-05",
@@ -156,6 +160,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "cholesterol-not-eggs",
     title: "膽固醇過高？問題可能不是雞蛋，而是你的珍奶",
+    seoTitle: "膽固醇過高原因與飲食：為什麼少吃蛋膽固醇還是高？",
     description:
       "為了降膽固醇不敢吃蛋，結果半年後還是高？因為真正的兇手不是雞蛋，是讓身體發炎的精緻食物。",
     date: "2026-01-10",
@@ -169,6 +174,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "blood-pressure-not-salt",
     title: "高血壓？問題可能不是鹽，而是你手上那包零食",
+    seoTitle: "高血壓飲食怎麼吃？少鹽沒用，問題可能出在加工食品",
     description:
       "少吃鹽血壓還是降不下來？因為 65-78% 的高血壓是由肥胖引起的，不是鹽。",
     date: "2026-02-01",
@@ -181,6 +187,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "blood-sugar-insulin-overwork",
     title: "血糖過高？問題可能不是澱粉，而是你的胰島素累壞了",
+    seoTitle: "血糖過高怎麼辦？不是少吃澱粉就好，胰島素疲勞才是關鍵",
     description:
       "戒澱粉血糖還是降不下來？問題不是澱粉，是你的胰島素已經加班加到爆肝了。",
     date: "2026-02-10",
@@ -205,6 +212,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "eat-less-move-more-myth",
     title: "「少吃多動」這四個字，害了多少人？",
+    seoTitle: "少吃多動沒有瘦？減肥失敗不是你的錯，是荷爾蒙在搞鬼",
     description:
       "你的身體不是計算機。胰島素才是決定你胖不胖的關鍵，不是卡路里。少吃多動從一開始就少算了最關鍵的東西。",
     date: "2026-03-12",
@@ -294,6 +302,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "insulin-resistance-complete-guide",
     title: "胰島素阻抗完全解析：為什麼你吃很少還是瘦不下來？",
+    seoTitle: "胰島素阻抗是什麼？症狀、原因與飲食改善方法完整指南",
     description:
       "胰島素是脂肪的開關。當它一直鎖著，你吃再少也瘦不下來。從原理到自我檢測到修復方法，一篇搞懂。",
     date: "2026-03-21",
@@ -396,6 +405,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "triglycerides-not-fat",
     title: "三酸甘油脂偏高？問題不是油吃太多，是澱粉吃太多",
+    seoTitle: "三酸甘油脂偏高原因：為什麼少油還是紅字？營養師沒告訴你的真相",
     description:
       "少吃油八年三酸甘油脂還是紅字？因為讓你三酸甘油脂飆高的不是油，是你的肝臟在把澱粉加工成油。20 年 2 萬人的數據跟你以為的完全相反。",
     date: "2026-03-21",
@@ -468,6 +478,7 @@ export const ARTICLES: Article[] = [
     slug: "over-40-belly-fat",
     title:
       "過了 40 歲，褲子越買越大件？不是你不夠努力，是你的身體換了一套規則",
+    seoTitle: "40歲後肚子越來越大怎麼辦？中年發胖的真正原因與解法",
     description:
       "同一碗飯，在 30 歲和 45 歲的身體裡走了完全不同的路。荷爾蒙下降→胰島素敏感度降低→肌肉流失→脂肪往肚子搬家。你需要的不是更努力，是學會新的操作方式。",
     date: "2026-03-21",

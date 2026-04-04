@@ -1,0 +1,43 @@
+# ABC 代謝力重建官方網站
+
+> ABC 代謝重建瘦身法的官方網站。由台灣知名瘦身教練一休創立，幫助超過 3,000 位學員透過重建代謝力健康瘦身。核心理念：不靠節食、不靠藥物，從根本修復代謝系統。
+
+## 主要頁面
+
+- [首頁](https://abcmetabolic.com/): ABC 代謝力重建瘦身法介紹與導覽
+- [代謝類型測驗](https://abcmetabolic.com/quiz): 30 秒測出你的代謝類型（免費）
+- [代謝力重建完全指南](https://abcmetabolic.com/guide): 什麼是代謝力重建？完整說明
+- [ABC 是什麼](https://abcmetabolic.com/method): ABC 代謝重建瘦身法的方法介紹
+- [一休的故事](https://abcmetabolic.com/about): 創辦人一休從 89 公斤瘦到 62 公斤的故事
+- [課程介紹](https://abcmetabolic.com/program): ABC 代謝力重建課程內容與說明
+- [學員見證](https://abcmetabolic.com/testimonials): 學員真實瘦身故事
+- [常見問題](https://abcmetabolic.com/faq): 關於 ABC 代謝重建的 15 個常見問題
+- [健康文章](https://abcmetabolic.com/articles): 43 篇代謝、血糖、荷爾蒙、飲食相關文章
+
+## 五種代謝類型
+
+- [高轉速型](https://abcmetabolic.com/types/high-rpm): 代謝過快、容易疲勞
+- [省電模式型](https://abcmetabolic.com/types/power-save): 代謝過慢、容易囤積
+- [雲霄飛車型](https://abcmetabolic.com/types/roller-coaster): 血糖劇烈波動
+- [過勞燃燒型](https://abcmetabolic.com/types/burnout): 壓力導致代謝失調
+- [穩定燃燒型](https://abcmetabolic.com/types/steady): 代謝健康的目標狀態
+
+## 健康工具
+
+- [TDEE 計算機](https://abcmetabolic.com/tools): 計算你的每日總消耗熱量
+- [蛋白質計算機](https://abcmetabolic.com/tools/protein): 計算你每天需要多少蛋白質
+- [腰臀比計算機](https://abcmetabolic.com/tools/waist-hip): 評估腹部脂肪風險
+- [胰島素阻抗自評](https://abcmetabolic.com/tools/insulin-check): 簡易自我檢測
+
+## 代謝科學小百科
+
+- [胰島素阻抗](https://abcmetabolic.com/concepts/insulin-resistance)
+- [代謝適應](https://abcmetabolic.com/concepts/metabolic-adaptation)
+- [血糖波動](https://abcmetabolic.com/concepts/blood-sugar)
+- [皮質醇與壓力肥](https://abcmetabolic.com/concepts/cortisol)
+- [基礎代謝率](https://abcmetabolic.com/concepts/bmr)
+
+## 聯絡方式
+
+- LINE 官方帳號: https://lin.ee/x41s2Su
+- Facebook: 一休陪你一起愛瘦身（84 萬粉絲）

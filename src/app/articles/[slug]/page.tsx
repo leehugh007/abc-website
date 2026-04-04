@@ -35,10 +35,10 @@ export async function generateMetadata({
   const article = getArticleBySlug(slug);
   if (!article) return {};
   return {
-    title: article.title,
+    title: article.seoTitle || article.title,
     description: article.description,
     openGraph: {
-      title: article.title,
+      title: article.seoTitle || article.title,
       description: article.description,
       type: "article",
     },

@@ -66,7 +66,7 @@
 | `click_line_cta` | 工具頁 LINE 副 CTA | source: 同上 |
 | `click_sticky_line` | 全站 sticky bar | page: 當前路徑 |
 | `click_line_deeplink` | 測驗結果頁 LINE 一鍵 | metabolism_type |
-| `click_explore_type` | 測驗結果頁類型連結 | metabolism_type |
+| `click_explore_type` | ~~已移除（4/4，0點擊，分散LINE CTA注意力）~~ | — |
 | `click_learning_path` | 測驗結果頁學習路徑 | metabolism_type, step, label |
 | `quiz_start` / `quiz_complete` | 測驗頁 | metabolism_type |
 

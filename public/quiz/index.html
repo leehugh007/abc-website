@@ -2135,16 +2135,6 @@ function ResultPage({ result, onRestart, onShowScience }) {
               </div>
             )}
 
-            {/* Secondary action: explore content */}
-            <div style={{ marginTop: '12px' }}>
-              <a
-                href={TYPE_CONTENT_LINKS[result.primary]?.href || '/guide'}
-                style={{ fontSize: '13px', color: '#2a9d6f', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-                onClick={() => trackEvent('click_explore_type', { metabolism_type: type.name })}
-              >
-                先了解「{type.name}」的完整分析 →
-              </a>
-            </div>
           </div>
         </div>
 
