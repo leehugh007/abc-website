@@ -548,8 +548,9 @@ export default function ProteinPage() {
                   一鍵開啟 LINE 領取 →
                 </a>
 
-                <p className="text-xs text-muted mt-3">
-                  點擊後會開啟 LINE，按送出就能領取你的攻略
+                <p className="text-xs text-muted mt-3 leading-relaxed">
+                  點擊後會開啟 LINE，聊天框會自動帶入你的專屬代碼<br />
+                  按「送出」就能領取你的個人化攻略
                 </p>
               </div>
             )}
