@@ -332,21 +332,23 @@ export default function ProteinPage() {
 
             {/* ==================== 進階問題入口 ==================== */}
             {!showAdvanced && !claimCode && (
-              <div className="rounded-2xl border-2 border-brand bg-white p-6 text-center">
-                <p className="text-[15px] text-ink font-semibold mb-2">
-                  想拿到你的個人化蛋白質攻略？
+              <div className="rounded-2xl border-2 border-brand bg-gradient-to-b from-surface-green to-white p-6 text-center shadow-md">
+                <p className="text-xs font-bold text-brand tracking-widest mb-3">
+                  免費領取
+                </p>
+                <p className="text-lg text-ink font-bold mb-2">
+                  你的個人化蛋白質攻略
                 </p>
                 <p className="text-sm text-subtle mb-5">
-                  再回答 3 個問題，我根據你的飲食習慣，幫你做一份
-                  <strong className="text-ink">每餐搭配表 + 外食速查表</strong>
+                  再回答 3 個問題，我根據你的飲食習慣，<br />
+                  幫你做一份<strong className="text-ink">具體的每餐搭配範例</strong>
                 </p>
 
                 <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
                   <p className="text-xs text-brand font-semibold mb-2">你會拿到：</p>
                   <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 你的每餐蛋白質分配表</li>
-                    <li>✅ 外食族速查表（超商／自助餐／便當／火鍋）</li>
-                    <li>✅ 7 天蛋白質搭配範例</li>
+                    <li>✅ 根據你的餐數習慣，每餐該怎麼湊到目標</li>
+                    <li>✅ 具體食物搭配範例（含蛋白質克數）</li>
                     <li>✅ 一休提醒：最多人卡住的 3 個蛋白質迷思</li>
                   </ul>
                 </div>
@@ -470,9 +472,8 @@ export default function ProteinPage() {
                 {/* Value Stack 再次提醒 */}
                 <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
                   <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 每餐蛋白質分配（根據你的{mealCount === "2" ? "兩餐" : mealCount === "3" ? "三餐" : "多餐"}習慣）</li>
-                    <li>✅ {dietType === "eating-out" ? "外食" : dietType === "home-cook" ? "自煮" : "外食+自煮"}族的食材速查表</li>
-                    <li>✅ 7 天搭配範例（{foodType === "omnivore" ? "葷食" : foodType === "lacto-ovo" ? "蛋奶素" : "全素"}版）</li>
+                    <li>✅ {mealCount === "2" ? "兩餐" : mealCount === "3" ? "三餐" : "多餐"}的每餐搭配範例（含具體食物+克數）</li>
+                    <li>✅ 根據你的{dietType === "eating-out" ? "外食" : dietType === "home-cook" ? "自煮" : "外食+自煮"}習慣量身打造</li>
                     <li>✅ 一休提醒：最多人卡住的 3 個蛋白質迷思</li>
                   </ul>
                 </div>
