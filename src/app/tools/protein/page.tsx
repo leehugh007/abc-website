@@ -11,9 +11,10 @@ declare global {
 }
 
 type Goal = "maintain" | "fat-loss" | "intense";
-type DietType = "eating-out" | "home-cook" | "mixed";
-type MealCount = "2" | "3" | "frequent";
 type FoodType = "omnivore" | "lacto-ovo" | "vegan";
+type BreakfastType = "skip" | "convenience" | "breakfast-shop" | "bread-coffee" | "home";
+type LunchType = "skip" | "bento" | "buffet" | "noodle" | "home";
+type DinnerType = "skip" | "bento-buffet" | "noodle-hotpot" | "home";
 
 const GOAL_OPTIONS: {
   value: Goal;
@@ -27,16 +28,27 @@ const GOAL_OPTIONS: {
   { value: "intense", label: "高強度訓練", desc: "重訓或高強度運動每週 4 次以上", min: 1.6, max: 2.0 },
 ];
 
-const DIET_OPTIONS: { value: DietType; label: string }[] = [
-  { value: "eating-out", label: "外食為主" },
-  { value: "home-cook", label: "自煮為主" },
-  { value: "mixed", label: "混合（有時外食有時自煮）" },
+const BREAKFAST_OPTIONS: { value: BreakfastType; label: string; sub?: string }[] = [
+  { value: "skip", label: "不吃早餐" },
+  { value: "convenience", label: "超商", sub: "飯糰、三明治、茶葉蛋" },
+  { value: "breakfast-shop", label: "早餐店", sub: "蛋餅、漢堡、三明治" },
+  { value: "bread-coffee", label: "麵包＋咖啡或奶茶" },
+  { value: "home", label: "自己做", sub: "煮蛋、鮮奶、豆漿" },
 ];
 
-const MEAL_OPTIONS: { value: MealCount; label: string }[] = [
-  { value: "2", label: "一天兩餐" },
-  { value: "3", label: "一天三餐" },
-  { value: "frequent", label: "少量多餐（4 餐以上）" },
+const LUNCH_OPTIONS: { value: LunchType; label: string; sub?: string }[] = [
+  { value: "skip", label: "不吃午餐" },
+  { value: "bento", label: "便當店" },
+  { value: "buffet", label: "自助餐" },
+  { value: "noodle", label: "麵店／小吃店", sub: "乾麵、湯麵、滷味" },
+  { value: "home", label: "自己煮／帶便當" },
+];
+
+const DINNER_OPTIONS: { value: DinnerType; label: string; sub?: string }[] = [
+  { value: "skip", label: "不吃晚餐" },
+  { value: "bento-buffet", label: "便當／自助餐" },
+  { value: "noodle-hotpot", label: "麵店／小吃／火鍋" },
+  { value: "home", label: "自己煮" },
 ];
 
 const FOOD_OPTIONS: { value: FoodType; label: string }[] = [
@@ -60,6 +72,33 @@ function generateSessionId(): string {
   return "ps_" + Math.random().toString(36).slice(2, 10);
 }
 
+// 選項按鈕元件
+function OptionButton({
+  selected,
+  onClick,
+  label,
+  sub,
+}: {
+  selected: boolean;
+  onClick: () => void;
+  label: string;
+  sub?: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
+        selected
+          ? "border-brand bg-surface-green"
+          : "border-edge hover:border-edge-dark"
+      }`}
+    >
+      <span className="text-sm font-medium">{label}</span>
+      {sub && <span className="text-xs text-muted ml-2">{sub}</span>}
+    </button>
+  );
+}
+
 export default function ProteinPage() {
   // Step 1: 體重 + 目標
   const [weight, setWeight] = useState("");
@@ -74,10 +113,11 @@ export default function ProteinPage() {
     eggs: number;
   } | null>(null);
 
-  // Step 2: 3 題進階問題
+  // Step 2: 每餐選擇 + 葷素
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [dietType, setDietType] = useState<DietType>("eating-out");
-  const [mealCount, setMealCount] = useState<MealCount>("3");
+  const [breakfastType, setBreakfastType] = useState<BreakfastType>("convenience");
+  const [lunchType, setLunchType] = useState<LunchType>("bento");
+  const [dinnerType, setDinnerType] = useState<DinnerType>("home");
   const [foodType, setFoodType] = useState<FoodType>("omnivore");
 
   // LINE 領取
@@ -127,8 +167,37 @@ export default function ProteinPage() {
     if (!basicResult) return;
     setIsSaving(true);
 
+    // 推導 diet_type 和 meal_count（向下相容舊欄位）
+    const mealCount =
+      [breakfastType, lunchType, dinnerType].filter((t) => t !== "skip").length;
+    const derivedMealCount = mealCount <= 2 ? "2" : "3";
+    const homeCount = [breakfastType, lunchType, dinnerType].filter(
+      (t) => t === "home"
+    ).length;
+    const derivedDietType =
+      homeCount === mealCount
+        ? "home-cook"
+        : homeCount === 0
+          ? "eating-out"
+          : "mixed";
+
     const code = generateClaimCode();
     const sessionId = generateSessionId();
+
+    const payload = {
+      id: sessionId,
+      weight: parseFloat(weight),
+      goal,
+      diet_type: derivedDietType,
+      meal_count: derivedMealCount,
+      food_type: foodType,
+      protein_min: basicResult.minG,
+      protein_max: basicResult.maxG,
+      claim_code: code,
+      breakfast_type: breakfastType,
+      lunch_type: lunchType,
+      dinner_type: dinnerType,
+    };
 
     try {
       const res = await fetch(`${SUPABASE_URL}/rest/v1/protein_sessions`, {
@@ -138,34 +207,20 @@ export default function ProteinPage() {
           apikey: SUPABASE_ANON_KEY,
           Prefer: "return=minimal",
         },
-        body: JSON.stringify({
-          id: sessionId,
-          weight: parseFloat(weight),
-          goal,
-          diet_type: dietType,
-          meal_count: mealCount,
-          food_type: foodType,
-          protein_min: basicResult.minG,
-          protein_max: basicResult.maxG,
-          claim_code: code,
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
         setClaimCode(code);
         track("protein_complete", {
           goal,
-          diet_type: dietType,
+          breakfast: breakfastType,
+          lunch: lunchType,
+          dinner: dinnerType,
           food_type: foodType,
         });
-
-        setTimeout(() => {
-          document
-            .getElementById("claim-section")
-            ?.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
       } else {
-        // 如果代碼衝突，重試一次
+        // 代碼衝突重試
         const code2 = generateClaimCode();
         const res2 = await fetch(`${SUPABASE_URL}/rest/v1/protein_sessions`, {
           method: "POST",
@@ -174,33 +229,36 @@ export default function ProteinPage() {
             apikey: SUPABASE_ANON_KEY,
             Prefer: "return=minimal",
           },
-          body: JSON.stringify({
-            id: generateSessionId(),
-            weight: parseFloat(weight),
-            goal,
-            diet_type: dietType,
-            meal_count: mealCount,
-            food_type: foodType,
-            protein_min: basicResult.minG,
-            protein_max: basicResult.maxG,
-            claim_code: code2,
-          }),
+          body: JSON.stringify({ ...payload, id: generateSessionId(), claim_code: code2 }),
         });
         if (res2.ok) {
           setClaimCode(code2);
           track("protein_complete", {
             goal,
-            diet_type: dietType,
+            breakfast: breakfastType,
+            lunch: lunchType,
+            dinner: dinnerType,
             food_type: foodType,
           });
         }
       }
     } catch {
-      // 靜默失敗，不影響用戶體驗
+      // 靜默失敗
     } finally {
       setIsSaving(false);
+
+      setTimeout(() => {
+        document
+          .getElementById("claim-section")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
     }
   };
+
+  // 選的餐數（給 Value Stack 用）
+  const activeMeals = [breakfastType, lunchType, dinnerType].filter(
+    (t) => t !== "skip"
+  ).length;
 
   return (
     <section className="pt-10 pb-16 px-5">
@@ -260,21 +318,13 @@ export default function ProteinPage() {
             <label className="block text-sm font-bold mb-2">你的目標</label>
             <div className="space-y-2">
               {GOAL_OPTIONS.map((opt) => (
-                <button
+                <OptionButton
                   key={opt.value}
+                  selected={goal === opt.value}
                   onClick={() => setGoal(opt.value)}
-                  className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
-                    goal === opt.value
-                      ? "border-brand bg-surface-green"
-                      : "border-edge hover:border-edge-dark"
-                  }`}
-                >
-                  <span className="text-sm font-medium">{opt.label}</span>
-                  <span className="text-xs text-muted ml-2">{opt.desc}</span>
-                  <span className="text-xs text-muted ml-2">
-                    （{opt.min}-{opt.max}g/kg）
-                  </span>
-                </button>
+                  label={opt.label}
+                  sub={`${opt.desc}（${opt.min}-${opt.max}g/kg）`}
+                />
               ))}
             </div>
           </div>
@@ -310,7 +360,7 @@ export default function ProteinPage() {
                 </p>
               </div>
 
-              {/* The Gap — Hormozi 結構 */}
+              {/* The Gap */}
               <div className="p-5 rounded-xl bg-[#fef9f3] border border-[#f0e6d8] space-y-3">
                 <p className="text-[15px] font-semibold text-ink">
                   但你知道嗎？
@@ -320,8 +370,8 @@ export default function ProteinPage() {
                 </p>
                 <p className="text-[15px] text-subtle leading-relaxed">
                   一份便當的蛋白質通常只有{" "}
-                  <strong className="text-ink">15-20g</strong>，你以為吃了一頓就差不多了？
-                  離目標還差 {basicResult.avgG - 18}g。
+                  <strong className="text-ink">20-24g</strong>，你以為吃了一頓就差不多了？
+                  離目標還差 {basicResult.avgG - 22}g。
                 </p>
                 <p className="text-[15px] text-ink font-medium leading-relaxed">
                   問題不是「不知道要吃多少」，<br />
@@ -340,16 +390,16 @@ export default function ProteinPage() {
                   你的個人化蛋白質攻略
                 </p>
                 <p className="text-sm text-subtle mb-5">
-                  再回答 3 個問題，我根據你的飲食習慣，<br />
-                  幫你做一份<strong className="text-ink">具體的每餐搭配範例</strong>
+                  告訴我你三餐都怎麼吃，<br />
+                  我幫你<strong className="text-ink">診斷現在的蛋白質缺口在哪</strong>
                 </p>
 
                 <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
                   <p className="text-xs text-brand font-semibold mb-2">你會拿到：</p>
                   <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 根據你的餐數習慣，每餐該怎麼湊到目標</li>
-                    <li>✅ 具體食物搭配範例（含蛋白質克數）</li>
-                    <li>✅ 一休提醒：最多人卡住的 3 個蛋白質迷思</li>
+                    <li>✅ 你目前每天吃到多少蛋白質（用你的飲食習慣算）</li>
+                    <li>✅ 最簡單的一步改變（不用大改，先改一餐）</li>
+                    <li>✅ 改良後的一整天搭配範例</li>
                   </ul>
                 </div>
 
@@ -365,61 +415,71 @@ export default function ProteinPage() {
                   }}
                   className="w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
                 >
-                  回答 3 題，30 秒搞定 →
+                  告訴你我怎麼吃 →
                 </button>
               </div>
             )}
 
-            {/* ==================== Step 2: 3 題進階問題 ==================== */}
+            {/* ==================== Step 2: 每餐選擇 + 葷素 ==================== */}
             {showAdvanced && !claimCode && (
               <div
                 id="advanced-questions"
-                className="rounded-2xl border border-edge bg-white p-6 space-y-6 scroll-mt-20"
+                className="rounded-2xl border border-edge bg-white p-6 space-y-7 scroll-mt-20"
               >
                 <p className="text-sm font-bold text-brand">
-                  再 3 題，幫你量身打造
+                  告訴我你三餐都怎麼吃
                 </p>
 
-                {/* 飲食型態 */}
+                {/* 早餐 */}
                 <div>
                   <label className="block text-sm font-bold mb-2">
-                    你平常怎麼吃？
+                    ☀️ 早餐你通常吃什麼？
                   </label>
                   <div className="space-y-2">
-                    {DIET_OPTIONS.map((opt) => (
-                      <button
+                    {BREAKFAST_OPTIONS.map((opt) => (
+                      <OptionButton
                         key={opt.value}
-                        onClick={() => setDietType(opt.value)}
-                        className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
-                          dietType === opt.value
-                            ? "border-brand bg-surface-green"
-                            : "border-edge hover:border-edge-dark"
-                        }`}
-                      >
-                        <span className="text-sm font-medium">{opt.label}</span>
-                      </button>
+                        selected={breakfastType === opt.value}
+                        onClick={() => setBreakfastType(opt.value)}
+                        label={opt.label}
+                        sub={opt.sub}
+                      />
                     ))}
                   </div>
                 </div>
 
-                {/* 餐數 */}
+                {/* 午餐 */}
                 <div>
                   <label className="block text-sm font-bold mb-2">
-                    一天吃幾餐？
+                    🌤️ 午餐你通常吃什麼？
                   </label>
                   <div className="space-y-2">
-                    {MEAL_OPTIONS.map((opt) => (
-                      <button
+                    {LUNCH_OPTIONS.map((opt) => (
+                      <OptionButton
                         key={opt.value}
-                        onClick={() => setMealCount(opt.value)}
-                        className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
-                          mealCount === opt.value
-                            ? "border-brand bg-surface-green"
-                            : "border-edge hover:border-edge-dark"
-                        }`}
-                      >
-                        <span className="text-sm font-medium">{opt.label}</span>
-                      </button>
+                        selected={lunchType === opt.value}
+                        onClick={() => setLunchType(opt.value)}
+                        label={opt.label}
+                        sub={opt.sub}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* 晚餐 */}
+                <div>
+                  <label className="block text-sm font-bold mb-2">
+                    🌙 晚餐你通常吃什麼？
+                  </label>
+                  <div className="space-y-2">
+                    {DINNER_OPTIONS.map((opt) => (
+                      <OptionButton
+                        key={opt.value}
+                        selected={dinnerType === opt.value}
+                        onClick={() => setDinnerType(opt.value)}
+                        label={opt.label}
+                        sub={opt.sub}
+                      />
                     ))}
                   </div>
                 </div>
@@ -427,21 +487,16 @@ export default function ProteinPage() {
                 {/* 葷素 */}
                 <div>
                   <label className="block text-sm font-bold mb-2">
-                    飲食類型
+                    🥗 飲食類型
                   </label>
                   <div className="space-y-2">
                     {FOOD_OPTIONS.map((opt) => (
-                      <button
+                      <OptionButton
                         key={opt.value}
+                        selected={foodType === opt.value}
                         onClick={() => setFoodType(opt.value)}
-                        className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
-                          foodType === opt.value
-                            ? "border-brand bg-surface-green"
-                            : "border-edge hover:border-edge-dark"
-                        }`}
-                      >
-                        <span className="text-sm font-medium">{opt.label}</span>
-                      </button>
+                        label={opt.label}
+                      />
                     ))}
                   </div>
                 </div>
@@ -451,7 +506,7 @@ export default function ProteinPage() {
                   disabled={isSaving}
                   className="w-full py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base disabled:opacity-50"
                 >
-                  {isSaving ? "產生中..." : "產生我的蛋白質攻略 →"}
+                  {isSaving ? "分析中..." : "幫我診斷蛋白質缺口 →"}
                 </button>
               </div>
             )}
@@ -463,22 +518,20 @@ export default function ProteinPage() {
                 className="rounded-2xl border-2 border-line-green bg-white p-6 text-center scroll-mt-20"
               >
                 <p className="text-lg font-bold text-ink mb-2">
-                  你的蛋白質攻略已產生！
+                  你的蛋白質診斷報告已產生！
                 </p>
                 <p className="text-sm text-subtle mb-5">
                   加入一休的 LINE，一鍵領取你的個人化攻略
                 </p>
 
-                {/* Value Stack 再次提醒 */}
                 <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
                   <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ {mealCount === "2" ? "兩餐" : mealCount === "3" ? "三餐" : "多餐"}的每餐搭配範例（含具體食物+克數）</li>
-                    <li>✅ 根據你的{dietType === "eating-out" ? "外食" : dietType === "home-cook" ? "自煮" : "外食+自煮"}習慣量身打造</li>
-                    <li>✅ 一休提醒：最多人卡住的 3 個蛋白質迷思</li>
+                    <li>✅ 根據你選的三餐，診斷你目前吃到多少蛋白質</li>
+                    <li>✅ 找出你最容易改善的那一餐</li>
+                    <li>✅ 給你改良後的{activeMeals === 2 ? "兩" : "三"}餐搭配</li>
                   </ul>
                 </div>
 
-                {/* LINE CTA */}
                 <a
                   href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
                   className="inline-flex items-center justify-center w-full py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-lg transition-shadow text-base gap-2"
@@ -486,8 +539,9 @@ export default function ProteinPage() {
                     track("click_line_protein", {
                       code: claimCode,
                       goal,
-                      diet_type: dietType,
-                      food_type: foodType,
+                      breakfast: breakfastType,
+                      lunch: lunchType,
+                      dinner: dinnerType,
                     })
                   }
                 >
@@ -500,7 +554,7 @@ export default function ProteinPage() {
               </div>
             )}
 
-            {/* 測驗 CTA（保留，不搶 LINE 的位置） */}
+            {/* 測驗 CTA（次級） */}
             {!showAdvanced && !claimCode && (
               <div className="rounded-2xl border border-edge bg-white p-6 text-center">
                 <p className="text-xs text-muted mb-2">或者</p>
@@ -551,9 +605,7 @@ export default function ProteinPage() {
                 <tr className="bg-surface">
                   <th className="text-left px-4 py-3 font-bold">食物</th>
                   <th className="text-right px-4 py-3 font-bold">份量</th>
-                  <th className="text-right px-4 py-3 font-bold">
-                    蛋白質（克）
-                  </th>
+                  <th className="text-right px-4 py-3 font-bold">蛋白質（克）</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-edge">
@@ -564,6 +616,7 @@ export default function ProteinPage() {
                 <tr><td className="px-4 py-2.5">無糖豆漿</td><td className="text-right px-4 py-2.5">1 杯（260ml）</td><td className="text-right px-4 py-2.5 font-medium">7</td></tr>
                 <tr><td className="px-4 py-2.5">希臘優格</td><td className="text-right px-4 py-2.5">1 杯</td><td className="text-right px-4 py-2.5 font-medium">10</td></tr>
                 <tr><td className="px-4 py-2.5">毛豆</td><td className="text-right px-4 py-2.5">100g</td><td className="text-right px-4 py-2.5 font-medium">11</td></tr>
+                <tr><td className="px-4 py-2.5">超商便當</td><td className="text-right px-4 py-2.5">1 份</td><td className="text-right px-4 py-2.5 font-medium">17-30</td></tr>
               </tbody>
             </table>
           </div>
