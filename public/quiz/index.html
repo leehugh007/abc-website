@@ -2079,14 +2079,14 @@ function ResultPage({ result, onRestart, onShowScience }) {
               ))}
             </div>
           </div>
-          {/* Overlay CTA */}
-          <div style={{ position: 'absolute', inset: 0, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.7)', borderRadius: '12px' }}>
-            <div style={{ fontSize: '15px', color: '#3d3a37', marginBottom: '4px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6', fontWeight: 600 }}>
+          {/* Overlay CTA — 只蓋模糊區，top: 60px 跳過上面的個人化行 */}
+          <div style={{ position: 'absolute', top: '60px', left: 0, right: 0, bottom: 0, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.7)', borderRadius: '0 0 12px 12px' }}>
+            <div style={{ fontSize: '16px', color: '#1a5e3f', marginBottom: '4px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6', fontWeight: 700, textShadow: '0 1px 2px rgba(255,255,255,0.8)' }}>
               {result.q7Symptoms && result.q7Symptoms.length > 0
                 ? `你有 ${result.q7Symptoms.length} 個症狀符合${type.name}的典型表現`
                 : '你的完整代謝報告 + 具體建議已經準備好了'}
             </div>
-            <div style={{ fontSize: '13px', color: '#6b6560', marginBottom: '14px', textAlign: 'center' }}>
+            <div style={{ fontSize: '13px', color: '#2a9d6f', marginBottom: '14px', textAlign: 'center', fontWeight: 500 }}>
               個人化報告已生成，在 LINE 領取 👇
             </div>
             {result._claimCode ? (
