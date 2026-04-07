@@ -275,6 +275,9 @@ export default function FattyLiverPage() {
     maxScore: number;
     risk: RiskLevel;
   } | null>(null);
+  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [drinkHabit, setDrinkHabit] = useState("");
+  const [lunchHabit, setLunchHabit] = useState("");
   const [claimCode, setClaimCode] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -337,6 +340,8 @@ export default function FattyLiverPage() {
       risk_level: result.risk,
       answers: answerDetails,
       claim_code: code,
+      drink_habit: drinkHabit,
+      lunch_habit: lunchHabit,
     };
 
     try {
@@ -544,79 +549,266 @@ export default function FattyLiverPage() {
               </div>
             )}
 
-            {/* 領取按鈕 or LINE 領取區 */}
-            {!claimCode ? (
-              <div className="rounded-2xl border-2 border-brand bg-gradient-to-b from-surface-green to-white p-6 text-center shadow-md">
-                <p className="text-xs font-bold text-brand tracking-widest mb-3">
-                  免費領取
-                </p>
-                <p className="text-lg text-ink font-bold mb-2">
-                  你的個人化護肝飲食建議
-                </p>
-                <p className="text-sm text-subtle mb-5">
-                  根據你的回答，我幫你整理了
-                  <strong className="text-ink">
-                    最該優先調整的那一件事
-                  </strong>
+            {/* 毛玻璃預覽 + 進階問題入口 */}
+            {!claimCode && (
+              <div className="relative rounded-2xl border border-edge bg-white overflow-hidden">
+                {/* 看得到的部分 */}
+                <div className="p-6 pb-0">
+                  <p className="text-sm font-bold text-brand mb-3">
+                    💡 根據你的回答：
+                  </p>
+                  <div className="space-y-2 text-[15px] text-ink">
+                    {theGap && theGap.lines.length > 0 && (
+                      <p>{theGap.lines[0]}</p>
+                    )}
+                    <p className="font-medium">
+                      {result.risk === "high"
+                        ? "你的肝每天都在加班，但脂肪肝是可以改善的。"
+                        : result.risk === "moderate"
+                          ? "你的肝正在加班，好消息是這個階段調整效果最好。"
+                          : "你的肝目前還不錯，但知道怎麼保護它更重要。"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* 模糊的部分 */}
+                <div
+                  className="px-6 pt-4 pb-6"
+                  style={{
+                    filter: "blur(4px)",
+                    pointerEvents: "none",
+                    userSelect: "none",
+                    maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
+                  }}
+                >
+                  <div className="space-y-2 text-[15px] text-subtle">
+                    {theGap && theGap.lines.length > 1 && <p>{theGap.lines[1]}</p>}
+                    {result.risk === "high" ? (
+                      <p>你的肝已經扛很久了。但脂肪肝是可以改善的——不一定要瘦，改變吃法就有用。最重要的第一步：把每天的含糖飲料換掉，肝臟的壓力馬上減半。</p>
+                    ) : result.risk === "moderate" ? (
+                      <p>好消息是這個階段調整效果最好。先從下午那杯飲料下手，換成無糖茶或水就好。光這一步，你的肝就少扛一半的工作量。</p>
+                    ) : (
+                      <p>你現在的習慣還不錯，但脂肪肝初期完全沒感覺。每年做一次腹部超音波是最簡單的保護，體重計量不到的東西只有超音波看得到。</p>
+                    )}
+                    <p>具體的飲食替換建議和餐盤比例，告訴我你平常吃什麼之後會更準確。</p>
+                  </div>
+                </div>
+
+                {/* Overlay CTA */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center">
+                  <p className="text-[15px] font-semibold text-ink mb-1">
+                    你的護肝報告已準備好
+                  </p>
+                  <p className="text-sm text-brand mb-3">
+                    再回答 2 個問題，讓報告更準確 👇
+                  </p>
+                  {!showAdvanced && (
+                    <button
+                      onClick={() => {
+                        setShowAdvanced(true);
+                        track("fatty_liver_start_advanced");
+                        setTimeout(() => {
+                          document
+                            .getElementById("advanced-questions")
+                            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 100);
+                      }}
+                      className="w-full max-w-sm py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
+                    >
+                      告訴你我怎麼吃 →
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* ─── Step 2: 飲食習慣問題 ─── */}
+            {showAdvanced && !claimCode && (
+              <div
+                id="advanced-questions"
+                className="rounded-2xl border border-edge bg-white p-6 space-y-7 scroll-mt-20"
+              >
+                <p className="text-sm font-bold text-brand">
+                  回答 2 個問題，讓報告更準確
                 </p>
 
-                <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
-                  <p className="text-xs text-brand font-semibold mb-2">
-                    你會拿到：
-                  </p>
-                  <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 根據你的回答，找出讓肝臟加班的主因</li>
-                    <li>✅ 最該優先調整的那一件事（不用全改，先改一個）</li>
-                    <li>✅ 具體的飲食替換建議</li>
-                  </ul>
+                {/* Q1：飲料 */}
+                <div>
+                  <label className="block text-sm font-bold mb-2">
+                    你平常喝什麼飲料？
+                  </label>
+                  <div className="space-y-2">
+                    {[
+                      { value: "sugar-tea", label: "手搖飲", sub: "大杯微糖 / 全糖" },
+                      { value: "juice", label: "果汁 / 優酪乳" },
+                      { value: "sugar-coffee", label: "咖啡加糖", sub: "拿鐵、三合一" },
+                      { value: "water", label: "水 / 無糖茶為主" },
+                    ].map((opt) => (
+                      <button
+                        key={opt.value}
+                        onClick={() => setDrinkHabit(opt.value)}
+                        className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
+                          drinkHabit === opt.value
+                            ? "border-brand bg-surface-green"
+                            : "border-edge hover:border-edge-dark"
+                        }`}
+                      >
+                        <span className="text-sm font-medium">{opt.label}</span>
+                        {opt.sub && <span className="text-xs text-muted ml-2">{opt.sub}</span>}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Q2：午餐 */}
+                <div>
+                  <label className="block text-sm font-bold mb-2">
+                    你中午通常吃什麼？
+                  </label>
+                  <div className="space-y-2">
+                    {[
+                      { value: "bento", label: "便當 / 自助餐" },
+                      { value: "noodle", label: "麵食 / 水餃 / 小吃" },
+                      { value: "homemade", label: "自己帶便當" },
+                      { value: "skip", label: "隨便吃 / 常跳過" },
+                    ].map((opt) => (
+                      <button
+                        key={opt.value}
+                        onClick={() => setLunchHabit(opt.value)}
+                        className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
+                          lunchHabit === opt.value
+                            ? "border-brand bg-surface-green"
+                            : "border-edge hover:border-edge-dark"
+                        }`}
+                      >
+                        <span className="text-sm font-medium">{opt.label}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <button
                   onClick={handleGetReport}
-                  disabled={isSaving}
-                  className="w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base disabled:opacity-50"
+                  disabled={isSaving || !drinkHabit || !lunchHabit}
+                  className="w-full py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                  {isSaving ? "產生中..." : "幫我找出最該改的那件事 →"}
+                  {isSaving ? "分析中..." : "幫我找出最該改的那件事 →"}
                 </button>
               </div>
-            ) : (
-              <div
-                id="claim-section"
-                className="rounded-2xl border-2 border-line-green bg-white p-6 text-center scroll-mt-20"
-              >
-                <p className="text-lg font-bold text-ink mb-2">
-                  你的護肝飲食建議已產生！
-                </p>
-                <p className="text-sm text-subtle mb-5">
-                  加入一休的 LINE，一鍵領取你的個人化報告
-                </p>
+            )}
 
-                <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
-                  <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 根據你的回答，找出讓肝臟加班的主因</li>
-                    <li>✅ 給你最該優先調整的那一件事</li>
-                    <li>✅ 附上具體的飲食替換建議</li>
-                  </ul>
+            {/* ─── 個人化診斷預覽 + 模糊 + LINE 領取 ─── */}
+            {claimCode && (
+              <div id="claim-section" className="space-y-6 scroll-mt-20">
+                <div className="relative rounded-2xl border border-edge bg-white overflow-hidden">
+                  {/* 診斷預覽（清楚可見） */}
+                  <div className="p-6 pb-0">
+                    <p className="text-sm font-bold text-brand mb-3">
+                      💡 根據你的飲食習慣：
+                    </p>
+                    <div className="space-y-2 text-[15px] text-ink">
+                      {drinkHabit !== "water" && (
+                        <p>
+                          你平常喝的「{drinkHabit === "sugar-tea" ? "手搖飲" : drinkHabit === "juice" ? "果汁/優酪乳" : "加糖咖啡"}」——
+                          {drinkHabit === "sugar-tea"
+                            ? "裡面的高果糖糖漿，走進身體之後的路跟酒精幾乎一樣，全部直接塞給肝臟處理。"
+                            : drinkHabit === "juice"
+                              ? "你以為很健康？果汁的果糖含量不輸手搖飲，而且沒有纖維減速，全部直接塞給肝臟。"
+                              : "三合一和加糖拿鐵裡的糖，一天兩杯就超過肝臟的舒適負擔。"}
+                        </p>
+                      )}
+                      {lunchHabit !== "homemade" && (
+                        <p>
+                          再加上你中午吃「{lunchHabit === "bento" ? "便當/自助餐" : lunchHabit === "noodle" ? "麵食/小吃" : "隨便吃"}」——
+                          {lunchHabit === "bento"
+                            ? "裡面大部分是精緻澱粉，你的肝下午就在加班處理這些糖。"
+                            : lunchHabit === "noodle"
+                              ? "幾乎全是精緻碳水，蛋白質很少，肝臟一整個下午都在處理多出來的糖。"
+                              : "隨便吃或跳過，身體拿不到需要的東西，反而更容易在下午、晚上爆吃。"}
+                        </p>
+                      )}
+                      <p className="font-medium">
+                        {drinkHabit !== "water" && (lunchHabit === "bento" || lunchHabit === "noodle")
+                          ? "飲料 + 午餐，你的肝一天加班兩次。"
+                          : "改變吃法，你的肝就能準時下班。"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 模糊的部分：放真實內容，blur 讓她看不清但知道是真的 */}
+                  <div
+                    className="px-6 pt-4 pb-6"
+                    style={{
+                      filter: "blur(4px)",
+                      pointerEvents: "none",
+                      userSelect: "none",
+                      maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
+                      WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
+                    }}
+                  >
+                    <div className="space-y-2 text-[15px] text-subtle">
+                      {drinkHabit === "sugar-tea" && (
+                        <p>你的手搖飲裡的高果糖糖漿，走進身體之後的路跟酒精幾乎一樣，全部直接塞給肝臟處理。光把下午那杯換掉，肝臟的壓力就少一半。換成無糖綠茶、黑咖啡或氣泡水。</p>
+                      )}
+                      {drinkHabit === "juice" && (
+                        <p>你喝的果汁果糖含量不輸手搖飲，而且沒有纖維減速，全部直接塞給肝臟。換成吃整顆水果，纖維會幫忙減速，肝臟壓力差很多。</p>
+                      )}
+                      {drinkHabit === "sugar-coffee" && (
+                        <p>你的加糖咖啡一天兩杯就超過肝臟的舒適負擔。換成黑咖啡或無糖拿鐵，咖啡因一樣有，糖少了肝就輕鬆了。</p>
+                      )}
+                      {lunchHabit === "bento" && (
+                        <p>你中午吃便當，裡面大部分是精緻澱粉。建議多夾一樣菜、選蛋白質取代炸物，白飯換成半碗地瓜。同樣吃飽，但肝臟不用加班。</p>
+                      )}
+                      {lunchHabit === "noodle" && (
+                        <p>你中午吃麵食幾乎全是精緻碳水，蛋白質很少。試試自助餐選兩道菜一份蛋白質，或者麵裡加一顆蛋加一份燙青菜。</p>
+                      )}
+                      {lunchHabit === "skip" && (
+                        <p>你中午常跳過或隨便吃，身體拿不到需要的東西，下午晚上反而更容易爆吃。先固定吃午餐，蛋白質吃夠，下午就不會一直想找飲料。</p>
+                      )}
+                      <p>讓肝臟不加班的餐盤比例：蔬菜佔一半、蛋白質佔四分之一、原型碳水佔四分之一。蛋白質吃夠了，下午就不會一直想找飲料喝。</p>
+                    </div>
+                  </div>
+
+                  {/* Overlay CTA */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center">
+                    <p className="text-[15px] font-semibold text-ink mb-1">
+                      你的完整護肝報告已準備好
+                    </p>
+                    <p className="text-sm text-brand mb-3">
+                      在 LINE 領取個人化飲食建議 👇
+                    </p>
+                    <a
+                      href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
+                      className="w-full max-w-sm py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-lg transition-shadow text-base text-center block"
+                      onClick={() =>
+                        track("click_line_fatty_liver", {
+                          code: claimCode,
+                          risk: result.risk,
+                        })
+                      }
+                    >
+                      一鍵開啟 LINE 領取 →
+                    </a>
+                    <div className="mt-3 space-y-1 text-center">
+                      <p className="text-xs text-muted">
+                        或手動複製代碼：
+                        <button
+                          onClick={(e) => {
+                            navigator.clipboard?.writeText(claimCode);
+                            const btn = e.currentTarget;
+                            btn.textContent = "已複製！";
+                            setTimeout(() => { btn.textContent = claimCode + " 📋"; }, 1500);
+                          }}
+                          className="ml-2 font-bold text-brand text-sm tracking-widest bg-surface-green border border-dashed border-brand rounded-lg px-3 py-1 cursor-pointer"
+                        >
+                          {claimCode} 📋
+                        </button>
+                      </p>
+                      <p className="text-xs text-muted">代碼 24 小時內有效</p>
+                    </div>
+                  </div>
                 </div>
-
-                <a
-                  href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
-                  className="inline-flex items-center justify-center w-full py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-lg transition-shadow text-base gap-2"
-                  onClick={() =>
-                    track("click_line_fatty_liver", {
-                      code: claimCode,
-                      risk: result.risk,
-                    })
-                  }
-                >
-                  一鍵開啟 LINE 領取 →
-                </a>
-
-                <p className="text-xs text-muted mt-3 leading-relaxed">
-                  點擊後會開啟 LINE，聊天框會自動帶入你的專屬代碼
-                  <br />
-                  按「送出」就能領取你的護肝飲食建議
-                </p>
               </div>
             )}
 
