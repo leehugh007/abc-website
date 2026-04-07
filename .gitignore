@@ -42,3 +42,4 @@ next-env.d.ts
 .next*
 學員照片/
 文章圖片/
+.gstack/

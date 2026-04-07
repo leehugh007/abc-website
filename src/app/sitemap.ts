@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/protein`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/tools/waist-hip`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/tools/insulin-check`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE_URL}/tools/fatty-liver`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE_URL}/for/postpartum`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/for/health-check`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/for/sedentary`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

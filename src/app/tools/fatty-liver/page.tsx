@@ -427,10 +427,10 @@ export default function FattyLiverPage() {
             腰臀比
           </Link>
           <Link
-            href="/tools/insulin-check"
+            href="/tools/blood-sugar"
             className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
           >
-            胰島素阻抗自評
+            血糖穩定度
           </Link>
           <span className="px-3 py-1.5 rounded-full text-sm font-medium bg-brand text-white">
             脂肪肝風險
@@ -573,17 +573,14 @@ export default function FattyLiverPage() {
 
                 {/* 模糊的部分 */}
                 <div
-                  className="px-6 pt-4 pb-6"
+                  className="px-6 pt-4 pb-44"
                   style={{
                     filter: "blur(4px)",
                     pointerEvents: "none",
                     userSelect: "none",
-                    maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
-                    WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
                   }}
                 >
                   <div className="space-y-2 text-[15px] text-subtle">
-                    {theGap && theGap.lines.length > 1 && <p>{theGap.lines[1]}</p>}
                     {result.risk === "high" ? (
                       <p>你的肝已經扛很久了。但脂肪肝是可以改善的——不一定要瘦，改變吃法就有用。最重要的第一步：把每天的含糖飲料換掉，肝臟的壓力馬上減半。</p>
                     ) : result.risk === "moderate" ? (
@@ -591,12 +588,11 @@ export default function FattyLiverPage() {
                     ) : (
                       <p>你現在的習慣還不錯，但脂肪肝初期完全沒感覺。每年做一次腹部超音波是最簡單的保護，體重計量不到的東西只有超音波看得到。</p>
                     )}
-                    <p>具體的飲食替換建議和餐盤比例，告訴我你平常吃什麼之後會更準確。</p>
                   </div>
                 </div>
 
                 {/* Overlay CTA */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white from-60% to-white/0 p-6 pt-10 flex flex-col items-center">
                   <p className="text-[15px] font-semibold text-ink mb-1">
                     你的護肝報告已準備好
                   </p>
@@ -738,7 +734,7 @@ export default function FattyLiverPage() {
 
                   {/* 模糊的部分：放真實內容，blur 讓她看不清但知道是真的 */}
                   <div
-                    className="px-6 pt-4 pb-6"
+                    className="px-6 pt-4 pb-44"
                     style={{
                       filter: "blur(4px)",
                       pointerEvents: "none",
@@ -771,7 +767,7 @@ export default function FattyLiverPage() {
                   </div>
 
                   {/* Overlay CTA */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white from-60% to-white/0 p-6 pt-10 flex flex-col items-center">
                     <p className="text-[15px] font-semibold text-ink mb-1">
                       你的完整護肝報告已準備好
                     </p>

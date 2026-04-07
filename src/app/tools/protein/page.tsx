@@ -281,10 +281,16 @@ export default function ProteinPage() {
             腰臀比
           </Link>
           <Link
-            href="/tools/insulin-check"
+            href="/tools/blood-sugar"
             className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
           >
-            胰島素阻抗自評
+            血糖穩定度
+          </Link>
+          <Link
+            href="/tools/fatty-liver"
+            className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
+          >
+            脂肪肝風險
           </Link>
         </div>
 

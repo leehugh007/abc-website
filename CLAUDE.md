@@ -31,7 +31,7 @@
 | `/about` | 一休的故事 + 為什麼做 ABC |
 | `/program` | 課程頁（整合說明會內容） |
 | `/quiz` | 代謝類型測驗（`public/quiz/index.html` 靜態 HTML） |
-| `/tools` | TDEE 計算機 |
+| `/tools` | TDEE 計算機（工具首頁） |
 | `/articles` | 文章列表（43 篇，雙層篩選） |
 | `/articles/[slug]` | 文章內頁 |
 | `/concepts` | 代謝科學小百科（10 個概念） |

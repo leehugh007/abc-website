@@ -294,10 +294,10 @@ export default function ToolsPage() {
             腰臀比
           </Link>
           <Link
-            href="/tools/insulin-check"
+            href="/tools/blood-sugar"
             className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
           >
-            胰島素阻抗自評
+            血糖穩定度
           </Link>
           <Link
             href="/tools/fatty-liver"
@@ -571,21 +571,18 @@ export default function ToolsPage() {
                     filter: "blur(4px)",
                     pointerEvents: "none",
                     userSelect: "none",
-                    maskImage:
-                      "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
-                    WebkitMaskImage:
-                      "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
                   }}
                 >
-                  <div className="space-y-2 text-[15px] text-subtle">
+                  <div className="space-y-3 text-[15px] text-subtle">
                     <p>你吃 {result.deficit1200} 卡的時候，身體做的第一件事不是燒脂肪，是降代謝。3 個月後你的 BMR 可能從 {result.bmr} 降到 {result.bmrAfter3m}，到時候正常吃就復胖。</p>
                     <p>你每餐至少需要 {Math.round(result.protein[0] / 3)}g 蛋白質才能撐住代謝，但大多數人的早餐只有 5-10g。蛋白質不夠，肌肉流失，代謝只會越來越低。</p>
                     <p>不用算卡路里，照餐盤比例吃就好：蔬菜佔一半、蛋白質佔四分之一、原型碳水佔四分之一。告訴我你平常怎麼吃，我幫你看哪裡最該先調。</p>
+                    <p>具體的早餐替換建議和每餐蛋白質分配方法...</p>
                   </div>
                 </div>
 
-                {/* Overlay CTA */}
-                <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center">
+                {/* Overlay CTA：只蓋下半部 */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white/95 to-white/0 p-6 pt-12 flex flex-col items-center">
                   <p className="text-[15px] font-semibold text-ink mb-1 text-center">
                     你的完整飲食模式分析已準備好
                   </p>
@@ -752,15 +749,13 @@ export default function ToolsPage() {
                     </div>
                   </div>
 
-                  {/* 模糊的部分：放真實內容，blur 讓她看不清但知道是真的 */}
+                  {/* 模糊的部分：給足高度讓內容露出來 */}
                   <div
-                    className="px-6 pt-4 pb-6"
+                    className="px-6 pt-4 pb-44"
                     style={{
                       filter: "blur(4px)",
                       pointerEvents: "none",
                       userSelect: "none",
-                      maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
-                      WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%)",
                     }}
                   >
                     <div className="space-y-2 text-[15px] text-subtle">
@@ -783,8 +778,8 @@ export default function ToolsPage() {
                     </div>
                   </div>
 
-                  {/* Overlay CTA */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm p-6 flex flex-col items-center">
+                  {/* Overlay CTA：只蓋下半部 */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white from-60% to-white/0 p-6 pt-10 flex flex-col items-center">
                     <p className="text-[15px] font-semibold text-ink mb-1">
                       你的完整報告已準備好
                     </p>
