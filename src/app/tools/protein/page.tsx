@@ -58,25 +58,26 @@ const FOOD_OPTIONS: { value: FoodType; label: string }[] = [
 ];
 
 // 每種餐類型的估算蛋白質（克）
+// 數值對齊 MEAL_DB（official-yihugh-line-bot，omnivore 基準）
 const BREAKFAST_PROTEIN: Record<BreakfastType, { g: number; desc: string }> = {
   skip: { g: 0, desc: "不吃早餐" },
-  convenience: { g: 12, desc: "超商飯糰 + 茶葉蛋" },
-  "breakfast-shop": { g: 10, desc: "早餐店蛋餅或漢堡" },
+  convenience: { g: 10, desc: "超商飯糰或三明治" },
+  "breakfast-shop": { g: 12, desc: "早餐店蛋餅或漢堡" },
   "bread-coffee": { g: 5, desc: "麵包 + 咖啡" },
-  home: { g: 15, desc: "自己做（蛋 + 豆漿）" },
+  home: { g: 18, desc: "自己做（蛋 + 豆漿）" },
 };
 const LUNCH_PROTEIN: Record<LunchType, { g: number; desc: string }> = {
   skip: { g: 0, desc: "不吃午餐" },
-  bento: { g: 22, desc: "便當" },
-  buffet: { g: 25, desc: "自助餐" },
-  noodle: { g: 15, desc: "麵店或小吃" },
-  home: { g: 25, desc: "自己煮" },
+  bento: { g: 20, desc: "便當" },
+  buffet: { g: 22, desc: "自助餐" },
+  noodle: { g: 10, desc: "麵店或小吃" },
+  home: { g: 20, desc: "自己煮" },
 };
 const DINNER_PROTEIN: Record<DinnerType, { g: number; desc: string }> = {
   skip: { g: 0, desc: "不吃晚餐" },
-  "bento-buffet": { g: 22, desc: "便當或自助餐" },
-  "noodle-hotpot": { g: 18, desc: "麵店或火鍋" },
-  home: { g: 25, desc: "自己煮" },
+  "bento-buffet": { g: 20, desc: "便當或自助餐" },
+  "noodle-hotpot": { g: 12, desc: "麵店或火鍋" },
+  home: { g: 18, desc: "自己煮" },
 };
 
 const SUPABASE_URL = "https://fnlkhxnfaylhqhystmbr.supabase.co";
@@ -757,7 +758,7 @@ export default function ProteinPage() {
               </thead>
               <tbody className="divide-y divide-edge">
                 <tr><td className="px-4 py-2.5">雞蛋</td><td className="text-right px-4 py-2.5">1 顆</td><td className="text-right px-4 py-2.5 font-medium">7</td></tr>
-                <tr><td className="px-4 py-2.5">雞胸肉</td><td className="text-right px-4 py-2.5">100g</td><td className="text-right px-4 py-2.5 font-medium">31</td></tr>
+                <tr><td className="px-4 py-2.5">雞胸肉</td><td className="text-right px-4 py-2.5">100g</td><td className="text-right px-4 py-2.5 font-medium">23</td></tr>
                 <tr><td className="px-4 py-2.5">鮭魚</td><td className="text-right px-4 py-2.5">100g</td><td className="text-right px-4 py-2.5 font-medium">20</td></tr>
                 <tr><td className="px-4 py-2.5">豆腐（板豆腐）</td><td className="text-right px-4 py-2.5">1 盒</td><td className="text-right px-4 py-2.5 font-medium">8-15</td></tr>
                 <tr><td className="px-4 py-2.5">無糖豆漿</td><td className="text-right px-4 py-2.5">1 杯（260ml）</td><td className="text-right px-4 py-2.5 font-medium">7</td></tr>
