@@ -23,9 +23,9 @@ const GOAL_OPTIONS: {
   min: number;
   max: number;
 }[] = [
-  { value: "maintain", label: "維持健康", desc: "一般日常活動", min: 1.0, max: 1.2 },
-  { value: "fat-loss", label: "減脂增肌", desc: "想瘦身、同時保住肌肉", min: 1.2, max: 1.6 },
-  { value: "intense", label: "高強度訓練", desc: "重訓或高強度運動每週 4 次以上", min: 1.6, max: 2.0 },
+  { value: "maintain", label: "維持健康", desc: "一般日常活動，沒有特別運動", min: 1.0, max: 1.2 },
+  { value: "fat-loss", label: "想瘦身", desc: "想減脂、同時不要掉肌肉", min: 1.2, max: 1.6 },
+  { value: "intense", label: "有在重訓", desc: "每週運動 4 次以上", min: 1.6, max: 2.0 },
 ];
 
 const BREAKFAST_OPTIONS: { value: BreakfastType; label: string; sub?: string }[] = [
@@ -56,6 +56,28 @@ const FOOD_OPTIONS: { value: FoodType; label: string }[] = [
   { value: "lacto-ovo", label: "蛋奶素" },
   { value: "vegan", label: "全素" },
 ];
+
+// 每種餐類型的估算蛋白質（克）
+const BREAKFAST_PROTEIN: Record<BreakfastType, { g: number; desc: string }> = {
+  skip: { g: 0, desc: "不吃早餐" },
+  convenience: { g: 12, desc: "超商飯糰 + 茶葉蛋" },
+  "breakfast-shop": { g: 10, desc: "早餐店蛋餅或漢堡" },
+  "bread-coffee": { g: 5, desc: "麵包 + 咖啡" },
+  home: { g: 15, desc: "自己做（蛋 + 豆漿）" },
+};
+const LUNCH_PROTEIN: Record<LunchType, { g: number; desc: string }> = {
+  skip: { g: 0, desc: "不吃午餐" },
+  bento: { g: 22, desc: "便當" },
+  buffet: { g: 25, desc: "自助餐" },
+  noodle: { g: 15, desc: "麵店或小吃" },
+  home: { g: 25, desc: "自己煮" },
+};
+const DINNER_PROTEIN: Record<DinnerType, { g: number; desc: string }> = {
+  skip: { g: 0, desc: "不吃晚餐" },
+  "bento-buffet": { g: 22, desc: "便當或自助餐" },
+  "noodle-hotpot": { g: 18, desc: "麵店或火鍋" },
+  home: { g: 25, desc: "自己煮" },
+};
 
 const SUPABASE_URL = "https://fnlkhxnfaylhqhystmbr.supabase.co";
 const SUPABASE_ANON_KEY =
@@ -99,9 +121,16 @@ function OptionButton({
   );
 }
 
+// 下拉選單選項
+const AGE_OPTIONS = Array.from({ length: 51 }, (_, i) => i + 20); // 20-70
+const HEIGHT_OPTIONS = Array.from({ length: 51 }, (_, i) => i + 140); // 140-190
+const WEIGHT_OPTIONS = Array.from({ length: 81 }, (_, i) => i + 40); // 40-120
+
 export default function ProteinPage() {
-  // Step 1: 體重 + 目標
-  const [weight, setWeight] = useState("");
+  // Step 1: 基本資料 + 目標
+  const [age, setAge] = useState(40);
+  const [height, setHeight] = useState(160);
+  const [weight, setWeight] = useState(60);
   const [goal, setGoal] = useState<Goal>("fat-loss");
   const [error, setError] = useState("");
 
@@ -111,6 +140,8 @@ export default function ProteinPage() {
     maxG: number;
     avgG: number;
     eggs: number;
+    bmi: number;
+    ageNote: string | null;
   } | null>(null);
 
   // Step 2: 每餐選擇 + 葷素
@@ -132,28 +163,32 @@ export default function ProteinPage() {
 
   // Step 1: 計算基本結果
   const handleCalc = () => {
-    const w = parseFloat(weight);
-    if (!w || w <= 0) {
-      setError("請輸入體重");
-      return;
-    }
-    if (w < 30 || w > 300) {
-      setError("體重請輸入 30-300 公斤之間");
-      return;
-    }
     setError("");
 
+    const w = weight;
+    const h = height / 100; // cm → m
+    const bmi = Math.round((w / (h * h)) * 10) / 10;
+
     const opt = GOAL_OPTIONS.find((o) => o.value === goal)!;
-    const minG = Math.round(w * opt.min);
-    const maxG = Math.round(w * opt.max);
+    // 40 歲以上肌肉流失加速，蛋白質建議量上調 10%
+    const ageMultiplier = age >= 40 ? 1.1 : 1.0;
+    const minG = Math.round(w * opt.min * ageMultiplier);
+    const maxG = Math.round(w * opt.max * ageMultiplier);
     const avgG = Math.round((minG + maxG) / 2);
     const eggs = Math.round(avgG / 7);
 
-    setBasicResult({ minG, maxG, avgG, eggs });
+    let ageNote: string | null = null;
+    if (age >= 50) {
+      ageNote = "50 歲以後肌肉流失速度加快，蛋白質需求比年輕時多 10-20%，你的建議量已經幫你調高了。";
+    } else if (age >= 40) {
+      ageNote = "40 歲以後肌肉每年流失 1-2%，代謝跟著慢下來。你的建議量已經幫你往上調了。";
+    }
+
+    setBasicResult({ minG, maxG, avgG, eggs, bmi, ageNote });
     setShowAdvanced(false);
     setClaimCode(null);
 
-    track("protein_calculate", { goal });
+    track("protein_calculate", { goal, age: String(age), height: String(height) });
 
     setTimeout(() => {
       document
@@ -186,7 +221,9 @@ export default function ProteinPage() {
 
     const payload = {
       id: sessionId,
-      weight: parseFloat(weight),
+      age,
+      height,
+      weight,
       goal,
       diet_type: derivedDietType,
       meal_count: derivedMealCount,
@@ -304,19 +341,44 @@ export default function ProteinPage() {
           輸入體重和目標，算出你每天需要多少蛋白質，以及怎麼用日常食物達標。
         </p>
 
-        {/* ==================== Step 1: 體重 + 目標 ==================== */}
+        {/* ==================== Step 1: 基本資料 + 目標 ==================== */}
         <div className="rounded-2xl border border-edge bg-white p-6 space-y-6">
-          <div>
-            <label className="block text-sm font-bold mb-2">體重</label>
-            <div className="max-w-[200px]">
-              <input
-                type="number"
-                placeholder="65"
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-bold mb-2">年齡</label>
+              <select
+                value={age}
+                onChange={(e) => setAge(Number(e.target.value))}
+                className="w-full px-2 py-3 rounded-xl border border-edge text-center text-lg focus:outline-none focus:border-brand transition-colors appearance-none bg-white"
+              >
+                {AGE_OPTIONS.map((v) => (
+                  <option key={v} value={v}>{v} 歲</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-bold mb-2">身高</label>
+              <select
+                value={height}
+                onChange={(e) => setHeight(Number(e.target.value))}
+                className="w-full px-2 py-3 rounded-xl border border-edge text-center text-lg focus:outline-none focus:border-brand transition-colors appearance-none bg-white"
+              >
+                {HEIGHT_OPTIONS.map((v) => (
+                  <option key={v} value={v}>{v} cm</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-bold mb-2">體重</label>
+              <select
                 value={weight}
-                onChange={(e) => setWeight(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-edge text-center text-lg focus:outline-none focus:border-brand transition-colors"
-              />
-              <p className="text-xs text-muted text-center mt-1">公斤</p>
+                onChange={(e) => setWeight(Number(e.target.value))}
+                className="w-full px-2 py-3 rounded-xl border border-edge text-center text-lg focus:outline-none focus:border-brand transition-colors appearance-none bg-white"
+              >
+                {WEIGHT_OPTIONS.map((v) => (
+                  <option key={v} value={v}>{v} kg</option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -329,7 +391,7 @@ export default function ProteinPage() {
                   selected={goal === opt.value}
                   onClick={() => setGoal(opt.value)}
                   label={opt.label}
-                  sub={`${opt.desc}（${opt.min}-${opt.max}g/kg）`}
+                  sub={opt.desc}
                 />
               ))}
             </div>
@@ -343,7 +405,7 @@ export default function ProteinPage() {
             onClick={handleCalc}
             className="w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
           >
-            計算
+            看看我差多少 →
           </button>
         </div>
 
@@ -353,7 +415,7 @@ export default function ProteinPage() {
             <div className="rounded-2xl border border-edge bg-white p-6">
               <p className="text-sm text-muted mb-4">你的計算結果</p>
 
-              <div className="text-center p-5 rounded-xl bg-surface-green mb-6">
+              <div className="text-center p-5 rounded-xl bg-surface-green mb-4">
                 <p className="text-xs text-brand mb-1">每日蛋白質建議</p>
                 <p className="text-3xl font-bold text-brand">
                   {basicResult.minG} - {basicResult.maxG}
@@ -365,6 +427,21 @@ export default function ProteinPage() {
                   大約等於 {basicResult.eggs} 顆雞蛋的量
                 </p>
               </div>
+
+              {/* BMI + 分齡提醒 */}
+              <div className="flex items-center justify-center gap-4 mb-4 text-sm text-subtle">
+                <span>BMI <strong className="text-ink">{basicResult.bmi}</strong></span>
+                <span className="text-edge">|</span>
+                <span>{basicResult.bmi < 18.5 ? "偏輕" : basicResult.bmi < 24 ? "正常範圍" : basicResult.bmi < 27 ? "微超標" : "偏高"}</span>
+              </div>
+
+              {basicResult.ageNote && (
+                <div className="p-4 rounded-xl bg-[#fff8f0] border border-[#f0e0c8] mb-4">
+                  <p className="text-sm text-ink leading-relaxed">
+                    ⚡ {basicResult.ageNote}
+                  </p>
+                </div>
+              )}
 
               {/* The Gap */}
               <div className="p-5 rounded-xl bg-[#fef9f3] border border-[#f0e6d8] space-y-3">
@@ -401,11 +478,11 @@ export default function ProteinPage() {
                 </p>
 
                 <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
-                  <p className="text-xs text-brand font-semibold mb-2">你會拿到：</p>
+                  <p className="text-xs text-brand font-semibold mb-2">你會知道：</p>
                   <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 你目前每天吃到多少蛋白質（用你的飲食習慣算）</li>
-                    <li>✅ 最簡單的一步改變（不用大改，先改一餐）</li>
-                    <li>✅ 改良後的一整天搭配範例</li>
+                    <li>✅ 你現在每餐差多少（大部分人差 30-50%，自己不知道）</li>
+                    <li>✅ 最容易改的那一餐是哪一餐（不用全改，改一餐就有感）</li>
+                    <li>✅ 改完長什麼樣（不用自己想，照著吃就好）</li>
                   </ul>
                 </div>
 
@@ -519,45 +596,108 @@ export default function ProteinPage() {
 
             {/* ==================== LINE 領取區 ==================== */}
             {claimCode && (
-              <div
-                id="claim-section"
-                className="rounded-2xl border-2 border-line-green bg-white p-6 text-center scroll-mt-20"
-              >
-                <p className="text-lg font-bold text-ink mb-2">
-                  你的蛋白質診斷報告已產生！
-                </p>
-                <p className="text-sm text-subtle mb-5">
-                  加入一休的 LINE，一鍵領取你的個人化攻略
-                </p>
+              <div id="claim-section" className="space-y-6 scroll-mt-20">
+                <div className="relative rounded-2xl border border-edge bg-white overflow-hidden">
+                  {/* 診斷預覽（根據她選的三餐動態計算） */}
+                  <div className="p-6 pb-0">
+                    <p className="text-sm font-bold text-brand mb-3">💡 根據你選的三餐：</p>
+                    {(() => {
+                      const bp = BREAKFAST_PROTEIN[breakfastType];
+                      const lp = LUNCH_PROTEIN[lunchType];
+                      const dp = DINNER_PROTEIN[dinnerType];
+                      const currentTotal = bp.g + lp.g + dp.g;
+                      const target = basicResult!.avgG;
+                      const gap = target - currentTotal;
+                      const gapPct = Math.round((gap / target) * 100);
+                      // 找最低的那餐（排除 skip）
+                      const meals = [
+                        { name: "早餐", g: bp.g, desc: bp.desc, type: breakfastType },
+                        { name: "午餐", g: lp.g, desc: lp.desc, type: lunchType },
+                        { name: "晚餐", g: dp.g, desc: dp.desc, type: dinnerType },
+                      ].filter((m) => m.type !== "skip");
+                      const weakest = meals.length > 0 ? meals.reduce((a, b) => (a.g < b.g ? a : b)) : null;
 
-                <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
-                  <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 根據你選的三餐，診斷你目前吃到多少蛋白質</li>
-                    <li>✅ 找出你最容易改善的那一餐</li>
-                    <li>✅ 給你改良後的{activeMeals === 2 ? "兩" : "三"}餐搭配</li>
-                  </ul>
+                      return (
+                        <div className="space-y-2 text-[15px] text-ink">
+                          <p>
+                            你目前每天大約吃到 <strong>{currentTotal}g</strong> 蛋白質
+                          </p>
+                          <p>
+                            你的建議量是 <strong className="text-brand">{basicResult!.minG}-{basicResult!.maxG}g</strong>，
+                            {gap > 0
+                              ? <>你差了大約 <strong>{gap}g</strong>（差 {gapPct}%）</>
+                              : <span className="text-brand">你已經達標了！</span>}
+                          </p>
+                          {weakest && gap > 0 && (
+                            <p className="font-medium">
+                              缺口主要在{weakest.name}——{weakest.desc}只有 {weakest.g}g
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </div>
+
+                  {/* 模糊的部分（個人化建議預覽） */}
+                  <div
+                    className="px-6 pt-4 pb-44"
+                    style={{ filter: "blur(4px)", pointerEvents: "none", userSelect: "none" }}
+                  >
+                    <div className="space-y-3 text-[15px] text-subtle">
+                      <p>
+                        {(() => {
+                          const meals = [
+                            { name: "早餐", g: BREAKFAST_PROTEIN[breakfastType].g, type: breakfastType },
+                            { name: "午餐", g: LUNCH_PROTEIN[lunchType].g, type: lunchType },
+                            { name: "晚餐", g: DINNER_PROTEIN[dinnerType].g, type: dinnerType },
+                          ].filter((m) => m.type !== "skip");
+                          const weakest = meals.length > 0 ? meals.reduce((a, b) => (a.g < b.g ? a : b)) : null;
+                          return weakest
+                            ? `最容易改的是${weakest.name}。${weakest.name === "早餐" ? "超商其實有很多高蛋白選擇，像是希臘優格 + 茶葉蛋，一餐就能到 20g 以上。" : weakest.name === "午餐" ? "便當多加一顆滷蛋或換成有雞腿的主菜，一餐就能多 15g。" : "自己煮的話加一塊板豆腐或多一份肉，輕鬆補上缺口。"}改完之後你的一天蛋白質攝取會變成……完整的三餐搭配範例和食物替換建議在報告裡。`
+                            : "你的三餐搭配建議和食物替換表在報告裡。";
+                        })()}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Overlay CTA */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white from-60% to-white/0 p-6 pt-10 flex flex-col items-center">
+                    <p className="text-[15px] font-semibold text-ink mb-1">你的個人化蛋白質攻略已準備好</p>
+                    <p className="text-sm text-brand mb-3">在 LINE 領取三餐搭配 + 缺口診斷 👇</p>
+                    <a
+                      href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
+                      className="w-full max-w-sm py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-lg transition-shadow text-base text-center block"
+                      onClick={() =>
+                        track("click_line_protein", {
+                          code: claimCode,
+                          goal,
+                          breakfast: breakfastType,
+                          lunch: lunchType,
+                          dinner: dinnerType,
+                        })
+                      }
+                    >
+                      一鍵開啟 LINE 領取 →
+                    </a>
+                    <div className="mt-3 space-y-1 text-center">
+                      <p className="text-xs text-muted">
+                        或手動複製代碼：
+                        <button
+                          onClick={(e) => {
+                            navigator.clipboard?.writeText(claimCode);
+                            const btn = e.currentTarget;
+                            btn.textContent = "已複製！";
+                            setTimeout(() => { btn.textContent = claimCode + " 📋"; }, 1500);
+                          }}
+                          className="ml-2 font-bold text-brand text-sm tracking-widest bg-surface-green border border-dashed border-brand rounded-lg px-3 py-1 cursor-pointer"
+                        >
+                          {claimCode} 📋
+                        </button>
+                      </p>
+                      <p className="text-xs text-muted">代碼 24 小時內有效</p>
+                    </div>
+                  </div>
                 </div>
-
-                <a
-                  href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
-                  className="inline-flex items-center justify-center w-full py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-lg transition-shadow text-base gap-2"
-                  onClick={() =>
-                    track("click_line_protein", {
-                      code: claimCode,
-                      goal,
-                      breakfast: breakfastType,
-                      lunch: lunchType,
-                      dinner: dinnerType,
-                    })
-                  }
-                >
-                  一鍵開啟 LINE 領取 →
-                </a>
-
-                <p className="text-xs text-muted mt-3 leading-relaxed">
-                  點擊後會開啟 LINE，聊天框會自動帶入你的專屬代碼<br />
-                  按「送出」就能領取你的個人化攻略
-                </p>
               </div>
             )}
 

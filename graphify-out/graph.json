@@ -1,0 +1,1562 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "next-env.d.ts",
+      "file_type": "code",
+      "source_file": "next-env.d.ts",
+      "source_location": "L1",
+      "id": "next_env_d",
+      "community": 10
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L1",
+      "id": "next_config",
+      "community": 11
+    },
+    {
+      "label": "sticky-line-cta.tsx",
+      "file_type": "code",
+      "source_file": "src/app/sticky-line-cta.tsx",
+      "source_location": "L1",
+      "id": "sticky_line_cta",
+      "community": 7
+    },
+    {
+      "label": "StickyLineCTA()",
+      "file_type": "code",
+      "source_file": "src/app/sticky-line-cta.tsx",
+      "source_location": "L11",
+      "id": "sticky_line_cta_stickylinecta",
+      "community": 7
+    },
+    {
+      "label": "sitemap.ts",
+      "file_type": "code",
+      "source_file": "src/app/sitemap.ts",
+      "source_location": "L1",
+      "id": "sitemap",
+      "community": 2
+    },
+    {
+      "label": "sitemap()",
+      "file_type": "code",
+      "source_file": "src/app/sitemap.ts",
+      "source_location": "L15",
+      "id": "sitemap_sitemap",
+      "community": 2
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "src/app/method/layout.tsx",
+      "source_location": "L1",
+      "id": "layout",
+      "community": 1
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L66",
+      "id": "layout_rootlayout",
+      "community": 1
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L101",
+      "id": "layout_footer",
+      "community": 1
+    },
+    {
+      "label": "returning-visitor.tsx",
+      "file_type": "code",
+      "source_file": "src/app/returning-visitor.tsx",
+      "source_location": "L1",
+      "id": "returning_visitor",
+      "community": 8
+    },
+    {
+      "label": "ReturningVisitorBanner()",
+      "file_type": "code",
+      "source_file": "src/app/returning-visitor.tsx",
+      "source_location": "L47",
+      "id": "returning_visitor_returningvisitorbanner",
+      "community": 8
+    },
+    {
+      "label": "header.tsx",
+      "file_type": "code",
+      "source_file": "src/app/header.tsx",
+      "source_location": "L1",
+      "id": "header",
+      "community": 1
+    },
+    {
+      "label": "Header()",
+      "file_type": "code",
+      "source_file": "src/app/header.tsx",
+      "source_location": "L6",
+      "id": "header_header",
+      "community": 1
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/method/page.tsx",
+      "source_location": "L1",
+      "id": "page",
+      "community": 0
+    },
+    {
+      "label": "not-found.tsx",
+      "file_type": "code",
+      "source_file": "src/app/not-found.tsx",
+      "source_location": "L1",
+      "id": "not_found",
+      "community": 9
+    },
+    {
+      "label": "NotFound()",
+      "file_type": "code",
+      "source_file": "src/app/not-found.tsx",
+      "source_location": "L3",
+      "id": "not_found_notfound",
+      "community": 9
+    },
+    {
+      "label": "GuidePage()",
+      "file_type": "code",
+      "source_file": "src/app/guide/page.tsx",
+      "source_location": "L23",
+      "id": "page_guidepage",
+      "community": 0
+    },
+    {
+      "label": "ToolsLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/layout.tsx",
+      "source_location": "L1",
+      "id": "layout_toolslayout",
+      "community": 1
+    },
+    {
+      "label": "generateClaimCode()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L20",
+      "id": "page_generateclaimcode",
+      "community": 3
+    },
+    {
+      "label": "generateSessionId()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L26",
+      "id": "page_generatesessionid",
+      "community": 3
+    },
+    {
+      "label": "calcBMR()",
+      "file_type": "code",
+      "source_file": "src/app/tools/page.tsx",
+      "source_location": "L78",
+      "id": "page_calcbmr",
+      "community": 4
+    },
+    {
+      "label": "getProteinRange()",
+      "file_type": "code",
+      "source_file": "src/app/tools/page.tsx",
+      "source_location": "L90",
+      "id": "page_getproteinrange",
+      "community": 4
+    },
+    {
+      "label": "track()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L284",
+      "id": "page_track",
+      "community": 3
+    },
+    {
+      "label": "handleCalc()",
+      "file_type": "code",
+      "source_file": "src/app/tools/waist-hip/page.tsx",
+      "source_location": "L69",
+      "id": "page_handlecalc",
+      "community": 4
+    },
+    {
+      "label": "handleGetReport()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L322",
+      "id": "page_handlegetreport",
+      "community": 3
+    },
+    {
+      "label": "SugarLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/sugar/layout.tsx",
+      "source_location": "L17",
+      "id": "layout_sugarlayout",
+      "community": 1
+    },
+    {
+      "label": "calcSugarLimit()",
+      "file_type": "code",
+      "source_file": "src/app/tools/sugar/page.tsx",
+      "source_location": "L32",
+      "id": "page_calcsugarlimit",
+      "community": 4
+    },
+    {
+      "label": "OptionButton()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L241",
+      "id": "page_optionbutton",
+      "community": 0
+    },
+    {
+      "label": "ProteinLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/protein/layout.tsx",
+      "source_location": "L16",
+      "id": "layout_proteinlayout",
+      "community": 1
+    },
+    {
+      "label": "handleGetStrategy()",
+      "file_type": "code",
+      "source_file": "src/app/tools/protein/page.tsx",
+      "source_location": "L179",
+      "id": "page_handlegetstrategy",
+      "community": 3
+    },
+    {
+      "label": "WaistHipLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/waist-hip/layout.tsx",
+      "source_location": "L16",
+      "id": "layout_waisthiplayout",
+      "community": 1
+    },
+    {
+      "label": "getRiskLevel()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L120",
+      "id": "page_getrisklevel",
+      "community": 3
+    },
+    {
+      "label": "InsulinCheckLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/insulin-check/layout.tsx",
+      "source_location": "L16",
+      "id": "layout_insulinchecklayout",
+      "community": 1
+    },
+    {
+      "label": "InsulinCheckRedirect()",
+      "file_type": "code",
+      "source_file": "src/app/tools/insulin-check/page.tsx",
+      "source_location": "L3",
+      "id": "page_insulincheckredirect",
+      "community": 0
+    },
+    {
+      "label": "BloodSugarLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/blood-sugar/layout.tsx",
+      "source_location": "L17",
+      "id": "layout_bloodsugarlayout",
+      "community": 1
+    },
+    {
+      "label": "toggleSymptom()",
+      "file_type": "code",
+      "source_file": "src/app/tools/blood-sugar/page.tsx",
+      "source_location": "L130",
+      "id": "page_togglesymptom",
+      "community": 0
+    },
+    {
+      "label": "handleCheck()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L300",
+      "id": "page_handlecheck",
+      "community": 3
+    },
+    {
+      "label": "FattyLiverLayout()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/layout.tsx",
+      "source_location": "L17",
+      "id": "layout_fattyliverlayout",
+      "community": 1
+    },
+    {
+      "label": "buildTheGap()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L209",
+      "id": "page_buildthegap",
+      "community": 0
+    },
+    {
+      "label": "selectAnswer()",
+      "file_type": "code",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L290",
+      "id": "page_selectanswer",
+      "community": 0
+    },
+    {
+      "label": "TypesPage()",
+      "file_type": "code",
+      "source_file": "src/app/types/page.tsx",
+      "source_location": "L12",
+      "id": "page_typespage",
+      "community": 0
+    },
+    {
+      "label": "generateStaticParams()",
+      "file_type": "code",
+      "source_file": "src/app/concepts/[slug]/page.tsx",
+      "source_location": "L12",
+      "id": "page_generatestaticparams",
+      "community": 0
+    },
+    {
+      "label": "generateMetadata()",
+      "file_type": "code",
+      "source_file": "src/app/concepts/[slug]/page.tsx",
+      "source_location": "L16",
+      "id": "page_generatemetadata",
+      "community": 0
+    },
+    {
+      "label": "PlansPage()",
+      "file_type": "code",
+      "source_file": "src/app/plans/page.tsx",
+      "source_location": "L11",
+      "id": "page_planspage",
+      "community": 0
+    },
+    {
+      "label": "FaqLayout()",
+      "file_type": "code",
+      "source_file": "src/app/faq/layout.tsx",
+      "source_location": "L25",
+      "id": "layout_faqlayout",
+      "community": 1
+    },
+    {
+      "label": "ArticlesLayout()",
+      "file_type": "code",
+      "source_file": "src/app/articles/layout.tsx",
+      "source_location": "L9",
+      "id": "layout_articleslayout",
+      "community": 1
+    },
+    {
+      "label": "handleCategoryClick()",
+      "file_type": "code",
+      "source_file": "src/app/articles/page.tsx",
+      "source_location": "L51",
+      "id": "page_handlecategoryclick",
+      "community": 0
+    },
+    {
+      "label": "handleTagClick()",
+      "file_type": "code",
+      "source_file": "src/app/articles/page.tsx",
+      "source_location": "L57",
+      "id": "page_handletagclick",
+      "community": 0
+    },
+    {
+      "label": "AboutPage()",
+      "file_type": "code",
+      "source_file": "src/app/about/page.tsx",
+      "source_location": "L12",
+      "id": "page_aboutpage",
+      "community": 0
+    },
+    {
+      "label": "SedentaryPage()",
+      "file_type": "code",
+      "source_file": "src/app/for/sedentary/page.tsx",
+      "source_location": "L11",
+      "id": "page_sedentarypage",
+      "community": 0
+    },
+    {
+      "label": "HealthCheckPage()",
+      "file_type": "code",
+      "source_file": "src/app/for/health-check/page.tsx",
+      "source_location": "L11",
+      "id": "page_healthcheckpage",
+      "community": 0
+    },
+    {
+      "label": "PostpartumPage()",
+      "file_type": "code",
+      "source_file": "src/app/for/postpartum/page.tsx",
+      "source_location": "L11",
+      "id": "page_postpartumpage",
+      "community": 0
+    },
+    {
+      "label": "AsuanPage()",
+      "file_type": "code",
+      "source_file": "src/app/asuan/page.tsx",
+      "source_location": "L10",
+      "id": "page_asuanpage",
+      "community": 0
+    },
+    {
+      "label": "MethodLayout()",
+      "file_type": "code",
+      "source_file": "src/app/method/layout.tsx",
+      "source_location": "L9",
+      "id": "layout_methodlayout",
+      "community": 1
+    },
+    {
+      "label": "MethodFaqItem()",
+      "file_type": "code",
+      "source_file": "src/app/method/page.tsx",
+      "source_location": "L7",
+      "id": "page_methodfaqitem",
+      "community": 0
+    },
+    {
+      "label": "MethodPage()",
+      "file_type": "code",
+      "source_file": "src/app/method/page.tsx",
+      "source_location": "L27",
+      "id": "page_methodpage",
+      "community": 0
+    },
+    {
+      "label": "concepts-data.ts",
+      "file_type": "code",
+      "source_file": "src/lib/concepts-data.ts",
+      "source_location": "L1",
+      "id": "concepts_data",
+      "community": 2
+    },
+    {
+      "label": "getConceptBySlug()",
+      "file_type": "code",
+      "source_file": "src/lib/concepts-data.ts",
+      "source_location": "L386",
+      "id": "concepts_data_getconceptbyslug",
+      "community": 2
+    },
+    {
+      "label": "getAllConceptSlugs()",
+      "file_type": "code",
+      "source_file": "src/lib/concepts-data.ts",
+      "source_location": "L390",
+      "id": "concepts_data_getallconceptslugs",
+      "community": 2
+    },
+    {
+      "label": "markdown.ts",
+      "file_type": "code",
+      "source_file": "src/lib/markdown.ts",
+      "source_location": "L1",
+      "id": "markdown",
+      "community": 5
+    },
+    {
+      "label": "getArticleContent()",
+      "file_type": "code",
+      "source_file": "src/lib/markdown.ts",
+      "source_location": "L23",
+      "id": "markdown_getarticlecontent",
+      "community": 5
+    },
+    {
+      "label": "injectMidArticleCta()",
+      "file_type": "code",
+      "source_file": "src/lib/markdown.ts",
+      "source_location": "L125",
+      "id": "markdown_injectmidarticlecta",
+      "community": 5
+    },
+    {
+      "label": "types-data.ts",
+      "file_type": "code",
+      "source_file": "src/lib/types-data.ts",
+      "source_location": "L1",
+      "id": "types_data",
+      "community": 6
+    },
+    {
+      "label": "getTypeBySlug()",
+      "file_type": "code",
+      "source_file": "src/lib/types-data.ts",
+      "source_location": "L192",
+      "id": "types_data_gettypebyslug",
+      "community": 6
+    },
+    {
+      "label": "getAllSlugs()",
+      "file_type": "code",
+      "source_file": "src/lib/types-data.ts",
+      "source_location": "L196",
+      "id": "types_data_getallslugs",
+      "community": 6
+    },
+    {
+      "label": "faq-data.ts",
+      "file_type": "code",
+      "source_file": "src/lib/faq-data.ts",
+      "source_location": "L1",
+      "id": "faq_data",
+      "community": 1
+    },
+    {
+      "label": "articles-data.ts",
+      "file_type": "code",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L1",
+      "id": "articles_data",
+      "community": 2
+    },
+    {
+      "label": "getArticleBySlug()",
+      "file_type": "code",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L657",
+      "id": "articles_data_getarticlebyslug",
+      "community": 2
+    },
+    {
+      "label": "getAllArticleSlugs()",
+      "file_type": "code",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L661",
+      "id": "articles_data_getallarticleslugs",
+      "community": 2
+    },
+    {
+      "label": "getArticlesByTag()",
+      "file_type": "code",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L665",
+      "id": "articles_data_getarticlesbytag",
+      "community": 2
+    },
+    {
+      "label": "getAllTags()",
+      "file_type": "code",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L669",
+      "id": "articles_data_getalltags",
+      "community": 2
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/sticky-line-cta.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "sticky_line_cta",
+      "_tgt": "sticky_line_cta_stickylinecta",
+      "source": "sticky_line_cta",
+      "target": "sticky_line_cta_stickylinecta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/method/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "sticky_line_cta",
+      "source": "sticky_line_cta",
+      "target": "page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/sitemap.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_src": "sitemap",
+      "_tgt": "articles_data",
+      "source": "sitemap",
+      "target": "articles_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/sitemap.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "sitemap",
+      "_tgt": "concepts_data",
+      "source": "sitemap",
+      "target": "concepts_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/sitemap.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "sitemap",
+      "_tgt": "sitemap_sitemap",
+      "source": "sitemap",
+      "target": "sitemap_sitemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "header",
+      "source": "layout",
+      "target": "header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_rootlayout",
+      "source": "layout",
+      "target": "layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_footer",
+      "source": "layout",
+      "target": "layout_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/layout.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_toolslayout",
+      "source": "layout",
+      "target": "layout_toolslayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/sugar/layout.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_sugarlayout",
+      "source": "layout",
+      "target": "layout_sugarlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/protein/layout.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_proteinlayout",
+      "source": "layout",
+      "target": "layout_proteinlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/waist-hip/layout.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_waisthiplayout",
+      "source": "layout",
+      "target": "layout_waisthiplayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/insulin-check/layout.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_insulinchecklayout",
+      "source": "layout",
+      "target": "layout_insulinchecklayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/blood-sugar/layout.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_bloodsugarlayout",
+      "source": "layout",
+      "target": "layout_bloodsugarlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/layout.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_fattyliverlayout",
+      "source": "layout",
+      "target": "layout_fattyliverlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/faq/layout.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "faq_data",
+      "source": "layout",
+      "target": "faq_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/faq/layout.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_faqlayout",
+      "source": "layout",
+      "target": "layout_faqlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/articles/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_articleslayout",
+      "source": "layout",
+      "target": "layout_articleslayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/method/layout.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "layout",
+      "_tgt": "layout_methodlayout",
+      "source": "layout",
+      "target": "layout_methodlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/returning-visitor.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_src": "returning_visitor",
+      "_tgt": "returning_visitor_returningvisitorbanner",
+      "source": "returning_visitor",
+      "target": "returning_visitor_returningvisitorbanner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "returning_visitor",
+      "source": "returning_visitor",
+      "target": "page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/header.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "header",
+      "_tgt": "header_header",
+      "source": "header",
+      "target": "header_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/guide/page.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_guidepage",
+      "source": "page",
+      "target": "page_guidepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_generateclaimcode",
+      "source": "page",
+      "target": "page_generateclaimcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_generatesessionid",
+      "source": "page",
+      "target": "page_generatesessionid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/page.tsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_calcbmr",
+      "source": "page",
+      "target": "page_calcbmr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/page.tsx",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_getproteinrange",
+      "source": "page",
+      "target": "page_getproteinrange",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L284",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_track",
+      "source": "page",
+      "target": "page_track",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/waist-hip/page.tsx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_handlecalc",
+      "source": "page",
+      "target": "page_handlecalc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L322",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_handlegetreport",
+      "source": "page",
+      "target": "page_handlegetreport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/sugar/page.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_calcsugarlimit",
+      "source": "page",
+      "target": "page_calcsugarlimit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L241",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_optionbutton",
+      "source": "page",
+      "target": "page_optionbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/protein/page.tsx",
+      "source_location": "L179",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_handlegetstrategy",
+      "source": "page",
+      "target": "page_handlegetstrategy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L120",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_getrisklevel",
+      "source": "page",
+      "target": "page_getrisklevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/insulin-check/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_insulincheckredirect",
+      "source": "page",
+      "target": "page_insulincheckredirect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/blood-sugar/page.tsx",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_togglesymptom",
+      "source": "page",
+      "target": "page_togglesymptom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L300",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_handlecheck",
+      "source": "page",
+      "target": "page_handlecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L209",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_buildthegap",
+      "source": "page",
+      "target": "page_buildthegap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L290",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_selectanswer",
+      "source": "page",
+      "target": "page_selectanswer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/types/[slug]/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "types_data",
+      "source": "page",
+      "target": "types_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/types/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_typespage",
+      "source": "page",
+      "target": "page_typespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/concepts/[slug]/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_generatestaticparams",
+      "source": "page",
+      "target": "page_generatestaticparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/concepts/[slug]/page.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_generatemetadata",
+      "source": "page",
+      "target": "page_generatemetadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/plans/page.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_planspage",
+      "source": "page",
+      "target": "page_planspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/faq/page.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "faq_data",
+      "source": "page",
+      "target": "faq_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/concepts/[slug]/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "articles_data",
+      "source": "page",
+      "target": "articles_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/articles/page.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_handlecategoryclick",
+      "source": "page",
+      "target": "page_handlecategoryclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/articles/page.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_handletagclick",
+      "source": "page",
+      "target": "page_handletagclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/articles/[slug]/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "markdown",
+      "source": "page",
+      "target": "markdown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/about/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_aboutpage",
+      "source": "page",
+      "target": "page_aboutpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/concepts/[slug]/page.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "concepts_data",
+      "source": "page",
+      "target": "concepts_data",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/for/sedentary/page.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_sedentarypage",
+      "source": "page",
+      "target": "page_sedentarypage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/for/health-check/page.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_healthcheckpage",
+      "source": "page",
+      "target": "page_healthcheckpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/for/postpartum/page.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_postpartumpage",
+      "source": "page",
+      "target": "page_postpartumpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/asuan/page.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_asuanpage",
+      "source": "page",
+      "target": "page_asuanpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/method/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_methodfaqitem",
+      "source": "page",
+      "target": "page_methodfaqitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/method/page.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "page",
+      "_tgt": "page_methodpage",
+      "source": "page",
+      "target": "page_methodpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/not-found.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "not_found",
+      "_tgt": "not_found_notfound",
+      "source": "not_found",
+      "target": "not_found_notfound",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L326",
+      "weight": 0.8,
+      "_src": "page_handlegetreport",
+      "_tgt": "page_generateclaimcode",
+      "source": "page_generateclaimcode",
+      "target": "page_handlegetreport",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/protein/page.tsx",
+      "source_location": "L197",
+      "weight": 0.8,
+      "_src": "page_handlegetstrategy",
+      "_tgt": "page_generateclaimcode",
+      "source": "page_generateclaimcode",
+      "target": "page_handlegetstrategy",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L327",
+      "weight": 0.8,
+      "_src": "page_handlegetreport",
+      "_tgt": "page_generatesessionid",
+      "source": "page_generatesessionid",
+      "target": "page_handlegetreport",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/protein/page.tsx",
+      "source_location": "L198",
+      "weight": 0.8,
+      "_src": "page_handlegetstrategy",
+      "_tgt": "page_generatesessionid",
+      "source": "page_generatesessionid",
+      "target": "page_handlegetstrategy",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/page.tsx",
+      "source_location": "L163",
+      "weight": 0.8,
+      "_src": "page_handlecalc",
+      "_tgt": "page_calcbmr",
+      "source": "page_calcbmr",
+      "target": "page_handlecalc",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/page.tsx",
+      "source_location": "L166",
+      "weight": 0.8,
+      "_src": "page_handlecalc",
+      "_tgt": "page_getproteinrange",
+      "source": "page_getproteinrange",
+      "target": "page_handlecalc",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/protein/page.tsx",
+      "source_location": "L169",
+      "weight": 0.8,
+      "_src": "page_handlecalc",
+      "_tgt": "page_track",
+      "source": "page_track",
+      "target": "page_handlecalc",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L360",
+      "weight": 0.8,
+      "_src": "page_handlegetreport",
+      "_tgt": "page_track",
+      "source": "page_track",
+      "target": "page_handlegetreport",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/protein/page.tsx",
+      "source_location": "L230",
+      "weight": 0.8,
+      "_src": "page_handlegetstrategy",
+      "_tgt": "page_track",
+      "source": "page_track",
+      "target": "page_handlegetstrategy",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L312",
+      "weight": 0.8,
+      "_src": "page_handlecheck",
+      "_tgt": "page_track",
+      "source": "page_track",
+      "target": "page_handlecheck",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/sugar/page.tsx",
+      "source_location": "L156",
+      "weight": 0.8,
+      "_src": "page_handlecalc",
+      "_tgt": "page_calcsugarlimit",
+      "source": "page_handlecalc",
+      "target": "page_calcsugarlimit",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/waist-hip/page.tsx",
+      "source_location": "L83",
+      "weight": 0.8,
+      "_src": "page_handlecalc",
+      "_tgt": "page_getrisklevel",
+      "source": "page_handlecalc",
+      "target": "page_getrisklevel",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/app/tools/fatty-liver/page.tsx",
+      "source_location": "L309",
+      "weight": 0.8,
+      "_src": "page_handlecheck",
+      "_tgt": "page_getrisklevel",
+      "source": "page_getrisklevel",
+      "target": "page_handlecheck",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/concepts-data.ts",
+      "source_location": "L386",
+      "weight": 1.0,
+      "_src": "concepts_data",
+      "_tgt": "concepts_data_getconceptbyslug",
+      "source": "concepts_data",
+      "target": "concepts_data_getconceptbyslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/concepts-data.ts",
+      "source_location": "L390",
+      "weight": 1.0,
+      "_src": "concepts_data",
+      "_tgt": "concepts_data_getallconceptslugs",
+      "source": "concepts_data",
+      "target": "concepts_data_getallconceptslugs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/markdown.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_src": "markdown",
+      "_tgt": "markdown_getarticlecontent",
+      "source": "markdown",
+      "target": "markdown_getarticlecontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/markdown.ts",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_src": "markdown",
+      "_tgt": "markdown_injectmidarticlecta",
+      "source": "markdown",
+      "target": "markdown_injectmidarticlecta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "src/lib/markdown.ts",
+      "source_location": "L111",
+      "weight": 0.8,
+      "_src": "markdown_getarticlecontent",
+      "_tgt": "markdown_injectmidarticlecta",
+      "source": "markdown_getarticlecontent",
+      "target": "markdown_injectmidarticlecta",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/types-data.ts",
+      "source_location": "L192",
+      "weight": 1.0,
+      "_src": "types_data",
+      "_tgt": "types_data_gettypebyslug",
+      "source": "types_data",
+      "target": "types_data_gettypebyslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/types-data.ts",
+      "source_location": "L196",
+      "weight": 1.0,
+      "_src": "types_data",
+      "_tgt": "types_data_getallslugs",
+      "source": "types_data",
+      "target": "types_data_getallslugs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L657",
+      "weight": 1.0,
+      "_src": "articles_data",
+      "_tgt": "articles_data_getarticlebyslug",
+      "source": "articles_data",
+      "target": "articles_data_getarticlebyslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L661",
+      "weight": 1.0,
+      "_src": "articles_data",
+      "_tgt": "articles_data_getallarticleslugs",
+      "source": "articles_data",
+      "target": "articles_data_getallarticleslugs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L665",
+      "weight": 1.0,
+      "_src": "articles_data",
+      "_tgt": "articles_data_getarticlesbytag",
+      "source": "articles_data",
+      "target": "articles_data_getarticlesbytag",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/articles-data.ts",
+      "source_location": "L669",
+      "weight": 1.0,
+      "_src": "articles_data",
+      "_tgt": "articles_data_getalltags",
+      "source": "articles_data",
+      "target": "articles_data_getalltags",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}
