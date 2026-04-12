@@ -464,29 +464,35 @@ export default function ProteinPage() {
               </div>
             </div>
 
-            {/* ==================== 進階問題入口 ==================== */}
+            {/* ==================== 測驗 CTA（主 CTA） ==================== */}
             {!showAdvanced && !claimCode && (
               <div className="rounded-2xl border-2 border-brand bg-gradient-to-b from-surface-green to-white p-6 text-center shadow-md">
-                <p className="text-xs font-bold text-brand tracking-widest mb-3">
-                  免費領取
-                </p>
-                <p className="text-lg text-ink font-bold mb-2">
-                  你的個人化蛋白質攻略
+                <p className="text-[15px] text-ink font-semibold leading-relaxed mb-2">
+                  蛋白質差這麼多，可能不只是吃的問題
                 </p>
                 <p className="text-sm text-subtle mb-5">
-                  告訴我你三餐都怎麼吃，<br />
-                  我幫你<strong className="text-ink">診斷現在的蛋白質缺口在哪</strong>
+                  代謝出了狀況，吃再多蛋白質身體也用不好。<br />
+                  先搞清楚你的代謝現在在什麼狀態。
                 </p>
+                <a
+                  href="/quiz"
+                  className="inline-flex items-center justify-center w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
+                  onClick={() =>
+                    track("click_quiz_cta", { source: "protein_main" })
+                  }
+                >
+                  30 秒測出你的代謝狀態 →
+                </a>
+              </div>
+            )}
 
-                <div className="bg-surface-green rounded-xl p-4 mb-5 text-left">
-                  <p className="text-xs text-brand font-semibold mb-2">你會知道：</p>
-                  <ul className="space-y-1.5 text-sm text-ink">
-                    <li>✅ 你現在每餐差多少（大部分人差 30-50%，自己不知道）</li>
-                    <li>✅ 最容易改的那一餐是哪一餐（不用全改，改一餐就有感）</li>
-                    <li>✅ 改完長什麼樣（不用自己想，照著吃就好）</li>
-                  </ul>
-                </div>
-
+            {/* ==================== 進階問題入口（次級） ==================== */}
+            {!showAdvanced && !claimCode && (
+              <div className="rounded-2xl border border-edge bg-white p-6 text-center">
+                <p className="text-xs text-muted mb-2">或者</p>
+                <p className="text-[15px] text-ink font-semibold leading-relaxed mb-3">
+                  想知道你每餐的蛋白質缺口在哪？
+                </p>
                 <button
                   onClick={() => {
                     setShowAdvanced(true);
@@ -497,9 +503,9 @@ export default function ProteinPage() {
                         ?.scrollIntoView({ behavior: "smooth", block: "start" });
                     }, 100);
                   }}
-                  className="w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
+                  className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-brand border-2 border-brand rounded-full hover:bg-brand hover:text-white transition-colors"
                 >
-                  告訴你我怎麼吃 →
+                  免費診斷我的三餐 →
                 </button>
               </div>
             )}
@@ -702,24 +708,6 @@ export default function ProteinPage() {
               </div>
             )}
 
-            {/* 測驗 CTA（次級） */}
-            {!showAdvanced && !claimCode && (
-              <div className="rounded-2xl border border-edge bg-white p-6 text-center">
-                <p className="text-xs text-muted mb-2">或者</p>
-                <p className="text-[15px] text-ink font-semibold leading-relaxed mb-4">
-                  想更深入了解自己？
-                </p>
-                <a
-                  href="/quiz"
-                  className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-brand border-2 border-brand rounded-full hover:bg-brand hover:text-white transition-colors"
-                  onClick={() =>
-                    track("click_quiz_cta", { source: "protein" })
-                  }
-                >
-                  30 秒測出你的代謝類型 →
-                </a>
-              </div>
-            )}
           </div>
         )}
 
