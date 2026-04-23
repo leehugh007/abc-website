@@ -131,7 +131,7 @@ export default function PlansPage() {
               </div>
               <div className="mt-auto pt-8">
                 <a
-                  href="https://lin.ee/x41s2Su"
+                  href="https://lin.ee/7xrRYez"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center py-3 rounded-full border border-edge text-sm font-semibold text-subtle hover:bg-surface transition-colors"
@@ -193,7 +193,7 @@ export default function PlansPage() {
               </div>
               <div className="mt-auto pt-8">
                 <a
-                  href="https://lin.ee/x41s2Su"
+                  href="https://lin.ee/7xrRYez"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center py-3 rounded-full bg-brand text-sm font-bold text-white hover:shadow-md transition-shadow"
@@ -354,7 +354,7 @@ export default function PlansPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-brand rounded-full shadow-lg hover:shadow-xl transition-shadow"

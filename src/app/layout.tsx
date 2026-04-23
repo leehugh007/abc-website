@@ -59,7 +59,7 @@ const organizationJsonLd = {
   },
   sameAs: [
     "https://www.facebook.com/yixiu12345",
-    "https://lin.ee/x41s2Su",
+    "https://lin.ee/7xrRYez",
   ],
 };
 
@@ -164,7 +164,7 @@ function Footer() {
                 課程介紹
               </Link>
               <a
-                href="https://lin.ee/x41s2Su"
+                href="https://lin.ee/7xrRYez"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-subtle hover:text-ink transition-colors"

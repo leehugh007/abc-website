@@ -30,7 +30,7 @@ export function StickyLineCTA() {
     <div className="fixed bottom-0 left-0 right-0 z-50 animate-in slide-in-from-bottom duration-300">
       <div className="max-w-2xl mx-auto px-4 pb-4">
         <a
-          href="https://lin.ee/x41s2Su"
+          href="https://lin.ee/SQyKrvr"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-full text-white font-semibold text-[15px] shadow-lg transition-shadow hover:shadow-xl"

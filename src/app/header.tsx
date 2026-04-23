@@ -154,7 +154,7 @@ export function Header() {
             <Link href="/program" className="block text-base font-bold text-brand py-2" onClick={close}>
               課程介紹
             </Link>
-            <a href="https://lin.ee/x41s2Su" target="_blank" rel="noopener noreferrer" className="block text-sm text-line-green font-medium py-1.5">
+            <a href="https://lin.ee/7xrRYez" target="_blank" rel="noopener noreferrer" className="block text-sm text-line-green font-medium py-1.5">
               加入 LINE →
             </a>
           </div>

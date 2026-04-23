@@ -38,7 +38,7 @@ export default function HealthCheckPage() {
               30 秒測出你的代謝類型 →
             </Link>
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"
@@ -382,7 +382,7 @@ export default function HealthCheckPage() {
               30 秒代謝測驗 →
             </Link>
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"

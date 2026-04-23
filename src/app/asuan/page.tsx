@@ -463,7 +463,7 @@ export default function AsuanPage() {
               開始測驗 →
             </a>
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-subtle border border-edge rounded-full hover:bg-surface transition-colors"

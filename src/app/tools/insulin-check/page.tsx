@@ -366,7 +366,7 @@ export default function InsulinCheckPage() {
               <div className="pt-4 border-t border-edge">
                 <p className="text-xs text-[#a8a29e] mb-2">或者</p>
                 <a
-                  href="https://lin.ee/x41s2Su"
+                  href="https://lin.ee/7xrRYez"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => track("click_line_cta", { source: "insulin_check" })}

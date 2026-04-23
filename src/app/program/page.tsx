@@ -54,7 +54,7 @@ export default function ProgramPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"
@@ -546,7 +546,7 @@ export default function ProgramPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-white bg-line-green rounded-full shadow-lg hover:shadow-xl transition-shadow"
@@ -561,7 +561,7 @@ export default function ProgramPage() {
       {/* 浮動底部 CTA（手機） */}
       <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-edge px-4 py-3 safe-bottom">
         <a
-          href="https://lin.ee/x41s2Su"
+          href="https://lin.ee/7xrRYez"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-full py-3 bg-line-green text-white text-sm font-bold rounded-full shadow-md"

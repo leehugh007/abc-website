@@ -226,7 +226,7 @@ export default async function ArticlePage({
           </a>
           <div className="flex gap-3">
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 flex items-center gap-3 p-4 rounded-xl border border-edge hover:border-line-green transition-colors text-sm"

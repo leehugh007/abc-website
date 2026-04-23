@@ -128,7 +128,7 @@ export default async function TypePage({ params }: { params: Promise<{ slug: str
               30 秒代謝測驗 →
             </a>
             <a
-              href="https://lin.ee/x41s2Su"
+              href="https://lin.ee/7xrRYez"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white bg-line-green rounded-full shadow-md"

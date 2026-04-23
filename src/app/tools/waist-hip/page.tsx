@@ -351,7 +351,7 @@ export default function WaistHipPage() {
               <div className="pt-4 border-t border-edge">
                 <p className="text-xs text-muted mb-2">或者</p>
                 <a
-                  href="https://lin.ee/x41s2Su"
+                  href="https://lin.ee/7xrRYez"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border border-line-green text-line-green hover:bg-line-green hover:text-white transition-colors"

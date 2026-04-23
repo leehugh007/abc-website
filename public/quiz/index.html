@@ -1937,7 +1937,7 @@ function SciencePage({ typeId, onBack, onRestart, hasResult }) {
             <a className="science-cta-btn" href={TYPE_CONTENT_LINKS[typeId].href} style={{ marginBottom: '12px' }} onClick={() => trackEvent('click_content_link', { source: 'science_page', type: typeId })}>
               {TYPE_CONTENT_LINKS[typeId].text} →
             </a>
-            <a className="science-cta-btn" href="https://lin.ee/x41s2Su" target="_blank" rel="noopener" style={{ background: '#fff', color: '#2a9d6f', border: '2px solid #2a9d6f', boxShadow: 'none' }} onClick={() => trackEvent('click_line_yixiu', { source: 'science_page' })}>
+            <a className="science-cta-btn" href="https://lin.ee/6AD2Mfe" target="_blank" rel="noopener" style={{ background: '#fff', color: '#2a9d6f', border: '2px solid #2a9d6f', boxShadow: 'none' }} onClick={() => trackEvent('click_line_yixiu', { source: 'science_page' })}>
               加入一休的 LINE，聊聊你的狀況
             </a>
           </div>
@@ -2098,7 +2098,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
             ) : (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
-                onClick={() => { trackEvent('click_line_report', { metabolism_type: type.name }); window.location.href = 'https://lin.ee/x41s2Su'; }}>
+                onClick={() => { trackEvent('click_line_report', { metabolism_type: type.name }); window.location.href = 'https://lin.ee/6AD2Mfe'; }}>
                 加 LINE 領取完整報告
               </button>
             )}
@@ -2143,7 +2143,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
           {/* Primary CTA: LINE + claim code */}
           <div className="cta-card"
             style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px', cursor: 'pointer' }}
-            onClick={() => { trackEvent('click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode }); window.location.href = result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/x41s2Su'; }}>
+            onClick={() => { trackEvent('click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode }); window.location.href = result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/6AD2Mfe'; }}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
               {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加入一休的 LINE'}
             </div>
