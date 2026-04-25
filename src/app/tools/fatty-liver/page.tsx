@@ -435,6 +435,12 @@ export default function FattyLiverPage() {
           <span className="px-3 py-1.5 rounded-full text-sm font-medium bg-brand text-white">
             脂肪肝風險
           </span>
+          <Link
+            href="/tools/sugar"
+            className="px-3 py-1.5 rounded-full text-sm font-medium border border-edge text-subtle hover:border-brand hover:text-brand transition-colors"
+          >
+            每日糖攝取
+          </Link>
         </div>
 
         <p className="text-sm font-semibold text-brand mb-4 tracking-wide">

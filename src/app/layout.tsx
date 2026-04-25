@@ -160,6 +160,9 @@ function Footer() {
               <Link href="/tools/insulin-check" className="block text-subtle hover:text-ink transition-colors">
                 胰島素阻抗自評
               </Link>
+              <Link href="/tools/sugar" className="block text-subtle hover:text-ink transition-colors">
+                每日糖攝取
+              </Link>
               <Link href="/program" className="block text-subtle hover:text-ink transition-colors">
                 課程介紹
               </Link>
