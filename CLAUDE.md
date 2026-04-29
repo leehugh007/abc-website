@@ -2,6 +2,12 @@
 
 # ABC 代謝力重建官方網站
 
+## 🚨 轉換系統規則（不可跳過）
+
+**改事件命名 / 漏斗階段 / Supabase `_sessions` schema / 個人化字典 / CTA 階層之前，先讀 `契約_轉換系統.md`。**
+
+那份是 abc-website 轉換系統的真相來源（7 工具事件矩陣 + 5 個 sessions 表 schema + 兩處字典同步規則 + LINE 端對應）。本檔（CLAUDE.md）跟契約衝突時以契約為準。
+
 ## 設計規則（不可跳過）
 
 **做任何視覺/排版/元件決定之前，先讀 `DESIGN.md`（設計架構說明書）。**
@@ -60,15 +66,32 @@
 - **首頁**：每個 section 都有轉換出口（痛點區/類型區/見證區/底部各有 CTA）
 
 ### GA4 事件追蹤
+
+#### 工具漏斗事件（看結果 → 領代碼 → 點 LINE）
+每個工具的 4 階段事件（命名 `<tool>_<stage>` + LINE 點擊 `click_line_<tool>`）：
+
+| 工具 | 看結果 complete | 進階 start_advanced | 領代碼 claim_generated | 點 LINE click_line_X |
+|------|---|---|---|---|
+| TDEE `/tools` | ✅ `tdee_complete` | ✅ `tdee_start_advanced` | ✅ `tdee_claim_generated` | ✅ `click_line_tdee` |
+| 蛋白質 `/tools/protein` | ⚠️ `protein_calculate`（命名歷史包袱，語意=complete）| ✅ `protein_start_advanced` | ⚠️ `protein_complete`（同名複用為 claim_generated）| ✅ `click_line_protein` |
+| 腰臀比 `/tools/waist-hip` | ❌ 無 | — 無代碼流程 | — | ⚠️ generic `click_line_cta` + source=`waist_hip` |
+| 血糖穩定度 `/tools/blood-sugar` | ✅ `blood_sugar_complete` | ✅ `blood_sugar_start_advanced` | ✅ `blood_sugar_claim_generated` | ✅ `click_line_blood_sugar` |
+| 脂肪肝 `/tools/fatty-liver` | ✅ `fatty_liver_complete` | 🟫 已停用（2026-04-29 拿掉進階） | ✅ `fatty_liver_claim_generated`（看結果直接觸發）| ✅ `click_line_fatty_liver` |
+| 胰島素阻抗 `/tools/insulin-check` | ✅ `insulin_check_complete` | — 無代碼流程 | — | ⚠️ generic `click_line_cta` + source=`insulin_check` |
+| 每日糖攝取 `/tools/sugar` | ✅ `sugar_complete` | ✅ `sugar_start_advanced` | ✅ `sugar_claim_generated` | ✅ `click_line_sugar` |
+
+> 🟫 `fatty_liver_start_advanced` 自 2026-04-29 為 dead event（fatty-liver 拿掉進階兩題，看結果直接 await `generateClaim`）。GA4 後台保留歷史資料供 04-29 前對照
+
+#### 共用 CTA 事件
 | 事件 | 觸發位置 | 參數 |
 |------|---------|------|
-| `click_quiz_cta` | 工具頁 CTA | source: protein/tdee/waist_hip/insulin_check + _bottom |
-| `click_line_cta` | 工具頁 LINE 副 CTA | source: 同上 |
+| `click_quiz_cta` | 各工具頁推 quiz | source: protein/tdee/waist_hip/insulin_check/fatty_liver/sugar/blood_sugar + _bottom |
+| `click_line_cta` / `click_line_cta_bottom` | 工具頁 LINE 副 CTA（沒 claim_code 流程的工具用 generic）| source: 同上 |
 | `click_sticky_line` | 全站 sticky bar | page: 當前路徑 |
 | `click_line_deeplink` | 測驗結果頁 LINE 一鍵 | metabolism_type |
-| `click_explore_type` | ~~已移除（4/4，0點擊，分散LINE CTA注意力）~~ | — |
 | `click_learning_path` | 測驗結果頁學習路徑 | metabolism_type, step, label |
 | `quiz_start` / `quiz_complete` | 測驗頁 | metabolism_type |
+| `click_explore_type` | ~~已移除（4/4，0點擊，分散LINE CTA注意力）~~ | — |
 
 ### UTM 追蹤
 - **abc-line-bot**：`utm_source=line&utm_medium=bot&utm_campaign=asuan`（welcome.js/ai.js/user.js/route.js）
