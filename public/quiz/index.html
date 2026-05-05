@@ -549,6 +549,58 @@ body {
   margin-bottom: 24px;
 }
 
+.early-line-cta {
+  margin: -8px 0 28px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: #f0faf6;
+  border: 1px solid #ccebdd;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.early-line-cta-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+  letter-spacing: 0.4px;
+}
+.early-line-cta-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.early-line-cta-desc {
+  font-size: 14px;
+  color: var(--text-sec);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.early-line-cta-btn {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 22px;
+  border-radius: var(--radius-full);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #06C755, #04B34C);
+  box-shadow: 0 5px 18px rgba(6,199,85,0.28);
+}
+.early-line-cta-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
 /* Highlight markers */
 .hl {
   background: linear-gradient(transparent 55%, #fef0d5 55%, #fef0d5 90%, transparent 90%);
@@ -719,6 +771,27 @@ body {
   font-size: 14px;
   font-weight: 700;
   color: var(--green);
+}
+.secondary-link-card {
+  padding: 16px 18px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-xs) !important;
+  background: #fff !important;
+}
+.secondary-link-card .cta-title {
+  font-size: 14px;
+  font-weight: 650;
+}
+.secondary-link-card .cta-arrow {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.learning-path-secondary {
+  margin: 12px 0 0 !important;
+  padding: 16px !important;
+  background: #fff !important;
+  border-color: var(--border) !important;
 }
 
 /* Share */
@@ -2042,6 +2115,49 @@ function ResultPage({ result, onRestart, onShowScience }) {
     setSaving(false);
   };
 
+  const getLineUrl = (claimCode) => {
+    return claimCode
+      ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(claimCode)
+      : 'https://lin.ee/6AD2Mfe';
+  };
+
+  const openLineCta = ({ placement, legacyEvent }) => {
+    const claimCode = result._claimCode || '';
+    const hasClaimCode = !!claimCode;
+    const url = getLineUrl(claimCode);
+    const params = {
+      metabolism_type: type.name,
+      placement,
+      has_claim_code: hasClaimCode,
+      claim_code_present: hasClaimCode,
+      claim_code: claimCode || undefined,
+      destination_type: hasClaimCode ? 'line_oa_message' : 'lin_ee',
+      source_page: '/quiz',
+    };
+
+    if (legacyEvent) {
+      trackEvent(legacyEvent, params);
+    }
+
+    let didNavigate = false;
+    const navigate = () => {
+      if (didNavigate) return;
+      didNavigate = true;
+      window.location.href = url;
+    };
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'click_line_deeplink', {
+        ...params,
+        event_callback: navigate,
+        event_timeout: 150,
+      });
+      setTimeout(navigate, 180);
+    } else {
+      navigate();
+    }
+  };
+
   return (
     <div className="result-page">
       {/* Type Reveal Card */}
@@ -2064,6 +2180,27 @@ function ResultPage({ result, onRestart, onShowScience }) {
       </div>
 
       <div className="result-body">
+        <div className="early-line-cta">
+          <div className="early-line-cta-kicker">你的結果已經算好了</div>
+          <div className="early-line-cta-title">
+            {result.primary === 'steady'
+              ? '把這份結果留起來，之後需要時再看'
+              : '領取完整代謝報告，讓一休幫你看卡在哪'}
+          </div>
+          <div className="early-line-cta-desc">
+            {result._claimCode
+              ? `代碼 ${result._claimCode} 會自動帶入 LINE，按送出就能領取。`
+              : '加入 LINE 後，我們會把完整報告與後續建議整理給你。'}
+          </div>
+          <button
+            className="early-line-cta-btn"
+            onClick={() => openLineCta({ placement: 'early_result' })}
+          >
+            一鍵開啟 LINE 領取報告 →
+          </button>
+          <div className="early-line-cta-note">不需要重新填資料，結果會對應這次測驗。</div>
+        </div>
+
         {/* Description */}
         <div className="result-desc">
           {desc.split('\n\n').map((p, i) => <p key={i}>{parseHL(p)}</p>)}
@@ -2113,13 +2250,13 @@ function ResultPage({ result, onRestart, onShowScience }) {
             {result._claimCode ? (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #06C755, #04B34C)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}
-                onClick={() => { trackEvent('click_line_deeplink', { metabolism_type: type.name, code: result._claimCode }); window.location.href = 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode); }}>
+                onClick={() => openLineCta({ placement: 'suggestion_overlay' })}>
                 一鍵開啟 LINE 領取報告
               </button>
             ) : (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
-                onClick={() => { trackEvent('click_line_report', { metabolism_type: type.name }); window.location.href = 'https://lin.ee/6AD2Mfe'; }}>
+                onClick={() => openLineCta({ placement: 'suggestion_overlay', legacyEvent: 'click_line_report' })}>
                 加 LINE 領取完整報告
               </button>
             )}
@@ -2164,7 +2301,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
           {/* Primary CTA: LINE + claim code */}
           <div className="cta-card"
             style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px', cursor: 'pointer' }}
-            onClick={() => { trackEvent('quiz_click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode }); window.location.href = result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/6AD2Mfe'; }}>
+            onClick={() => openLineCta({ placement: 'bottom_result', legacyEvent: 'quiz_click_line_cta_bottom' })}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
               {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加 LINE，我幫你看你卡在哪'}
             </div>
@@ -2176,13 +2313,13 @@ function ResultPage({ result, onRestart, onShowScience }) {
           </div>
 
           {/* Secondary: Type-specific content link */}
-          <a className="cta-card" href={TYPE_CONTENT_LINKS[result.primary].href} style={{ borderLeft: '4px solid #2a9d6f', background: '#fff', paddingLeft: '18px' }} onClick={() => trackEvent('click_content_link', { metabolism_type: type.name })}>
+          <a className="cta-card secondary-link-card" href={TYPE_CONTENT_LINKS[result.primary].href} onClick={() => trackEvent('click_content_link', { metabolism_type: type.name })}>
             <div className="cta-title">{TYPE_CONTENT_LINKS[result.primary].text}</div>
             <div className="cta-arrow">閱讀文章 →</div>
           </a>
 
           {/* Secondary: Student story link */}
-          <a className="cta-card" href={TYPE_STORY_LINKS[result.primary].href} style={{ background: '#faf9f7', border: '1px solid #eee9e5' }} onClick={() => trackEvent('click_story_link', { metabolism_type: type.name })}>
+          <a className="cta-card secondary-link-card" href={TYPE_STORY_LINKS[result.primary].href} onClick={() => trackEvent('click_story_link', { metabolism_type: type.name })}>
             <div className="cta-title">{TYPE_STORY_LINKS[result.primary].text}</div>
             <div className="cta-arrow">看完整故事 →</div>
           </a>
@@ -2197,21 +2334,21 @@ function ResultPage({ result, onRestart, onShowScience }) {
 
         {/* Learning Path — 你的代謝類型學習路徑 */}
         {TYPE_LEARNING_PATH[result.primary] && (
-          <div style={{ margin: '24px 24px 0', padding: '20px', background: '#faf9f7', borderRadius: '16px', border: '1px solid #eee9e5' }}>
-            <div style={{ fontSize: '15px', fontWeight: 700, color: '#2a2520', marginBottom: '16px', textAlign: 'center' }}>
-              🗺️ 你的{type.name}學習路徑
+          <div className="learning-path-secondary" style={{ margin: '12px 0 0', padding: '16px', background: '#fff', borderRadius: '16px', border: '1px solid #eee9e5' }}>
+            <div style={{ fontSize: '13px', fontWeight: 700, color: '#6b6560', marginBottom: '12px', textAlign: 'center' }}>
+              想再了解的話：你的{type.name}學習路徑
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {TYPE_LEARNING_PATH[result.primary].map((item, i) => (
                 <a
                   key={i}
                   href={item.href}
-                  style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px', background: '#fff', borderRadius: '12px', textDecoration: 'none', border: '1px solid #eee9e5', transition: 'box-shadow 0.2s' }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 12px', background: '#faf9f7', borderRadius: '12px', textDecoration: 'none', border: '1px solid #eee9e5', transition: 'box-shadow 0.2s' }}
                   onClick={() => trackEvent('click_learning_path', { metabolism_type: type.name, step: i + 1, label: item.label })}
                   onMouseOver={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)'}
                   onMouseOut={(e) => e.currentTarget.style.boxShadow = 'none'}
                 >
-                  <span style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', fontSize: '13px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ width: '24px', height: '24px', borderRadius: '50%', background: '#e8f5ef', color: '#2a9d6f', fontSize: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     {i + 1}
                   </span>
                   <div style={{ flex: 1, minWidth: 0 }}>
