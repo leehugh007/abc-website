@@ -2166,7 +2166,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
             style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px', cursor: 'pointer' }}
             onClick={() => { trackEvent('quiz_click_line_cta_bottom', { metabolism_type: type.name, has_code: !!result._claimCode }); window.location.href = result._claimCode ? 'https://line.me/R/oaMessage/%40sososo/?' + encodeURIComponent(result._claimCode) : 'https://lin.ee/6AD2Mfe'; }}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
-              {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加入一休的 LINE'}
+              {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加 LINE，我幫你看你卡在哪'}
             </div>
             <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>
               {result._claimCode
