@@ -2184,19 +2184,19 @@ function ResultPage({ result, onRestart, onShowScience }) {
           <div className="early-line-cta-kicker">你的結果已經算好了</div>
           <div className="early-line-cta-title">
             {result.primary === 'steady'
-              ? '把這份結果留起來，之後需要時再看'
-              : '領取完整代謝報告，讓一休幫你看卡在哪'}
+              ? '領取專屬你的個人化報告，之後需要時再看'
+              : '領取專屬你的個人化報告，讓一休幫你看卡在哪'}
           </div>
           <div className="early-line-cta-desc">
             {result._claimCode
-              ? `代碼 ${result._claimCode} 會自動帶入 LINE，按送出就能領取。`
-              : '加入 LINE 後，我們會把完整報告與後續建議整理給你。'}
+              ? `代碼 ${result._claimCode} 會自動帶入 LINE，不用重填；領完後，一休會接著幫你抓下一步方向。`
+              : '加入 LINE 後，我們會把這次測驗的個人化報告與下一步建議整理給你。'}
           </div>
           <button
             className="early-line-cta-btn"
             onClick={() => openLineCta({ placement: 'early_result' })}
           >
-            一鍵開啟 LINE 領取報告 →
+            開 LINE 領取我的個人化報告 →
           </button>
           <div className="early-line-cta-note">不需要重新填資料，結果會對應這次測驗。</div>
         </div>
@@ -2242,22 +2242,22 @@ function ResultPage({ result, onRestart, onShowScience }) {
             <div style={{ fontSize: '16px', color: '#1a5e3f', marginBottom: '4px', textAlign: 'center', padding: '0 20px', lineHeight: '1.6', fontWeight: 700, textShadow: '0 1px 2px rgba(255,255,255,0.8)' }}>
               {result.q7Symptoms && result.q7Symptoms.length > 0
                 ? `你有 ${result.q7Symptoms.length} 個症狀符合${type.name}的典型表現`
-                : '你的完整代謝報告 + 具體建議已經準備好了'}
+                : '專屬你的個人化代謝報告已經準備好了'}
             </div>
             <div style={{ fontSize: '13px', color: '#2a9d6f', marginBottom: '14px', textAlign: 'center', fontWeight: 500 }}>
-              個人化報告已生成，在 LINE 領取 👇
+              在 LINE 領取，接著讓一休幫你看下一步 👇
             </div>
             {result._claimCode ? (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #06C755, #04B34C)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}
                 onClick={() => openLineCta({ placement: 'suggestion_overlay' })}>
-                一鍵開啟 LINE 領取報告
+                開 LINE 領取個人化報告
               </button>
             ) : (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
                 onClick={() => openLineCta({ placement: 'suggestion_overlay', legacyEvent: 'click_line_report' })}>
-                加 LINE 領取完整報告
+                加 LINE 領取個人化報告
               </button>
             )}
             {result._claimCode && (
@@ -2303,12 +2303,12 @@ function ResultPage({ result, onRestart, onShowScience }) {
             style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px', cursor: 'pointer' }}
             onClick={() => openLineCta({ placement: 'bottom_result', legacyEvent: 'quiz_click_line_cta_bottom' })}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
-              {result._claimCode ? '一鍵開啟 LINE 領取報告' : '加 LINE，我幫你看你卡在哪'}
+              {result._claimCode ? '開 LINE 領取我的個人化報告' : '加 LINE，我幫你看你卡在哪'}
             </div>
             <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>
               {result._claimCode
-                ? `代碼 ${result._claimCode} 已自動帶入，按送出就好`
-                : '領取完整代謝報告'}
+                ? `代碼 ${result._claimCode} 已自動帶入，不用重新填資料`
+                : '領取個人化代謝報告'}
             </div>
           </div>
 
