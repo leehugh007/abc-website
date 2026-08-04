@@ -1661,7 +1661,7 @@ const QUESTIONS = [
     text: '最近半年，你的身體有什麼變化？',
     options: [
       { key: 'A', text: '褲子明顯變緊了，體重也在慢慢往上', signal: 'fluctuating' },
-      { key: 'B', text: '體重反反覆覆，瘦了又回來', signal: 'fluctuating' },
+      { key: 'B', text: '瘦下來過，又胖回去了', signal: 'fluctuating' },
       { key: 'C', text: '好像有一點變化，但說不上來', signal: 'fluctuating' },
       { key: 'D', text: '差不多沒什麼變，還算穩定', signal: 'stable' },
     ]
@@ -2189,14 +2189,14 @@ function ResultPage({ result, onRestart, onShowScience }) {
           </div>
           <div className="early-line-cta-desc">
             {result._claimCode
-              ? `代碼 ${result._claimCode} 會自動帶入 LINE，不用重填；領完後，一休會接著幫你抓下一步方向。`
-              : '加入 LINE 後，我們會把這次測驗的個人化報告與下一步建議整理給你。'}
+              ? `代碼 ${result._claimCode} 會自動帶入 LINE，不用重填；除了報告，還有免費的「三天幫你看體驗」——找出你一直胖回去的盲點。`
+              : '加入 LINE 領取個人化報告，還能免費參加「三天幫你看體驗」——找出你一直胖回去的盲點。'}
           </div>
           <button
             className="early-line-cta-btn"
             onClick={() => openLineCta({ placement: 'early_result' })}
           >
-            開 LINE 領取我的個人化報告 →
+            開 LINE 領報告＋三天體驗 →
           </button>
           <div className="early-line-cta-note">不需要重新填資料，結果會對應這次測驗。</div>
           <div style={{ fontSize: '11px', color: '#a8a29e', textAlign: 'center', marginTop: '4px' }}>iOS 會問是否開啟 LINE，請點「允許」</div>
@@ -2246,19 +2246,19 @@ function ResultPage({ result, onRestart, onShowScience }) {
                 : '專屬你的個人化代謝報告已經準備好了'}
             </div>
             <div style={{ fontSize: '13px', color: '#2a9d6f', marginBottom: '14px', textAlign: 'center', fontWeight: 500 }}>
-              在 LINE 領取，接著讓一休幫你看下一步 👇
+              知道類型只是第一步——真正的問題是，你為什麼瘦下來又胖回去。在 LINE 領取報告，還能免費參加「三天幫你看體驗」，找出你的「盲點」👇
             </div>
             {result._claimCode ? (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #06C755, #04B34C)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(6,199,85,0.3)' }}
                 onClick={() => openLineCta({ placement: 'suggestion_overlay' })}>
-                開 LINE 領取個人化報告
+                開 LINE 領報告＋三天幫你看體驗
               </button>
             ) : (
               <button
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'linear-gradient(135deg, #2a9d6f, #34b882)', color: '#fff', padding: '14px 28px', borderRadius: '50px', fontSize: '16px', fontWeight: 600, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(42,157,111,0.3)' }}
                 onClick={() => openLineCta({ placement: 'suggestion_overlay', legacyEvent: 'click_line_report' })}>
-                加 LINE 領取個人化報告
+                加 LINE 領報告＋三天幫你看體驗
               </button>
             )}
             <div style={{ marginTop: '8px', fontSize: '11px', color: '#a8a29e', textAlign: 'center' }}>iOS 會問是否開啟 LINE，請點「允許」</div>
@@ -2305,7 +2305,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
             style={{ background: 'linear-gradient(135deg, #06C755, #04B34C)', border: 'none', textAlign: 'center', borderRadius: '16px', padding: '20px 24px', cursor: 'pointer' }}
             onClick={() => openLineCta({ placement: 'bottom_result', legacyEvent: 'quiz_click_line_cta_bottom' })}>
             <div style={{ color: '#fff', fontSize: '16px', fontWeight: 600, marginBottom: '6px' }}>
-              {result._claimCode ? '開 LINE 領取我的個人化報告' : '加 LINE，我幫你看你卡在哪'}
+              {result._claimCode ? '開 LINE 領報告＋三天體驗' : '加 LINE，找出你一直胖回去的盲點'}
             </div>
             <div style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px' }}>
               {result._claimCode
