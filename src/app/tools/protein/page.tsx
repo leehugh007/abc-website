@@ -470,34 +470,15 @@ export default function ProteinPage() {
               </div>
             </div>
 
-            {/* ==================== 測驗 CTA（主 CTA） ==================== */}
+            {/* ==================== 進階診斷（主 CTA，2026-08-04 一休：順她當下的熱度——她剛算完缺口） ==================== */}
             {!showAdvanced && !claimCode && (
               <div className="rounded-2xl border-2 border-brand bg-gradient-to-b from-surface-green to-white p-6 text-center shadow-md">
                 <p className="text-[15px] text-ink font-semibold leading-relaxed mb-2">
-                  蛋白質差這麼多，可能不只是吃的問題
+                  想知道你每餐的蛋白質缺口在哪？
                 </p>
                 <p className="text-sm text-subtle mb-5">
-                  代謝出了狀況，吃再多蛋白質身體也用不好。<br />
-                  先搞清楚你的代謝現在在什麼狀態。
-                </p>
-                <a
-                  href="/quiz"
-                  className="inline-flex items-center justify-center w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
-                  onClick={() =>
-                    track("click_quiz_cta", { source: "protein_main" })
-                  }
-                >
-                  30 秒測出你的代謝狀態 →
-                </a>
-              </div>
-            )}
-
-            {/* ==================== 進階問題入口（次級） ==================== */}
-            {!showAdvanced && !claimCode && (
-              <div className="rounded-2xl border border-edge bg-white p-6 text-center">
-                <p className="text-xs text-muted mb-2">或者</p>
-                <p className="text-[15px] text-ink font-semibold leading-relaxed mb-3">
-                  想知道你每餐的蛋白質缺口在哪？
+                  回答幾個小問題，幫你看你的三餐怎麼湊到——<br />
+                  診斷完還有免費的「三天幫你看體驗」。
                 </p>
                 <button
                   onClick={() => {
@@ -509,10 +490,29 @@ export default function ProteinPage() {
                         ?.scrollIntoView({ behavior: "smooth", block: "start" });
                     }, 100);
                   }}
-                  className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-brand border-2 border-brand rounded-full hover:bg-brand hover:text-white transition-colors"
+                  className="inline-flex items-center justify-center w-full py-4 bg-brand text-white font-bold rounded-xl hover:shadow-md transition-shadow text-base"
                 >
                   免費診斷我的三餐 →
                 </button>
+              </div>
+            )}
+
+            {/* ==================== 測驗 CTA（次級） ==================== */}
+            {!showAdvanced && !claimCode && (
+              <div className="rounded-2xl border border-edge bg-white p-6 text-center">
+                <p className="text-xs text-muted mb-2">或者</p>
+                <p className="text-[15px] text-ink font-semibold leading-relaxed mb-3">
+                  蛋白質差這麼多，可能不只是吃的問題——先搞清楚你的代謝狀態
+                </p>
+                <a
+                  href="/quiz"
+                  className="inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-brand border-2 border-brand rounded-full hover:bg-brand hover:text-white transition-colors"
+                  onClick={() =>
+                    track("click_quiz_cta", { source: "protein_main" })
+                  }
+                >
+                  30 秒測出你的代謝狀態 →
+                </a>
               </div>
             )}
 
