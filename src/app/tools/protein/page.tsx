@@ -676,7 +676,7 @@ export default function ProteinPage() {
                   {/* Overlay CTA */}
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white from-60% to-white/0 p-6 pt-10 flex flex-col items-center">
                     <p className="text-[15px] font-semibold text-ink mb-1">你的個人化蛋白質攻略已準備好</p>
-                    <p className="text-sm text-brand mb-3">在 LINE 領取三餐搭配 + 缺口診斷 👇</p>
+                    <p className="text-sm text-brand mb-3">在 LINE 領取缺口診斷＋免費「三天幫你看體驗」👇</p>
                     <a
                       href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
                       className="w-full max-w-sm py-4 bg-line-green text-white font-bold rounded-xl hover:shadow-lg transition-shadow text-base text-center block"
@@ -690,7 +690,7 @@ export default function ProteinPage() {
                         })
                       }
                     >
-                      一鍵開啟 LINE 領取 →
+                      開 LINE 領取＋三天體驗 →
                     </a>
                     <div className="mt-3 space-y-1 text-center">
                       <p className="text-xs text-muted">

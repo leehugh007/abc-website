@@ -636,7 +636,7 @@ export default function BloodSugarPage() {
                       你的完整報告已準備好
                     </p>
                     <p className="text-sm text-brand mb-3">
-                      在 LINE 領取個人化血糖穩定建議 👇
+                      在 LINE 領取血糖建議＋免費「三天幫你看體驗」👇
                     </p>
                     <a
                       href={`https://line.me/R/oaMessage/%40sososo/?${encodeURIComponent(claimCode)}`}
@@ -648,7 +648,7 @@ export default function BloodSugarPage() {
                         })
                       }
                     >
-                      一鍵開啟 LINE 領取 →
+                      開 LINE 領取＋三天體驗 →
                     </a>
                     <div className="mt-3 space-y-1 text-center">
                       <p className="text-xs text-muted">
