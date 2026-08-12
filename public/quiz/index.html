@@ -2121,6 +2121,8 @@ function ResultPage({ result, onRestart, onShowScience }) {
       : 'https://lin.ee/6AD2Mfe';
   };
 
+  const IN_APP = /FBAN|FBAV|FB_IAB|Instagram|Messenger|MicroMessenger/i.test((typeof navigator !== 'undefined' && navigator.userAgent) || '');
+
   const openLineCta = ({ placement, legacyEvent }) => {
     const claimCode = result._claimCode || '';
     const hasClaimCode = !!claimCode;
@@ -2133,7 +2135,14 @@ function ResultPage({ result, onRestart, onShowScience }) {
       claim_code: claimCode || undefined,
       destination_type: hasClaimCode ? 'line_oa_message' : 'lin_ee',
       source_page: '/quiz',
+      in_app_browser: IN_APP,
     };
+
+    // 2026-08-12 一休確認的痛點：FB/IG 內建瀏覽器喚起 LINE 第一次常失敗
+    // 補償：自動複製代碼（失敗時用戶可直接開 LINE 貼上），提示見按鈕下方
+    if (IN_APP && hasClaimCode) {
+      try { navigator.clipboard && navigator.clipboard.writeText(claimCode); } catch (_) {}
+    }
 
     if (legacyEvent) {
       trackEvent(legacyEvent, params);
@@ -2199,7 +2208,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
             開 LINE 領報告＋三天體驗 →
           </button>
           <div className="early-line-cta-note">不需要重新填資料，結果會對應這次測驗。</div>
-          <div style={{ fontSize: '11px', color: '#a8a29e', textAlign: 'center', marginTop: '4px' }}>iOS 會問是否開啟 LINE，請點「允許」</div>
+          <div style={{ fontSize: '11px', color: '#a8a29e', textAlign: 'center', marginTop: '4px' }}>{IN_APP ? '如果 LINE 沒打開：再點一次就會成功（代碼已幫你複製，也可直接開 LINE 貼上）' : 'iOS 會問是否開啟 LINE，請點「允許」'}</div>
         </div>
 
         {/* Description */}
@@ -2261,7 +2270,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
                 加 LINE 領報告＋三天幫你看體驗
               </button>
             )}
-            <div style={{ marginTop: '8px', fontSize: '11px', color: '#a8a29e', textAlign: 'center' }}>iOS 會問是否開啟 LINE，請點「允許」</div>
+            <div style={{ marginTop: '8px', fontSize: '11px', color: '#a8a29e', textAlign: 'center' }}>{IN_APP ? '如果 LINE 沒打開：再點一次就會成功（代碼已幫你複製，也可直接開 LINE 貼上）' : 'iOS 會問是否開啟 LINE，請點「允許」'}</div>
             {result._claimCode && (
               <div style={{ marginTop: '10px', fontSize: '12px', color: '#999', textAlign: 'center' }}>
                 或手動複製代碼
@@ -2312,7 +2321,7 @@ function ResultPage({ result, onRestart, onShowScience }) {
                 ? `代碼 ${result._claimCode} 已自動帶入，不用重新填資料`
                 : '領取個人化代謝報告'}
             </div>
-            <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '11px', marginTop: '6px' }}>iOS 會問是否開啟 LINE，請點「允許」</div>
+            <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '11px', marginTop: '6px' }}>{IN_APP ? '如果 LINE 沒打開：再點一次就會成功（代碼已幫你複製）' : 'iOS 會問是否開啟 LINE，請點「允許」'}</div>
           </div>
 
           {/* Secondary: Type-specific content link */}
